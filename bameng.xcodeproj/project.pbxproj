@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0ECACC7AB1F44CC7EA4C676C /* libPods-bameng.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA4A0725E52CF05F19286687 /* libPods-bameng.a */; };
+		60182506B38C98760D838C39 /* libPods-bamengTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D7B057FA8CF46AB14B81D77 /* libPods-bamengTests.a */; };
+		603A39BC1DB9E72400DC1ADA /* MengZhu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 603A39BB1DB9E72400DC1ADA /* MengZhu.storyboard */; };
+		603A39BF1DB9EC2D00DC1ADA /* HomeNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 603A39BE1DB9EC2D00DC1ADA /* HomeNavViewController.m */; };
+		603A39C21DB9ECCF00DC1ADA /* HomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 603A39C11DB9ECCF00DC1ADA /* HomeController.m */; };
+		603A39C51DB9ED7300DC1ADA /* HomeHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 603A39C41DB9ED7300DC1ADA /* HomeHeadView.m */; };
+		603A39CA1DB9EE3E00DC1ADA /* CircleBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 603A39C91DB9EE3E00DC1ADA /* CircleBannerView.m */; };
+		603A39CC1DB9EEBB00DC1ADA /* HomeHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 603A39CB1DB9EEBB00DC1ADA /* HomeHeadView.xib */; };
 		60764AEE1DB8937A0061CC6C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 60764AED1DB8937A0061CC6C /* main.m */; };
 		60764AF11DB8937A0061CC6C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 60764AF01DB8937A0061CC6C /* AppDelegate.m */; };
 		60764AF41DB8937A0061CC6C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60764AF31DB8937A0061CC6C /* ViewController.m */; };
@@ -15,6 +23,7 @@
 		60764AFC1DB8937A0061CC6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60764AFA1DB8937A0061CC6C /* LaunchScreen.storyboard */; };
 		60764B071DB8937A0061CC6C /* bamengTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60764B061DB8937A0061CC6C /* bamengTests.m */; };
 		60764B121DB8937A0061CC6C /* bamengUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60764B111DB8937A0061CC6C /* bamengUITests.m */; };
+		855A27FBB1FD970A3413E454 /* libPods-bamengUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94B9C71ECC90E51D5D6C3083 /* libPods-bamengUITests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +44,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		29BEC5EF9948E97E135A1D0C /* Pods-bameng.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bameng.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bameng/Pods-bameng.debug.xcconfig"; sourceTree = "<group>"; };
+		2E089ECC66D0C7C9DE572EA1 /* Pods-bamengTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bamengTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bamengTests/Pods-bamengTests.debug.xcconfig"; sourceTree = "<group>"; };
+		34F28DCCF0229D29337C4518 /* Pods-bamengTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bamengTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-bamengTests/Pods-bamengTests.release.xcconfig"; sourceTree = "<group>"; };
+		603A39BB1DB9E72400DC1ADA /* MengZhu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MengZhu.storyboard; sourceTree = "<group>"; };
+		603A39BD1DB9EC2D00DC1ADA /* HomeNavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeNavViewController.h; sourceTree = "<group>"; };
+		603A39BE1DB9EC2D00DC1ADA /* HomeNavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeNavViewController.m; sourceTree = "<group>"; };
+		603A39C01DB9ECCF00DC1ADA /* HomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeController.h; sourceTree = "<group>"; };
+		603A39C11DB9ECCF00DC1ADA /* HomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeController.m; sourceTree = "<group>"; };
+		603A39C31DB9ED7300DC1ADA /* HomeHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeHeadView.h; sourceTree = "<group>"; };
+		603A39C41DB9ED7300DC1ADA /* HomeHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeHeadView.m; sourceTree = "<group>"; };
+		603A39C81DB9EE3E00DC1ADA /* CircleBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleBannerView.h; sourceTree = "<group>"; };
+		603A39C91DB9EE3E00DC1ADA /* CircleBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleBannerView.m; sourceTree = "<group>"; };
+		603A39CB1DB9EEBB00DC1ADA /* HomeHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeHeadView.xib; sourceTree = "<group>"; };
 		60764AE91DB8937A0061CC6C /* bameng.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bameng.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60764AED1DB8937A0061CC6C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		60764AEF1DB8937A0061CC6C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -51,6 +73,13 @@
 		60764B0D1DB8937A0061CC6C /* bamengUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bamengUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		60764B111DB8937A0061CC6C /* bamengUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = bamengUITests.m; sourceTree = "<group>"; };
 		60764B131DB8937A0061CC6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		60D409211DB9B9CE008B621E /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		7D7B057FA8CF46AB14B81D77 /* libPods-bamengTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-bamengTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A171DC2CBABABB120E573B3 /* Pods-bamengUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bamengUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-bamengUITests/Pods-bamengUITests.release.xcconfig"; sourceTree = "<group>"; };
+		94B9C71ECC90E51D5D6C3083 /* libPods-bamengUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-bamengUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE0691C6951F5ADD77A6E8D8 /* Pods-bameng.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bameng.release.xcconfig"; path = "Pods/Target Support Files/Pods-bameng/Pods-bameng.release.xcconfig"; sourceTree = "<group>"; };
+		DA4A0725E52CF05F19286687 /* libPods-bameng.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-bameng.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCD109D030B71DC70B5FAEA5 /* Pods-bamengUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bamengUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bamengUITests/Pods-bamengUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0ECACC7AB1F44CC7EA4C676C /* libPods-bameng.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60182506B38C98760D838C39 /* libPods-bamengTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +103,221 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				855A27FBB1FD970A3413E454 /* libPods-bamengUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		38BB90BB48F4B67E0D602F49 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				29BEC5EF9948E97E135A1D0C /* Pods-bameng.debug.xcconfig */,
+				BE0691C6951F5ADD77A6E8D8 /* Pods-bameng.release.xcconfig */,
+				2E089ECC66D0C7C9DE572EA1 /* Pods-bamengTests.debug.xcconfig */,
+				34F28DCCF0229D29337C4518 /* Pods-bamengTests.release.xcconfig */,
+				DCD109D030B71DC70B5FAEA5 /* Pods-bamengUITests.debug.xcconfig */,
+				8A171DC2CBABABB120E573B3 /* Pods-bamengUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		5A6647C4DF16730279210027 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DA4A0725E52CF05F19286687 /* libPods-bameng.a */,
+				7D7B057FA8CF46AB14B81D77 /* libPods-bamengTests.a */,
+				94B9C71ECC90E51D5D6C3083 /* libPods-bamengUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		603A39A21DB9E49400DC1ADA /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				603A39A31DB9E49400DC1ADA /* 盟主 */,
+				603A39A41DB9E49400DC1ADA /* 盟友 */,
+				603A39C61DB9EE2400DC1ADA /* Other */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		603A39A31DB9E49400DC1ADA /* 盟主 */ = {
+			isa = PBXGroup;
+			children = (
+				603A39AA1DB9E62F00DC1ADA /* 盟主TAB */,
+				603A39AB1DB9E62F00DC1ADA /* 首页 */,
+				603A39AF1DB9E62F00DC1ADA /* 我的业务 */,
+				603A39B31DB9E62F00DC1ADA /* 我的账户 */,
+				603A39B71DB9E62F00DC1ADA /* 咨询 */,
+			);
+			path = "盟主";
+			sourceTree = "<group>";
+		};
+		603A39A41DB9E49400DC1ADA /* 盟友 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "盟友";
+			sourceTree = "<group>";
+		};
+		603A39AA1DB9E62F00DC1ADA /* 盟主TAB */ = {
+			isa = PBXGroup;
+			children = (
+				603A39BB1DB9E72400DC1ADA /* MengZhu.storyboard */,
+			);
+			path = "盟主TAB";
+			sourceTree = "<group>";
+		};
+		603A39AB1DB9E62F00DC1ADA /* 首页 */ = {
+			isa = PBXGroup;
+			children = (
+				603A39AC1DB9E62F00DC1ADA /* controller */,
+				603A39AD1DB9E62F00DC1ADA /* model */,
+				603A39AE1DB9E62F00DC1ADA /* view */,
+			);
+			path = "首页";
+			sourceTree = "<group>";
+		};
+		603A39AC1DB9E62F00DC1ADA /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				603A39BD1DB9EC2D00DC1ADA /* HomeNavViewController.h */,
+				603A39BE1DB9EC2D00DC1ADA /* HomeNavViewController.m */,
+				603A39C01DB9ECCF00DC1ADA /* HomeController.h */,
+				603A39C11DB9ECCF00DC1ADA /* HomeController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		603A39AD1DB9E62F00DC1ADA /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		603A39AE1DB9E62F00DC1ADA /* view */ = {
+			isa = PBXGroup;
+			children = (
+				603A39C31DB9ED7300DC1ADA /* HomeHeadView.h */,
+				603A39C41DB9ED7300DC1ADA /* HomeHeadView.m */,
+				603A39CB1DB9EEBB00DC1ADA /* HomeHeadView.xib */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		603A39AF1DB9E62F00DC1ADA /* 我的业务 */ = {
+			isa = PBXGroup;
+			children = (
+				603A39B01DB9E62F00DC1ADA /* controller */,
+				603A39B11DB9E62F00DC1ADA /* model */,
+				603A39B21DB9E62F00DC1ADA /* view */,
+			);
+			path = "我的业务";
+			sourceTree = "<group>";
+		};
+		603A39B01DB9E62F00DC1ADA /* controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		603A39B11DB9E62F00DC1ADA /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		603A39B21DB9E62F00DC1ADA /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		603A39B31DB9E62F00DC1ADA /* 我的账户 */ = {
+			isa = PBXGroup;
+			children = (
+				603A39B41DB9E62F00DC1ADA /* controller */,
+				603A39B51DB9E62F00DC1ADA /* model */,
+				603A39B61DB9E62F00DC1ADA /* view */,
+			);
+			path = "我的账户";
+			sourceTree = "<group>";
+		};
+		603A39B41DB9E62F00DC1ADA /* controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		603A39B51DB9E62F00DC1ADA /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		603A39B61DB9E62F00DC1ADA /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		603A39B71DB9E62F00DC1ADA /* 咨询 */ = {
+			isa = PBXGroup;
+			children = (
+				603A39B81DB9E62F00DC1ADA /* controller */,
+				603A39B91DB9E62F00DC1ADA /* model */,
+				603A39BA1DB9E62F00DC1ADA /* view */,
+			);
+			path = "咨询";
+			sourceTree = "<group>";
+		};
+		603A39B81DB9E62F00DC1ADA /* controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		603A39B91DB9E62F00DC1ADA /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		603A39BA1DB9E62F00DC1ADA /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		603A39C61DB9EE2400DC1ADA /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				603A39C71DB9EE2400DC1ADA /* lib */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		603A39C71DB9EE2400DC1ADA /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				603A39C81DB9EE3E00DC1ADA /* CircleBannerView.h */,
+				603A39C91DB9EE3E00DC1ADA /* CircleBannerView.m */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
 		60764AE01DB893790061CC6C = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +325,8 @@
 				60764B051DB8937A0061CC6C /* bamengTests */,
 				60764B101DB8937A0061CC6C /* bamengUITests */,
 				60764AEA1DB8937A0061CC6C /* Products */,
+				38BB90BB48F4B67E0D602F49 /* Pods */,
+				5A6647C4DF16730279210027 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,6 +343,7 @@
 		60764AEB1DB8937A0061CC6C /* bameng */ = {
 			isa = PBXGroup;
 			children = (
+				603A39A21DB9E49400DC1ADA /* Class */,
 				60764AEF1DB8937A0061CC6C /* AppDelegate.h */,
 				60764AF01DB8937A0061CC6C /* AppDelegate.m */,
 				60764AF21DB8937A0061CC6C /* ViewController.h */,
@@ -118,6 +361,7 @@
 			isa = PBXGroup;
 			children = (
 				60764AED1DB8937A0061CC6C /* main.m */,
+				60D409211DB9B9CE008B621E /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -147,9 +391,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 60764B161DB8937A0061CC6C /* Build configuration list for PBXNativeTarget "bameng" */;
 			buildPhases = (
+				22C548E8F0018BE68B0FAEC3 /* [CP] Check Pods Manifest.lock */,
 				60764AE51DB893790061CC6C /* Sources */,
 				60764AE61DB893790061CC6C /* Frameworks */,
 				60764AE71DB893790061CC6C /* Resources */,
+				757FF7D82BC2039C92147513 /* [CP] Embed Pods Frameworks */,
+				6990E5CC69292165D65C9FA8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -164,9 +411,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 60764B191DB8937A0061CC6C /* Build configuration list for PBXNativeTarget "bamengTests" */;
 			buildPhases = (
+				DC192AE872A315706B985D11 /* [CP] Check Pods Manifest.lock */,
 				60764AFE1DB8937A0061CC6C /* Sources */,
 				60764AFF1DB8937A0061CC6C /* Frameworks */,
 				60764B001DB8937A0061CC6C /* Resources */,
+				00FFEC6D224727C8001C8B23 /* [CP] Embed Pods Frameworks */,
+				2A2F44E867E335A9136EDB68 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -182,9 +432,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 60764B1C1DB8937A0061CC6C /* Build configuration list for PBXNativeTarget "bamengUITests" */;
 			buildPhases = (
+				54E3496B832B2B1D442AB00B /* [CP] Check Pods Manifest.lock */,
 				60764B091DB8937A0061CC6C /* Sources */,
 				60764B0A1DB8937A0061CC6C /* Frameworks */,
 				60764B0B1DB8937A0061CC6C /* Resources */,
+				30D0369E2BF2C3235ECB692B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -207,6 +459,7 @@
 				TargetAttributes = {
 					60764AE81DB893790061CC6C = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = Q3B3AD6JJH;
 						ProvisioningStyle = Automatic;
 					};
 					60764B011DB8937A0061CC6C = {
@@ -248,7 +501,9 @@
 			files = (
 				60764AFC1DB8937A0061CC6C /* LaunchScreen.storyboard in Resources */,
 				60764AF91DB8937A0061CC6C /* Assets.xcassets in Resources */,
+				603A39CC1DB9EEBB00DC1ADA /* HomeHeadView.xib in Resources */,
 				60764AF71DB8937A0061CC6C /* Main.storyboard in Resources */,
+				603A39BC1DB9E72400DC1ADA /* MengZhu.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +523,129 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		00FFEC6D224727C8001C8B23 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-bamengTests/Pods-bamengTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		22C548E8F0018BE68B0FAEC3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		2A2F44E867E335A9136EDB68 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-bamengTests/Pods-bamengTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		30D0369E2BF2C3235ECB692B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-bamengUITests/Pods-bamengUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		54E3496B832B2B1D442AB00B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6990E5CC69292165D65C9FA8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-bameng/Pods-bameng-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		757FF7D82BC2039C92147513 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-bameng/Pods-bameng-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DC192AE872A315706B985D11 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		60764AE51DB893790061CC6C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -276,6 +654,10 @@
 				60764AF41DB8937A0061CC6C /* ViewController.m in Sources */,
 				60764AF11DB8937A0061CC6C /* AppDelegate.m in Sources */,
 				60764AEE1DB8937A0061CC6C /* main.m in Sources */,
+				603A39CA1DB9EE3E00DC1ADA /* CircleBannerView.m in Sources */,
+				603A39C21DB9ECCF00DC1ADA /* HomeController.m in Sources */,
+				603A39BF1DB9EC2D00DC1ADA /* HomeNavViewController.m in Sources */,
+				603A39C51DB9ED7300DC1ADA /* HomeHeadView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,28 +802,37 @@
 		};
 		60764B171DB8937A0061CC6C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 29BEC5EF9948E97E135A1D0C /* Pods-bameng.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Q3B3AD6JJH;
+				GCC_PREFIX_HEADER = " $(SRCROOT)/PrefixHeader.pch";
 				INFOPLIST_FILE = bameng/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = huotu.bameng;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.huotu.fanmore---";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
 		60764B181DB8937A0061CC6C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE0691C6951F5ADD77A6E8D8 /* Pods-bameng.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Q3B3AD6JJH;
+				GCC_PREFIX_HEADER = " $(SRCROOT)/PrefixHeader.pch";
 				INFOPLIST_FILE = bameng/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = huotu.bameng;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.huotu.fanmore---";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
 		60764B1A1DB8937A0061CC6C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E089ECC66D0C7C9DE572EA1 /* Pods-bamengTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = bamengTests/Info.plist;
@@ -454,6 +845,7 @@
 		};
 		60764B1B1DB8937A0061CC6C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 34F28DCCF0229D29337C4518 /* Pods-bamengTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = bamengTests/Info.plist;
@@ -466,6 +858,7 @@
 		};
 		60764B1D1DB8937A0061CC6C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCD109D030B71DC70B5FAEA5 /* Pods-bamengUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = bamengUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -477,6 +870,7 @@
 		};
 		60764B1E1DB8937A0061CC6C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8A171DC2CBABABB120E573B3 /* Pods-bamengUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = bamengUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -505,6 +899,7 @@
 				60764B181DB8937A0061CC6C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		60764B191DB8937A0061CC6C /* Build configuration list for PBXNativeTarget "bamengTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +908,7 @@
 				60764B1B1DB8937A0061CC6C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		60764B1C1DB8937A0061CC6C /* Build configuration list for PBXNativeTarget "bamengUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +917,7 @@
 				60764B1E1DB8937A0061CC6C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
