@@ -24,6 +24,8 @@
 		60764B071DB8937A0061CC6C /* bamengTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60764B061DB8937A0061CC6C /* bamengTests.m */; };
 		60764B121DB8937A0061CC6C /* bamengUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60764B111DB8937A0061CC6C /* bamengUITests.m */; };
 		855A27FBB1FD970A3413E454 /* libPods-bamengUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94B9C71ECC90E51D5D6C3083 /* libPods-bamengUITests.a */; };
+		EF04388D1DBAFD5E00CA8902 /* AsignLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = EF04388C1DBAFD5E00CA8902 /* AsignLibrary.m */; };
+		EF0438901DBB050600CA8902 /* HTMyContainAFN.m in Sources */ = {isa = PBXBuildFile; fileRef = EF04388F1DBB050600CA8902 /* HTMyContainAFN.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +82,10 @@
 		BE0691C6951F5ADD77A6E8D8 /* Pods-bameng.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bameng.release.xcconfig"; path = "Pods/Target Support Files/Pods-bameng/Pods-bameng.release.xcconfig"; sourceTree = "<group>"; };
 		DA4A0725E52CF05F19286687 /* libPods-bameng.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-bameng.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCD109D030B71DC70B5FAEA5 /* Pods-bamengUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bamengUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bamengUITests/Pods-bamengUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		EF04388B1DBAFD5E00CA8902 /* AsignLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsignLibrary.h; sourceTree = "<group>"; };
+		EF04388C1DBAFD5E00CA8902 /* AsignLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsignLibrary.m; sourceTree = "<group>"; };
+		EF04388E1DBB050600CA8902 /* HTMyContainAFN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMyContainAFN.h; sourceTree = "<group>"; };
+		EF04388F1DBB050600CA8902 /* HTMyContainAFN.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMyContainAFN.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -312,6 +318,7 @@
 		603A39C71DB9EE2400DC1ADA /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				EF04388A1DBAFD5E00CA8902 /* HuotuScreate */,
 				603A39C81DB9EE3E00DC1ADA /* CircleBannerView.h */,
 				603A39C91DB9EE3E00DC1ADA /* CircleBannerView.m */,
 			);
@@ -382,6 +389,17 @@
 				60764B131DB8937A0061CC6C /* Info.plist */,
 			);
 			path = bamengUITests;
+			sourceTree = "<group>";
+		};
+		EF04388A1DBAFD5E00CA8902 /* HuotuScreate */ = {
+			isa = PBXGroup;
+			children = (
+				EF04388E1DBB050600CA8902 /* HTMyContainAFN.h */,
+				EF04388F1DBB050600CA8902 /* HTMyContainAFN.m */,
+				EF04388B1DBAFD5E00CA8902 /* AsignLibrary.h */,
+				EF04388C1DBAFD5E00CA8902 /* AsignLibrary.m */,
+			);
+			path = HuotuScreate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -651,6 +669,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF04388D1DBAFD5E00CA8902 /* AsignLibrary.m in Sources */,
 				60764AF41DB8937A0061CC6C /* ViewController.m in Sources */,
 				60764AF11DB8937A0061CC6C /* AppDelegate.m in Sources */,
 				60764AEE1DB8937A0061CC6C /* main.m in Sources */,
@@ -658,6 +677,7 @@
 				603A39C21DB9ECCF00DC1ADA /* HomeController.m in Sources */,
 				603A39BF1DB9EC2D00DC1ADA /* HomeNavViewController.m in Sources */,
 				603A39C51DB9ED7300DC1ADA /* HomeHeadView.m in Sources */,
+				EF0438901DBB050600CA8902 /* HTMyContainAFN.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -806,7 +826,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Q3B3AD6JJH;
-				GCC_PREFIX_HEADER = " $(SRCROOT)/PrefixHeader.pch";
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
+				GCC_PREFIX_HEADER = "$(PROJECT)/PrefixHeader.pch";
 				INFOPLIST_FILE = bameng/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -821,7 +842,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Q3B3AD6JJH;
-				GCC_PREFIX_HEADER = " $(SRCROOT)/PrefixHeader.pch";
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
+				GCC_PREFIX_HEADER = "$(PROJECT)/PrefixHeader.pch";
 				INFOPLIST_FILE = bameng/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

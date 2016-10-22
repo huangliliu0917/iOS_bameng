@@ -13,18 +13,22 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
 
-
-
-
-
-
+#import <AFNetworking/AFNetworking.h>
 
 
 
 
 
 /*** 接口地址以及签名参数 ***/
+#ifdef DEBUG
 #define MainUrl @"http://bmapi.fancat.cn/"
+#define MainUrlScreate @"BAMEENG20161021_TEST"
+#else
+#define MainUrl @"http://bmapi.fancat.cn/"
+#define MainUrlScreate @"BAMEENG20161021"
+#endif
+
+
 
 
 /*********** 分享平台账号 ***************/
