@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CircleBannerView.h"
+#include "HomeHeadView.h"
 
-@interface HomeController : UIViewController
+@interface HomeController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+
+@property (nonatomic, strong) UITableView *table;
+
 
 @end

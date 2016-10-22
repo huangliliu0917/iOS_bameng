@@ -7,7 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CircleBannerView.h"
 
-@interface HomeHeadView : UIView
+
+@interface HomeHeadView : UIView<CircleBannerViewDelegate>
+
+@property (strong, nonatomic) IBOutlet UIView *circulateView;
+
+@property (strong, nonatomic) IBOutlet UIView *zhanghu;
+@property (strong, nonatomic) IBOutlet UIView *neworder;
+@property (strong, nonatomic) IBOutlet UIView *custom;
+@property (strong, nonatomic) IBOutlet UIView *coalition;
+@property (strong, nonatomic) IBOutlet UIView *exchange;
+@property (strong, nonatomic) IBOutlet UIView *reward;
+@property (strong, nonatomic) IBOutlet UIView *moreNews;
+
+
 
 @end
