@@ -279,7 +279,7 @@ static char TimerKey;
         _pageControl.currentPage = 0;
         _pageControl.numberOfPages = _dataArray.count;
         _pageControl.backgroundColor = [UIColor clearColor];
-        _pageControl.currentPageIndicatorTintColor = COLOR_BUTTON_ORANGE;
+//        _pageControl.currentPageIndicatorTintColor = COLOR_BUTTON_ORANGE;
         _pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
         _pageControl.translatesAutoresizingMaskIntoConstraints = NO;
     }

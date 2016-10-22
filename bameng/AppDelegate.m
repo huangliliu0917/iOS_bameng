@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "HTMyContainAFN.h"
+
 
 @interface AppDelegate ()
 
@@ -17,6 +19,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    
+    [HTMyContainAFN AFN:@"sys/init" with:nil Success:^(id responseObject) {
+        
+        NSLog(@"%@",responseObject);
+    } failure:^(NSError *error) {
+        NSLog(@"%@",error);
+    }];
     return YES;
 }
 
