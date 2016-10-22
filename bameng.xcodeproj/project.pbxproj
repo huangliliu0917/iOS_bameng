@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		0ECACC7AB1F44CC7EA4C676C /* libPods-bameng.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA4A0725E52CF05F19286687 /* libPods-bameng.a */; };
 		60182506B38C98760D838C39 /* libPods-bamengTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D7B057FA8CF46AB14B81D77 /* libPods-bamengTests.a */; };
+		6033D7A21DBB434100B9B4DA /* MengzhuTabbarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6033D7A11DBB434100B9B4DA /* MengzhuTabbarController.m */; };
+		6033D7A61DBB45D700B9B4DA /* UITableView+CJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 6033D7A51DBB45D700B9B4DA /* UITableView+CJ.m */; };
+		6033D7AA1DBB47B000B9B4DA /* HomeMengzhuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6033D7A81DBB47B000B9B4DA /* HomeMengzhuTableViewCell.m */; };
+		6033D7AB1DBB47B000B9B4DA /* HomeMengzhuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6033D7A91DBB47B000B9B4DA /* HomeMengzhuTableViewCell.xib */; };
+		6033D7AE1DBB5FEF00B9B4DA /* CustomInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6033D7AD1DBB5FEF00B9B4DA /* CustomInfoController.m */; };
+		60362BF51DBB3B2F00A58D4D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 60362BF41DBB3B2F00A58D4D /* InfoPlist.strings */; };
 		603A39BC1DB9E72400DC1ADA /* MengZhu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 603A39BB1DB9E72400DC1ADA /* MengZhu.storyboard */; };
 		603A39BF1DB9EC2D00DC1ADA /* HomeNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 603A39BE1DB9EC2D00DC1ADA /* HomeNavViewController.m */; };
 		603A39C21DB9ECCF00DC1ADA /* HomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 603A39C11DB9ECCF00DC1ADA /* HomeController.m */; };
@@ -49,6 +55,16 @@
 		29BEC5EF9948E97E135A1D0C /* Pods-bameng.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bameng.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bameng/Pods-bameng.debug.xcconfig"; sourceTree = "<group>"; };
 		2E089ECC66D0C7C9DE572EA1 /* Pods-bamengTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bamengTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bamengTests/Pods-bamengTests.debug.xcconfig"; sourceTree = "<group>"; };
 		34F28DCCF0229D29337C4518 /* Pods-bamengTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bamengTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-bamengTests/Pods-bamengTests.release.xcconfig"; sourceTree = "<group>"; };
+		6033D7A01DBB434100B9B4DA /* MengzhuTabbarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MengzhuTabbarController.h; sourceTree = "<group>"; };
+		6033D7A11DBB434100B9B4DA /* MengzhuTabbarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MengzhuTabbarController.m; sourceTree = "<group>"; };
+		6033D7A41DBB45D700B9B4DA /* UITableView+CJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+CJ.h"; sourceTree = "<group>"; };
+		6033D7A51DBB45D700B9B4DA /* UITableView+CJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+CJ.m"; sourceTree = "<group>"; };
+		6033D7A71DBB47B000B9B4DA /* HomeMengzhuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeMengzhuTableViewCell.h; sourceTree = "<group>"; };
+		6033D7A81DBB47B000B9B4DA /* HomeMengzhuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeMengzhuTableViewCell.m; sourceTree = "<group>"; };
+		6033D7A91DBB47B000B9B4DA /* HomeMengzhuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeMengzhuTableViewCell.xib; sourceTree = "<group>"; };
+		6033D7AC1DBB5FEF00B9B4DA /* CustomInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomInfoController.h; sourceTree = "<group>"; };
+		6033D7AD1DBB5FEF00B9B4DA /* CustomInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomInfoController.m; sourceTree = "<group>"; };
+		60362BF41DBB3B2F00A58D4D /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		603A39BB1DB9E72400DC1ADA /* MengZhu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MengZhu.storyboard; sourceTree = "<group>"; };
 		603A39BD1DB9EC2D00DC1ADA /* HomeNavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeNavViewController.h; sourceTree = "<group>"; };
 		603A39BE1DB9EC2D00DC1ADA /* HomeNavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeNavViewController.m; sourceTree = "<group>"; };
@@ -139,6 +155,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6033D7A31DBB45A300B9B4DA /* 扩展 */ = {
+			isa = PBXGroup;
+			children = (
+				6033D7A41DBB45D700B9B4DA /* UITableView+CJ.h */,
+				6033D7A51DBB45D700B9B4DA /* UITableView+CJ.m */,
+			);
+			path = "扩展";
+			sourceTree = "<group>";
+		};
 		603A39A21DB9E49400DC1ADA /* Class */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +197,8 @@
 			isa = PBXGroup;
 			children = (
 				603A39BB1DB9E72400DC1ADA /* MengZhu.storyboard */,
+				6033D7A01DBB434100B9B4DA /* MengzhuTabbarController.h */,
+				6033D7A11DBB434100B9B4DA /* MengzhuTabbarController.m */,
 			);
 			path = "盟主TAB";
 			sourceTree = "<group>";
@@ -193,6 +220,8 @@
 				603A39BE1DB9EC2D00DC1ADA /* HomeNavViewController.m */,
 				603A39C01DB9ECCF00DC1ADA /* HomeController.h */,
 				603A39C11DB9ECCF00DC1ADA /* HomeController.m */,
+				6033D7AC1DBB5FEF00B9B4DA /* CustomInfoController.h */,
+				6033D7AD1DBB5FEF00B9B4DA /* CustomInfoController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -210,6 +239,9 @@
 				603A39C31DB9ED7300DC1ADA /* HomeHeadView.h */,
 				603A39C41DB9ED7300DC1ADA /* HomeHeadView.m */,
 				603A39CB1DB9EEBB00DC1ADA /* HomeHeadView.xib */,
+				6033D7A71DBB47B000B9B4DA /* HomeMengzhuTableViewCell.h */,
+				6033D7A81DBB47B000B9B4DA /* HomeMengzhuTableViewCell.m */,
+				6033D7A91DBB47B000B9B4DA /* HomeMengzhuTableViewCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -310,6 +342,7 @@
 		603A39C61DB9EE2400DC1ADA /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				6033D7A31DBB45A300B9B4DA /* 扩展 */,
 				603A39C71DB9EE2400DC1ADA /* lib */,
 			);
 			path = Other;
@@ -367,6 +400,7 @@
 		60764AEC1DB8937A0061CC6C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				60362BF41DBB3B2F00A58D4D /* InfoPlist.strings */,
 				60764AED1DB8937A0061CC6C /* main.m */,
 				60D409211DB9B9CE008B621E /* PrefixHeader.pch */,
 			);
@@ -518,10 +552,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				60764AFC1DB8937A0061CC6C /* LaunchScreen.storyboard in Resources */,
+				60362BF51DBB3B2F00A58D4D /* InfoPlist.strings in Resources */,
 				60764AF91DB8937A0061CC6C /* Assets.xcassets in Resources */,
 				603A39CC1DB9EEBB00DC1ADA /* HomeHeadView.xib in Resources */,
 				60764AF71DB8937A0061CC6C /* Main.storyboard in Resources */,
 				603A39BC1DB9E72400DC1ADA /* MengZhu.storyboard in Resources */,
+				6033D7AB1DBB47B000B9B4DA /* HomeMengzhuTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -670,13 +706,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF04388D1DBAFD5E00CA8902 /* AsignLibrary.m in Sources */,
+				6033D7A61DBB45D700B9B4DA /* UITableView+CJ.m in Sources */,
 				60764AF41DB8937A0061CC6C /* ViewController.m in Sources */,
+				6033D7AA1DBB47B000B9B4DA /* HomeMengzhuTableViewCell.m in Sources */,
 				60764AF11DB8937A0061CC6C /* AppDelegate.m in Sources */,
 				60764AEE1DB8937A0061CC6C /* main.m in Sources */,
 				603A39CA1DB9EE3E00DC1ADA /* CircleBannerView.m in Sources */,
 				603A39C21DB9ECCF00DC1ADA /* HomeController.m in Sources */,
 				603A39BF1DB9EC2D00DC1ADA /* HomeNavViewController.m in Sources */,
 				603A39C51DB9ED7300DC1ADA /* HomeHeadView.m in Sources */,
+				6033D7A21DBB434100B9B4DA /* MengzhuTabbarController.m in Sources */,
+				6033D7AE1DBB5FEF00B9B4DA /* CustomInfoController.m in Sources */,
 				EF0438901DBB050600CA8902 /* HTMyContainAFN.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

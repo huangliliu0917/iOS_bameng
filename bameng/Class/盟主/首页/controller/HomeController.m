@@ -7,6 +7,8 @@
 //
 
 #import "HomeController.h"
+#import "UITableView+CJ.h"
+#import "HomeMengzhuTableViewCell.h"
 
 @interface HomeController ()
 
@@ -16,12 +18,23 @@
 
 @implementation HomeController
 
+
+static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.table = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight) style:UITableViewStylePlain];
+    self.table.delegate = self;
+    self.table.dataSource = self;
+    [self.table setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    [self.table removeSpaces];
+    [self.table registerNib:[UINib nibWithNibName:@"HomeMengzhuTableViewCell" bundle:nil] forCellReuseIdentifier:homeTableCellIdentify];
+    [self.view addSubview:self.table];
+    
     
     HomeHeadView *head = [[NSBundle mainBundle] loadNibNamed:@"HomeHeadView" owner:self options:nil].lastObject;
-    
+    self.table.tableHeaderView = head;
     
 }
 
@@ -44,12 +57,14 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [[UITableViewCell alloc] init];
+    HomeMengzhuTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:homeTableCellIdentify forIndexPath:indexPath];
+    
+
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 44;
+    return 110;
 }
 
 @end

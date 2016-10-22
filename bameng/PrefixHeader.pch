@@ -15,7 +15,7 @@
 
 #import <AFNetworking/AFNetworking.h>
 
-
+#import <BlocksKit/UIView+BlocksKit.h>
 
 
 
@@ -44,7 +44,10 @@
 /**设备唯一号*/
 #define  DeviceNo ([[UIDevice currentDevice].identifierForVendor UUIDString])
 
+/****设备屏幕****/
+#define KScreenHeight  [UIScreen mainScreen].bounds.size.height
 
+#define KScreenWidth  [UIScreen mainScreen].bounds.size.width
 
 
 

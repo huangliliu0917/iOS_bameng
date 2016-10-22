@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "HTMyContainAFN.h"
-
+#import "MengzhuTabbarController.h"
 
 @interface AppDelegate ()
 
@@ -20,13 +20,15 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+     [[UITabBarItem appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName:[UIColor colorWithRed:204/255.0 green:158/255.0 blue:95/255.0 alpha:1]} forState:UIControlStateSelected];
     
-    [HTMyContainAFN AFN:@"sys/init" with:nil Success:^(id responseObject) {
-        
-        NSLog(@"%@",responseObject);
-    } failure:^(NSError *error) {
-        NSLog(@"%@",error);
-    }];
+    
+    self.window = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight)];
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
+    MengzhuTabbarController *tabbar = [story instantiateViewControllerWithIdentifier:@"MengzhuTabbarController"];
+    self.window.rootViewController = tabbar;
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

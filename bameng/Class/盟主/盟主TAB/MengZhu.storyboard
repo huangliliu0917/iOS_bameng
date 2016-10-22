@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11535.1" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11523"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller-->
+        <!--Mengzhu Tabbar Controller-->
         <scene sceneID="cSn-4x-sSD">
             <objects>
-                <tabBarController id="bwr-mo-xil" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MengzhuTabbarController" id="bwr-mo-xil" customClass="MengzhuTabbarController" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="oNv-8Z-Dte">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.96078431369999995" green="0.96470588239999999" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="ih6-KB-kGy" kind="relationship" relationship="viewControllers" id="sf6-Tn-XzO"/>
@@ -29,7 +33,7 @@
         <scene sceneID="ngu-e6-BGD">
             <objects>
                 <navigationController storyboardIdentifier="HomeNavViewController" id="ih6-KB-kGy" customClass="HomeNavViewController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="1" title="首页" id="jVc-G0-HQa"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="首页" image="sy" selectedImage="jsy" id="jVc-G0-HQa"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="i86-QO-QmM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -42,18 +46,18 @@
             </objects>
             <point key="canvasLocation" x="-1690" y="-1200"/>
         </scene>
-        <!--View Controller-->
+        <!--Home Controller-->
         <scene sceneID="bEu-h9-neb">
             <objects>
-                <viewController id="PZ7-py-gVR" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeController" id="PZ7-py-gVR" customClass="HomeController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Gu1-82-KBy"/>
                         <viewControllerLayoutGuide type="bottom" id="oW2-Bg-fs2"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="zpQ-wR-MtU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="Uf6-xU-f6v"/>
                 </viewController>
@@ -61,11 +65,11 @@
             </objects>
             <point key="canvasLocation" x="-874" y="-1200"/>
         </scene>
-        <!--Item-->
+        <!--咨询-->
         <scene sceneID="nD9-0t-3xA">
             <objects>
                 <navigationController id="306-pN-1oT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="a1s-Xt-8EN"/>
+                    <tabBarItem key="tabBarItem" title="咨询" image="zx" selectedImage="jzx" id="a1s-Xt-8EN"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ux6-0O-IJT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -87,9 +91,9 @@
                         <viewControllerLayoutGuide type="bottom" id="QR2-k8-giW"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oUk-HD-Or3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="nQa-6v-2qc"/>
                 </viewController>
@@ -97,11 +101,11 @@
             </objects>
             <point key="canvasLocation" x="-874" y="-441"/>
         </scene>
-        <!--Item-->
+        <!--我的账户-->
         <scene sceneID="Hnf-tx-9f4">
             <objects>
                 <navigationController id="lGy-UY-KRX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Oig-mG-E3l"/>
+                    <tabBarItem key="tabBarItem" title="我的账户" image="zh2" selectedImage="jzh" id="Oig-mG-E3l"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="h69-IR-D1q">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -123,9 +127,9 @@
                         <viewControllerLayoutGuide type="bottom" id="iVs-T9-1dH"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="JeH-VH-qu9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="hP6-I9-xLi"/>
                 </viewController>
@@ -158,9 +162,9 @@
                         <viewControllerLayoutGuide type="bottom" id="hMR-a0-1Mb"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="zxD-DS-cIT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="zvH-70-geh"/>
                 </viewController>
@@ -168,11 +172,85 @@
             </objects>
             <point key="canvasLocation" x="-874" y="362"/>
         </scene>
-        <!--Item-->
+        <!--Custom Info Controller-->
+        <scene sceneID="4TV-oR-iZl">
+            <objects>
+                <viewController storyboardIdentifier="CustomInfoController" id="Aei-Xt-zgE" customClass="CustomInfoController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ESg-UJ-GsF"/>
+                        <viewControllerLayoutGuide type="bottom" id="ljd-Ej-bq3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Pwo-zO-yed">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v30-Xl-Xjd">
+                                <rect key="frame" x="0.0" y="20" width="320" height="35"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1HN-gF-Ve0">
+                                        <rect key="frame" x="0.0" y="0.0" width="160" height="32"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未处理信息" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oGk-j1-EqG">
+                                                <rect key="frame" x="42" y="7" width="77" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" red="0.80000000000000004" green="0.61960784310000006" blue="0.37254901959999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="oGk-j1-EqG" firstAttribute="centerX" secondItem="1HN-gF-Ve0" secondAttribute="centerX" id="0G4-vO-hf2"/>
+                                            <constraint firstItem="oGk-j1-EqG" firstAttribute="centerY" secondItem="1HN-gF-Ve0" secondAttribute="centerY" id="czH-9c-m0c"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jFB-uq-dyt">
+                                        <rect key="frame" x="160" y="0.0" width="160" height="32"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已处理信息" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Udn-oD-FVa">
+                                                <rect key="frame" x="42" y="7" width="77" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" red="0.80000000000000004" green="0.61960784310000006" blue="0.37254901959999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="Udn-oD-FVa" firstAttribute="centerY" secondItem="jFB-uq-dyt" secondAttribute="centerY" id="d1I-Ox-lND"/>
+                                            <constraint firstItem="Udn-oD-FVa" firstAttribute="centerX" secondItem="jFB-uq-dyt" secondAttribute="centerX" id="mDd-cq-MQu"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="jFB-uq-dyt" secondAttribute="trailing" id="3Wv-9W-cn2"/>
+                                    <constraint firstItem="jFB-uq-dyt" firstAttribute="top" secondItem="v30-Xl-Xjd" secondAttribute="top" id="7Ld-b1-Ipg"/>
+                                    <constraint firstItem="jFB-uq-dyt" firstAttribute="width" secondItem="1HN-gF-Ve0" secondAttribute="width" id="UVp-Or-dc8"/>
+                                    <constraint firstItem="1HN-gF-Ve0" firstAttribute="top" secondItem="v30-Xl-Xjd" secondAttribute="top" id="XBh-7A-ocb"/>
+                                    <constraint firstItem="jFB-uq-dyt" firstAttribute="bottom" secondItem="1HN-gF-Ve0" secondAttribute="bottom" id="Zoa-ne-YcV"/>
+                                    <constraint firstAttribute="bottom" secondItem="1HN-gF-Ve0" secondAttribute="bottom" constant="3" id="bex-qb-u1y"/>
+                                    <constraint firstItem="jFB-uq-dyt" firstAttribute="leading" secondItem="1HN-gF-Ve0" secondAttribute="trailing" id="kMp-9m-A3I"/>
+                                    <constraint firstAttribute="height" constant="35" id="lE1-Ml-xIg"/>
+                                    <constraint firstItem="1HN-gF-Ve0" firstAttribute="leading" secondItem="v30-Xl-Xjd" secondAttribute="leading" id="lT1-MO-cTa"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="v30-Xl-Xjd" firstAttribute="leading" secondItem="Pwo-zO-yed" secondAttribute="leading" id="IH9-HG-CtX"/>
+                            <constraint firstItem="v30-Xl-Xjd" firstAttribute="top" secondItem="ESg-UJ-GsF" secondAttribute="bottom" id="IqN-O7-h4Y"/>
+                            <constraint firstAttribute="trailing" secondItem="v30-Xl-Xjd" secondAttribute="trailing" id="YD7-zd-Pc1"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C1Q-x2-98Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3200.625" y="575.70422535211264"/>
+        </scene>
+        <!--我的业务-->
         <scene sceneID="u0Y-SH-dTL">
             <objects>
                 <navigationController id="rEI-BH-fds" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="ks6-d8-Ii9"/>
+                    <tabBarItem key="tabBarItem" title="我的业务" image="yw" selectedImage="jyw" id="ks6-d8-Ii9"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Jdy-zA-iMq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -194,9 +272,9 @@
                         <viewControllerLayoutGuide type="bottom" id="jNC-dS-jjj"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="otS-LO-c7P">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="rJK-37-Ghn"/>
                 </viewController>
@@ -205,4 +283,14 @@
             <point key="canvasLocation" x="-874" y="362"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="jsy" width="24" height="24"/>
+        <image name="jyw" width="24" height="24"/>
+        <image name="jzh" width="24" height="24"/>
+        <image name="jzx" width="24" height="24"/>
+        <image name="sy" width="24" height="24"/>
+        <image name="yw" width="24" height="24"/>
+        <image name="zh2" width="24" height="24"/>
+        <image name="zx" width="24" height="24"/>
+    </resources>
 </document>
