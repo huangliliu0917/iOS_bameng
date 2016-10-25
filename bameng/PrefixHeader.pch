@@ -14,9 +14,10 @@
 
 
 #import <AFNetworking/AFNetworking.h>
-
+#import "UITableView+CJ.h"
 #import <BlocksKit/UIView+BlocksKit.h>
-
+#import <BlocksKit/UIBarButtonItem+BlocksKit.h>
+#import <WebKit/WKWebView.h>
 
 
 /*** 接口地址以及签名参数 ***/
@@ -28,8 +29,8 @@
 #define MainUrlScreate @"BAMEENG20161021"
 #endif
 
-
-
+/*****其他用户信息****/
+#define MainColor [UIColor colorWithRed:204/255.0 green:158/255.0 blue:95/255.0 alpha:1]
 
 /*********** 分享平台账号 ***************/
 

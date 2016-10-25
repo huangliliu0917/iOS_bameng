@@ -7,8 +7,10 @@
 //
 
 #import "HomeController.h"
-#import "UITableView+CJ.h"
 #import "HomeMengzhuTableViewCell.h"
+#import "CustomInfoController.h"
+#import "EncourageTableViewController.h"
+#import "MyWalletTableViewController.h"
 
 @interface HomeController ()
 
@@ -33,10 +35,45 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
     [self.view addSubview:self.table];
     
     
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
+    
+    
     HomeHeadView *head = [[NSBundle mainBundle] loadNibNamed:@"HomeHeadView" owner:self options:nil].lastObject;
     self.table.tableHeaderView = head;
+    [head.zhanghu bk_whenTapped:^{
+        MyWalletTableViewController *wallet = [story instantiateViewControllerWithIdentifier:@"MyWalletTableViewController"];
+        [self.navigationController pushViewController:wallet animated:YES];
+        }];
     
+    [head.custom bk_whenTapped:^{
+        CustomInfoController *custom = [story instantiateViewControllerWithIdentifier:@"CustomInfoController"];
+        custom.selectPage = 1;
+        [self.navigationController pushViewController:custom animated:YES];
+    }];
+    [head.coalition bk_whenTapped:^{
+        CustomInfoController *custom = [story instantiateViewControllerWithIdentifier:@"CustomInfoController"];
+        custom.selectPage = 3;
+        [self.navigationController pushViewController:custom animated:YES];
+
+    }];
+    [head.exchange bk_whenTapped:^{
+        CustomInfoController *custom = [story instantiateViewControllerWithIdentifier:@"CustomInfoController"];
+        custom.selectPage = 2;
+        [self.navigationController pushViewController:custom animated:YES];
+    }];
+    [head.reward bk_whenTapped:^{
+        EncourageTableViewController *encourage = [story instantiateViewControllerWithIdentifier:@"EncourageTableViewController"];
+        [self.navigationController pushViewController:encourage animated:YES];
+    }];
 }
+
+
+- (void) viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    self.tabBarController.tabBar.hidden = NO;
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

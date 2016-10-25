@@ -1,4 +1,4 @@
-//
+//  1客户信息/2兑换审核/3我的联盟  
 //  CustomInfoController.h
 //  bameng
 //
@@ -10,6 +10,12 @@
 
 @interface CustomInfoController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UIView *chooserView;
+@property (strong, nonatomic) IBOutlet UIView *untreated;
+@property (strong, nonatomic) IBOutlet UIView *processed;
 
+@property (nonatomic, strong) UIView *slider;
+
+@property (nonatomic, assign) NSInteger selectPage;
 
 @end
