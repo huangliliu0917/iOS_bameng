@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11535.1" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11523"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="61" id="KGk-i7-Jjw" customClass="DaijiesuanTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="61"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="djsmd" translatesAutoresizingMaskIntoConstraints="NO" id="EmS-cB-dtK">
+                        <rect key="frame" x="14" y="17" width="27" height="27"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="27" id="EfM-Ak-RQg"/>
+                            <constraint firstAttribute="width" constant="27" id="VGi-pN-9b7"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支出" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="32p-o5-qCw">
+                        <rect key="frame" x="52" y="13" width="27" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016.01.06 10:100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NWd-I7-rRr">
+                        <rect key="frame" x="52" y="36" width="96" height="14"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <color key="textColor" red="0.60392156860000001" green="0.60784313729999995" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-200" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j0t-AI-bsy">
+                        <rect key="frame" x="278" y="22" width="31" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.1058823529" green="0.77647058820000003" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="j0t-AI-bsy" secondAttribute="trailing" constant="11" id="2Yc-Qu-d1X"/>
+                    <constraint firstItem="EmS-cB-dtK" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="BxA-6y-p0H"/>
+                    <constraint firstItem="EmS-cB-dtK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14" id="HtC-5Z-qdm"/>
+                    <constraint firstItem="j0t-AI-bsy" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Rio-Zx-HSM"/>
+                    <constraint firstItem="32p-o5-qCw" firstAttribute="top" secondItem="EmS-cB-dtK" secondAttribute="top" constant="-4" id="WIV-0H-OQc"/>
+                    <constraint firstItem="NWd-I7-rRr" firstAttribute="top" secondItem="32p-o5-qCw" secondAttribute="bottom" constant="7" id="as4-5A-P7g"/>
+                    <constraint firstItem="32p-o5-qCw" firstAttribute="leading" secondItem="EmS-cB-dtK" secondAttribute="trailing" constant="11" id="bbw-DM-o9P"/>
+                    <constraint firstItem="NWd-I7-rRr" firstAttribute="leading" secondItem="EmS-cB-dtK" secondAttribute="trailing" constant="11" id="h4y-HL-dsX"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="contentLabel" destination="j0t-AI-bsy" id="akh-cU-ehu"/>
+                <outlet property="time" destination="NWd-I7-rRr" id="rnh-LS-S0G"/>
+                <outlet property="titleLabel" destination="32p-o5-qCw" id="GD9-Y5-W0a"/>
+            </connections>
+            <point key="canvasLocation" x="26" y="51.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="djsmd" width="30" height="30"/>
+    </resources>
+</document>

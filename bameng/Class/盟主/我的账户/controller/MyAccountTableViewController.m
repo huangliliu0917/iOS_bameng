@@ -8,6 +8,9 @@
 
 #import "MyAccountTableViewController.h"
 #import "SettingTableViewController.h"
+#import "MengDouTableViewController.h"
+#import "DaijiesuanTableViewController.h"
+#import "UserInfoTableViewController.h"
 
 @interface MyAccountTableViewController ()
 
@@ -39,6 +42,18 @@
         [self.navigationController pushViewController:setting animated:YES];
     }];
     
+    [self.mengdou bk_whenTapped:^{
+        UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
+        MengDouTableViewController *mengdou = [story instantiateViewControllerWithIdentifier:@"MengDouTableViewController"];
+        [self.navigationController pushViewController:mengdou animated:YES];
+    }];
+    
+    [self.daijiesuan bk_whenTapped:^{
+        UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
+        DaijiesuanTableViewController *jiesuan = [story instantiateViewControllerWithIdentifier:@"DaijiesuanTableViewController"];
+        [self.navigationController pushViewController:jiesuan animated:YES];
+    }];
+    
 }
 
 - (void) viewWillAppear:(BOOL)animated{
@@ -53,6 +68,15 @@
 }
 
 #pragma mark - Table view data source
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 1 && indexPath.row == 1) {
+        UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
+        UserInfoTableViewController *user = [story instantiateViewControllerWithIdentifier:@"UserInfoTableViewController"];
+        [self.navigationController pushViewController:user animated:YES];
+    }
+}
+
 
 //- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 //#warning Incomplete implementation, return the number of sections

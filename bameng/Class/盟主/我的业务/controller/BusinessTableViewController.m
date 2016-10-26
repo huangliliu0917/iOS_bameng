@@ -1,23 +1,19 @@
 //
-//  MengDouTableViewController.m
+//  BusinessTableViewController.m
 //  bameng
 //
-//  Created by 刘琛 on 16/10/25.
+//  Created by 刘琛 on 16/10/26.
 //  Copyright © 2016年 HT. All rights reserved.
 //
 
-#import "MengDouTableViewController.h"
-#import "MengDouTableViewCell.h"
-
-@interface MengDouTableViewController ()
-@property (strong, nonatomic) IBOutlet UILabel *incomeLabel;
-@property (strong, nonatomic) IBOutlet UILabel *expendLabel;
+#import "BusinessTableViewController.h"
+#import "CustomInfoController.h"
+#import "EncourageTableViewController.h"
+@interface BusinessTableViewController ()
 
 @end
 
-@implementation MengDouTableViewController
-
-static NSString *mengdouIdentify = @"mengdouIdentify";
+@implementation BusinessTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -27,8 +23,6 @@ static NSString *mengdouIdentify = @"mengdouIdentify";
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    [self.tableView registerNib:[UINib nibWithNibName:@"MengDouTableViewCell" bundle:nil] forCellReuseIdentifier:mengdouIdentify];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,28 +32,79 @@ static NSString *mengdouIdentify = @"mengdouIdentify";
 
 #pragma mark - Table view data source
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
+    switch (indexPath.row) {
+        case 0:
+        {
+            //我的订单
+            
+            break;
+        }
+        case 1:
+        {  
+            //客户信息
+            CustomInfoController *custom = [story instantiateViewControllerWithIdentifier:@"CustomInfoController"];
+            custom.selectPage = 1;
+            [self.navigationController pushViewController:custom animated:YES];
+            break;
+        }
+        case 2:
+        {
+            //兑换审核
+            CustomInfoController *custom = [story instantiateViewControllerWithIdentifier:@"CustomInfoController"];
+            custom.selectPage = 2;
+            [self.navigationController pushViewController:custom animated:YES];
+            break;
+        }
+        case 3:
+        {
+            //奖励设置
+            EncourageTableViewController *encourage = [story instantiateViewControllerWithIdentifier:@"EncourageTableViewController"];
+            [self.navigationController pushViewController:encourage animated:YES];
+            break;
+        }
+        case 4:
+        {
+            //我的联盟
+            CustomInfoController *custom = [story instantiateViewControllerWithIdentifier:@"CustomInfoController"];
+            custom.selectPage = 3;
+            [self.navigationController pushViewController:custom animated:YES];
+            break;
+        }
+        case 5:
+        {
+            //我的现金券
+            
+            break;
+        }
+            
+        default:
+            break;
+    }
+}
+
+
 //- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 //#warning Incomplete implementation, return the number of sections
 //    return 0;
 //}
 //
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//#warning Incomplete implementation, return the number of rows
+//    return 0;
+//}
 
-    return 10;
-}
-
-
+/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-    MengDouTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:mengdouIdentify forIndexPath:indexPath];
+    // Configure the cell...
     
     return cell;
 }
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 61;
-}
-
+*/
 
 /*
 // Override to support conditional editing of the table view.

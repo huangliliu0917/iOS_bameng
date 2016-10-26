@@ -1,23 +1,21 @@
 //
-//  MengDouTableViewController.m
+//  DaijiesuanTableViewController.m
 //  bameng
 //
-//  Created by 刘琛 on 16/10/25.
+//  Created by 刘琛 on 16/10/26.
 //  Copyright © 2016年 HT. All rights reserved.
 //
 
-#import "MengDouTableViewController.h"
-#import "MengDouTableViewCell.h"
+#import "DaijiesuanTableViewController.h"
+#import "DaijiesuanTableViewCell.h"
 
-@interface MengDouTableViewController ()
-@property (strong, nonatomic) IBOutlet UILabel *incomeLabel;
-@property (strong, nonatomic) IBOutlet UILabel *expendLabel;
+@interface DaijiesuanTableViewController ()
 
 @end
 
-@implementation MengDouTableViewController
+@implementation DaijiesuanTableViewController
 
-static NSString *mengdouIdentify = @"mengdouIdentify";
+static NSString *daijiesuanIdentify = @"daijiesuanIdentify";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -28,7 +26,7 @@ static NSString *mengdouIdentify = @"mengdouIdentify";
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    [self.tableView registerNib:[UINib nibWithNibName:@"MengDouTableViewCell" bundle:nil] forCellReuseIdentifier:mengdouIdentify];
+    [self.tableView registerNib:[UINib nibWithNibName:@"DaijiesuanTableViewCell" bundle:nil] forCellReuseIdentifier:daijiesuanIdentify];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,7 +40,7 @@ static NSString *mengdouIdentify = @"mengdouIdentify";
 //#warning Incomplete implementation, return the number of sections
 //    return 0;
 //}
-//
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     return 10;
@@ -50,14 +48,11 @@ static NSString *mengdouIdentify = @"mengdouIdentify";
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    MengDouTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:mengdouIdentify forIndexPath:indexPath];
+    DaijiesuanTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:daijiesuanIdentify forIndexPath:indexPath];
+    cell.pageTag = 1;
+
     
     return cell;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 61;
 }
 
 

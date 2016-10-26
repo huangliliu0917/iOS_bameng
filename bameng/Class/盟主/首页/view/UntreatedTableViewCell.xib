@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11535.1" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11535.1" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="111"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="111"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C7Q-do-lvh">
@@ -78,12 +78,18 @@
                                 <color key="textColor" red="0.86274509803921573" green="0.0" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rmo-9Y-rrk" customClass="txzz">
+                                <rect key="frame" x="12" y="12" width="78" height="78"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Rmo-9Y-rrk" firstAttribute="top" secondItem="5sx-uE-I9F" secondAttribute="top" id="3X5-6k-5DD"/>
+                            <constraint firstItem="Rmo-9Y-rrk" firstAttribute="leading" secondItem="5sx-uE-I9F" secondAttribute="leading" id="3kI-tF-C9s"/>
                             <constraint firstItem="6f5-lt-Eyk" firstAttribute="top" secondItem="qm3-Vx-Qec" secondAttribute="top" id="ITS-i7-VOW"/>
                             <constraint firstAttribute="trailing" secondItem="Q3w-M4-Ngx" secondAttribute="trailing" constant="8" id="JH4-Qi-yMg"/>
                             <constraint firstItem="6f5-lt-Eyk" firstAttribute="leading" secondItem="qm3-Vx-Qec" secondAttribute="trailing" constant="2" id="Kax-pB-RtV"/>
+                            <constraint firstItem="Rmo-9Y-rrk" firstAttribute="height" secondItem="5sx-uE-I9F" secondAttribute="height" id="NJP-FB-ekt"/>
                             <constraint firstItem="K0D-b8-Yjr" firstAttribute="top" secondItem="qm3-Vx-Qec" secondAttribute="bottom" constant="9" id="Ob5-dx-0Yo"/>
                             <constraint firstItem="qm3-Vx-Qec" firstAttribute="leading" secondItem="5sx-uE-I9F" secondAttribute="trailing" constant="18" id="PDl-mO-h9p"/>
                             <constraint firstItem="rjT-lw-vVC" firstAttribute="top" secondItem="K0D-b8-Yjr" secondAttribute="top" id="Pek-as-mvo"/>
@@ -97,6 +103,7 @@
                             <constraint firstItem="5sx-uE-I9F" firstAttribute="top" secondItem="C7Q-do-lvh" secondAttribute="top" constant="12" id="l8f-bu-mOD"/>
                             <constraint firstItem="g43-jN-joa" firstAttribute="leading" secondItem="BcZ-Qe-6NF" secondAttribute="trailing" constant="11" id="lfG-Wo-irj"/>
                             <constraint firstItem="rjT-lw-vVC" firstAttribute="leading" secondItem="K0D-b8-Yjr" secondAttribute="trailing" constant="2" id="nx5-2r-iZN"/>
+                            <constraint firstItem="Rmo-9Y-rrk" firstAttribute="width" secondItem="5sx-uE-I9F" secondAttribute="width" id="pZJ-3E-Yjm"/>
                             <constraint firstItem="BcZ-Qe-6NF" firstAttribute="leading" secondItem="K0D-b8-Yjr" secondAttribute="leading" id="pza-sd-I3m"/>
                         </constraints>
                     </view>

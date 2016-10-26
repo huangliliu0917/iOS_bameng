@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11535.1" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11535.1" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="z4D-lm-YRe">
@@ -61,6 +61,9 @@
                         <color key="textColor" red="0.86274509803921573" green="0.0" blue="0.070588235294117646" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MCx-WR-JRJ" customClass="txzz">
+                        <rect key="frame" x="12" y="12" width="60" height="60"/>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="z4D-lm-YRe" secondAttribute="bottom" constant="12" id="6ai-5l-wg4"/>
@@ -70,12 +73,16 @@
                     <constraint firstItem="dsu-I0-h89" firstAttribute="top" secondItem="z4D-lm-YRe" secondAttribute="top" constant="9" id="N8B-9l-66L"/>
                     <constraint firstItem="z4D-lm-YRe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="RUe-jZ-8k4"/>
                     <constraint firstItem="c3h-nB-OcW" firstAttribute="leading" secondItem="jgW-3L-Ycz" secondAttribute="trailing" constant="2" id="S0E-V8-qVK"/>
+                    <constraint firstItem="MCx-WR-JRJ" firstAttribute="leading" secondItem="z4D-lm-YRe" secondAttribute="leading" id="SNb-Ux-gen"/>
                     <constraint firstItem="jgW-3L-Ycz" firstAttribute="top" secondItem="dsu-I0-h89" secondAttribute="bottom" constant="8" id="TRu-9j-0zy"/>
                     <constraint firstItem="c3h-nB-OcW" firstAttribute="top" secondItem="jgW-3L-Ycz" secondAttribute="top" id="Z1i-Ob-wVJ"/>
                     <constraint firstItem="E5V-G0-YZ6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="aHH-0S-8Ln"/>
                     <constraint firstItem="u6R-nr-lwe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="31" id="akj-gm-R2z"/>
                     <constraint firstAttribute="trailing" secondItem="E5V-G0-YZ6" secondAttribute="trailing" id="alQ-7b-1f1"/>
                     <constraint firstItem="dsu-I0-h89" firstAttribute="leading" secondItem="z4D-lm-YRe" secondAttribute="trailing" constant="8" id="nGY-gk-9zz"/>
+                    <constraint firstItem="MCx-WR-JRJ" firstAttribute="width" secondItem="z4D-lm-YRe" secondAttribute="width" id="nKp-ob-HIR"/>
+                    <constraint firstItem="MCx-WR-JRJ" firstAttribute="top" secondItem="z4D-lm-YRe" secondAttribute="top" id="uYE-Fp-i8i"/>
+                    <constraint firstItem="MCx-WR-JRJ" firstAttribute="height" secondItem="z4D-lm-YRe" secondAttribute="height" id="uoN-H9-S64"/>
                     <constraint firstItem="H3j-IY-9e9" firstAttribute="leading" secondItem="dsu-I0-h89" secondAttribute="trailing" constant="2" id="wg3-dO-wbf"/>
                     <constraint firstItem="z4D-lm-YRe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="wnI-7r-fh6"/>
                     <constraint firstAttribute="trailing" secondItem="u6R-nr-lwe" secondAttribute="trailing" constant="17" id="yrA-lQ-ddp"/>

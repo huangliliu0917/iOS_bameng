@@ -1,4 +1,4 @@
-//
+//  奖励设置
 //  EncourageTableViewController.h
 //  bameng
 //

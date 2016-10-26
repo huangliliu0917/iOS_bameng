@@ -1,34 +1,26 @@
 //
-//  MengDouTableViewController.m
+//  IntegralTableViewController.m
 //  bameng
 //
-//  Created by 刘琛 on 16/10/25.
+//  Created by 刘琛 on 16/10/26.
 //  Copyright © 2016年 HT. All rights reserved.
 //
 
-#import "MengDouTableViewController.h"
-#import "MengDouTableViewCell.h"
+#import "IntegralTableViewController.h"
+#import "DaijiesuanTableViewCell.h"
 
-@interface MengDouTableViewController ()
-@property (strong, nonatomic) IBOutlet UILabel *incomeLabel;
-@property (strong, nonatomic) IBOutlet UILabel *expendLabel;
+@interface IntegralTableViewController ()
 
 @end
 
-@implementation MengDouTableViewController
+@implementation IntegralTableViewController
 
-static NSString *mengdouIdentify = @"mengdouIdentify";
+static NSString *integralIdentify = @"integralIdentify";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    [self.tableView registerNib:[UINib nibWithNibName:@"MengDouTableViewCell" bundle:nil] forCellReuseIdentifier:mengdouIdentify];
+     [self.tableView registerNib:[UINib nibWithNibName:@"DaijiesuanTableViewCell" bundle:nil] forCellReuseIdentifier:integralIdentify];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,22 +34,19 @@ static NSString *mengdouIdentify = @"mengdouIdentify";
 //#warning Incomplete implementation, return the number of sections
 //    return 0;
 //}
-//
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
     return 10;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    DaijiesuanTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:integralIdentify forIndexPath:indexPath];
+    cell.pageTag = 2;
     
-    MengDouTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:mengdouIdentify forIndexPath:indexPath];
     
     return cell;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 61;
 }
 
 

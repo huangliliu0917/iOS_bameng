@@ -30,7 +30,20 @@
 		60764AFC1DB8937A0061CC6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60764AFA1DB8937A0061CC6C /* LaunchScreen.storyboard */; };
 		60764B071DB8937A0061CC6C /* bamengTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60764B061DB8937A0061CC6C /* bamengTests.m */; };
 		60764B121DB8937A0061CC6C /* bamengUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60764B111DB8937A0061CC6C /* bamengUITests.m */; };
+		60C230CC1DC0458200E0CD11 /* DaijiesuanTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C230CA1DC0458200E0CD11 /* DaijiesuanTableViewCell.m */; };
+		60C230CD1DC0458200E0CD11 /* DaijiesuanTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60C230CB1DC0458200E0CD11 /* DaijiesuanTableViewCell.xib */; };
+		60C230D01DC04DC900E0CD11 /* DaijiesuanTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C230CF1DC04DC900E0CD11 /* DaijiesuanTableViewController.m */; };
+		60C230D31DC0527D00E0CD11 /* IntegralTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C230D21DC0527D00E0CD11 /* IntegralTableViewController.m */; };
+		60C230D61DC07C9500E0CD11 /* UserInfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C230D51DC07C9500E0CD11 /* UserInfoTableViewController.m */; };
 		60D75A941DBE07FA00E09FF4 /* CustomInformationauditTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D75A931DBE07FA00E09FF4 /* CustomInformationauditTableViewController.m */; };
+		60F3902C1DC0A0F400FFCBF3 /* ExchangeSureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F3902B1DC0A0F400FFCBF3 /* ExchangeSureViewController.m */; };
+		60F3902F1DC0A57300FFCBF3 /* ExchangeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F3902E1DC0A57300FFCBF3 /* ExchangeListViewController.m */; };
+		60F390361DC0A95C00FFCBF3 /* ExchangeListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F390341DC0A95C00FFCBF3 /* ExchangeListTableViewCell.m */; };
+		60F390371DC0A95C00FFCBF3 /* ExchangeListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60F390351DC0A95C00FFCBF3 /* ExchangeListTableViewCell.xib */; };
+		60F3903E1DC0D1AB00FFCBF3 /* BusinessTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F3903D1DC0D1AB00FFCBF3 /* BusinessTableViewController.m */; };
+		60F390421DC0DAE700FFCBF3 /* MyBusinessTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F390401DC0DAE700FFCBF3 /* MyBusinessTableViewCell.m */; };
+		60F390431DC0DAE700FFCBF3 /* MyBusinessTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60F390411DC0DAE700FFCBF3 /* MyBusinessTableViewCell.xib */; };
+		60F390461DC0DE1800FFCBF3 /* MyBusinessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F390451DC0DE1800FFCBF3 /* MyBusinessViewController.m */; };
 		60FC8A8F1DBD9ED9009612C1 /* UntreatedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FC8A8D1DBD9ED9009612C1 /* UntreatedTableViewCell.m */; };
 		60FC8A901DBD9ED9009612C1 /* UntreatedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60FC8A8E1DBD9ED9009612C1 /* UntreatedTableViewCell.xib */; };
 		60FC8A941DBDAD8F009612C1 /* ProcessedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FC8A921DBDAD8F009612C1 /* ProcessedTableViewCell.m */; };
@@ -108,9 +121,32 @@
 		60764B0D1DB8937A0061CC6C /* bamengUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bamengUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		60764B111DB8937A0061CC6C /* bamengUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = bamengUITests.m; sourceTree = "<group>"; };
 		60764B131DB8937A0061CC6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		60C230C91DC0458200E0CD11 /* DaijiesuanTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DaijiesuanTableViewCell.h; sourceTree = "<group>"; };
+		60C230CA1DC0458200E0CD11 /* DaijiesuanTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DaijiesuanTableViewCell.m; sourceTree = "<group>"; };
+		60C230CB1DC0458200E0CD11 /* DaijiesuanTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DaijiesuanTableViewCell.xib; sourceTree = "<group>"; };
+		60C230CE1DC04DC900E0CD11 /* DaijiesuanTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DaijiesuanTableViewController.h; sourceTree = "<group>"; };
+		60C230CF1DC04DC900E0CD11 /* DaijiesuanTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DaijiesuanTableViewController.m; sourceTree = "<group>"; };
+		60C230D11DC0527D00E0CD11 /* IntegralTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntegralTableViewController.h; sourceTree = "<group>"; };
+		60C230D21DC0527D00E0CD11 /* IntegralTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntegralTableViewController.m; sourceTree = "<group>"; };
+		60C230D41DC07C9500E0CD11 /* UserInfoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoTableViewController.h; sourceTree = "<group>"; };
+		60C230D51DC07C9500E0CD11 /* UserInfoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoTableViewController.m; sourceTree = "<group>"; };
 		60D409211DB9B9CE008B621E /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		60D75A921DBE07FA00E09FF4 /* CustomInformationauditTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomInformationauditTableViewController.h; sourceTree = "<group>"; };
 		60D75A931DBE07FA00E09FF4 /* CustomInformationauditTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomInformationauditTableViewController.m; sourceTree = "<group>"; };
+		60F3902A1DC0A0F400FFCBF3 /* ExchangeSureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExchangeSureViewController.h; sourceTree = "<group>"; };
+		60F3902B1DC0A0F400FFCBF3 /* ExchangeSureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExchangeSureViewController.m; sourceTree = "<group>"; };
+		60F3902D1DC0A57300FFCBF3 /* ExchangeListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExchangeListViewController.h; sourceTree = "<group>"; };
+		60F3902E1DC0A57300FFCBF3 /* ExchangeListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExchangeListViewController.m; sourceTree = "<group>"; };
+		60F390331DC0A95C00FFCBF3 /* ExchangeListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExchangeListTableViewCell.h; sourceTree = "<group>"; };
+		60F390341DC0A95C00FFCBF3 /* ExchangeListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExchangeListTableViewCell.m; sourceTree = "<group>"; };
+		60F390351DC0A95C00FFCBF3 /* ExchangeListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExchangeListTableViewCell.xib; sourceTree = "<group>"; };
+		60F3903C1DC0D1AB00FFCBF3 /* BusinessTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessTableViewController.h; sourceTree = "<group>"; };
+		60F3903D1DC0D1AB00FFCBF3 /* BusinessTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessTableViewController.m; sourceTree = "<group>"; };
+		60F3903F1DC0DAE700FFCBF3 /* MyBusinessTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyBusinessTableViewCell.h; sourceTree = "<group>"; };
+		60F390401DC0DAE700FFCBF3 /* MyBusinessTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyBusinessTableViewCell.m; sourceTree = "<group>"; };
+		60F390411DC0DAE700FFCBF3 /* MyBusinessTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyBusinessTableViewCell.xib; sourceTree = "<group>"; };
+		60F390441DC0DE1800FFCBF3 /* MyBusinessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyBusinessViewController.h; sourceTree = "<group>"; };
+		60F390451DC0DE1800FFCBF3 /* MyBusinessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyBusinessViewController.m; sourceTree = "<group>"; };
 		60FC8A8C1DBD9ED9009612C1 /* UntreatedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UntreatedTableViewCell.h; sourceTree = "<group>"; };
 		60FC8A8D1DBD9ED9009612C1 /* UntreatedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UntreatedTableViewCell.m; sourceTree = "<group>"; };
 		60FC8A8E1DBD9ED9009612C1 /* UntreatedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UntreatedTableViewCell.xib; sourceTree = "<group>"; };
@@ -221,9 +257,9 @@
 			children = (
 				603A39AA1DB9E62F00DC1ADA /* 盟主TAB */,
 				603A39AB1DB9E62F00DC1ADA /* 首页 */,
-				603A39AF1DB9E62F00DC1ADA /* 我的业务 */,
+				603A39B71DB9E62F00DC1ADA /* 资讯 */,
+				60F390381DC0B17700FFCBF3 /* 我的业务 */,
 				603A39B31DB9E62F00DC1ADA /* 我的账户 */,
-				603A39B71DB9E62F00DC1ADA /* 咨询 */,
 			);
 			path = "盟主";
 			sourceTree = "<group>";
@@ -304,37 +340,6 @@
 			path = view;
 			sourceTree = "<group>";
 		};
-		603A39AF1DB9E62F00DC1ADA /* 我的业务 */ = {
-			isa = PBXGroup;
-			children = (
-				603A39B01DB9E62F00DC1ADA /* controller */,
-				603A39B11DB9E62F00DC1ADA /* model */,
-				603A39B21DB9E62F00DC1ADA /* view */,
-			);
-			path = "我的业务";
-			sourceTree = "<group>";
-		};
-		603A39B01DB9E62F00DC1ADA /* controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = controller;
-			sourceTree = "<group>";
-		};
-		603A39B11DB9E62F00DC1ADA /* model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = model;
-			sourceTree = "<group>";
-		};
-		603A39B21DB9E62F00DC1ADA /* view */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = view;
-			sourceTree = "<group>";
-		};
 		603A39B31DB9E62F00DC1ADA /* 我的账户 */ = {
 			isa = PBXGroup;
 			children = (
@@ -356,6 +361,16 @@
 				60FF24141DBF4FDF00E70A09 /* MyWalletTableViewController.m */,
 				60FF24191DBF5D5000E70A09 /* MengDouTableViewController.h */,
 				60FF241A1DBF5D5000E70A09 /* MengDouTableViewController.m */,
+				60C230CE1DC04DC900E0CD11 /* DaijiesuanTableViewController.h */,
+				60C230CF1DC04DC900E0CD11 /* DaijiesuanTableViewController.m */,
+				60C230D11DC0527D00E0CD11 /* IntegralTableViewController.h */,
+				60C230D21DC0527D00E0CD11 /* IntegralTableViewController.m */,
+				60C230D41DC07C9500E0CD11 /* UserInfoTableViewController.h */,
+				60C230D51DC07C9500E0CD11 /* UserInfoTableViewController.m */,
+				60F3902A1DC0A0F400FFCBF3 /* ExchangeSureViewController.h */,
+				60F3902B1DC0A0F400FFCBF3 /* ExchangeSureViewController.m */,
+				60F3902D1DC0A57300FFCBF3 /* ExchangeListViewController.h */,
+				60F3902E1DC0A57300FFCBF3 /* ExchangeListViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -373,17 +388,24 @@
 				60FF241C1DBF5D7600E70A09 /* MengDouTableViewCell.h */,
 				60FF241D1DBF5D7600E70A09 /* MengDouTableViewCell.m */,
 				60FF241E1DBF5D7600E70A09 /* MengDouTableViewCell.xib */,
+				60C230C91DC0458200E0CD11 /* DaijiesuanTableViewCell.h */,
+				60C230CA1DC0458200E0CD11 /* DaijiesuanTableViewCell.m */,
+				60C230CB1DC0458200E0CD11 /* DaijiesuanTableViewCell.xib */,
+				60F390331DC0A95C00FFCBF3 /* ExchangeListTableViewCell.h */,
+				60F390341DC0A95C00FFCBF3 /* ExchangeListTableViewCell.m */,
+				60F390351DC0A95C00FFCBF3 /* ExchangeListTableViewCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
 		};
-		603A39B71DB9E62F00DC1ADA /* 咨询 */ = {
+		603A39B71DB9E62F00DC1ADA /* 资讯 */ = {
 			isa = PBXGroup;
 			children = (
 				603A39B81DB9E62F00DC1ADA /* controller */,
 				603A39B91DB9E62F00DC1ADA /* model */,
 				603A39BA1DB9E62F00DC1ADA /* view */,
 			);
+			name = "资讯";
 			path = "咨询";
 			sourceTree = "<group>";
 		};
@@ -492,6 +514,44 @@
 				60764B131DB8937A0061CC6C /* Info.plist */,
 			);
 			path = bamengUITests;
+			sourceTree = "<group>";
+		};
+		60F390381DC0B17700FFCBF3 /* 我的业务 */ = {
+			isa = PBXGroup;
+			children = (
+				60F390391DC0B17700FFCBF3 /* controller */,
+				60F3903A1DC0B17700FFCBF3 /* model */,
+				60F3903B1DC0B17700FFCBF3 /* view */,
+			);
+			path = "我的业务";
+			sourceTree = "<group>";
+		};
+		60F390391DC0B17700FFCBF3 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				60F3903C1DC0D1AB00FFCBF3 /* BusinessTableViewController.h */,
+				60F3903D1DC0D1AB00FFCBF3 /* BusinessTableViewController.m */,
+				60F390441DC0DE1800FFCBF3 /* MyBusinessViewController.h */,
+				60F390451DC0DE1800FFCBF3 /* MyBusinessViewController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		60F3903A1DC0B17700FFCBF3 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		60F3903B1DC0B17700FFCBF3 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				60F3903F1DC0DAE700FFCBF3 /* MyBusinessTableViewCell.h */,
+				60F390401DC0DAE700FFCBF3 /* MyBusinessTableViewCell.m */,
+				60F390411DC0DAE700FFCBF3 /* MyBusinessTableViewCell.xib */,
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 		EF04388A1DBAFD5E00CA8902 /* HuotuScreate */ = {
@@ -620,15 +680,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60F390371DC0A95C00FFCBF3 /* ExchangeListTableViewCell.xib in Resources */,
 				60764AFC1DB8937A0061CC6C /* LaunchScreen.storyboard in Resources */,
 				60362BF51DBB3B2F00A58D4D /* InfoPlist.strings in Resources */,
 				60FC8A901DBD9ED9009612C1 /* UntreatedTableViewCell.xib in Resources */,
 				60FF24201DBF5D7600E70A09 /* MengDouTableViewCell.xib in Resources */,
 				60764AF91DB8937A0061CC6C /* Assets.xcassets in Resources */,
+				60F390431DC0DAE700FFCBF3 /* MyBusinessTableViewCell.xib in Resources */,
 				603A39CC1DB9EEBB00DC1ADA /* HomeHeadView.xib in Resources */,
 				60FC8A951DBDAD8F009612C1 /* ProcessedTableViewCell.xib in Resources */,
 				60764AF71DB8937A0061CC6C /* Main.storyboard in Resources */,
 				603A39BC1DB9E72400DC1ADA /* MengZhu.storyboard in Resources */,
+				60C230CD1DC0458200E0CD11 /* DaijiesuanTableViewCell.xib in Resources */,
 				6033D7AB1DBB47B000B9B4DA /* HomeMengzhuTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -784,23 +847,33 @@
 				60764AF41DB8937A0061CC6C /* ViewController.m in Sources */,
 				60FF241B1DBF5D5000E70A09 /* MengDouTableViewController.m in Sources */,
 				60FF24121DBF3EA400E70A09 /* PushWebViewController.m in Sources */,
+				60F390461DC0DE1800FFCBF3 /* MyBusinessViewController.m in Sources */,
 				60FF24151DBF4FDF00E70A09 /* MyWalletTableViewController.m in Sources */,
 				60FC8A981DBDDD6B009612C1 /* SubmitUserInfoTableViewController.m in Sources */,
+				60F3903E1DC0D1AB00FFCBF3 /* BusinessTableViewController.m in Sources */,
 				60FF24091DBEFC3100E70A09 /* EncourageTableViewController.m in Sources */,
 				60FF241F1DBF5D7600E70A09 /* MengDouTableViewCell.m in Sources */,
 				603E924F1DBDEA87000E3069 /* CustomDetailsTableViewController.m in Sources */,
+				60C230D61DC07C9500E0CD11 /* UserInfoTableViewController.m in Sources */,
 				6033D7AA1DBB47B000B9B4DA /* HomeMengzhuTableViewCell.m in Sources */,
+				60C230D31DC0527D00E0CD11 /* IntegralTableViewController.m in Sources */,
 				60764AF11DB8937A0061CC6C /* AppDelegate.m in Sources */,
+				60F3902F1DC0A57300FFCBF3 /* ExchangeListViewController.m in Sources */,
 				60764AEE1DB8937A0061CC6C /* main.m in Sources */,
+				60F390421DC0DAE700FFCBF3 /* MyBusinessTableViewCell.m in Sources */,
 				603A39CA1DB9EE3E00DC1ADA /* CircleBannerView.m in Sources */,
+				60C230CC1DC0458200E0CD11 /* DaijiesuanTableViewCell.m in Sources */,
 				603A39C21DB9ECCF00DC1ADA /* HomeController.m in Sources */,
 				60FC8A8F1DBD9ED9009612C1 /* UntreatedTableViewCell.m in Sources */,
 				603A39BF1DB9EC2D00DC1ADA /* HomeNavViewController.m in Sources */,
+				60C230D01DC04DC900E0CD11 /* DaijiesuanTableViewController.m in Sources */,
+				60F390361DC0A95C00FFCBF3 /* ExchangeListTableViewCell.m in Sources */,
 				60D75A941DBE07FA00E09FF4 /* CustomInformationauditTableViewController.m in Sources */,
 				60FF240F1DBF328800E70A09 /* SettingTableViewController.m in Sources */,
 				603A39C51DB9ED7300DC1ADA /* HomeHeadView.m in Sources */,
 				6033D7A21DBB434100B9B4DA /* MengzhuTabbarController.m in Sources */,
 				6033D7AE1DBB5FEF00B9B4DA /* CustomInfoController.m in Sources */,
+				60F3902C1DC0A0F400FFCBF3 /* ExchangeSureViewController.m in Sources */,
 				EF0438901DBB050600CA8902 /* HTMyContainAFN.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

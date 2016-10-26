@@ -1,23 +1,18 @@
 //
-//  MengDouTableViewController.m
+//  UserInfoTableViewController.m
 //  bameng
 //
-//  Created by 刘琛 on 16/10/25.
+//  Created by 刘琛 on 16/10/26.
 //  Copyright © 2016年 HT. All rights reserved.
 //
 
-#import "MengDouTableViewController.h"
-#import "MengDouTableViewCell.h"
+#import "UserInfoTableViewController.h"
 
-@interface MengDouTableViewController ()
-@property (strong, nonatomic) IBOutlet UILabel *incomeLabel;
-@property (strong, nonatomic) IBOutlet UILabel *expendLabel;
+@interface UserInfoTableViewController ()
 
 @end
 
-@implementation MengDouTableViewController
-
-static NSString *mengdouIdentify = @"mengdouIdentify";
+@implementation UserInfoTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -28,7 +23,7 @@ static NSString *mengdouIdentify = @"mengdouIdentify";
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    [self.tableView registerNib:[UINib nibWithNibName:@"MengDouTableViewCell" bundle:nil] forCellReuseIdentifier:mengdouIdentify];
+//    self.edgesForExtendedLayout = UIRectEdgeNone;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,28 +33,28 @@ static NSString *mengdouIdentify = @"mengdouIdentify";
 
 #pragma mark - Table view data source
 
+
+
+
 //- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 //#warning Incomplete implementation, return the number of sections
 //    return 0;
 //}
 //
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//#warning Incomplete implementation, return the number of rows
+//    return 0;
+//}
 
-    return 10;
-}
-
-
+/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-    MengDouTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:mengdouIdentify forIndexPath:indexPath];
+    // Configure the cell...
     
     return cell;
 }
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 61;
-}
-
+*/
 
 /*
 // Override to support conditional editing of the table view.
