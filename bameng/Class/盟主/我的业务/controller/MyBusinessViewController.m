@@ -7,21 +7,136 @@
 //
 
 #import "MyBusinessViewController.h"
+#import "MyBusinessTableViewCell.h"
+#import "OrderDetailTableViewController.h"
 
-@interface MyBusinessViewController ()
+@interface MyBusinessViewController ()<UITableViewDelegate,UITableViewDataSource>
+@property (strong, nonatomic) IBOutlet UIView *all;
+@property (strong, nonatomic) IBOutlet UIView *unfilledOrders;
+@property (strong, nonatomic) IBOutlet UIView *clinchOrders;
+@property (strong, nonatomic) IBOutlet UIView *chargeBack;
+@property (strong, nonatomic) IBOutlet UITableView *table;
+@property (strong, nonatomic) IBOutlet UIView *chooserView;
+@property (strong, nonatomic) IBOutlet UILabel *allLabel;
+@property (strong, nonatomic) IBOutlet UILabel *unfilledOrdersLabel;
+@property (strong, nonatomic) IBOutlet UILabel *clinchOrdersLabel;
+@property (strong, nonatomic) IBOutlet UILabel *chargeBackLabel;
+
+@property (nonatomic, strong) UIView *slider;
+@property (nonatomic, assign) NSInteger selectPage;
 
 @end
 
 @implementation MyBusinessViewController
 
+static NSString *myBusinessIdentify = @"myBusinessIdentify";
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.selectPage = 1;
+    self.slider = [[UIView alloc] initWithFrame:CGRectMake((KScreenWidth / 4 - 40) / 2, 33, 40, 2)];
+    self.slider.backgroundColor = [UIColor colorWithRed:204/255.0 green:158/255.0 blue:95/255.0 alpha:1];
+    [self.chooserView addSubview:self.slider];
+
+    [self setSelectViewAction];
+    
+    [self.table registerNib:[UINib nibWithNibName:@"MyBusinessTableViewCell" bundle:nil] forCellReuseIdentifier:myBusinessIdentify];
+    self.table.delegate = self;
+    self.table.dataSource = self;
+    self.table.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.table removeSpaces];
+}
+
+//设置选择点击事件
+- (void)setSelectViewAction {
+    __weak MyBusinessViewController *wself = self;
+    
+    [self.all bk_whenTapped:^{
+        if (self.selectPage != 1) {
+            
+            self.selectPage = 1;
+            [UIView animateWithDuration:0.25 animations:^{
+                [wself setAllLabelsTitleColorBlack];
+                wself.allLabel.textColor = MainColor;
+                self.slider.frame =  CGRectMake((KScreenWidth / 4 - 40) / 2 + (self.selectPage - 1) * KScreenWidth / 4, 33, 40, 2);
+            }];
+            
+        }
+    }];
+    
+    [self.unfilledOrders bk_whenTapped:^{
+        if (self.selectPage != 1) {
+            
+            self.selectPage = 2;
+            [UIView animateWithDuration:0.25 animations:^{
+                [wself setAllLabelsTitleColorBlack];
+                wself.unfilledOrdersLabel.textColor = MainColor;
+                self.slider.frame =  CGRectMake((KScreenWidth / 4 - 40) / 2 + (self.selectPage - 1) * KScreenWidth / 4, 33, 40, 2);
+            }];
+            
+        }
+    }];
+    
+    [self.clinchOrders bk_whenTapped:^{
+        if (self.selectPage != 1) {
+            
+            self.selectPage = 3;
+            [UIView animateWithDuration:0.25 animations:^{
+                [wself setAllLabelsTitleColorBlack];
+                wself.clinchOrdersLabel.textColor = MainColor;
+                self.slider.frame =  CGRectMake((KScreenWidth / 4 - 40) / 2 + (self.selectPage - 1) * KScreenWidth / 4, 33, 40, 2);
+            }];
+            
+        }
+    }];
+    
+    [self.chargeBack bk_whenTapped:^{
+        if (self.selectPage != 1) {
+            
+            self.selectPage = 4;
+            [UIView animateWithDuration:0.25 animations:^{
+                [wself setAllLabelsTitleColorBlack];
+                wself.chargeBackLabel.textColor = MainColor;
+                self.slider.frame =  CGRectMake((KScreenWidth / 4 - 40) / 2 + (self.selectPage - 1) * KScreenWidth / 4, 33, 40, 2);
+            }];
+            
+        }
+    }];
+}
+
+//设置全部文字黑色
+- (void)setAllLabelsTitleColorBlack {
+    self.allLabel.textColor = [UIColor blackColor];
+    self.unfilledOrdersLabel.textColor = [UIColor blackColor];
+    self.clinchOrdersLabel.textColor = [UIColor blackColor];
+    self.chargeBackLabel.textColor = [UIColor blackColor];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark tableDelegate
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 10;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 104;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    MyBusinessTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:myBusinessIdentify forIndexPath:indexPath];
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
+    OrderDetailTableViewController *ordor = [story instantiateViewControllerWithIdentifier:@"OrderDetailTableViewController"];
+    [self.navigationController pushViewController:ordor animated:YES];
 }
 
 /*

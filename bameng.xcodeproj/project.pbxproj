@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0ECACC7AB1F44CC7EA4C676C /* libPods-bameng.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA4A0725E52CF05F19286687 /* libPods-bameng.a */; };
+		600DF37A1DC21BA6000296E8 /* OrderDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600DF3791DC21BA6000296E8 /* OrderDetailTableViewController.m */; };
+		600DF37D1DC22CB7000296E8 /* PostOrderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600DF37C1DC22CB7000296E8 /* PostOrderTableViewController.m */; };
 		60182506B38C98760D838C39 /* libPods-bamengTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D7B057FA8CF46AB14B81D77 /* libPods-bamengTests.a */; };
 		6033D7A21DBB434100B9B4DA /* MengzhuTabbarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6033D7A11DBB434100B9B4DA /* MengzhuTabbarController.m */; };
 		6033D7A61DBB45D700B9B4DA /* UITableView+CJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 6033D7A51DBB45D700B9B4DA /* UITableView+CJ.m */; };
@@ -35,6 +37,9 @@
 		60C230D01DC04DC900E0CD11 /* DaijiesuanTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C230CF1DC04DC900E0CD11 /* DaijiesuanTableViewController.m */; };
 		60C230D31DC0527D00E0CD11 /* IntegralTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C230D21DC0527D00E0CD11 /* IntegralTableViewController.m */; };
 		60C230D61DC07C9500E0CD11 /* UserInfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C230D51DC07C9500E0CD11 /* UserInfoTableViewController.m */; };
+		60D18DF61DC1E0B200E0C839 /* CashCouponTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D18DF41DC1E0B200E0C839 /* CashCouponTableViewCell.m */; };
+		60D18DF71DC1E0B200E0C839 /* CashCouponTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60D18DF51DC1E0B200E0C839 /* CashCouponTableViewCell.xib */; };
+		60D18DFA1DC1EB2600E0C839 /* CashCouponViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D18DF91DC1EB2600E0C839 /* CashCouponViewController.m */; };
 		60D75A941DBE07FA00E09FF4 /* CustomInformationauditTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D75A931DBE07FA00E09FF4 /* CustomInformationauditTableViewController.m */; };
 		60F3902C1DC0A0F400FFCBF3 /* ExchangeSureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F3902B1DC0A0F400FFCBF3 /* ExchangeSureViewController.m */; };
 		60F3902F1DC0A57300FFCBF3 /* ExchangeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F3902E1DC0A57300FFCBF3 /* ExchangeListViewController.m */; };
@@ -83,6 +88,10 @@
 		29BEC5EF9948E97E135A1D0C /* Pods-bameng.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bameng.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bameng/Pods-bameng.debug.xcconfig"; sourceTree = "<group>"; };
 		2E089ECC66D0C7C9DE572EA1 /* Pods-bamengTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bamengTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bamengTests/Pods-bamengTests.debug.xcconfig"; sourceTree = "<group>"; };
 		34F28DCCF0229D29337C4518 /* Pods-bamengTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bamengTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-bamengTests/Pods-bamengTests.release.xcconfig"; sourceTree = "<group>"; };
+		600DF3781DC21BA6000296E8 /* OrderDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailTableViewController.h; sourceTree = "<group>"; };
+		600DF3791DC21BA6000296E8 /* OrderDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDetailTableViewController.m; sourceTree = "<group>"; };
+		600DF37B1DC22CB7000296E8 /* PostOrderTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostOrderTableViewController.h; sourceTree = "<group>"; };
+		600DF37C1DC22CB7000296E8 /* PostOrderTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostOrderTableViewController.m; sourceTree = "<group>"; };
 		6033D7A01DBB434100B9B4DA /* MengzhuTabbarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MengzhuTabbarController.h; sourceTree = "<group>"; };
 		6033D7A11DBB434100B9B4DA /* MengzhuTabbarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MengzhuTabbarController.m; sourceTree = "<group>"; };
 		6033D7A41DBB45D700B9B4DA /* UITableView+CJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+CJ.h"; sourceTree = "<group>"; };
@@ -130,6 +139,11 @@
 		60C230D21DC0527D00E0CD11 /* IntegralTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntegralTableViewController.m; sourceTree = "<group>"; };
 		60C230D41DC07C9500E0CD11 /* UserInfoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoTableViewController.h; sourceTree = "<group>"; };
 		60C230D51DC07C9500E0CD11 /* UserInfoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoTableViewController.m; sourceTree = "<group>"; };
+		60D18DF31DC1E0B200E0C839 /* CashCouponTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CashCouponTableViewCell.h; sourceTree = "<group>"; };
+		60D18DF41DC1E0B200E0C839 /* CashCouponTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CashCouponTableViewCell.m; sourceTree = "<group>"; };
+		60D18DF51DC1E0B200E0C839 /* CashCouponTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CashCouponTableViewCell.xib; sourceTree = "<group>"; };
+		60D18DF81DC1EB2600E0C839 /* CashCouponViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CashCouponViewController.h; sourceTree = "<group>"; };
+		60D18DF91DC1EB2600E0C839 /* CashCouponViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CashCouponViewController.m; sourceTree = "<group>"; };
 		60D409211DB9B9CE008B621E /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		60D75A921DBE07FA00E09FF4 /* CustomInformationauditTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomInformationauditTableViewController.h; sourceTree = "<group>"; };
 		60D75A931DBE07FA00E09FF4 /* CustomInformationauditTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomInformationauditTableViewController.m; sourceTree = "<group>"; };
@@ -533,6 +547,12 @@
 				60F3903D1DC0D1AB00FFCBF3 /* BusinessTableViewController.m */,
 				60F390441DC0DE1800FFCBF3 /* MyBusinessViewController.h */,
 				60F390451DC0DE1800FFCBF3 /* MyBusinessViewController.m */,
+				60D18DF81DC1EB2600E0C839 /* CashCouponViewController.h */,
+				60D18DF91DC1EB2600E0C839 /* CashCouponViewController.m */,
+				600DF3781DC21BA6000296E8 /* OrderDetailTableViewController.h */,
+				600DF3791DC21BA6000296E8 /* OrderDetailTableViewController.m */,
+				600DF37B1DC22CB7000296E8 /* PostOrderTableViewController.h */,
+				600DF37C1DC22CB7000296E8 /* PostOrderTableViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -550,6 +570,9 @@
 				60F3903F1DC0DAE700FFCBF3 /* MyBusinessTableViewCell.h */,
 				60F390401DC0DAE700FFCBF3 /* MyBusinessTableViewCell.m */,
 				60F390411DC0DAE700FFCBF3 /* MyBusinessTableViewCell.xib */,
+				60D18DF31DC1E0B200E0C839 /* CashCouponTableViewCell.h */,
+				60D18DF41DC1E0B200E0C839 /* CashCouponTableViewCell.m */,
+				60D18DF51DC1E0B200E0C839 /* CashCouponTableViewCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -688,6 +711,7 @@
 				60764AF91DB8937A0061CC6C /* Assets.xcassets in Resources */,
 				60F390431DC0DAE700FFCBF3 /* MyBusinessTableViewCell.xib in Resources */,
 				603A39CC1DB9EEBB00DC1ADA /* HomeHeadView.xib in Resources */,
+				60D18DF71DC1E0B200E0C839 /* CashCouponTableViewCell.xib in Resources */,
 				60FC8A951DBDAD8F009612C1 /* ProcessedTableViewCell.xib in Resources */,
 				60764AF71DB8937A0061CC6C /* Main.storyboard in Resources */,
 				603A39BC1DB9E72400DC1ADA /* MengZhu.storyboard in Resources */,
@@ -846,7 +870,9 @@
 				60FF240C1DBF0A4300E70A09 /* MyAccountTableViewController.m in Sources */,
 				60764AF41DB8937A0061CC6C /* ViewController.m in Sources */,
 				60FF241B1DBF5D5000E70A09 /* MengDouTableViewController.m in Sources */,
+				600DF37A1DC21BA6000296E8 /* OrderDetailTableViewController.m in Sources */,
 				60FF24121DBF3EA400E70A09 /* PushWebViewController.m in Sources */,
+				600DF37D1DC22CB7000296E8 /* PostOrderTableViewController.m in Sources */,
 				60F390461DC0DE1800FFCBF3 /* MyBusinessViewController.m in Sources */,
 				60FF24151DBF4FDF00E70A09 /* MyWalletTableViewController.m in Sources */,
 				60FC8A981DBDDD6B009612C1 /* SubmitUserInfoTableViewController.m in Sources */,
@@ -862,6 +888,7 @@
 				60764AEE1DB8937A0061CC6C /* main.m in Sources */,
 				60F390421DC0DAE700FFCBF3 /* MyBusinessTableViewCell.m in Sources */,
 				603A39CA1DB9EE3E00DC1ADA /* CircleBannerView.m in Sources */,
+				60D18DF61DC1E0B200E0C839 /* CashCouponTableViewCell.m in Sources */,
 				60C230CC1DC0458200E0CD11 /* DaijiesuanTableViewCell.m in Sources */,
 				603A39C21DB9ECCF00DC1ADA /* HomeController.m in Sources */,
 				60FC8A8F1DBD9ED9009612C1 /* UntreatedTableViewCell.m in Sources */,
@@ -869,6 +896,7 @@
 				60C230D01DC04DC900E0CD11 /* DaijiesuanTableViewController.m in Sources */,
 				60F390361DC0A95C00FFCBF3 /* ExchangeListTableViewCell.m in Sources */,
 				60D75A941DBE07FA00E09FF4 /* CustomInformationauditTableViewController.m in Sources */,
+				60D18DFA1DC1EB2600E0C839 /* CashCouponViewController.m in Sources */,
 				60FF240F1DBF328800E70A09 /* SettingTableViewController.m in Sources */,
 				603A39C51DB9ED7300DC1ADA /* HomeHeadView.m in Sources */,
 				6033D7A21DBB434100B9B4DA /* MengzhuTabbarController.m in Sources */,
