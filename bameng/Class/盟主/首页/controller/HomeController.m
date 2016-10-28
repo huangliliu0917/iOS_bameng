@@ -11,6 +11,7 @@
 #import "CustomInfoController.h"
 #import "EncourageTableViewController.h"
 #import "MyWalletTableViewController.h"
+#import "NewOrderTableViewController.h"
 
 @interface HomeController ()
 
@@ -34,7 +35,11 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
     [self.table registerNib:[UINib nibWithNibName:@"HomeMengzhuTableViewCell" bundle:nil] forCellReuseIdentifier:homeTableCellIdentify];
     [self.view addSubview:self.table];
     
+    [self setHeadActions];
     
+}
+
+- (void)setHeadActions {
     UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
     
     
@@ -43,7 +48,12 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
     [head.zhanghu bk_whenTapped:^{
         MyWalletTableViewController *wallet = [story instantiateViewControllerWithIdentifier:@"MyWalletTableViewController"];
         [self.navigationController pushViewController:wallet animated:YES];
-        }];
+    }];
+    
+    [head.neworder bk_whenTapped:^{
+        NewOrderTableViewController *newOrder = [story instantiateViewControllerWithIdentifier:@"NewOrderTableViewController"];
+        [self.navigationController pushViewController:newOrder animated:YES];
+    }];
     
     [head.custom bk_whenTapped:^{
         CustomInfoController *custom = [story instantiateViewControllerWithIdentifier:@"CustomInfoController"];
@@ -54,7 +64,7 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
         CustomInfoController *custom = [story instantiateViewControllerWithIdentifier:@"CustomInfoController"];
         custom.selectPage = 3;
         [self.navigationController pushViewController:custom animated:YES];
-
+        
     }];
     [head.exchange bk_whenTapped:^{
         CustomInfoController *custom = [story instantiateViewControllerWithIdentifier:@"CustomInfoController"];

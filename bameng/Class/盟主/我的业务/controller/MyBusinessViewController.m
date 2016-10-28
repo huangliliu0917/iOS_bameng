@@ -9,6 +9,7 @@
 #import "MyBusinessViewController.h"
 #import "MyBusinessTableViewCell.h"
 #import "OrderDetailTableViewController.h"
+#import "NewOrderTableViewController.h"
 
 @interface MyBusinessViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UIView *all;
@@ -33,6 +34,9 @@ static NSString *myBusinessIdentify = @"myBusinessIdentify";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    self.title = @"我的订单";
+    
     self.selectPage = 1;
     self.slider = [[UIView alloc] initWithFrame:CGRectMake((KScreenWidth / 4 - 40) / 2, 33, 40, 2)];
     self.slider.backgroundColor = [UIColor colorWithRed:204/255.0 green:158/255.0 blue:95/255.0 alpha:1];
@@ -45,6 +49,14 @@ static NSString *myBusinessIdentify = @"myBusinessIdentify";
     self.table.dataSource = self;
     self.table.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.table removeSpaces];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage imageNamed:@"tj"] style:UIBarButtonItemStylePlain handler:^(id sender) {
+        UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
+        NewOrderTableViewController *newOrder = [story instantiateViewControllerWithIdentifier:@"NewOrderTableViewController"];
+        [self.navigationController pushViewController:newOrder animated:YES];
+        
+        
+    }];
 }
 
 //设置选择点击事件
@@ -134,6 +146,8 @@ static NSString *myBusinessIdentify = @"myBusinessIdentify";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    
     UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
     OrderDetailTableViewController *ordor = [story instantiateViewControllerWithIdentifier:@"OrderDetailTableViewController"];
     [self.navigationController pushViewController:ordor animated:YES];

@@ -12,6 +12,8 @@
 #import "SubmitUserInfoTableViewController.h"
 #import "CustomDetailsTableViewController.h"
 #import "CustomInformationauditTableViewController.h"
+#import "AllyReviewTableViewController.h"
+#import "AllyInfomationTableViewController.h"
 
 @interface CustomInfoController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -228,7 +230,15 @@ static NSString *processedIdentify = @"processedIdentify";
         
         
     }else if (self.selectPage == 3) {
-        
+        UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
+
+        if (_isUntreated) {
+            AllyReviewTableViewController *review = [story instantiateViewControllerWithIdentifier:@"AllyReviewTableViewController"];
+            [self.navigationController pushViewController:review animated:YES];
+        }else {
+            AllyInfomationTableViewController *info = [story instantiateViewControllerWithIdentifier:@"AllyInfomationTableViewController"];
+            [self.navigationController pushViewController:info animated:YES];
+        }
         
     }
 }
