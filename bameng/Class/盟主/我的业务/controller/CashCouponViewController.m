@@ -24,6 +24,7 @@ static NSString *cashCouponIdentify = @"cashCouponIdentify";
     [self.table registerNib:[UINib nibWithNibName:@"CashCouponTableViewCell" bundle:nil] forCellReuseIdentifier:cashCouponIdentify];
     [self.table removeSpaces];
     self.table.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {

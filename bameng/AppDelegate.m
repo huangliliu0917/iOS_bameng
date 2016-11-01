@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "HTMyContainAFN.h"
 #import "MengzhuTabbarController.h"
-
+#import "MengYouTabbarViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -22,11 +22,22 @@
     
      [[UITabBarItem appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName:[UIColor colorWithRed:204/255.0 green:158/255.0 blue:95/255.0 alpha:1]} forState:UIControlStateSelected];
     
+    [[NSUserDefaults standardUserDefaults] setObject:isMengYou forKey:mengyouIdentify];
     
-    self.window = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight)];
-    UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
-    MengzhuTabbarController *tabbar = [story instantiateViewControllerWithIdentifier:@"MengzhuTabbarController"];
-    self.window.rootViewController = tabbar;
+    NSString *identify = [[NSUserDefaults standardUserDefaults] objectForKey:mengyouIdentify];
+    if ([identify isEqualToString:isMengYou]) {
+        self.window = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight)];
+        UIStoryboard *mengyou = [UIStoryboard storyboardWithName:@"MengYou" bundle:nil];
+        MengYouTabbarViewController *you = [mengyou instantiateViewControllerWithIdentifier:@"MengYouTabbarViewController"];
+        self.window.rootViewController = you;
+    }else {
+        self.window = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight)];
+        UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
+        MengzhuTabbarController *tabbar = [story instantiateViewControllerWithIdentifier:@"MengzhuTabbarController"];
+        self.window.rootViewController = tabbar;
+    }
+    
+    
     [self.window makeKeyAndVisible];
     
     return YES;

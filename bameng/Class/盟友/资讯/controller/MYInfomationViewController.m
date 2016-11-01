@@ -1,19 +1,18 @@
 //
-//  MengZhuInfomationViewController.m
+//  MYInfomationTableViewController.m
 //  bameng
 //
-//  Created by 刘琛 on 16/10/28.
+//  Created by 刘琛 on 16/11/1.
 //  Copyright © 2016年 HT. All rights reserved.
 //
 
-#import "MengZhuInfomationViewController.h"
-#import "CircleBannerView.h"
+#import "MYInfomationViewController.h"
+#import "MYInfomationTableViewCell.h"
 #import "MengZhuInfomationBigTableViewCell.h"
 #import "MengZhuInfomationSmallTableViewCell.h"
-#import "AddNewInfomationTableViewController.h"
-#import "MYInfomationTableViewCell.h"
+#import "CircleBannerView.h"
 
-@interface MengZhuInfomationViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface MYInfomationViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UITableView *table;
 @property (nonatomic, strong) CircleBannerView *circleView;
 
@@ -33,11 +32,9 @@
 
 @property (nonatomic, strong) UIView *slider;
 @property (nonatomic, assign) NSInteger selectPage;
-
-
 @end
 
-@implementation MengZhuInfomationViewController
+@implementation MYInfomationViewController
 
 static NSString *zixunBigIdentify = @"zixunBigIdentify";
 static NSString *zixunSmallIdentify = @"zixunSmallIdentify";
@@ -64,19 +61,19 @@ static NSString *infomationIdentify = @"infomationIdentify";
     [self.table removeSpaces];
     [self allocTableHeadView];
     
-    __weak MengZhuInfomationViewController *wself = self;
+    __weak MYInfomationViewController *wself = self;
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage imageNamed:@"tj"] style:UIBarButtonItemStylePlain handler:^(id sender) {
-        UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
-        AddNewInfomationTableViewController *add = [story instantiateViewControllerWithIdentifier:@"AddNewInfomationTableViewController"];
-        [wself.navigationController pushViewController:add animated:YES];
-    }];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage imageNamed:@"tj"] style:UIBarButtonItemStylePlain handler:^(id sender) {
+//        UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
+//        AddNewInfomationTableViewController *add = [story instantiateViewControllerWithIdentifier:@"AddNewInfomationTableViewController"];
+//        [wself.navigationController pushViewController:add animated:YES];
+//    }];
     
 }
 
 //设置选择点击事件
 - (void)setSelectViewAction {
-    __weak MengZhuInfomationViewController *wself = self;
+    __weak MYInfomationViewController *wself = self;
     
     self.jituan.userInteractionEnabled = YES;
     [self.jituan bk_whenTapped:^{
@@ -196,7 +193,5 @@ static NSString *infomationIdentify = @"infomationIdentify";
         }
     }
 }
-
-
 
 @end

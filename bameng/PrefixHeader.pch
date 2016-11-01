@@ -32,6 +32,10 @@
 /*****其他用户信息****/
 #define MainColor [UIColor colorWithRed:204/255.0 green:158/255.0 blue:95/255.0 alpha:1]
 
+#define isMengYou @"isMengYou" //是盟友
+#define isMengZhu @"isMengZhu" //是盟主
+#define mengyouIdentify @"mengyouIdentify" //盟友身份
+
 /*********** 分享平台账号 ***************/
 
 

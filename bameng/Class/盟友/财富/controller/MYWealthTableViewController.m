@@ -1,45 +1,42 @@
 //
-//  MyAccountTableViewController.m
+//  MYWealthTableViewController.m
 //  bameng
 //
-//  Created by 刘琛 on 16/10/25.
+//  Created by 刘琛 on 16/11/1.
 //  Copyright © 2016年 HT. All rights reserved.
 //
 
-#import "MyAccountTableViewController.h"
+#import "MYWealthTableViewController.h"
+#import "MyWalletTableViewController.h"
 #import "SettingTableViewController.h"
 #import "MengDouTableViewController.h"
 #import "DaijiesuanTableViewController.h"
 #import "IntegralTableViewController.h"
-#import "UserInfoTableViewController.h"
-#import "MyWalletTableViewController.h"
+#import "CashCouponViewController.h"
+#import "MyBusinessViewController.h"
 
-@interface MyAccountTableViewController ()
+@interface MYWealthTableViewController ()
+@property (strong, nonatomic) IBOutlet UIImageView *icon;
+@property (strong, nonatomic) IBOutlet UILabel *name;
+@property (strong, nonatomic) IBOutlet UIImageView *setting;
+@property (strong, nonatomic) IBOutlet UIView *mengdou;
+@property (strong, nonatomic) IBOutlet UIView *daijiesuan;
+@property (strong, nonatomic) IBOutlet UIView *jifen;
+@property (strong, nonatomic) IBOutlet UILabel *mengdouLabel;
+@property (strong, nonatomic) IBOutlet UILabel *daijiesuanLabel;
+@property (strong, nonatomic) IBOutlet UILabel *jifenLabel;
 
 @end
 
-@implementation MyAccountTableViewController
+@implementation MYWealthTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-
-    self.headImage.layer.cornerRadius = self.headImage.frame.size.width / 2;
-    self.headImage.backgroundColor = [UIColor whiteColor];
-    
-    self.Level.layer.masksToBounds = YES;
-    self.Level.layer.cornerRadius = 3;
-    
-    self.tableView.separatorColor = [UIColor colorWithRed:232/255.0 green:234/255.0 blue:235/255.0 alpha:1];
-    [self.tableView removeSpaces];
-    
-    self.title = @"我的账户";
     
     self.setting.userInteractionEnabled = YES;
     [self.setting bk_whenTapped:^{
-        
         UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
-        
         SettingTableViewController *setting = [story instantiateViewControllerWithIdentifier:@"SettingTableViewController"];
         [self.navigationController pushViewController:setting animated:YES];
     }];
@@ -56,16 +53,17 @@
         [self.navigationController pushViewController:jiesuan animated:YES];
     }];
     
-    [self.keyongjifen bk_whenTapped:^{
+    [self.jifen bk_whenTapped:^{
         UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
         IntegralTableViewController *jifen = [story instantiateViewControllerWithIdentifier:@"IntegralTableViewController"];
         [self.navigationController pushViewController:jifen animated:YES];
     }];
+    
+    [self.tableView removeSpaces];
 }
 
-- (void) viewWillAppear:(BOOL)animated{
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
     self.tabBarController.tabBar.hidden = NO;
 }
 
@@ -82,23 +80,17 @@
         MyWalletTableViewController *wallet = [story instantiateViewControllerWithIdentifier:@"MyWalletTableViewController"];
         [self.navigationController pushViewController:wallet animated:YES];
     }
+    if (indexPath.section == 1 && indexPath.row == 0) {
+        UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
+        MyBusinessViewController *business = [story instantiateViewControllerWithIdentifier:@"MyBusinessViewController"];
+        [self.navigationController pushViewController:business animated:YES];
+    }
     if (indexPath.section == 1 && indexPath.row == 1) {
         UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
-        UserInfoTableViewController *user = [story instantiateViewControllerWithIdentifier:@"UserInfoTableViewController"];
-        [self.navigationController pushViewController:user animated:YES];
+        CashCouponViewController *cash = [story instantiateViewControllerWithIdentifier:@"CashCouponViewController"];
+        [self.navigationController pushViewController:cash animated:YES];
     }
 }
-
-
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//#warning Incomplete implementation, return the number of sections
-//    return 0;
-//}
-//
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//#warning Incomplete implementation, return the number of rows
-//    return 0;
-//}
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -11,6 +11,7 @@
 
 
 @interface HomeHeadView : UIView<CircleBannerViewDelegate>
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *circulateHeight;
 
 @property (strong, nonatomic) IBOutlet UIView *circulateView;
 

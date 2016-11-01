@@ -27,6 +27,8 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = @"霸盟";
+    
     self.table = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight) style:UITableViewStylePlain];
     self.table.delegate = self;
     self.table.dataSource = self;
@@ -44,6 +46,9 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
     
     
     HomeHeadView *head = [[NSBundle mainBundle] loadNibNamed:@"HomeHeadView" owner:self options:nil].lastObject;
+    head.frame = CGRectMake(0, 0, KScreenWidth, head.frame.size.height - 210.0 * (1 - KScreenWidth / 414));
+    head.circulateHeight.constant = 210.0 * (KScreenWidth / 414);
+    [head layoutIfNeeded];
     self.table.tableHeaderView = head;
     [head.zhanghu bk_whenTapped:^{
         MyWalletTableViewController *wallet = [story instantiateViewControllerWithIdentifier:@"MyWalletTableViewController"];
@@ -89,6 +94,8 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 
 

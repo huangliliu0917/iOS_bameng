@@ -1,36 +1,31 @@
 //
-//  DaijiesuanTableViewController.m
+//  MYSubmitInfoTableViewController.m
 //  bameng
 //
-//  Created by 刘琛 on 16/10/26.
+//  Created by 刘琛 on 16/11/1.
 //  Copyright © 2016年 HT. All rights reserved.
 //
 
-#import "DaijiesuanTableViewController.h"
-#import "DaijiesuanTableViewCell.h"
+#import "MYSubmitInfoTableViewController.h"
 
-@interface DaijiesuanTableViewController ()
+@interface MYSubmitInfoTableViewController ()
+@property (strong, nonatomic) IBOutlet UITextField *name;
+@property (strong, nonatomic) IBOutlet UITextField *phone;
+@property (strong, nonatomic) IBOutlet UITextField *address;
+@property (strong, nonatomic) IBOutlet UITextView *remarks;
 
 @end
 
-@implementation DaijiesuanTableViewController
-
-static NSString *daijiesuanIdentify = @"daijiesuanIdentify";
+@implementation MYSubmitInfoTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    [self.tableView registerNib:[UINib nibWithNibName:@"DaijiesuanTableViewCell" bundle:nil] forCellReuseIdentifier:daijiesuanIdentify];
+    self.remarks.layer.borderWidth = 1;
+    self.remarks.layer.borderColor = [UIColor blackColor].CGColor;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
     self.tabBarController.tabBar.hidden = YES;
 }
 
@@ -46,21 +41,21 @@ static NSString *daijiesuanIdentify = @"daijiesuanIdentify";
 //#warning Incomplete implementation, return the number of sections
 //    return 0;
 //}
+//
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//#warning Incomplete implementation, return the number of rows
+//    return 0;
+//}
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
-    return 10;
-}
-
-
+/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    DaijiesuanTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:daijiesuanIdentify forIndexPath:indexPath];
-    cell.pageTag = 1;
-
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    
+    // Configure the cell...
     
     return cell;
 }
-
+*/
 
 /*
 // Override to support conditional editing of the table view.

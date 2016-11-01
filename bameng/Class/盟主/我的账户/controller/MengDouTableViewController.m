@@ -31,6 +31,12 @@ static NSString *mengdouIdentify = @"mengdouIdentify";
     [self.tableView registerNib:[UINib nibWithNibName:@"MengDouTableViewCell" bundle:nil] forCellReuseIdentifier:mengdouIdentify];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.tabBarController.tabBar.hidden = YES;
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

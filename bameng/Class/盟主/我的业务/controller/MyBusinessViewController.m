@@ -50,13 +50,26 @@ static NSString *myBusinessIdentify = @"myBusinessIdentify";
     self.table.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.table removeSpaces];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage imageNamed:@"tj"] style:UIBarButtonItemStylePlain handler:^(id sender) {
-        UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
-        NewOrderTableViewController *newOrder = [story instantiateViewControllerWithIdentifier:@"NewOrderTableViewController"];
-        [self.navigationController pushViewController:newOrder animated:YES];
+#warning 盟友没有新建选项
+    NSString *identify = [[NSUserDefaults standardUserDefaults] objectForKey:mengyouIdentify];
+    if ([identify isEqualToString:isMengYou]) {
         
+    }else {
         
-    }];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage imageNamed:@"tj"] style:UIBarButtonItemStylePlain handler:^(id sender) {
+            UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
+            NewOrderTableViewController *newOrder = [story instantiateViewControllerWithIdentifier:@"NewOrderTableViewController"];
+            [self.navigationController pushViewController:newOrder animated:YES];
+            
+            
+        }];
+        
+    }
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.tabBarController.tabBar.hidden = YES;
 }
 
 //设置选择点击事件
@@ -77,7 +90,7 @@ static NSString *myBusinessIdentify = @"myBusinessIdentify";
     }];
     
     [self.unfilledOrders bk_whenTapped:^{
-        if (self.selectPage != 1) {
+        if (self.selectPage != 2) {
             
             self.selectPage = 2;
             [UIView animateWithDuration:0.25 animations:^{
@@ -90,7 +103,7 @@ static NSString *myBusinessIdentify = @"myBusinessIdentify";
     }];
     
     [self.clinchOrders bk_whenTapped:^{
-        if (self.selectPage != 1) {
+        if (self.selectPage != 3) {
             
             self.selectPage = 3;
             [UIView animateWithDuration:0.25 animations:^{
@@ -103,7 +116,7 @@ static NSString *myBusinessIdentify = @"myBusinessIdentify";
     }];
     
     [self.chargeBack bk_whenTapped:^{
-        if (self.selectPage != 1) {
+        if (self.selectPage != 4) {
             
             self.selectPage = 4;
             [UIView animateWithDuration:0.25 animations:^{
@@ -147,10 +160,16 @@ static NSString *myBusinessIdentify = @"myBusinessIdentify";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    
-    UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
-    OrderDetailTableViewController *ordor = [story instantiateViewControllerWithIdentifier:@"OrderDetailTableViewController"];
-    [self.navigationController pushViewController:ordor animated:YES];
+#warning 根据身份进不同的页面
+    NSString *identify = [[NSUserDefaults standardUserDefaults] objectForKey:mengyouIdentify];
+    if ([identify isEqualToString:isMengYou]) {
+
+    }else {
+        
+        UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
+        OrderDetailTableViewController *ordor = [story instantiateViewControllerWithIdentifier:@"OrderDetailTableViewController"];
+        [self.navigationController pushViewController:ordor animated:YES];
+    }
 }
 
 /*
