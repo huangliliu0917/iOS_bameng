@@ -9,6 +9,7 @@
 #import "MengYouHomeViewController.h"
 #import "MengYouHomeTableViewCell.h"
 #import "MYSubmitInfoTableViewController.h"
+#import "MYCustomDetailTableViewController.h"
 
 @interface MengYouHomeViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -63,6 +64,12 @@ static NSString *mengYouHomeIdentify = @"mengYouHomeIdentify";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MengYouHomeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:mengYouHomeIdentify forIndexPath:indexPath];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengYou" bundle:nil];
+    MYCustomDetailTableViewController *custom = [story instantiateViewControllerWithIdentifier:@"MYCustomDetailTableViewController"];
+    [self.navigationController pushViewController:custom animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

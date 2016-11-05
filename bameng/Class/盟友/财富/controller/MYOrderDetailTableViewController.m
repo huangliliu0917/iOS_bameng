@@ -1,25 +1,22 @@
 //
-//  BusinessTableViewController.m
+//  MYOrderDetailTableViewController.m
 //  bameng
 //
-//  Created by 刘琛 on 16/10/26.
+//  Created by 刘琛 on 16/11/2.
 //  Copyright © 2016年 HT. All rights reserved.
 //
 
-#import "BusinessTableViewController.h"
-#import "CustomInfoController.h"
-#import "EncourageTableViewController.h"
-#import "CashCouponViewController.h"
-@interface BusinessTableViewController ()
+#import "MYOrderDetailTableViewController.h"
+
+@interface MYOrderDetailTableViewController ()
 
 @end
 
-@implementation BusinessTableViewController
+@implementation MYOrderDetailTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"我的业务";
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -29,82 +26,12 @@
     [self.tableView removeSpaces];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    self.tabBarController.tabBar.hidden = NO;
-    
-    [self getMyBusinessInfo];
-}
-
-- (void)getMyBusinessInfo {
-    [HTMyContainAFN AFN:@"user/MyBusiness" with:nil Success:^(id responseObject) {
-        LWLog(@"%@", responseObject);
-    } failure:^(NSError *error) {
-        LWLog(@"%@", error);
-    }];
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
-    switch (indexPath.row) {
-        case 0:
-        {
-            //我的订单
-            
-            break;
-        }
-        case 1:
-        {  
-            //客户信息
-            CustomInfoController *custom = [story instantiateViewControllerWithIdentifier:@"CustomInfoController"];
-            custom.selectPage = 1;
-            [self.navigationController pushViewController:custom animated:YES];
-            break;
-        }
-        case 2:
-        {
-            //兑换审核
-            CustomInfoController *custom = [story instantiateViewControllerWithIdentifier:@"CustomInfoController"];
-            custom.selectPage = 2;
-            [self.navigationController pushViewController:custom animated:YES];
-            break;
-        }
-        case 3:
-        {
-            //奖励设置
-            EncourageTableViewController *encourage = [story instantiateViewControllerWithIdentifier:@"EncourageTableViewController"];
-            [self.navigationController pushViewController:encourage animated:YES];
-            break;
-        }
-        case 4:
-        {
-            //我的联盟
-            CustomInfoController *custom = [story instantiateViewControllerWithIdentifier:@"CustomInfoController"];
-            custom.selectPage = 3;
-            [self.navigationController pushViewController:custom animated:YES];
-            break;
-        }
-        case 5:
-        {
-            //我的现金券
-            CashCouponViewController *cash = [story instantiateViewControllerWithIdentifier:@"CashCouponViewController"];
-            [self.navigationController pushViewController:cash animated:YES];
-            break;
-        }
-        default:
-            break;
-    }
-}
-
 
 //- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 //#warning Incomplete implementation, return the number of sections

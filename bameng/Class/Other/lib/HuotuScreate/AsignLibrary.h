@@ -21,4 +21,8 @@
  */
 + (NSMutableDictionary *) AsignLibraryWithNecessaryParame:(NSDictionary *)parame;
 
+//md5加密-32位 (小写)
++ (NSString *)md5by32:(NSString*)input;
+
+
 @end

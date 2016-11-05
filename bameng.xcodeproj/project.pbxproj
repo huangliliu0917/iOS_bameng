@@ -10,6 +10,8 @@
 		0ECACC7AB1F44CC7EA4C676C /* libPods-bameng.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA4A0725E52CF05F19286687 /* libPods-bameng.a */; };
 		600DF37A1DC21BA6000296E8 /* OrderDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600DF3791DC21BA6000296E8 /* OrderDetailTableViewController.m */; };
 		600DF37D1DC22CB7000296E8 /* PostOrderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600DF37C1DC22CB7000296E8 /* PostOrderTableViewController.m */; };
+		6015F2D71DCAE6CD00E5E5A4 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6015F2D61DCAE6CD00E5E5A4 /* LoginController.m */; };
+		6015F2DA1DCAE6EA00E5E5A4 /* ForgotController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6015F2D91DCAE6EA00E5E5A4 /* ForgotController.m */; };
 		60182506B38C98760D838C39 /* libPods-bamengTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D7B057FA8CF46AB14B81D77 /* libPods-bamengTests.a */; };
 		6024A1441DC6F519000C721C /* AddNewInfomationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6024A1431DC6F519000C721C /* AddNewInfomationTableViewController.m */; };
 		6033D7A21DBB434100B9B4DA /* MengzhuTabbarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6033D7A11DBB434100B9B4DA /* MengzhuTabbarController.m */; };
@@ -25,6 +27,7 @@
 		603A39CA1DB9EE3E00DC1ADA /* CircleBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 603A39C91DB9EE3E00DC1ADA /* CircleBannerView.m */; };
 		603A39CC1DB9EEBB00DC1ADA /* HomeHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 603A39CB1DB9EEBB00DC1ADA /* HomeHeadView.xib */; };
 		603E924F1DBDEA87000E3069 /* CustomDetailsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 603E924E1DBDEA87000E3069 /* CustomDetailsTableViewController.m */; };
+		6042F8241DCB1F2F00055329 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6042F8231DCB1F2F00055329 /* UserModel.m */; };
 		6044736F1DC3006B00100A7C /* NewOrderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6044736E1DC3006B00100A7C /* NewOrderTableViewController.m */; };
 		604912ED1DC8810A00DA334C /* MYInfomationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 604912EB1DC8810A00DA334C /* MYInfomationTableViewCell.m */; };
 		604912EE1DC8810A00DA334C /* MYInfomationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 604912EC1DC8810A00DA334C /* MYInfomationTableViewCell.xib */; };
@@ -39,6 +42,8 @@
 		60764AFC1DB8937A0061CC6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60764AFA1DB8937A0061CC6C /* LaunchScreen.storyboard */; };
 		60764B071DB8937A0061CC6C /* bamengTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60764B061DB8937A0061CC6C /* bamengTests.m */; };
 		60764B121DB8937A0061CC6C /* bamengUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60764B111DB8937A0061CC6C /* bamengUITests.m */; };
+		608B72AC1DCC209600378B5B /* VersionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 608B72AB1DCC209600378B5B /* VersionModel.m */; };
+		608B72AF1DCC23AA00378B5B /* BassModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 608B72AE1DCC23AA00378B5B /* BassModel.m */; };
 		60979D6A1DC3306A00B9E858 /* AllyReviewTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60979D691DC3306A00B9E858 /* AllyReviewTableViewController.m */; };
 		60979D701DC3364200B9E858 /* MengZhuInfomationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60979D6F1DC3364200B9E858 /* MengZhuInfomationViewController.m */; };
 		60979D741DC346F500B9E858 /* MengZhuInfomationBigTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60979D721DC346F500B9E858 /* MengZhuInfomationBigTableViewCell.m */; };
@@ -55,6 +60,8 @@
 		60D18DF71DC1E0B200E0C839 /* CashCouponTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60D18DF51DC1E0B200E0C839 /* CashCouponTableViewCell.xib */; };
 		60D18DFA1DC1EB2600E0C839 /* CashCouponViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D18DF91DC1EB2600E0C839 /* CashCouponViewController.m */; };
 		60D75A941DBE07FA00E09FF4 /* CustomInformationauditTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D75A931DBE07FA00E09FF4 /* CustomInformationauditTableViewController.m */; };
+		60E809E91DC9B63A00094CB8 /* MYCustomDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E809E81DC9B63A00094CB8 /* MYCustomDetailTableViewController.m */; };
+		60E809EF1DC9B91900094CB8 /* MYOrderDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E809EE1DC9B91900094CB8 /* MYOrderDetailTableViewController.m */; };
 		60EF5F991DC7173000ADBEA7 /* SelectObjectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EF5F971DC7173000ADBEA7 /* SelectObjectTableViewCell.m */; };
 		60EF5F9A1DC7173000ADBEA7 /* SelectObjectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60EF5F981DC7173000ADBEA7 /* SelectObjectTableViewCell.xib */; };
 		60EF5F9D1DC71A8B00ADBEA7 /* SelectObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EF5F9C1DC71A8B00ADBEA7 /* SelectObjectViewController.m */; };
@@ -115,6 +122,10 @@
 		600DF3791DC21BA6000296E8 /* OrderDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDetailTableViewController.m; sourceTree = "<group>"; };
 		600DF37B1DC22CB7000296E8 /* PostOrderTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostOrderTableViewController.h; sourceTree = "<group>"; };
 		600DF37C1DC22CB7000296E8 /* PostOrderTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostOrderTableViewController.m; sourceTree = "<group>"; };
+		6015F2D51DCAE6CD00E5E5A4 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
+		6015F2D61DCAE6CD00E5E5A4 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
+		6015F2D81DCAE6EA00E5E5A4 /* ForgotController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgotController.h; sourceTree = "<group>"; };
+		6015F2D91DCAE6EA00E5E5A4 /* ForgotController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgotController.m; sourceTree = "<group>"; };
 		6024A1421DC6F519000C721C /* AddNewInfomationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNewInfomationTableViewController.h; sourceTree = "<group>"; };
 		6024A1431DC6F519000C721C /* AddNewInfomationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNewInfomationTableViewController.m; sourceTree = "<group>"; };
 		6033D7A01DBB434100B9B4DA /* MengzhuTabbarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MengzhuTabbarController.h; sourceTree = "<group>"; };
@@ -139,6 +150,8 @@
 		603A39CB1DB9EEBB00DC1ADA /* HomeHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeHeadView.xib; sourceTree = "<group>"; };
 		603E924D1DBDEA87000E3069 /* CustomDetailsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomDetailsTableViewController.h; sourceTree = "<group>"; };
 		603E924E1DBDEA87000E3069 /* CustomDetailsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomDetailsTableViewController.m; sourceTree = "<group>"; };
+		6042F8221DCB1F2F00055329 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
+		6042F8231DCB1F2F00055329 /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
 		6044736D1DC3006B00100A7C /* NewOrderTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewOrderTableViewController.h; sourceTree = "<group>"; };
 		6044736E1DC3006B00100A7C /* NewOrderTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewOrderTableViewController.m; sourceTree = "<group>"; };
 		604912EA1DC8810A00DA334C /* MYInfomationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYInfomationTableViewCell.h; sourceTree = "<group>"; };
@@ -166,6 +179,10 @@
 		60764B0D1DB8937A0061CC6C /* bamengUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bamengUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		60764B111DB8937A0061CC6C /* bamengUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = bamengUITests.m; sourceTree = "<group>"; };
 		60764B131DB8937A0061CC6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		608B72AA1DCC209600378B5B /* VersionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VersionModel.h; sourceTree = "<group>"; };
+		608B72AB1DCC209600378B5B /* VersionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VersionModel.m; sourceTree = "<group>"; };
+		608B72AD1DCC23AA00378B5B /* BassModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BassModel.h; sourceTree = "<group>"; };
+		608B72AE1DCC23AA00378B5B /* BassModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BassModel.m; sourceTree = "<group>"; };
 		60979D681DC3306A00B9E858 /* AllyReviewTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllyReviewTableViewController.h; sourceTree = "<group>"; };
 		60979D691DC3306A00B9E858 /* AllyReviewTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllyReviewTableViewController.m; sourceTree = "<group>"; };
 		60979D6E1DC3364200B9E858 /* MengZhuInfomationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MengZhuInfomationViewController.h; sourceTree = "<group>"; };
@@ -195,6 +212,10 @@
 		60D409211DB9B9CE008B621E /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		60D75A921DBE07FA00E09FF4 /* CustomInformationauditTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomInformationauditTableViewController.h; sourceTree = "<group>"; };
 		60D75A931DBE07FA00E09FF4 /* CustomInformationauditTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomInformationauditTableViewController.m; sourceTree = "<group>"; };
+		60E809E71DC9B63A00094CB8 /* MYCustomDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYCustomDetailTableViewController.h; sourceTree = "<group>"; };
+		60E809E81DC9B63A00094CB8 /* MYCustomDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYCustomDetailTableViewController.m; sourceTree = "<group>"; };
+		60E809ED1DC9B91900094CB8 /* MYOrderDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYOrderDetailTableViewController.h; sourceTree = "<group>"; };
+		60E809EE1DC9B91900094CB8 /* MYOrderDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYOrderDetailTableViewController.m; sourceTree = "<group>"; };
 		60EF5F961DC7173000ADBEA7 /* SelectObjectTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectObjectTableViewCell.h; sourceTree = "<group>"; };
 		60EF5F971DC7173000ADBEA7 /* SelectObjectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectObjectTableViewCell.m; sourceTree = "<group>"; };
 		60EF5F981DC7173000ADBEA7 /* SelectObjectTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectObjectTableViewCell.xib; sourceTree = "<group>"; };
@@ -310,6 +331,39 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6015F2D21DCACC7500E5E5A4 /* 登录 */ = {
+			isa = PBXGroup;
+			children = (
+				6015F2D31DCACC7500E5E5A4 /* controller */,
+				6015F2D41DCACC7500E5E5A4 /* model */,
+			);
+			path = "登录";
+			sourceTree = "<group>";
+		};
+		6015F2D31DCACC7500E5E5A4 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				6015F2D51DCAE6CD00E5E5A4 /* LoginController.h */,
+				6015F2D61DCAE6CD00E5E5A4 /* LoginController.m */,
+				6015F2D81DCAE6EA00E5E5A4 /* ForgotController.h */,
+				6015F2D91DCAE6EA00E5E5A4 /* ForgotController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		6015F2D41DCACC7500E5E5A4 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				6042F8221DCB1F2F00055329 /* UserModel.h */,
+				6042F8231DCB1F2F00055329 /* UserModel.m */,
+				608B72AA1DCC209600378B5B /* VersionModel.h */,
+				608B72AB1DCC209600378B5B /* VersionModel.m */,
+				608B72AD1DCC23AA00378B5B /* BassModel.h */,
+				608B72AE1DCC23AA00378B5B /* BassModel.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 		6033D7A31DBB45A300B9B4DA /* 扩展 */ = {
 			isa = PBXGroup;
 			children = (
@@ -322,6 +376,7 @@
 		603A39A21DB9E49400DC1ADA /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				6015F2D21DCACC7500E5E5A4 /* 登录 */,
 				603A39A31DB9E49400DC1ADA /* 盟主 */,
 				60EF5F9E1DC735FA00ADBEA7 /* 盟友 */,
 				603A39C61DB9EE2400DC1ADA /* Other */,
@@ -629,6 +684,8 @@
 				60EF5FB21DC7486600ADBEA7 /* MengYouHomeViewController.m */,
 				60EF5FBC1DC8309B00ADBEA7 /* MYSubmitInfoTableViewController.h */,
 				60EF5FBD1DC8309B00ADBEA7 /* MYSubmitInfoTableViewController.m */,
+				60E809E71DC9B63A00094CB8 /* MYCustomDetailTableViewController.h */,
+				60E809E81DC9B63A00094CB8 /* MYCustomDetailTableViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -675,6 +732,8 @@
 			children = (
 				60C4C01F1DC83D6C00B7B867 /* MYWealthTableViewController.h */,
 				60C4C0201DC83D6C00B7B867 /* MYWealthTableViewController.m */,
+				60E809ED1DC9B91900094CB8 /* MYOrderDetailTableViewController.h */,
+				60E809EE1DC9B91900094CB8 /* MYOrderDetailTableViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -848,6 +907,7 @@
 				60764B0A1DB8937A0061CC6C /* Frameworks */,
 				60764B0B1DB8937A0061CC6C /* Resources */,
 				30D0369E2BF2C3235ECB692B /* [CP] Copy Pods Resources */,
+				E90A6AF77C71F63D0D59FD62 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -977,7 +1037,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		2A2F44E867E335A9136EDB68 /* [CP] Copy Pods Resources */ = {
@@ -1022,7 +1082,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		6990E5CC69292165D65C9FA8 /* [CP] Copy Pods Resources */ = {
@@ -1067,7 +1127,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E90A6AF77C71F63D0D59FD62 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-bamengUITests/Pods-bamengUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1078,12 +1153,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF04388D1DBAFD5E00CA8902 /* AsignLibrary.m in Sources */,
+				6015F2D71DCAE6CD00E5E5A4 /* LoginController.m in Sources */,
 				60FC8A941DBDAD8F009612C1 /* ProcessedTableViewCell.m in Sources */,
 				60C4C0211DC83D6C00B7B867 /* MYWealthTableViewController.m in Sources */,
 				6033D7A61DBB45D700B9B4DA /* UITableView+CJ.m in Sources */,
 				604912F41DC8973B00DA334C /* MYAddNewMessageTableViewController.m in Sources */,
+				6015F2DA1DCAE6EA00E5E5A4 /* ForgotController.m in Sources */,
 				60FF240C1DBF0A4300E70A09 /* MyAccountTableViewController.m in Sources */,
 				60764AF41DB8937A0061CC6C /* ViewController.m in Sources */,
+				60E809E91DC9B63A00094CB8 /* MYCustomDetailTableViewController.m in Sources */,
 				60FF241B1DBF5D5000E70A09 /* MengDouTableViewController.m in Sources */,
 				600DF37A1DC21BA6000296E8 /* OrderDetailTableViewController.m in Sources */,
 				60FF24121DBF3EA400E70A09 /* PushWebViewController.m in Sources */,
@@ -1095,6 +1173,7 @@
 				60EF5F9D1DC71A8B00ADBEA7 /* SelectObjectViewController.m in Sources */,
 				60FC8A981DBDDD6B009612C1 /* SubmitUserInfoTableViewController.m in Sources */,
 				60F3903E1DC0D1AB00FFCBF3 /* BusinessTableViewController.m in Sources */,
+				60E809EF1DC9B91900094CB8 /* MYOrderDetailTableViewController.m in Sources */,
 				60FF24091DBEFC3100E70A09 /* EncourageTableViewController.m in Sources */,
 				60FF241F1DBF5D7600E70A09 /* MengDouTableViewCell.m in Sources */,
 				603E924F1DBDEA87000E3069 /* CustomDetailsTableViewController.m in Sources */,
@@ -1102,6 +1181,7 @@
 				60C230D61DC07C9500E0CD11 /* UserInfoTableViewController.m in Sources */,
 				6033D7AA1DBB47B000B9B4DA /* HomeMengzhuTableViewCell.m in Sources */,
 				60C230D31DC0527D00E0CD11 /* IntegralTableViewController.m in Sources */,
+				608B72AF1DCC23AA00378B5B /* BassModel.m in Sources */,
 				60764AF11DB8937A0061CC6C /* AppDelegate.m in Sources */,
 				604912ED1DC8810A00DA334C /* MYInfomationTableViewCell.m in Sources */,
 				60F3902F1DC0A57300FFCBF3 /* ExchangeListViewController.m in Sources */,
@@ -1109,6 +1189,7 @@
 				60764AEE1DB8937A0061CC6C /* main.m in Sources */,
 				60F390421DC0DAE700FFCBF3 /* MyBusinessTableViewCell.m in Sources */,
 				60979D741DC346F500B9E858 /* MengZhuInfomationBigTableViewCell.m in Sources */,
+				6042F8241DCB1F2F00055329 /* UserModel.m in Sources */,
 				60EF5FB71DC749ED00ADBEA7 /* MengYouHomeTableViewCell.m in Sources */,
 				603A39CA1DB9EE3E00DC1ADA /* CircleBannerView.m in Sources */,
 				60EF5FBE1DC8309B00ADBEA7 /* MYSubmitInfoTableViewController.m in Sources */,
@@ -1124,6 +1205,7 @@
 				60C230D01DC04DC900E0CD11 /* DaijiesuanTableViewController.m in Sources */,
 				60F390361DC0A95C00FFCBF3 /* ExchangeListTableViewCell.m in Sources */,
 				60D75A941DBE07FA00E09FF4 /* CustomInformationauditTableViewController.m in Sources */,
+				608B72AC1DCC209600378B5B /* VersionModel.m in Sources */,
 				60D18DFA1DC1EB2600E0C839 /* CashCouponViewController.m in Sources */,
 				60FF240F1DBF328800E70A09 /* SettingTableViewController.m in Sources */,
 				604912F11DC8843900DA334C /* MYInfomationViewController.m in Sources */,

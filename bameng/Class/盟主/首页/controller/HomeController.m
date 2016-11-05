@@ -41,6 +41,7 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
     
 }
 
+
 - (void)setHeadActions {
     UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
     
@@ -80,6 +81,10 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
         EncourageTableViewController *encourage = [story instantiateViewControllerWithIdentifier:@"EncourageTableViewController"];
         [self.navigationController pushViewController:encourage animated:YES];
     }];
+    
+    [head.moreNews bk_whenTapped:^{
+        [self.tabBarController setSelectedIndex:1];
+    }];
 }
 
 
@@ -87,6 +92,10 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
     [super viewWillAppear:animated];
     
     self.tabBarController.tabBar.hidden = NO;
+    
+    [self getCrircleList];
+    
+    [self getZiXunList];
 }
 
 
@@ -96,12 +105,29 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
 }
 
 
+#pragma mark 网络请求
+
+- (void)getCrircleList {
+    
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    dic[@"type"] = @1;
+    [HTMyContainAFN AFN:@"sys/FocusPic" with:dic Success:^(id responseObject) {
+        LWLog(@"%@", responseObject);
+    } failure:^(NSError *error) {
+        LWLog(@"%@" ,error);
+    }];
+}
+
+- (void)getZiXunList {
+    [HTMyContainAFN AFN:@"article/list" with:nil Success:^(id responseObject) {
+        LWLog(@"%@",responseObject);
+    } failure:^(NSError *error) {
+        LWLog(@"%@", error);
+    }];
+}
 
 
-
-
-
-
+#pragma mark tabel
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
 }

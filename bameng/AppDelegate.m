@@ -10,6 +10,7 @@
 #import "HTMyContainAFN.h"
 #import "MengzhuTabbarController.h"
 #import "MengYouTabbarViewController.h"
+#import "LoginController.h"
 @interface AppDelegate ()
 
 @end
@@ -20,27 +21,55 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-     [[UITabBarItem appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName:[UIColor colorWithRed:204/255.0 green:158/255.0 blue:95/255.0 alpha:1]} forState:UIControlStateSelected];
+    [self getAppConfig];
     
-    [[NSUserDefaults standardUserDefaults] setObject:isMengYou forKey:mengyouIdentify];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName:[UIColor colorWithRed:204/255.0 green:158/255.0 blue:95/255.0 alpha:1]} forState:UIControlStateSelected];
     
-    NSString *identify = [[NSUserDefaults standardUserDefaults] objectForKey:mengyouIdentify];
-    if ([identify isEqualToString:isMengYou]) {
-        self.window = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight)];
-        UIStoryboard *mengyou = [UIStoryboard storyboardWithName:@"MengYou" bundle:nil];
-        MengYouTabbarViewController *you = [mengyou instantiateViewControllerWithIdentifier:@"MengYouTabbarViewController"];
-        self.window.rootViewController = you;
-    }else {
-        self.window = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight)];
-        UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
-        MengzhuTabbarController *tabbar = [story instantiateViewControllerWithIdentifier:@"MengzhuTabbarController"];
-        self.window.rootViewController = tabbar;
-    }
+    self.window = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight)];
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    LoginController *login = [story instantiateViewControllerWithIdentifier:@"LoginController"];
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:login];
+    
+//    [[NSUserDefaults standardUserDefaults] setObject:isMengZhu forKey:mengyouIdentify];
+//    
+//    NSString *identify = [[NSUserDefaults standardUserDefaults] objectForKey:mengyouIdentify];
+//    if ([identify isEqualToString:isMengYou]) {
+//        self.window = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight)];
+//        UIStoryboard *mengyou = [UIStoryboard storyboardWithName:@"MengYou" bundle:nil];
+//        MengYouTabbarViewController *you = [mengyou instantiateViewControllerWithIdentifier:@"MengYouTabbarViewController"];
+//        self.window.rootViewController = you;
+//    }else {
+//        self.window = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight)];
+//        UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
+//        MengzhuTabbarController *tabbar = [story instantiateViewControllerWithIdentifier:@"MengzhuTabbarController"];
+//        self.window.rootViewController = tabbar;
+//    }
     
     
     [self.window makeKeyAndVisible];
     
     return YES;
+}
+
+- (void)getAppConfig {
+    [HTMyContainAFN AFN:@"Sys/Init" with:nil Success:^(id responseObject) {
+        LWLog(@"%@", responseObject);
+        if ([responseObject[@"status"] intValue] == 200) {
+            BassModel *base = [BassModel mj_objectWithKeyValues:responseObject[@"data"][@"baseData"]];
+            if (base.userStatus == 1) {
+                UserModel *user = [UserModel mj_objectWithKeyValues:responseObject[@"data"][@"userData"]];
+                LWLog(@"%@",user);
+                NSString * path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+                NSString *fileName = [path stringByAppendingPathComponent:UserInfomation];
+                [NSKeyedArchiver archiveRootObject:user toFile:fileName];
+                
+                [[NSUserDefaults standardUserDefaults] setObject:user.token forKey:UserInfomation];
+            }
+        }
+        
+    } failure:^(NSError *error) {
+        LWLog(@"%@",error);
+    }];
 }
 
 

@@ -12,6 +12,7 @@ pod 'BlocksKit'
 pod 'SDWebImage'
 pod 'MKNetworkKit'
 pod 'MJRefresh'
+pod 'MJExtension'
 pod 'AFNetworking', '~> 3.0'
 
   target 'bamengTests' do

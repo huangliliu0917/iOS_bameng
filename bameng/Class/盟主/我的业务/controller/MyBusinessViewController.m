@@ -10,6 +10,7 @@
 #import "MyBusinessTableViewCell.h"
 #import "OrderDetailTableViewController.h"
 #import "NewOrderTableViewController.h"
+#import "MYOrderDetailTableViewController.h"
 
 @interface MyBusinessViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UIView *all;
@@ -163,7 +164,9 @@ static NSString *myBusinessIdentify = @"myBusinessIdentify";
 #warning 根据身份进不同的页面
     NSString *identify = [[NSUserDefaults standardUserDefaults] objectForKey:mengyouIdentify];
     if ([identify isEqualToString:isMengYou]) {
-
+        UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengYou" bundle:nil];
+        MYOrderDetailTableViewController *ordor = [story instantiateViewControllerWithIdentifier:@"MYOrderDetailTableViewController"];
+        [self.navigationController pushViewController:ordor animated:YES];
     }else {
         
         UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];

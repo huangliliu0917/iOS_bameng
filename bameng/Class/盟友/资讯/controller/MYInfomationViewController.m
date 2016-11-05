@@ -11,6 +11,7 @@
 #import "MengZhuInfomationBigTableViewCell.h"
 #import "MengZhuInfomationSmallTableViewCell.h"
 #import "CircleBannerView.h"
+#import "MYAddNewMessageTableViewController.h"
 
 @interface MYInfomationViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UITableView *table;
@@ -63,11 +64,11 @@ static NSString *infomationIdentify = @"infomationIdentify";
     
     __weak MYInfomationViewController *wself = self;
     
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage imageNamed:@"tj"] style:UIBarButtonItemStylePlain handler:^(id sender) {
-//        UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
-//        AddNewInfomationTableViewController *add = [story instantiateViewControllerWithIdentifier:@"AddNewInfomationTableViewController"];
-//        [wself.navigationController pushViewController:add animated:YES];
-//    }];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage imageNamed:@"tj"] style:UIBarButtonItemStylePlain handler:^(id sender) {
+        UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengYou" bundle:nil];
+        MYAddNewMessageTableViewController *add = [story instantiateViewControllerWithIdentifier:@"MYAddNewMessageTableViewController"];
+        [wself.navigationController pushViewController:add animated:YES];
+    }];
     
 }
 
