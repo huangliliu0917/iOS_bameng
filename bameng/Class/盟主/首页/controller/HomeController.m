@@ -12,10 +12,19 @@
 #import "EncourageTableViewController.h"
 #import "MyWalletTableViewController.h"
 #import "NewOrderTableViewController.h"
+#import <MJRefresh/MJRefreshHeader.h>
+#import "BMInfomationModel.h"
+#import "PushWebViewController.h"
 
 @interface HomeController ()
 
 @property (nonatomic, strong) CircleBannerView *circleView;
+
+
+@property (nonatomic, assign) NSInteger PageIndex;
+@property (nonatomic, assign) NSInteger PageSize;
+
+@property (nonatomic, strong) NSMutableArray *articleList;
 
 @end
 
@@ -36,6 +45,10 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
     [self.table removeSpaces];
     [self.table registerNib:[UINib nibWithNibName:@"HomeMengzhuTableViewCell" bundle:nil] forCellReuseIdentifier:homeTableCellIdentify];
     [self.view addSubview:self.table];
+    
+    self.PageSize = 20;
+    self.PageIndex = 1;
+    self.articleList = [NSMutableArray array];
     
     [self setHeadActions];
     
@@ -85,6 +98,8 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
     [head.moreNews bk_whenTapped:^{
         [self.tabBarController setSelectedIndex:1];
     }];
+    
+    [self setTabalViewRefresh];
 }
 
 
@@ -95,7 +110,9 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
     
     [self getCrircleList];
     
-    [self getZiXunList];
+    [self getNewZiXunList];
+    
+    
 }
 
 
@@ -110,35 +127,104 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
 - (void)getCrircleList {
     
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    dic[@"type"] = @1;
-    [HTMyContainAFN AFN:@"sys/FocusPic" with:dic Success:^(id responseObject) {
-        LWLog(@"%@", responseObject);
+    dic[@"type"] = @2;
+    [HTMyContainAFN AFN:@"sys/FocusPic" with:dic Success:^(NSDictionary *responseObject) {
+        LWLog(@"sys/FocusPic：%@", responseObject);
     } failure:^(NSError *error) {
         LWLog(@"%@" ,error);
     }];
 }
 
-- (void)getZiXunList {
-    [HTMyContainAFN AFN:@"article/list" with:nil Success:^(id responseObject) {
-        LWLog(@"%@",responseObject);
+- (void)getNewZiXunList {
+    
+
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    
+    dic[@"identity"] = @0;
+    dic[@"pageSize"] = @(self.PageSize);
+    dic[@"pageIndex"] = @(1);
+    [HTMyContainAFN AFN:@"article/list" with:dic Success:^(NSDictionary *responseObject) {
+        LWLog(@"article/list：%@",responseObject);
+        
+        if ([responseObject[@"status"] intValue] == 200) {
+            
+            [self.articleList removeAllObjects];
+            NSDictionary *dic = responseObject[@"data"];
+            if ([dic.allKeys indexOfObject:@"top"] != NSNotFound) {
+                NSArray *array = [BMInfomationModel mj_objectArrayWithKeyValuesArray:dic[@"top"]];
+                [self.articleList addObjectsFromArray:array];
+            }
+            NSArray *rows = [BMInfomationModel mj_objectArrayWithKeyValuesArray:dic[@"list"][@"Rows"]];
+            [self.articleList addObjectsFromArray:rows];
+            self.PageIndex = [dic[@"list"][@"PageIndex"] integerValue];
+            self.PageSize = [dic[@"list"][@"PageSize"] integerValue];
+            
+            [self.table reloadData];
+        }
+        
+        [self.table.mj_header endRefreshing];
     } failure:^(NSError *error) {
         LWLog(@"%@", error);
+        [self.table.mj_header endRefreshing];
+    }];
+}
+
+- (void)getMoerZixunList {
+    __weak HomeController *wself = self;
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    
+    dic[@"identity"] = @0;
+    dic[@"pageSize"] = @(self.PageSize);
+    dic[@"pageIndex"] = @(self.PageIndex + 1);
+    [HTMyContainAFN AFN:@"article/list" with:dic Success:^(NSDictionary *responseObject) {
+        LWLog(@"article/list：%@",responseObject);
+        if ([responseObject[@"status"] intValue] == 200) {
+            NSDictionary *dic = responseObject[@"data"];
+            NSArray *rows = [BMInfomationModel mj_objectArrayWithKeyValuesArray:dic[@"list"][@"Rows"]];
+            if (rows.count == 0) {
+                
+            }else {
+                [self.articleList addObjectsFromArray:rows];
+                self.PageIndex = [dic[@"list"][@"PageIndex"] integerValue];
+                self.PageSize = [dic[@"list"][@"PageSize"] integerValue];
+                [self.table reloadData];
+            }
+        }
+
+        [wself.table.mj_footer endRefreshing];
+    } failure:^(NSError *error) {
+        LWLog(@"%@", error);
+        [wself.table.mj_footer endRefreshing];
     }];
 }
 
 
-#pragma mark tabel
+#pragma mark tabelView 
+
+- (void)setTabalViewRefresh {
+    
+    __weak HomeController *wself = self;
+    self.table.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [wself getNewZiXunList];
+    }];
+    
+    self.table.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(getMoerZixunList)];
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    PushWebViewController *push = [[PushWebViewController alloc] init];
+    [self.navigationController pushViewController:push animated:YES];
     
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return self.articleList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     HomeMengzhuTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:homeTableCellIdentify forIndexPath:indexPath];
-    
+    cell.model = self.articleList[indexPath.row];
 
     return cell;
 }

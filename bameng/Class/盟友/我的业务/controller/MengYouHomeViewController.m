@@ -44,11 +44,25 @@ static NSString *mengYouHomeIdentify = @"mengYouHomeIdentify";
     
     self.title = @"业务客户";
     
+    
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.tabBarController.tabBar.hidden = NO;
+    
+    
+    
+    
+}
+
+- (void)setUserInfomation {
+    NSString * path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *fileName = [path stringByAppendingPathComponent:UserInfomation];
+    UserModel *user = [NSKeyedUnarchiver unarchiveObjectWithFile:fileName];
+    
+//    self.agreeLabel.text =
 }
 
 #pragma mark tableView

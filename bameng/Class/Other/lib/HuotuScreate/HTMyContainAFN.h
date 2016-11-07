@@ -14,7 +14,7 @@
 
 
 
-+ (void)AFN:(NSString * )url with:(NSMutableDictionary *)parames Success:(void (^)(id  responseObject))success failure:(void (^)(NSError *  error))failure;
++ (void)AFN:(NSString * )url with:(NSMutableDictionary *)parames Success:(void (^)(NSDictionary  *responseObject))success failure:(void (^)(NSError *  error))failure;
 
 
 @end

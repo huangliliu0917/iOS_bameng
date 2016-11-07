@@ -12,6 +12,7 @@
 #import "MengZhuInfomationSmallTableViewCell.h"
 #import "AddNewInfomationTableViewController.h"
 #import "MYInfomationTableViewCell.h"
+#import "BMInfomationModel.h"
 
 @interface MengZhuInfomationViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UITableView *table;
@@ -34,6 +35,10 @@
 @property (nonatomic, strong) UIView *slider;
 @property (nonatomic, assign) NSInteger selectPage;
 
+
+@property (nonatomic, strong) NSMutableArray *articleList;
+@property (nonatomic, assign) NSInteger PageIndex;
+@property (nonatomic, assign) NSInteger PageSize;
 
 @end
 
@@ -72,24 +77,26 @@ static NSString *infomationIdentify = @"infomationIdentify";
         [wself.navigationController pushViewController:add animated:YES];
     }];
     
+    [self setUserReg];
+    
+    [self setTabalViewRefresh];
+    
+    self.PageSize = 20;
+    self.PageIndex = 1;
+    self.articleList = [NSMutableArray array];
 }
 
 //设置选择点击事件
 - (void)setSelectViewAction {
-    __weak MengZhuInfomationViewController *wself = self;
+
     
     self.jituan.userInteractionEnabled = YES;
     [self.jituan bk_whenTapped:^{
         if (self.selectPage != 1) {
             
             self.selectPage = 1;
-            [UIView animateWithDuration:0.25 animations:^{
-                [wself setAllLabelsTitleColorBlack];
-                wself.jituanLabel.textColor = [UIColor colorWithRed:248/255.0 green:152/255.0 blue:155/255.0 alpha:1];
-                self.slider.frame =  CGRectMake((KScreenWidth / 4 - 40) / 2 + (self.selectPage - 1) * KScreenWidth / 4, 33, 40, 2);
-            }];
-            self.table.tableHeaderView = self.tableHeadView;
-            [self.table reloadData];
+            
+            [self selectPageChanged];
         }
     }];
     
@@ -98,13 +105,8 @@ static NSString *infomationIdentify = @"infomationIdentify";
         if (self.selectPage != 2) {
             
             self.selectPage = 2;
-            [UIView animateWithDuration:0.25 animations:^{
-                [wself setAllLabelsTitleColorBlack];
-                wself.zongdianLabel.textColor = [UIColor colorWithRed:248/255.0 green:152/255.0 blue:155/255.0 alpha:1];;
-                self.slider.frame =  CGRectMake((KScreenWidth / 4 - 40) / 2 + (self.selectPage - 1) * KScreenWidth / 4, 33, 40, 2);
-            }];
-            self.table.tableHeaderView = self.tableHeadView;
-            [self.table reloadData];
+            
+            [self selectPageChanged];
         }
     }];
     
@@ -113,13 +115,8 @@ static NSString *infomationIdentify = @"infomationIdentify";
         if (self.selectPage != 3) {
             
             self.selectPage = 3;
-            [UIView animateWithDuration:0.25 animations:^{
-                [wself setAllLabelsTitleColorBlack];
-                wself.fendianLabel.textColor = [UIColor colorWithRed:248/255.0 green:152/255.0 blue:155/255.0 alpha:1];;
-                self.slider.frame =  CGRectMake((KScreenWidth / 4 - 40) / 2 + (self.selectPage - 1) * KScreenWidth / 4, 33, 40, 2);
-            }];
-            self.table.tableHeaderView = self.tableHeadView;
-            [self.table reloadData];
+            
+            [self selectPageChanged];
         }
     }];
     
@@ -128,16 +125,85 @@ static NSString *infomationIdentify = @"infomationIdentify";
         if (self.selectPage != 4) {
             
             self.selectPage = 4;
+            
+            [self selectPageChanged];
+        }
+    }];
+}
+
+- (void)selectPageChanged {
+    switch (self.selectPage) {
+        case 1:
+        {
             [UIView animateWithDuration:0.25 animations:^{
-                [wself setAllLabelsTitleColorBlack];
-                wself.mengyouLabel.textColor = [UIColor colorWithRed:248/255.0 green:152/255.0 blue:155/255.0 alpha:1];;
+                [self setAllLabelsTitleColorBlack];
+                self.jituanLabel.textColor = [UIColor colorWithRed:248/255.0 green:152/255.0 blue:155/255.0 alpha:1];
+                self.slider.frame =  CGRectMake((KScreenWidth / 4 - 40) / 2 + (self.selectPage - 1) * KScreenWidth / 4, 33, 40, 2);
+            }];
+            self.table.tableHeaderView = self.tableHeadView;
+            [self getNewZiXunList];
+            break;
+        }
+        case 2:
+        {
+            [UIView animateWithDuration:0.25 animations:^{
+                [self setAllLabelsTitleColorBlack];
+                self.zongdianLabel.textColor = [UIColor colorWithRed:248/255.0 green:152/255.0 blue:155/255.0 alpha:1];;
                 self.slider.frame =  CGRectMake((KScreenWidth / 4 - 40) / 2 + (self.selectPage - 1) * KScreenWidth / 4, 33, 40, 2);
             }];
             self.table.tableHeaderView = nil;
-            [self.table reloadData];
-            
+            [self getNewZiXunList];
+            break;
         }
-    }];
+        case 3:
+        {
+            [UIView animateWithDuration:0.25 animations:^{
+                [self setAllLabelsTitleColorBlack];
+                self.fendianLabel.textColor = [UIColor colorWithRed:248/255.0 green:152/255.0 blue:155/255.0 alpha:1];;
+                self.slider.frame =  CGRectMake((KScreenWidth / 4 - 40) / 2 + (self.selectPage - 1) * KScreenWidth / 4, 33, 40, 2);
+            }];
+            self.table.tableHeaderView = nil;
+            [self getNewZiXunList];
+            break;
+        }
+        case 4:
+        {
+            [UIView animateWithDuration:0.25 animations:^{
+                [self setAllLabelsTitleColorBlack];
+                self.mengyouLabel.textColor = [UIColor colorWithRed:248/255.0 green:152/255.0 blue:155/255.0 alpha:1];;
+                self.slider.frame =  CGRectMake((KScreenWidth / 4 - 40) / 2 + (self.selectPage - 1) * KScreenWidth / 4, 33, 40, 2);
+            }];
+            self.table.tableHeaderView = nil;
+            [self getNewZiXunList];
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+- (void)setUserReg {
+    UISwipeGestureRecognizer *left = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(leftSwipeGes)];
+    left.direction = UISwipeGestureRecognizerDirectionRight;
+    [self.view addGestureRecognizer:left];
+    
+    UISwipeGestureRecognizer *right = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(rightSwipeGes)];
+    right.direction = UISwipeGestureRecognizerDirectionLeft;
+    [self.view addGestureRecognizer:right];
+}
+
+- (void)leftSwipeGes {
+    if (self.selectPage != 1) {
+        self.selectPage--;
+        [self selectPageChanged];
+    }
+}
+
+- (void)rightSwipeGes {
+    if (self.selectPage != 4) {
+        self.selectPage++;
+        [self selectPageChanged];
+    }
 }
 
 
@@ -162,10 +228,140 @@ static NSString *infomationIdentify = @"infomationIdentify";
 }
 
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self getCrircleList];
+    
+    [self getNewZiXunList];
+}
+
+
+#pragma mark 网络请求
+
+- (void)getCrircleList {
+    
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    dic[@"type"] = @0;
+    [HTMyContainAFN AFN:@"sys/FocusPic" with:dic Success:^(NSDictionary *responseObject) {
+        LWLog(@"sys/FocusPic：%@", responseObject);
+    } failure:^(NSError *error) {
+        LWLog(@"%@" ,error);
+    }];
+}
+
+- (void)getNewZiXunList {
+    
+    
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    
+    dic[@"identity"] = @([self identityForZiXunList]);
+    dic[@"pageSize"] = @(self.PageSize);
+    dic[@"pageIndex"] = @(1);
+    [HTMyContainAFN AFN:@"article/list" with:dic Success:^(NSDictionary *responseObject) {
+        LWLog(@"article/list：%@",responseObject);
+        
+        if ([responseObject[@"status"] intValue] == 200) {
+            [self.articleList removeAllObjects];
+            if (self.selectPage == 4) {
+                
+            }else {
+                NSDictionary *dic = responseObject[@"data"];
+                if ([dic.allKeys indexOfObject:@"top"] != NSNotFound) {
+                    NSArray *array = [BMInfomationModel mj_objectArrayWithKeyValuesArray:dic[@"top"]];
+                    [self.articleList addObjectsFromArray:array];
+                }
+                NSArray *rows = [BMInfomationModel mj_objectArrayWithKeyValuesArray:dic[@"list"][@"Rows"]];
+                [self.articleList addObjectsFromArray:rows];
+                self.PageIndex = [dic[@"list"][@"PageIndex"] integerValue];
+                self.PageSize = [dic[@"list"][@"PageSize"] integerValue];
+            }
+            
+            [self.table reloadData];
+        }
+        
+        [self.table.mj_header endRefreshing];
+    } failure:^(NSError *error) {
+        LWLog(@"%@", error);
+        [self.table.mj_header endRefreshing];
+    }];
+}
+
+- (void)getMoerZixunList {
+    __weak MengZhuInfomationViewController *wself = self;
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    
+    dic[@"identity"] = @([self identityForZiXunList]);
+    dic[@"pageSize"] = @(self.PageSize);
+    dic[@"pageIndex"] = @(self.PageIndex + 1);
+    [HTMyContainAFN AFN:@"article/list" with:dic Success:^(NSDictionary *responseObject) {
+        LWLog(@"article/list：%@",responseObject);
+        if ([responseObject[@"status"] intValue] == 200) {
+            
+            NSDictionary *dic = responseObject[@"data"];
+            NSArray *rows = [BMInfomationModel mj_objectArrayWithKeyValuesArray:dic[@"list"][@"Rows"]];
+            if (rows.count == 0) {
+                
+            }else {
+                [self.articleList addObjectsFromArray:rows];
+                self.PageIndex = [dic[@"list"][@"PageIndex"] integerValue];
+                self.PageSize = [dic[@"list"][@"PageSize"] integerValue];
+                [self.table reloadData];
+            }
+        }
+        
+        [wself.table.mj_footer endRefreshing];
+    } failure:^(NSError *error) {
+        LWLog(@"%@", error);
+        [wself.table.mj_footer endRefreshing];
+    }];
+}
+
+
+- (NSInteger)identityForZiXunList {
+    switch (self.selectPage) {
+        case 1:
+        {
+            return 0;
+            break;
+        }
+        case 2:
+        {
+            return 1;
+            break;
+        }
+        case 3:
+        {
+            return 2;
+            break;
+        }
+        case 4:
+        {
+            return 4;
+            break;
+        }
+        default:
+            break;
+            
+        
+    }
+    return 0;
+}
+
 #pragma mark table
 
+- (void)setTabalViewRefresh {
+    
+    __weak MengZhuInfomationViewController *wself = self;
+    self.table.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [wself getNewZiXunList];
+    }];
+    
+    self.table.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(getMoerZixunList)];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return self.articleList.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -188,10 +384,11 @@ static NSString *infomationIdentify = @"infomationIdentify";
     }else {
         if (indexPath.row == 0) {
             MengZhuInfomationBigTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:zixunBigIdentify forIndexPath:indexPath];
-            
+            cell.model = self.articleList[indexPath.row];
             return cell;
         }else {
             MengZhuInfomationSmallTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:zixunSmallIdentify forIndexPath:indexPath];
+            cell.model = self.articleList[indexPath.row];
             return cell;
         }
     }

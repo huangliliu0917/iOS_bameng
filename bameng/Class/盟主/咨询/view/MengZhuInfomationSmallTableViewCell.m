@@ -21,4 +21,13 @@
     // Configure the view for the selected state
 }
 
+- (void)setModel:(BMInfomationModel *)model {
+    _model = model;
+    [self.cover sd_setImageWithURL:[NSURL URLWithString:_model.ArticleCover] placeholderImage:nil options:SDWebImageRefreshCached];
+    self.title.text = _model.ArticleTitle;
+    self.intro.text = _model.ArticleIntro;
+    self.browseAmout.text =  [_model.BrowseAmount stringValue];
+    self.time.text = [_model.PublishTime substringToIndex:_model.PublishTime.length - 3];
+}
+
 @end

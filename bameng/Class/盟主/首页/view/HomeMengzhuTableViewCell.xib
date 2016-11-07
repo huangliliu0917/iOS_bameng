@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11535.1" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11535.1" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="133" id="KGk-i7-Jjw" customClass="HomeMengzhuTableViewCell">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="133" id="KGk-i7-Jjw" customClass="HomeMengzhuTableViewCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -35,7 +35,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="只有不断提升品牌形象，才能让品牌的发展之路更长久。此前，美尔凯特已在高铁广告、报纸,虽然品牌的宣传在某种" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xBn-IX-04M">
-                                <rect key="frame" x="101" y="38" width="191" height="27"/>
+                                <rect key="frame" x="101" y="38" width="191" height="26.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -44,32 +44,29 @@
                                 <rect key="frame" x="101" y="75" width="191" height="25"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sj" translatesAutoresizingMaskIntoConstraints="NO" id="5Hx-AT-LxE">
-                                        <rect key="frame" x="138" y="0.0" width="15" height="15"/>
+                                        <rect key="frame" x="144.5" y="0.0" width="15" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="15" id="Dmw-Sh-RY2"/>
                                             <constraint firstAttribute="height" constant="15" id="ZiB-gK-rMa"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w0Q-0b-1JW">
-                                        <rect key="frame" x="156" y="1" width="35" height="14"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="35" id="f8b-Pm-Yaa"/>
-                                        </constraints>
+                                        <rect key="frame" x="162.5" y="1" width="28.5" height="14"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eou-lL-kHr">
-                                        <rect key="frame" x="90" y="1" width="40" height="14"/>
+                                        <rect key="frame" x="101.5" y="1" width="35" height="14"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="QUt-3M-A6t"/>
+                                            <constraint firstAttribute="width" constant="35" id="QUt-3M-A6t"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lll" translatesAutoresizingMaskIntoConstraints="NO" id="uvh-If-WTU">
-                                        <rect key="frame" x="72" y="0.0" width="15" height="15"/>
+                                        <rect key="frame" x="83.5" y="0.0" width="15" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="f8a-PK-eCf"/>
                                             <constraint firstAttribute="width" constant="15" id="kHB-2R-3fR"/>
@@ -115,6 +112,13 @@
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.96078431372549022" green="0.96470588235294119" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+            <connections>
+                <outlet property="borwseAmount" destination="Eou-lL-kHr" id="5VJ-Iv-DJw"/>
+                <outlet property="cover" destination="mUQ-IG-hxR" id="tZ2-02-v6O"/>
+                <outlet property="intro" destination="xBn-IX-04M" id="FZy-JO-aJ6"/>
+                <outlet property="time" destination="w0Q-0b-1JW" id="WiH-gm-NZt"/>
+                <outlet property="title" destination="vU1-eS-l2J" id="klF-5z-8Io"/>
+            </connections>
             <point key="canvasLocation" x="30" y="-2"/>
         </tableViewCell>
     </objects>

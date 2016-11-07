@@ -23,7 +23,9 @@
 #import "BassModel.h"
 #import <MJExtension/MJExtension.h>
 #import <SVProgressHUD/SVProgressHUD.h>
+#import <MJRefresh/MJRefresh.h>
 #import "AsignLibrary.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 /*** 接口地址以及签名参数 ***/
 #ifdef DEBUG

@@ -15,12 +15,12 @@
 
 
 
-+ (void)AFN:(NSString  * )url with:(NSMutableDictionary *)parames Success:(void (^)(id   responseObject))success failure:(void (^)(NSError *  error))failure{
++ (void)AFN:(NSString  * )url with:(NSMutableDictionary *)parames Success:(void (^)(NSDictionary   *responseObject))success failure:(void (^)(NSError *  error))failure{
     
     AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
     
-    NSString * token = [[NSUserDefaults standardUserDefaults] stringForKey:AppToken];
-    [manager.requestSerializer setValue:token?[NSString stringWithFormat:@"Bearer %@",token]:@"" forHTTPHeaderField:@"Authorization"];
+    NSString * token = [[NSUserDefaults standardUserDefaults] objectForKey:AppToken];
+    [manager.requestSerializer setValue:token?token:@"" forHTTPHeaderField:@"Authorization"];
     
     NSMutableDictionary * parame = [AsignLibrary AsignLibraryWithNecessaryParame:parames];
     

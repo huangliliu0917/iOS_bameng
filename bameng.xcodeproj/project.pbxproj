@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0ECACC7AB1F44CC7EA4C676C /* libPods-bameng.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA4A0725E52CF05F19286687 /* libPods-bameng.a */; };
+		600792351DD0322000BBF448 /* BMInfomationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 600792341DD0322000BBF448 /* BMInfomationModel.m */; };
 		600DF37A1DC21BA6000296E8 /* OrderDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600DF3791DC21BA6000296E8 /* OrderDetailTableViewController.m */; };
 		600DF37D1DC22CB7000296E8 /* PostOrderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600DF37C1DC22CB7000296E8 /* PostOrderTableViewController.m */; };
 		6015F2D71DCAE6CD00E5E5A4 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6015F2D61DCAE6CD00E5E5A4 /* LoginController.m */; };
@@ -118,6 +119,8 @@
 		29BEC5EF9948E97E135A1D0C /* Pods-bameng.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bameng.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bameng/Pods-bameng.debug.xcconfig"; sourceTree = "<group>"; };
 		2E089ECC66D0C7C9DE572EA1 /* Pods-bamengTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bamengTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bamengTests/Pods-bamengTests.debug.xcconfig"; sourceTree = "<group>"; };
 		34F28DCCF0229D29337C4518 /* Pods-bamengTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bamengTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-bamengTests/Pods-bamengTests.release.xcconfig"; sourceTree = "<group>"; };
+		600792331DD0322000BBF448 /* BMInfomationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMInfomationModel.h; sourceTree = "<group>"; };
+		600792341DD0322000BBF448 /* BMInfomationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMInfomationModel.m; sourceTree = "<group>"; };
 		600DF3781DC21BA6000296E8 /* OrderDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailTableViewController.h; sourceTree = "<group>"; };
 		600DF3791DC21BA6000296E8 /* OrderDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDetailTableViewController.m; sourceTree = "<group>"; };
 		600DF37B1DC22CB7000296E8 /* PostOrderTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostOrderTableViewController.h; sourceTree = "<group>"; };
@@ -442,6 +445,8 @@
 		603A39AD1DB9E62F00DC1ADA /* model */ = {
 			isa = PBXGroup;
 			children = (
+				600792331DD0322000BBF448 /* BMInfomationModel.h */,
+				600792341DD0322000BBF448 /* BMInfomationModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -1154,6 +1159,7 @@
 			files = (
 				EF04388D1DBAFD5E00CA8902 /* AsignLibrary.m in Sources */,
 				6015F2D71DCAE6CD00E5E5A4 /* LoginController.m in Sources */,
+				600792351DD0322000BBF448 /* BMInfomationModel.m in Sources */,
 				60FC8A941DBDAD8F009612C1 /* ProcessedTableViewCell.m in Sources */,
 				60C4C0211DC83D6C00B7B867 /* MYWealthTableViewController.m in Sources */,
 				6033D7A61DBB45D700B9B4DA /* UITableView+CJ.m in Sources */,

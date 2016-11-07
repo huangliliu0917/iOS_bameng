@@ -11,6 +11,6 @@
 @interface PushWebViewController : UIViewController
 
 @property (nonatomic ,strong) NSString *openUrl;
-@property (strong, nonatomic) IBOutlet UIWebView *webView;
+
 
 @end
