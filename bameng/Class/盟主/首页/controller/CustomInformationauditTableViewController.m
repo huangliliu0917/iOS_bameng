@@ -19,6 +19,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+    
     self.agree.layer.masksToBounds = YES;
     self.agree.layer.cornerRadius = 5;
     

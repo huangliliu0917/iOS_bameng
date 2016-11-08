@@ -23,7 +23,7 @@
 
 -(void)setModel:(BMInfomationModel *)model {
     _model = model;
-    [self.cover sd_setImageWithURL:[NSURL URLWithString:_model.ArticleCover] placeholderImage:nil options:SDWebImageRefreshCached];
+    [self.cover sd_setImageWithURL:[NSURL URLWithString:_model.ArticleCover] placeholderImage:[UIImage imageNamed:@"264x264"] options:SDWebImageRefreshCached];
     self.title.text = _model.ArticleTitle;
     self.intro.text = _model.ArticleIntro;
     self.borwseAmount.text =  [_model.BrowseAmount stringValue];

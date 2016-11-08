@@ -24,6 +24,11 @@
 
 @property (nonatomic, assign) BOOL isUntreated;
 
+@property (nonatomic, assign) NSInteger PageIndex;
+@property (nonatomic, assign) NSInteger PageSize;
+
+@property (nonatomic, strong) NSMutableArray *customList;
+
 @end
 
 @implementation CustomInfoController
@@ -33,6 +38,8 @@ static NSString *processedIdentify = @"processedIdentify";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
     
     self.isUntreated = YES;
     
@@ -108,6 +115,9 @@ static NSString *processedIdentify = @"processedIdentify";
     
     
     
+    self.PageSize = 20;
+    self.PageIndex = 1;
+    self.customList = [NSMutableArray array];
     
     
 }
@@ -115,6 +125,22 @@ static NSString *processedIdentify = @"processedIdentify";
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.tabBarController.tabBar.hidden = YES;
+    
+    if (self.selectPage == 1) {
+        
+        //客户信息页面
+        [self getNewCustomInfomation];
+    }else if (self.selectPage == 2) {
+        //2兑换审核
+
+        
+        
+    }else if (self.selectPage == 3) {
+        //3我的联盟
+
+        
+    }
+
 }
 
 
@@ -122,6 +148,25 @@ static NSString *processedIdentify = @"processedIdentify";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark 客户信息
+
+- (void)getNewCustomInfomation {
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    dic[@"type"] = @1;
+    dic[@"pageIndex"] = @1;
+    dic[@"pageSize"] = @(self.PageSize);
+    [HTMyContainAFN AFN:@"customer/list" with:dic Success:^(NSDictionary *responseObject) {
+        LWLog(@"customer/list：%@", responseObject);
+        if ([responseObject[@"status"] intValue] == 200) {
+            
+        }
+    } failure:^(NSError *error) {
+        LWLog(@"%@" ,error);
+    }];
+}
+
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 10;

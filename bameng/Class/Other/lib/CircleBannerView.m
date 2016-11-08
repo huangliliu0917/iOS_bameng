@@ -94,6 +94,7 @@ static char TimerKey;
 
 #pragma mark - 图片
 - (void)bannerWithImageArray:(NSArray *)imageArray {
+    _isURL = YES;
     self.dataArray = imageArray;
     self.pageControl.numberOfPages = imageArray.count;
     if (_dataArray.count > 0) {

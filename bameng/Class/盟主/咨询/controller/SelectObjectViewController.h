@@ -8,7 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+
+@protocol SelectObjectDelegate <NSObject>
+
+@optional
+
+- (void)selectMengYou:(NSString *) mengYouId;
+
+@end
+
+
 @interface SelectObjectViewController : UIViewController
 
+@property (retain, nonatomic) id <SelectObjectDelegate>delegate;
 
 @end

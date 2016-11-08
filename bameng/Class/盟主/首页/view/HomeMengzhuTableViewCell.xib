@@ -21,7 +21,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ADR-fN-F22">
                         <rect key="frame" x="9" y="9" width="302" height="100"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mUQ-IG-hxR">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="264x264" translatesAutoresizingMaskIntoConstraints="NO" id="mUQ-IG-hxR">
                                 <rect key="frame" x="9" y="9" width="82" height="82"/>
                                 <color key="backgroundColor" red="0.12549019610000001" green="0.60392156860000001" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -123,6 +123,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="264x264" width="264" height="264"/>
         <image name="lll" width="17" height="17"/>
         <image name="sj" width="16" height="16"/>
     </resources>

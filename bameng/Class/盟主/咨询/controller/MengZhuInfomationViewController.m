@@ -13,10 +13,13 @@
 #import "AddNewInfomationTableViewController.h"
 #import "MYInfomationTableViewCell.h"
 #import "BMInfomationModel.h"
+#import "BMCircleModel.h"
+#import "PushWebViewController.h"
 
-@interface MengZhuInfomationViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface MengZhuInfomationViewController ()<UITableViewDelegate,UITableViewDataSource,CircleBannerViewDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *table;
 @property (nonatomic, strong) CircleBannerView *circleView;
+@property (nonatomic, strong) NSMutableArray *circleList;
 
 @property (nonatomic, strong) UIView *tableHeadView;
 
@@ -52,11 +55,15 @@ static NSString *infomationIdentify = @"infomationIdentify";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+    
     self.title = @"资讯列表";
     
     self.selectPage = 1;
+    self.circleList = [NSMutableArray array];
+    
     self.slider = [[UIView alloc] initWithFrame:CGRectMake((KScreenWidth / 4 - 40) / 2, 33, 40, 2)];
-    self.slider.backgroundColor = [UIColor colorWithRed:204/255.0 green:158/255.0 blue:95/255.0 alpha:1];
+    self.slider.backgroundColor = [UIColor colorWithRed:248/255.0 green:152/255.0 blue:155/255.0 alpha:1];
     [self.chooserView addSubview:self.slider];
     
     [self setSelectViewAction];
@@ -211,6 +218,10 @@ static NSString *infomationIdentify = @"infomationIdentify";
     self.tableHeadView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, 210 * (KScreenWidth / 414))];
     self.table.tableHeaderView = self.tableHeadView;
     self.tableHeadView.backgroundColor = [UIColor blueColor];
+    
+    self.circleView = [[CircleBannerView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, 210 * (KScreenWidth / 414))];
+    self.circleView.delegate = self;
+    [self.tableHeadView addSubview:self.circleView];
 }
 
 
@@ -231,9 +242,39 @@ static NSString *infomationIdentify = @"infomationIdentify";
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    self.tabBarController.tabBar.hidden = NO;
+    
     [self getCrircleList];
     
     [self getNewZiXunList];
+}
+
+#pragma mark circleView
+
+- (void)setCircleViewImages {
+    NSMutableArray *array = [NSMutableArray array];
+    for (int i = 0; i < self.circleList.count; i++) {
+        BMCircleModel *model = self.circleList[i];
+        [array addObject:model.PicUrl];
+    }
+    [self.circleView initSubviews];
+    [self.circleView bannerWithImageArray:array];
+}
+
+- (void)bannerView:(CircleBannerView *)bannerView didSelectAtIndex:(NSUInteger)index{
+    
+    BMCircleModel *model = self.circleList[index];
+    
+    if (model.LinkUrl.length != 0) {
+        PushWebViewController *push = [[PushWebViewController alloc] init];
+        push.openUrl = model.LinkUrl;
+        [self.navigationController pushViewController:push animated:YES];
+    }
+    
+}
+
+- (void)imageView:(UIImageView *)imageView loadImageForUrl:(NSString *)url {
+    [imageView sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:nil options:SDWebImageRefreshCached];
 }
 
 
@@ -245,6 +286,12 @@ static NSString *infomationIdentify = @"infomationIdentify";
     dic[@"type"] = @0;
     [HTMyContainAFN AFN:@"sys/FocusPic" with:dic Success:^(NSDictionary *responseObject) {
         LWLog(@"sys/FocusPic：%@", responseObject);
+        if ([responseObject[@"status"] intValue] == 200) {
+            NSArray *array = [BMCircleModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+            [self.circleList addObjectsFromArray:array];
+            
+            [self setCircleViewImages];
+        }
     } failure:^(NSError *error) {
         LWLog(@"%@" ,error);
     }];

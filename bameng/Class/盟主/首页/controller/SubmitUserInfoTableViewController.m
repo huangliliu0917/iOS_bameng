@@ -21,6 +21,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+    
     self.otherTextView.layer.borderWidth = 1;
     self.otherTextView.layer.borderColor = [UIColor blackColor].CGColor;
 }

@@ -21,4 +21,10 @@
     // Configure the view for the selected state
 }
 
+- (void)setModel:(UserModel *)model {
+    _model = model;
+    self.textLabel.text = model.RealName;
+    self.phone.text = model.UserMobile;
+}
+
 @end

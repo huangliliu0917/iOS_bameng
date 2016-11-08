@@ -12,4 +12,5 @@
 @property (strong, nonatomic) IBOutlet UILabel *name;
 @property (strong, nonatomic) IBOutlet UILabel *phone;
 
+@property (nonatomic, strong) UserModel *model;
 @end

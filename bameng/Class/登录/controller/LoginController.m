@@ -53,13 +53,13 @@
                 
                 [[NSUserDefaults standardUserDefaults] setObject:user.token forKey:AppToken];
                 
-                if (user.UserIdentity == 0) {
+                if (user.UserIdentity == 1) {
                     [[NSUserDefaults standardUserDefaults] setObject:isMengZhu forKey:mengyouIdentify];
                     UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
                     MengzhuTabbarController *tabbar = [story instantiateViewControllerWithIdentifier:@"MengzhuTabbarController"];
                     [UIApplication sharedApplication].keyWindow.rootViewController = tabbar;
 
-                }else if (user.UserIdentity == 1) {
+                }else if (user.UserIdentity == 0) {
                     [[NSUserDefaults standardUserDefaults] setObject:isMengYou forKey:mengyouIdentify];
                     UIStoryboard *mengyou = [UIStoryboard storyboardWithName:@"MengYou" bundle:nil];
                     MengYouTabbarViewController *you = [mengyou instantiateViewControllerWithIdentifier:@"MengYouTabbarViewController"];

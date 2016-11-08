@@ -15,8 +15,9 @@
 #import <MJRefresh/MJRefreshHeader.h>
 #import "BMInfomationModel.h"
 #import "PushWebViewController.h"
+#import "BMCircleModel.h"
 
-@interface HomeController ()
+@interface HomeController ()<CircleBannerViewDelegate>
 
 @property (nonatomic, strong) CircleBannerView *circleView;
 
@@ -25,6 +26,7 @@
 @property (nonatomic, assign) NSInteger PageSize;
 
 @property (nonatomic, strong) NSMutableArray *articleList;
+@property (nonatomic, strong) NSMutableArray *circleList;
 
 @end
 
@@ -35,6 +37,9 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+    [SVProgressHUD setMinimumDismissTimeInterval:0.7];
     
     self.title = @"霸盟";
     
@@ -49,6 +54,7 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
     self.PageSize = 20;
     self.PageIndex = 1;
     self.articleList = [NSMutableArray array];
+    self.circleList = [NSMutableArray array];
     
     [self setHeadActions];
     
@@ -63,6 +69,11 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
     head.frame = CGRectMake(0, 0, KScreenWidth, head.frame.size.height - 210.0 * (1 - KScreenWidth / 414));
     head.circulateHeight.constant = 210.0 * (KScreenWidth / 414);
     [head layoutIfNeeded];
+    
+    self.circleView = [[CircleBannerView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, 210.0 * (KScreenWidth / 414))];
+    self.circleView.delegate = self;
+    [head.circulateView addSubview:self.circleView];
+    
     self.table.tableHeaderView = head;
     [head.zhanghu bk_whenTapped:^{
         MyWalletTableViewController *wallet = [story instantiateViewControllerWithIdentifier:@"MyWalletTableViewController"];
@@ -103,6 +114,8 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
 }
 
 
+
+
 - (void) viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
@@ -122,6 +135,34 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
 }
 
 
+#pragma mark circleView 
+
+- (void)setCircleViewImages {
+    NSMutableArray *array = [NSMutableArray array];
+    for (int i = 0; i < self.circleList.count; i++) {
+        BMCircleModel *model = self.circleList[i];
+        [array addObject:model.PicUrl];
+    }
+    [self.circleView initSubviews];
+    [self.circleView bannerWithImageArray:array];
+}
+
+- (void)bannerView:(CircleBannerView *)bannerView didSelectAtIndex:(NSUInteger)index{
+    
+    BMCircleModel *model = self.circleList[index];
+    
+    if (model.LinkUrl.length != 0) {
+        PushWebViewController *push = [[PushWebViewController alloc] init];
+        push.openUrl = model.LinkUrl;
+        [self.navigationController pushViewController:push animated:YES];
+    }
+    
+}
+
+- (void)imageView:(UIImageView *)imageView loadImageForUrl:(NSString *)url {
+    [imageView sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"banner"] options:SDWebImageRefreshCached];
+}
+
 #pragma mark 网络请求
 
 - (void)getCrircleList {
@@ -130,6 +171,12 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
     dic[@"type"] = @2;
     [HTMyContainAFN AFN:@"sys/FocusPic" with:dic Success:^(NSDictionary *responseObject) {
         LWLog(@"sys/FocusPic：%@", responseObject);
+        if ([responseObject[@"status"] intValue] == 200) {
+            NSArray *array = [BMCircleModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+            [self.circleList addObjectsFromArray:array];
+            
+            [self setCircleViewImages];
+        }
     } failure:^(NSError *error) {
         LWLog(@"%@" ,error);
     }];
@@ -213,7 +260,10 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    BMInfomationModel *model = self.articleList[indexPath.row];
+    
     PushWebViewController *push = [[PushWebViewController alloc] init];
+    push.openUrl = model.ArticleUrl;
     [self.navigationController pushViewController:push animated:YES];
     
 }

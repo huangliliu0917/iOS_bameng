@@ -33,7 +33,7 @@
                                                     <constraint firstAttribute="width" secondItem="IbH-AQ-Tfu" secondAttribute="height" id="13o-6c-IpM"/>
                                                 </constraints>
                                             </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="guomw" placeholder="用户账号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uQ0-nZ-Jrd">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="18888888888" placeholder="用户账号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uQ0-nZ-Jrd">
                                                 <rect key="frame" x="58" y="27" width="307" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="S8f-xW-KDb"/>

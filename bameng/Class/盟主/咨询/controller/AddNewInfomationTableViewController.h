@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface AddNewInfomationTableViewController : UITableViewController
+@property (strong, nonatomic) IBOutlet UITextField *titleField;
+@property (strong, nonatomic) IBOutlet UITextView *content;
+@property (strong, nonatomic) IBOutlet UIButton *sendButton;
 
 @end

@@ -61,7 +61,7 @@
                         <color key="textColor" red="0.86274509803921573" green="0.0" blue="0.070588235294117646" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MCx-WR-JRJ" customClass="txzz">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="264x264" translatesAutoresizingMaskIntoConstraints="NO" id="MCx-WR-JRJ">
                         <rect key="frame" x="12" y="12" width="60" height="60"/>
                     </imageView>
                 </subviews>
@@ -99,4 +99,7 @@
             <point key="canvasLocation" x="25" y="72.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="264x264" width="264" height="264"/>
+    </resources>
 </document>
