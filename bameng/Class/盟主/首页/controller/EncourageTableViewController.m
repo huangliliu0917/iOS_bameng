@@ -22,11 +22,21 @@
     self.saveButton.layer.masksToBounds = YES;
     self.saveButton.layer.cornerRadius = 5;
     self.view.backgroundColor = [UIColor colorWithRed:232/255.0 green:234/255.0 blue:235/255.0 alpha:1];
+    
+    [self.saveButton bk_whenTapped:^{
+        [self sendMengYouEncourage];
+    }];
+    
+    [self.view bk_whenTapped:^{
+        [self.view endEditing:YES];
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.tabBarController.tabBar.hidden = YES;
+    
+    [self getMengYouEncourage];
 }
 
 
@@ -35,70 +45,44 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
 
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//#warning Incomplete implementation, return the number of sections
-//    return 0;
-//}
-//
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//#warning Incomplete implementation, return the number of rows
-//    return 0;
-//}
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+- (void)getMengYouEncourage  {
     
-    // Configure the cell...
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+        [HTMyContainAFN AFN:@"user/GetAllyReward" with:dic Success:^(NSDictionary *responseObject) {
+        LWLog(@"article/list：%@",responseObject);
+        if ([responseObject[@"status"] intValue] == 200) {
+
+            self.customLabel.placeholder = [NSString stringWithFormat:@"%@", responseObject[@"data"][@"CustomerReward"]];
+            self.successMengDou.placeholder = [NSString stringWithFormat:@"%@", responseObject[@"data"][@"OrderReward"]];
+            self.inShopMengDou.placeholder = [NSString stringWithFormat:@"%@", responseObject[@"data"][@"ShopReward"]];
+        }
+
+    } failure:^(NSError *error) {
+        LWLog(@"%@", error);
+
+    }];
     
-    return cell;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (void)sendMengYouEncourage {
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    
+    dic[@"creward"] = self.customLabel.text;
+    dic[@"orderreward"] = self.successMengDou.text;
+    dic[@"shopreward"] = self.inShopMengDou.text;
+    [HTMyContainAFN AFN:@"user/setallyRaward" with:dic Success:^(NSDictionary *responseObject) {
+        LWLog(@"article/list：%@",responseObject);
+        if ([responseObject[@"status"] intValue] == 200) {
+            [SVProgressHUD showSuccessWithStatus:@"设置成功"];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+        
+    } failure:^(NSError *error) {
+        LWLog(@"%@", error);
+        
+    }];
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

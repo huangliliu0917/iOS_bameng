@@ -10,5 +10,8 @@
 
 @interface EncourageTableViewController : UITableViewController
 @property (strong, nonatomic) IBOutlet UIButton *saveButton;
+@property (strong, nonatomic) IBOutlet UITextField *customLabel;
+@property (strong, nonatomic) IBOutlet UITextField *successMengDou;
+@property (strong, nonatomic) IBOutlet UITextField *inShopMengDou;
 
 @end
