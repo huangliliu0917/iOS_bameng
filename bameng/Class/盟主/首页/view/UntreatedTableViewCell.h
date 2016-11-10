@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomInfomationModel.h"
+
 
 @interface UntreatedTableViewCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UIImageView *image;
@@ -22,5 +24,9 @@
 
 @property (nonatomic, assign) NSInteger selectPage;
 @property (strong, nonatomic) IBOutlet UILabel *reviewLabel;
+
+@property (nonatomic, strong) CustomInfomationModel *customModel;
+
+
 
 @end

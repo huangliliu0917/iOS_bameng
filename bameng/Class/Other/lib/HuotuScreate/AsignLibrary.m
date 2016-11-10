@@ -49,7 +49,12 @@
     for (NSString * dicKey in arr) {
         
         if ([innerParame objectForKey:dicKey]) {
-            [signCap appendString:[NSString stringWithFormat:@"%@=%@&",[dicKey lowercaseString] ,[innerParame objectForKey:dicKey]]];
+            NSString *str = [NSString stringWithFormat:@"%@", [innerParame objectForKey:dicKey]];
+            if (str.length == 0) {
+                continue;
+            }else {
+                [signCap appendString:[NSString stringWithFormat:@"%@=%@&",[dicKey lowercaseString] ,[innerParame objectForKey:dicKey]]];
+            }
         }
     }
     LWLog(@"%@",signCap);

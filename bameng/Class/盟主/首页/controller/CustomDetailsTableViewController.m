@@ -8,8 +8,19 @@
 
 #import "CustomDetailsTableViewController.h"
 
-@interface CustomDetailsTableViewController ()
+@interface CustomDetailsTableViewController ()<UIPickerViewDelegate,UIPickerViewDataSource>
+@property (strong, nonatomic) IBOutlet UILabel *name;
+@property (strong, nonatomic) IBOutlet UILabel *phone;
+@property (strong, nonatomic) IBOutlet UILabel *address;
+@property (strong, nonatomic) IBOutlet UILabel *reviewStatus;
+@property (strong, nonatomic) IBOutlet UILabel *remarks;
+@property (strong, nonatomic) IBOutlet UILabel *comeStatus;
 @property (strong, nonatomic) IBOutlet UIButton *submit;
+@property (nonatomic, strong) UITextField *textField;
+
+@property (nonatomic, assign) NSInteger selcetIndex;
+
+@property (nonatomic, strong) UIPickerView *picker;
 
 @end
 
@@ -20,91 +31,156 @@
     
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
     
     self.submit.layer.masksToBounds = YES;
     self.submit.layer.cornerRadius = 5;
+    
+
+   
+    self.picker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, KScreenHeight , KScreenWidth, 216)];
+    self.picker.delegate = self;
+    self.picker.dataSource = self;
+    self.picker.backgroundColor = [UIColor whiteColor];
+    
+    UIWindow *window = [[UIApplication sharedApplication].windows lastObject];
+    [window addSubview:self.picker];
+    
+    
+    
+
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.tabBarController.tabBar.hidden = YES;
+    
+    self.name.text = self.customModel.Name;
+    self.phone.text = self.customModel.Mobile;
+    self.address.text = self.customModel.Addr;
+    self.remarks.text = self.customModel.Remark;
+    if (self.customModel.Status == 1) {
+        self.reviewStatus.text = @"已同意";
+    }else if (self.customModel.Status == 2) {
+        self.reviewStatus.text = @"已拒绝";
+    }else if (self.customModel.Status == 0) {
+        self.reviewStatus.text = @"审核中";
+    }
+    
+    if (_customModel.InShop) {
+        self.submit.hidden = YES;
+        self.comeStatus.text = @"已进店";
+    }else {
+        self.submit.hidden = NO;
+        self.comeStatus.text = @"未进店";
+    }
+    
+}
+
+- (void)updateInshop {
+    if (_selcetIndex != 2) {
+        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+        dic[@"cid"] = _customModel.ID;
+        dic[@"status"] = @(self.selcetIndex);
+        
+    }
 }
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 #pragma mark - Table view data source
 
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//#warning Incomplete implementation, return the number of sections
-//    return 0;
-//}
-//
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//#warning Incomplete implementation, return the number of rows
-//    return 0;
-//}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.row) {
+        case 0:{
+            return 44;
+            break;
+        }
+        case 1:{
+            return 44;
+            break;
+        }
+        case 2:{
+            
+            CGSize size = [self getLabelSizeFormSize:CGSizeMake(KScreenWidth - 136 - 20, MAXFLOAT) AndStr:self.customModel.Addr];
+            return 44 + size.height - 20.5;
+            break;
+        }
+        case 3:{
+            return 44;
+            break;
+        }
+        case 4:{
+            CGSize size = [self getLabelSizeFormSize:CGSizeMake(KScreenWidth - 136 - 20, MAXFLOAT) AndStr:self.customModel.Remark];
+            return 44 + size.height - 20.5;
+            break;
+        }
+        case 5:{
+            if (self.customModel.Status == 2) {
+                self.submit.hidden = YES;
+                return 0;
+            }
+            return 44;
+            break;
+        }
+        default:
+            break;
+    }
+    return 44;
+}
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 5) {
+        [UIView animateWithDuration:0.25 animations:^{
+            self.picker.frame = CGRectMake(0, KScreenHeight - 216 , KScreenWidth, 216);
+        }];
+    }
+}
+
+#pragma mark pickerView 
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    return 2;
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    if (row == 0) {
+        return @"未进店";
+    }else if (row == 1) {
+        return @"已进店";
+    }
+    return @"";
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    if (row == 0) {
+        self.selcetIndex = 1;
+        [UIView animateWithDuration:0.25 animations:^{
+            self.picker.frame = CGRectMake(0, KScreenHeight , KScreenWidth, 216);
+        }];
+    }else {
+        self.selcetIndex = 2;
+        [UIView animateWithDuration:0.25 animations:^{
+            self.picker.frame = CGRectMake(0, KScreenHeight , KScreenWidth, 216);
+        }];
+    }
+}
+
+
+
+
+#pragma mark 动态高度计算
+
+- (CGSize)getLabelSizeFormSize:(CGSize ) size AndStr :(NSString *) str{
     
-    // Configure the cell...
-    
-    return cell;
+    CGSize transSize = [str boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:17]}  context:nil].size;
+    return transSize;
 }
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

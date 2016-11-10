@@ -58,6 +58,7 @@
 		60C230D31DC0527D00E0CD11 /* IntegralTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C230D21DC0527D00E0CD11 /* IntegralTableViewController.m */; };
 		60C230D61DC07C9500E0CD11 /* UserInfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C230D51DC07C9500E0CD11 /* UserInfoTableViewController.m */; };
 		60C4C0211DC83D6C00B7B867 /* MYWealthTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C4C0201DC83D6C00B7B867 /* MYWealthTableViewController.m */; };
+		60C8147D1DD2C7C300629935 /* CustomInfomationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C8147C1DD2C7C300629935 /* CustomInfomationModel.m */; };
 		60D18DF61DC1E0B200E0C839 /* CashCouponTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D18DF41DC1E0B200E0C839 /* CashCouponTableViewCell.m */; };
 		60D18DF71DC1E0B200E0C839 /* CashCouponTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60D18DF51DC1E0B200E0C839 /* CashCouponTableViewCell.xib */; };
 		60D18DFA1DC1EB2600E0C839 /* CashCouponViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D18DF91DC1EB2600E0C839 /* CashCouponViewController.m */; };
@@ -210,6 +211,8 @@
 		60C230D51DC07C9500E0CD11 /* UserInfoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoTableViewController.m; sourceTree = "<group>"; };
 		60C4C01F1DC83D6C00B7B867 /* MYWealthTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYWealthTableViewController.h; sourceTree = "<group>"; };
 		60C4C0201DC83D6C00B7B867 /* MYWealthTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYWealthTableViewController.m; sourceTree = "<group>"; };
+		60C8147B1DD2C7C300629935 /* CustomInfomationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomInfomationModel.h; sourceTree = "<group>"; };
+		60C8147C1DD2C7C300629935 /* CustomInfomationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomInfomationModel.m; sourceTree = "<group>"; };
 		60D18DF31DC1E0B200E0C839 /* CashCouponTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CashCouponTableViewCell.h; sourceTree = "<group>"; };
 		60D18DF41DC1E0B200E0C839 /* CashCouponTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CashCouponTableViewCell.m; sourceTree = "<group>"; };
 		60D18DF51DC1E0B200E0C839 /* CashCouponTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CashCouponTableViewCell.xib; sourceTree = "<group>"; };
@@ -836,6 +839,8 @@
 		60F3903A1DC0B17700FFCBF3 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				60C8147B1DD2C7C300629935 /* CustomInfomationModel.h */,
+				60C8147C1DD2C7C300629935 /* CustomInfomationModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -1214,6 +1219,7 @@
 				60FC8A8F1DBD9ED9009612C1 /* UntreatedTableViewCell.m in Sources */,
 				603A39BF1DB9EC2D00DC1ADA /* HomeNavViewController.m in Sources */,
 				60979D701DC3364200B9E858 /* MengZhuInfomationViewController.m in Sources */,
+				60C8147D1DD2C7C300629935 /* CustomInfomationModel.m in Sources */,
 				60C230D01DC04DC900E0CD11 /* DaijiesuanTableViewController.m in Sources */,
 				60F390361DC0A95C00FFCBF3 /* ExchangeListTableViewCell.m in Sources */,
 				60D75A941DBE07FA00E09FF4 /* CustomInformationauditTableViewController.m in Sources */,

@@ -13,6 +13,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *phoneField;
 @property (strong, nonatomic) IBOutlet UITextField *addressField;
 @property (strong, nonatomic) IBOutlet UITextView *otherTextView;
+@property (strong, nonatomic) IBOutlet UIButton *sendButton;
 
 @end
 
@@ -25,6 +26,13 @@
     
     self.otherTextView.layer.borderWidth = 1;
     self.otherTextView.layer.borderColor = [UIColor blackColor].CGColor;
+    
+    self.sendButton.layer.masksToBounds = YES;
+    self.sendButton.layer.cornerRadius = 5;
+    
+    [self.sendButton bk_whenTapped:^{
+        [self sendButtonAction];
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -38,77 +46,61 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)sendButtonAction {
+    if (self.nameField.text.length == 0) {
+        [SVProgressHUD showErrorWithStatus:@"请输入客户姓名"];
+    }else if (self.phoneField.text.length == 0) {
+        [SVProgressHUD showErrorWithStatus:@"请输入手机号码"];
+    }else if (self.addressField.text.length == 0) {
+        [SVProgressHUD showErrorWithStatus:@"请输入客户地址"];
+    }else {
+        if (![self checkTel:self.phoneField.text]) {
+            [SVProgressHUD showErrorWithStatus:@"请输入11位手机号"];
+        }else {
+            [self sendUserInfomation];
+        }
+        
+    }
+}
+
+- (void)sendUserInfomation {
     
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    NSMutableDictionary *parme = [NSMutableDictionary dictionary];
+    parme[@"username"] = self.nameField.text;
+    parme[@"mobile"] = self.phoneField.text;
+    parme[@"address"] = self.addressField.text;
+    parme[@"remark"] = self.otherTextView.text;
     
+    [HTMyContainAFN AFN:@"customer/create" with:parme Success:^(NSDictionary *responseObject) {
+        LWLog(@"%@", responseObject);
+        if ([responseObject[@"status"] intValue] == 200) {
+
+            [SVProgressHUD showSuccessWithStatus:@"提交成功"];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+        
+    } failure:^(NSError *error) {
+        LWLog(@"%@",error);
+    }];
     
 }
 
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//#warning Incomplete implementation, return the number of sections
-//    return 0;
-//}
-//
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//#warning Incomplete implementation, return the number of rows
-//    return 0;
-//}
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+/**
+ *  验证手机号的正则表达式
+ */
+-(BOOL) checkTel:(NSString *) phoneNumber{
+    NSString *regex = @"^(1)\\d{10}$";
     
-    // Configure the cell...
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
     
-    return cell;
-}
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
+    BOOL isMatch = [pred evaluateWithObject:phoneNumber];
+    
+    if (!isMatch) {
+        return NO;
+    }
     return YES;
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

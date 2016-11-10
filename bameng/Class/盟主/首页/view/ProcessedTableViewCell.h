@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomInfomationModel.h"
 
 @interface ProcessedTableViewCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UIImageView *image;
@@ -20,5 +21,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *review;
 
 @property (nonatomic, assign) NSInteger selectPage;
+
+@property (nonatomic, strong) CustomInfomationModel *customModel;
+
+@property (nonatomic, strong) UserModel *mengyouModel;
 
 @end

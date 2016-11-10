@@ -75,19 +75,5 @@
     }
     
 }
-/**
- *  验证手机号的正则表达式
- */
--(BOOL) checkTel:(NSString *) phoneNumber{
-    NSString *regex = @"^(1)\\d{10}$";
-    
-    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
-    
-    BOOL isMatch = [pred evaluateWithObject:phoneNumber];
-    
-    if (!isMatch) {
-        return NO;
-    }
-    return YES;
-}
+
 @end

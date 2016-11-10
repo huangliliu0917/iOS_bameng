@@ -41,6 +41,28 @@
     }
 }
 
+- (void)setCustomModel:(CustomInfomationModel *)customModel {
+    _customModel = customModel;
+    self.name.text = _customModel.Name;
+    self.phone.text = _customModel.Mobile;
+    
+    if (self.customModel.Status == 1) {
+        self.review.text = @"已同意";
+    }else if (self.customModel.Status == 2) {
+        self.review.text = @"已拒绝";
+    }else if (self.customModel.Status == 0) {
+        self.review.text = @"审核中";
+    }
+}
+
+- (void)setMengyouModel:(UserModel *)mengyouModel {
+    _mengyouModel = mengyouModel;
+    self.review.hidden = YES;
+    self.name.text = _mengyouModel.RealName;
+    self.phone.text = _mengyouModel.LevelName;
+    [self.image sd_setImageWithURL:[NSURL URLWithString:_mengyouModel.UserHeadImg] placeholderImage:nil options:SDWebImageRefreshCached];
+}
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
