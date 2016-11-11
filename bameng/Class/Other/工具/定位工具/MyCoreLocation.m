@@ -73,12 +73,14 @@
     CLLocation* location = [locations lastObject];
     NSLog(@"经度:%g,纬度:%g,高度:%g,速度:%g,方向:%g",location.coordinate.latitude,location.coordinate.longitude,location.altitude,location.speed,location.course);
     [manager stopUpdatingLocation];
+    
+    NSString * lw = [NSString stringWithFormat:@"%g,%g",location.coordinate.latitude,location.coordinate.longitude];
     __weak MyCoreLocation * wself = self;
     [self.geoC reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
         if (error == nil) {
             CLPlacemark *pl = [placemarks firstObject];
-            if ([wself.delegate respondsToSelector:@selector(MyCoreLocationTakeBackCity:)]) {
-                [wself.delegate MyCoreLocationTakeBackCity:pl.locality];
+            if ([wself.delegate respondsToSelector:@selector(MyCoreLocationTakeBackCity: andLatLong:)]) {
+                [wself.delegate MyCoreLocationTakeBackCity:pl.locality andLatLong:lw];
             }
         }else{
             LWLog(@"错误");

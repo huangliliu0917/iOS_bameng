@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11535.1" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11523"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,75 +12,62 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="109"/>
+                <frame key="frameInset" width="320" height="109"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ADR-fN-F22">
-                        <rect key="frame" x="9" y="9" width="302" height="100"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="264x264" translatesAutoresizingMaskIntoConstraints="NO" id="mUQ-IG-hxR">
-                                <rect key="frame" x="9" y="9" width="82" height="82"/>
                                 <color key="backgroundColor" red="0.12549019610000001" green="0.60392156860000001" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="mUQ-IG-hxR" secondAttribute="height" id="kg7-K3-VT3"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="美尔凯特强势登陆央视黄金时段" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vU1-eS-l2J">
-                                <rect key="frame" x="101" y="14" width="186" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="只有不断提升品牌形象，才能让品牌的发展之路更长久。此前，美尔凯特已在高铁广告、报纸,虽然品牌的宣传在某种" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xBn-IX-04M">
-                                <rect key="frame" x="101" y="38" width="191" height="26.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EI3-kq-JQg">
-                                <rect key="frame" x="101" y="75" width="191" height="25"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sj" translatesAutoresizingMaskIntoConstraints="NO" id="5Hx-AT-LxE">
-                                        <rect key="frame" x="144.5" y="0.0" width="15" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="15" id="Dmw-Sh-RY2"/>
                                             <constraint firstAttribute="height" constant="15" id="ZiB-gK-rMa"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w0Q-0b-1JW">
-                                        <rect key="frame" x="162.5" y="1" width="28.5" height="14"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w0Q-0b-1JW">
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eou-lL-kHr">
-                                        <rect key="frame" x="101.5" y="1" width="35" height="14"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="35" id="QUt-3M-A6t"/>
-                                        </constraints>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eou-lL-kHr">
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lll" translatesAutoresizingMaskIntoConstraints="NO" id="uvh-If-WTU">
-                                        <rect key="frame" x="83.5" y="0.0" width="15" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="f8a-PK-eCf"/>
                                             <constraint firstAttribute="width" constant="15" id="kHB-2R-3fR"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="w0Q-0b-1JW" firstAttribute="centerY" secondItem="5Hx-AT-LxE" secondAttribute="centerY" id="0Ni-t4-blF"/>
                                     <constraint firstAttribute="trailing" secondItem="w0Q-0b-1JW" secondAttribute="trailing" id="2xm-7n-Jyi"/>
-                                    <constraint firstItem="w0Q-0b-1JW" firstAttribute="leading" secondItem="5Hx-AT-LxE" secondAttribute="trailing" constant="3" id="TYC-Va-lIb"/>
+                                    <constraint firstItem="Eou-lL-kHr" firstAttribute="leading" secondItem="uvh-If-WTU" secondAttribute="trailing" constant="3" id="GcY-Kp-u1f"/>
                                     <constraint firstItem="uvh-If-WTU" firstAttribute="top" secondItem="EI3-kq-JQg" secondAttribute="top" id="XCJ-aD-1zL"/>
                                     <constraint firstItem="5Hx-AT-LxE" firstAttribute="top" secondItem="EI3-kq-JQg" secondAttribute="top" id="aqF-P3-ltF"/>
                                     <constraint firstItem="5Hx-AT-LxE" firstAttribute="leading" secondItem="Eou-lL-kHr" secondAttribute="trailing" constant="8" id="bVN-id-mUN"/>
                                     <constraint firstItem="5Hx-AT-LxE" firstAttribute="centerY" secondItem="Eou-lL-kHr" secondAttribute="centerY" id="iJJ-O2-nzo"/>
+                                    <constraint firstItem="w0Q-0b-1JW" firstAttribute="leading" secondItem="5Hx-AT-LxE" secondAttribute="trailing" constant="3" id="ngF-N0-zp2"/>
                                     <constraint firstAttribute="height" constant="25" id="qaL-f8-heW"/>
-                                    <constraint firstItem="Eou-lL-kHr" firstAttribute="leading" secondItem="uvh-If-WTU" secondAttribute="trailing" constant="3" id="vwr-Lx-5ix"/>
                                 </constraints>
                             </view>
                         </subviews>

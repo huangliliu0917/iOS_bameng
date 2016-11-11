@@ -99,6 +99,7 @@
 		EF04388D1DBAFD5E00CA8902 /* AsignLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = EF04388C1DBAFD5E00CA8902 /* AsignLibrary.m */; };
 		EF0438901DBB050600CA8902 /* HTMyContainAFN.m in Sources */ = {isa = PBXBuildFile; fileRef = EF04388F1DBB050600CA8902 /* HTMyContainAFN.m */; };
 		EFDD905D1DD5A73D00764E7A /* MyCoreLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDD905C1DD5A73D00764E7A /* MyCoreLocation.m */; };
+		EFDD90671DD5AD8D00764E7A /* HXColor.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDD90661DD5AD8D00764E7A /* HXColor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -290,6 +291,8 @@
 		EF04388F1DBB050600CA8902 /* HTMyContainAFN.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMyContainAFN.m; sourceTree = "<group>"; };
 		EFDD905B1DD5A73D00764E7A /* MyCoreLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCoreLocation.h; sourceTree = "<group>"; };
 		EFDD905C1DD5A73D00764E7A /* MyCoreLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCoreLocation.m; sourceTree = "<group>"; };
+		EFDD90651DD5AD8D00764E7A /* HXColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXColor.h; sourceTree = "<group>"; };
+		EFDD90661DD5AD8D00764E7A /* HXColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXColor.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -892,6 +895,7 @@
 		EFDD90561DD59C3700764E7A /* 工具 */ = {
 			isa = PBXGroup;
 			children = (
+				EFDD90641DD5AD8D00764E7A /* 颜色工具 */,
 				EFDD905A1DD5A73D00764E7A /* 定位工具 */,
 			);
 			path = "工具";
@@ -904,6 +908,15 @@
 				EFDD905C1DD5A73D00764E7A /* MyCoreLocation.m */,
 			);
 			path = "定位工具";
+			sourceTree = "<group>";
+		};
+		EFDD90641DD5AD8D00764E7A /* 颜色工具 */ = {
+			isa = PBXGroup;
+			children = (
+				EFDD90651DD5AD8D00764E7A /* HXColor.h */,
+				EFDD90661DD5AD8D00764E7A /* HXColor.m */,
+			);
+			path = "颜色工具";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1259,6 +1272,7 @@
 				60979D701DC3364200B9E858 /* MengZhuInfomationViewController.m in Sources */,
 				60C8147D1DD2C7C300629935 /* CustomInfomationModel.m in Sources */,
 				60C230D01DC04DC900E0CD11 /* DaijiesuanTableViewController.m in Sources */,
+				EFDD90671DD5AD8D00764E7A /* HXColor.m in Sources */,
 				60F390361DC0A95C00FFCBF3 /* ExchangeListTableViewCell.m in Sources */,
 				60D75A941DBE07FA00E09FF4 /* CustomInformationauditTableViewController.m in Sources */,
 				608B72AC1DCC209600378B5B /* VersionModel.m in Sources */,

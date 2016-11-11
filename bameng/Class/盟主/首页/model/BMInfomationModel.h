@@ -16,4 +16,6 @@
 @property (nonatomic, strong) NSNumber *BrowseAmount;
 @property (nonatomic, strong) NSString *PublishTime;
 @property (nonatomic, strong) NSString *ArticleUrl;
+@property (nonatomic, strong) NSString *PublishTimeText;
+
 @end

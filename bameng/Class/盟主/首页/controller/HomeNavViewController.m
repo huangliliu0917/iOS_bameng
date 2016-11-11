@@ -10,9 +10,14 @@
 
 @interface HomeNavViewController ()
 
+
+
 @end
 
 @implementation HomeNavViewController
+
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -21,6 +26,13 @@
     
 //    self.tabBarController.tabBar.tintColor = [UIColor colorWithRed:68/255.0 green:173/255.0 blue:159/255.0 alpha:1];
 //    [self.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithRed:68/255.0 green:173/255.0 blue:159/255.0 alpha:1]} forState:UIControlStateSelected];
+    
+    
+    
+    
+    
+    
+   
 }
 
 - (void)didReceiveMemoryWarning {

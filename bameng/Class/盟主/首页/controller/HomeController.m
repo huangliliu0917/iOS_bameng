@@ -16,8 +16,10 @@
 #import "BMInfomationModel.h"
 #import "PushWebViewController.h"
 #import "BMCircleModel.h"
+#import "MyCoreLocation.h"
 
-@interface HomeController ()<CircleBannerViewDelegate>
+
+@interface HomeController ()<CircleBannerViewDelegate,MyCoreLocationDelegate>
 
 @property (nonatomic, strong) CircleBannerView *circleView;
 
@@ -28,12 +30,57 @@
 @property (nonatomic, strong) NSMutableArray *articleList;
 @property (nonatomic, strong) NSMutableArray *circleList;
 
+
+
+
+/**定位*/
+@property(nonatomic,strong) MyCoreLocation * core;
+/**城市按钮*/
+@property(nonatomic,strong) UIButton * cityBtn;
+
 @end
 
 @implementation HomeController
 
 
 static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
+
+
+- (UIButton *)cityBtn{
+    if (_cityBtn == nil) {
+        _cityBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        _cityBtn.frame = CGRectMake(0, 0, 80, 30);
+        [_cityBtn setTitle:@"未知" forState:UIControlStateNormal];
+        [_cityBtn.titleLabel setFont:[UIFont fontWithName:@"ArialMT"size:15]];
+        [_cityBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [_cityBtn setImageEdgeInsets:UIEdgeInsetsMake(0, -30, 0, 0)];
+        [_cityBtn setTitleEdgeInsets:UIEdgeInsetsMake(0, -27, 0, 0)];
+        [_cityBtn setImage:[UIImage imageNamed:@"gps"] forState:UIControlStateNormal];
+    }
+    return _cityBtn;
+}
+
+
+
+/*
+ * 定位服务
+ */
+- (void) MyCoreLocationTakeBackCity:(NSString *)city andLatLong:(NSString *)info{
+    LWLog(@"%@---%@",city,info);
+    if (city.length) {
+        [self.cityBtn setTitle:city forState:UIControlStateNormal];
+        [_core MyCoreLocationStopLocal];
+        NSMutableDictionary * pareme = [NSMutableDictionary dictionary];
+        pareme[@"mylocation"] = city;
+        pareme[@"lnglat"] = info;
+        [HTMyContainAFN AFN:@"sys/MyLocation" with:pareme Success:^(NSDictionary *responseObject) {
+            LWLog(@"sys/MyLocation：%@", responseObject);
+        } failure:^(NSError *error) {
+            LWLog(@"%@" ,error);
+        }];
+    }
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -57,6 +104,16 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
     self.circleList = [NSMutableArray array];
     
     [self setHeadActions];
+    
+    
+   
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:[self cityBtn]];
+    
+    _core = [MyCoreLocation MyCoreLocationShare];
+    _core.delegate = self;
+    [_core MyCoreLocationStartLocal];
+    
+    
     
 }
 

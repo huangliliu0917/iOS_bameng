@@ -27,7 +27,7 @@
     self.title.text = _model.ArticleTitle;
     self.intro.text = _model.ArticleIntro;
     self.borwseAmount.text =  [_model.BrowseAmount stringValue];
-    self.time.text = [_model.PublishTime substringToIndex:_model.PublishTime.length - 3];
+    self.time.text = model.PublishTimeText;
 }
 
 - (void)setAllLable {
