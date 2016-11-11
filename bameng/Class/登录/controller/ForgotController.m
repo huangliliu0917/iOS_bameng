@@ -16,7 +16,34 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.saveButton.layer.masksToBounds = YES;
+    self.saveButton.layer.cornerRadius = 5;
+    
+    self.captchaField.layer.masksToBounds = YES;
+    self.captchaField.layer.cornerRadius = 5;
+    
+    
+    
+}
+
+- (void)getCaptchaFormServer {
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    
+    dic[@"identity"] = @0;
+    dic[@"pageSize"] = @(1);
+    dic[@"pageIndex"] = @(1);
+    [HTMyContainAFN AFN:@"article/list" with:dic Success:^(NSDictionary *responseObject) {
+        LWLog(@"article/list：%@",responseObject);
+        if ([responseObject[@"status"] intValue] == 200) {
+
+        }
+        
+
+    } failure:^(NSError *error) {
+        LWLog(@"%@", error);
+
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
