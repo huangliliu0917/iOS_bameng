@@ -98,6 +98,7 @@
 		855A27FBB1FD970A3413E454 /* libPods-bamengUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94B9C71ECC90E51D5D6C3083 /* libPods-bamengUITests.a */; };
 		EF04388D1DBAFD5E00CA8902 /* AsignLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = EF04388C1DBAFD5E00CA8902 /* AsignLibrary.m */; };
 		EF0438901DBB050600CA8902 /* HTMyContainAFN.m in Sources */ = {isa = PBXBuildFile; fileRef = EF04388F1DBB050600CA8902 /* HTMyContainAFN.m */; };
+		EFDD905D1DD5A73D00764E7A /* MyCoreLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDD905C1DD5A73D00764E7A /* MyCoreLocation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -287,6 +288,8 @@
 		EF04388C1DBAFD5E00CA8902 /* AsignLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsignLibrary.m; sourceTree = "<group>"; };
 		EF04388E1DBB050600CA8902 /* HTMyContainAFN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMyContainAFN.h; sourceTree = "<group>"; };
 		EF04388F1DBB050600CA8902 /* HTMyContainAFN.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMyContainAFN.m; sourceTree = "<group>"; };
+		EFDD905B1DD5A73D00764E7A /* MyCoreLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCoreLocation.h; sourceTree = "<group>"; };
+		EFDD905C1DD5A73D00764E7A /* MyCoreLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCoreLocation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -586,6 +589,9 @@
 		603A39C61DB9EE2400DC1ADA /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				EFDD90561DD59C3700764E7A /* 工具 */,
+				EFDD90551DD596C100764E7A /* 单利 */,
+				EFDD904F1DD5710A00764E7A /* 第三方 */,
 				6033D7A31DBB45A300B9B4DA /* 扩展 */,
 				603A39C71DB9EE2400DC1ADA /* lib */,
 			);
@@ -869,6 +875,37 @@
 			path = HuotuScreate;
 			sourceTree = "<group>";
 		};
+		EFDD904F1DD5710A00764E7A /* 第三方 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "第三方";
+			sourceTree = "<group>";
+		};
+		EFDD90551DD596C100764E7A /* 单利 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "单利";
+			sourceTree = "<group>";
+		};
+		EFDD90561DD59C3700764E7A /* 工具 */ = {
+			isa = PBXGroup;
+			children = (
+				EFDD905A1DD5A73D00764E7A /* 定位工具 */,
+			);
+			path = "工具";
+			sourceTree = "<group>";
+		};
+		EFDD905A1DD5A73D00764E7A /* 定位工具 */ = {
+			isa = PBXGroup;
+			children = (
+				EFDD905B1DD5A73D00764E7A /* MyCoreLocation.h */,
+				EFDD905C1DD5A73D00764E7A /* MyCoreLocation.m */,
+			);
+			path = "定位工具";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1052,7 +1089,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		2A2F44E867E335A9136EDB68 /* [CP] Copy Pods Resources */ = {
@@ -1097,7 +1134,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		6990E5CC69292165D65C9FA8 /* [CP] Copy Pods Resources */ = {
@@ -1142,7 +1179,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		E90A6AF77C71F63D0D59FD62 /* [CP] Embed Pods Frameworks */ = {
@@ -1174,6 +1211,7 @@
 				60C4C0211DC83D6C00B7B867 /* MYWealthTableViewController.m in Sources */,
 				6033D7A61DBB45D700B9B4DA /* UITableView+CJ.m in Sources */,
 				604912F41DC8973B00DA334C /* MYAddNewMessageTableViewController.m in Sources */,
+				EFDD905D1DD5A73D00764E7A /* MyCoreLocation.m in Sources */,
 				6015F2DA1DCAE6EA00E5E5A4 /* ForgotController.m in Sources */,
 				60FF240C1DBF0A4300E70A09 /* MyAccountTableViewController.m in Sources */,
 				60764AF41DB8937A0061CC6C /* ViewController.m in Sources */,
@@ -1381,6 +1419,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Q3B3AD6JJH;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/bameng/Class/Other/第三方/BaiduMap_IOSSDK_v3.1.0_Lib",
+				);
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT)/PrefixHeader.pch";
 				INFOPLIST_FILE = bameng/Info.plist;
@@ -1397,6 +1439,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Q3B3AD6JJH;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/bameng/Class/Other/第三方/BaiduMap_IOSSDK_v3.1.0_Lib",
+				);
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT)/PrefixHeader.pch";
 				INFOPLIST_FILE = bameng/Info.plist;

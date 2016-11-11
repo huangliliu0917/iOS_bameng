@@ -52,7 +52,6 @@
                 [NSKeyedArchiver archiveRootObject:user toFile:fileName];
                 
                 [[NSUserDefaults standardUserDefaults] setObject:user.token forKey:AppToken];
-                
                 if (user.UserIdentity == 1) {
                     [[NSUserDefaults standardUserDefaults] setObject:isMengZhu forKey:mengyouIdentify];
                     UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];

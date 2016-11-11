@@ -11,6 +11,9 @@
 #import "MengzhuTabbarController.h"
 #import "MengYouTabbarViewController.h"
 #import "LoginController.h"
+
+#import "MyCoreLocation.h"
+
 @interface AppDelegate ()
 
 @end
@@ -33,11 +36,12 @@
     UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectZero];
     _Agent = [webView stringByEvaluatingJavaScriptFromString:@"navigator.userAgent"];
     
-    
     [self.window makeKeyAndVisible];
     
     return YES;
 }
+
+
 
 - (void)getAppConfig {
     [HTMyContainAFN AFN:@"Sys/Init" with:nil Success:^(id responseObject) {
