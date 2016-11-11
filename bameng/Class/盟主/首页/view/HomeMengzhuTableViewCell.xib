@@ -17,7 +17,7 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ADR-fN-F22">
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="264x264" translatesAutoresizingMaskIntoConstraints="NO" id="mUQ-IG-hxR">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="264x264" translatesAutoresizingMaskIntoConstraints="NO" id="mUQ-IG-hxR">
                                 <color key="backgroundColor" red="0.12549019610000001" green="0.60392156860000001" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="mUQ-IG-hxR" secondAttribute="height" id="kg7-K3-VT3"/>
