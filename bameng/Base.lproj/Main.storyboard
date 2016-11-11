@@ -337,6 +337,13 @@
                             <constraint firstAttribute="trailing" secondItem="9zu-TK-e39" secondAttribute="trailing" id="cVc-js-riW"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="captchaField" destination="2CU-R4-FBD" id="jh3-A7-Pdi"/>
+                        <outlet property="password" destination="OiD-oX-Nnf" id="oAr-eA-iOU"/>
+                        <outlet property="phoneField" destination="hFI-TQ-4dS" id="dxo-8T-e9W"/>
+                        <outlet property="saveButton" destination="SY7-Hl-fZV" id="FB4-Xx-Jzm"/>
+                        <outlet property="showAndHidden" destination="MHe-D5-SYG" id="Bhb-p0-Ieu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oar-am-hbU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

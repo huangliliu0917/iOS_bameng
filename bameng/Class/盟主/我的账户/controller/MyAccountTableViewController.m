@@ -16,12 +16,17 @@
 
 @interface MyAccountTableViewController ()
 
+@property (nonatomic, strong) UserModel *userInfo;
+
 @end
 
 @implementation MyAccountTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+
     
 
     self.headImage.layer.cornerRadius = self.headImage.frame.size.width / 2;
