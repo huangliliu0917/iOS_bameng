@@ -100,6 +100,9 @@
 		EF0438901DBB050600CA8902 /* HTMyContainAFN.m in Sources */ = {isa = PBXBuildFile; fileRef = EF04388F1DBB050600CA8902 /* HTMyContainAFN.m */; };
 		EFDD905D1DD5A73D00764E7A /* MyCoreLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDD905C1DD5A73D00764E7A /* MyCoreLocation.m */; };
 		EFDD90671DD5AD8D00764E7A /* HXColor.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDD90661DD5AD8D00764E7A /* HXColor.m */; };
+		EFDD90691DD98D6200764E7A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFDD90681DD98D6200764E7A /* SystemConfiguration.framework */; };
+		EFDD906D1DD9915800764E7A /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDD906C1DD9915800764E7A /* MyViewController.m */; };
+		EFDD90701DD9999100764E7A /* LaucnViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDD906F1DD9999100764E7A /* LaucnViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -293,6 +296,11 @@
 		EFDD905C1DD5A73D00764E7A /* MyCoreLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCoreLocation.m; sourceTree = "<group>"; };
 		EFDD90651DD5AD8D00764E7A /* HXColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXColor.h; sourceTree = "<group>"; };
 		EFDD90661DD5AD8D00764E7A /* HXColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXColor.m; sourceTree = "<group>"; };
+		EFDD90681DD98D6200764E7A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		EFDD906B1DD9915800764E7A /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
+		EFDD906C1DD9915800764E7A /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
+		EFDD906E1DD9999100764E7A /* LaucnViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaucnViewController.h; sourceTree = "<group>"; };
+		EFDD906F1DD9999100764E7A /* LaucnViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaucnViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,6 +308,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFDD90691DD98D6200764E7A /* SystemConfiguration.framework in Frameworks */,
 				0ECACC7AB1F44CC7EA4C676C /* libPods-bameng.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,6 +348,7 @@
 		5A6647C4DF16730279210027 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EFDD90681DD98D6200764E7A /* SystemConfiguration.framework */,
 				DA4A0725E52CF05F19286687 /* libPods-bameng.a */,
 				7D7B057FA8CF46AB14B81D77 /* libPods-bamengTests.a */,
 				94B9C71ECC90E51D5D6C3083 /* libPods-bamengUITests.a */,
@@ -362,6 +372,8 @@
 				6015F2D61DCAE6CD00E5E5A4 /* LoginController.m */,
 				6015F2D81DCAE6EA00E5E5A4 /* ForgotController.h */,
 				6015F2D91DCAE6EA00E5E5A4 /* ForgotController.m */,
+				EFDD906E1DD9999100764E7A /* LaucnViewController.h */,
+				EFDD906F1DD9999100764E7A /* LaucnViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -592,6 +604,7 @@
 		603A39C61DB9EE2400DC1ADA /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				EFDD906A1DD9914000764E7A /* 继承 */,
 				EFDD90561DD59C3700764E7A /* 工具 */,
 				EFDD90551DD596C100764E7A /* 单利 */,
 				EFDD904F1DD5710A00764E7A /* 第三方 */,
@@ -919,6 +932,15 @@
 			path = "颜色工具";
 			sourceTree = "<group>";
 		};
+		EFDD906A1DD9914000764E7A /* 继承 */ = {
+			isa = PBXGroup;
+			children = (
+				EFDD906B1DD9915800764E7A /* MyViewController.h */,
+				EFDD906C1DD9915800764E7A /* MyViewController.m */,
+			);
+			path = "继承";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1223,9 +1245,11 @@
 				60FC8A941DBDAD8F009612C1 /* ProcessedTableViewCell.m in Sources */,
 				60C4C0211DC83D6C00B7B867 /* MYWealthTableViewController.m in Sources */,
 				6033D7A61DBB45D700B9B4DA /* UITableView+CJ.m in Sources */,
+				EFDD90701DD9999100764E7A /* LaucnViewController.m in Sources */,
 				604912F41DC8973B00DA334C /* MYAddNewMessageTableViewController.m in Sources */,
 				EFDD905D1DD5A73D00764E7A /* MyCoreLocation.m in Sources */,
 				6015F2DA1DCAE6EA00E5E5A4 /* ForgotController.m in Sources */,
+				EFDD906D1DD9915800764E7A /* MyViewController.m in Sources */,
 				60FF240C1DBF0A4300E70A09 /* MyAccountTableViewController.m in Sources */,
 				60764AF41DB8937A0061CC6C /* ViewController.m in Sources */,
 				60E809E91DC9B63A00094CB8 /* MYCustomDetailTableViewController.m in Sources */,

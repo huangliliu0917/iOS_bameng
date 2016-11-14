@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MengYouHomeViewController : UIViewController
+@interface MengYouHomeViewController : MyViewController
 @property (strong, nonatomic) IBOutlet UILabel *agreeLabel;
 @property (strong, nonatomic) IBOutlet UILabel *rankingLabel;
 @property (strong, nonatomic) IBOutlet UILabel *firendLabel;

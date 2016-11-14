@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CashCouponViewController : UIViewController
+@interface CashCouponViewController : MyViewController
 
 @end

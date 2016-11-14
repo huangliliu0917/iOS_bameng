@@ -18,7 +18,7 @@
 @end
 
 
-@interface SelectObjectViewController : UIViewController
+@interface SelectObjectViewController : MyViewController
 
 @property (retain, nonatomic) id <SelectObjectDelegate>delegate;
 

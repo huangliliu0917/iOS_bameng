@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ForgotController : UIViewController
+@interface ForgotController : MyViewController
 @property (strong, nonatomic) IBOutlet UITextField *phoneField;
 @property (strong, nonatomic) IBOutlet UITextField *captchaField;
 @property (strong, nonatomic) IBOutlet UITextField *password;

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CustomInfoController : UIViewController
+@interface CustomInfoController : MyViewController
 
 @property (strong, nonatomic) IBOutlet UIView *chooserView;
 @property (strong, nonatomic) IBOutlet UIView *untreated;

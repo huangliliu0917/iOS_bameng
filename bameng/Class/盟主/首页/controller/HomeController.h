@@ -10,7 +10,7 @@
 #import "CircleBannerView.h"
 #include "HomeHeadView.h"
 
-@interface HomeController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface HomeController : MyViewController<UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *table;
 

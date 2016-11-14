@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MengZhuInfomationViewController : UIViewController
+@interface MengZhuInfomationViewController : MyViewController
 
 @end

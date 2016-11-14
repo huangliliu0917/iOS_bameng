@@ -9,6 +9,8 @@
 #import "LoginController.h"
 #import "MengzhuTabbarController.h"
 #import "MengYouTabbarViewController.h"
+#import "AppDelegate.h"
+
 
 @interface LoginController ()
 
@@ -21,6 +23,12 @@
     
     self.loginButton.layer.masksToBounds = YES;
     self.loginButton.layer.cornerRadius = 5;
+    
+    if(self.isReachable){
+        LWLog(@"有网");
+    }else{
+        LWLog(@"没网");
+    }
 }
 
 - (void)didReceiveMemoryWarning {

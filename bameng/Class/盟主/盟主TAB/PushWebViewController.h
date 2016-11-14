@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PushWebViewController : UIViewController
+@interface PushWebViewController : MyViewController
 
 @property (nonatomic ,strong) NSString *openUrl;
 

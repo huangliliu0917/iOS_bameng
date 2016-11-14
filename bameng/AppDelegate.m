@@ -16,9 +16,12 @@
 
 @interface AppDelegate ()
 
+
+
 @end
 
 @implementation AppDelegate
+
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -27,6 +30,17 @@
     [self getAppConfig];
     
     [[UITabBarItem appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName:[UIColor colorWithRed:204/255.0 green:158/255.0 blue:95/255.0 alpha:1]} forState:UIControlStateSelected];
+    
+    
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
+    self.hostReach = [Reachability reachabilityWithHostname:@"www.baidu.com"];
+    //开始监听，会启动一个run loop
+    [self.hostReach startNotifier];
+    
+    
+    
     
     self.window = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight)];
     UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -90,6 +104,37 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+
+
+
+/**
+ * 判断网络类型
+ */
+-(void)reachabilityChanged:(NSNotification *)note{
+    Reachability * currReach = [note object];
+    NSParameterAssert([currReach isKindOfClass:[Reachability class]]);
+    //对连接改变做出响应处理动作
+    NetworkStatus status = [currReach currentReachabilityStatus];
+    //如果没有连接到网络就弹出提醒实况
+    self.isReachable = YES;
+    if(status == NotReachable){
+        UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:@"网络连接异常" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction * ac = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:nil];
+        [alertVC addAction:ac];
+        [self.currentVc presentViewController:alertVC animated:YES completion:nil];
+        self.isReachable = NO;
+        return;
+    }
+    //    if (status == ReachableViaWiFi || status== ReachableViaWWAN) {
+    //        UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:@"网络连接信息" message:@"网络连接正常" preferredStyle:UIAlertControllerStyleAlert];
+    //        UIAlertAction * ac = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:nil];
+    //        [alertVC addAction:ac];
+    //        [self.currentVc presentViewController:alertVC animated:YES completion:nil];
+    //        self.isReachable = YES;
+    //    }
+}
+
 
 
 @end
