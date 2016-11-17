@@ -14,7 +14,8 @@ pod 'MKNetworkKit'
 pod 'MJRefresh'
 pod 'MJExtension'
 pod 'AFNetworking', '~> 3.0'
-
+pod 'IQKeyboardManager'
+pod 'TZImagePickerController'
   target 'bamengTests' do
     inherit! :search_paths
     # Pods for testing

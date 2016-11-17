@@ -8,6 +8,13 @@
 
 #import "UntreatedTableViewCell.h"
 
+
+@interface UntreatedTableViewCell()
+
+
+
+@end
+
 @implementation UntreatedTableViewCell
 
 - (void)awakeFromNib {
@@ -24,7 +31,26 @@
     self.refuseButtom.layer.masksToBounds = YES;
     
     
+    [self.agreeButtom addTarget:self action:@selector(agreeClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.refuseButtom addTarget:self action:@selector(disAgreeClick:) forControlEvents:UIControlEventTouchUpInside];
+    
 }
+
+
+- (void)agreeClick:(UIButton *)btn{
+    if (self.didSelectCustomInfo) {
+        self.didSelectCustomInfo(YES);
+    }
+    
+}
+
+- (void)disAgreeClick:(UIButton *)btn{
+    if (self.didSelectCustomInfo) {
+        self.didSelectCustomInfo(NO);
+    }
+    
+}
+
 
 - (void)layoutSubviews {
     [super layoutSubviews];

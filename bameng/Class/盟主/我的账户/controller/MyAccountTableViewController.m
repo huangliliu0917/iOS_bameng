@@ -38,7 +38,7 @@
     self.tableView.separatorColor = [UIColor colorWithRed:232/255.0 green:234/255.0 blue:235/255.0 alpha:1];
     [self.tableView removeSpaces];
     
-    self.title = @"我的账户";
+    self.navigationItem.title = @"我的账户";
     
     self.setting.userInteractionEnabled = YES;
     [self.setting bk_whenTapped:^{

@@ -7,8 +7,18 @@
 //
 
 #import "UserInfoTableViewController.h"
+#import "UIImagePickerController+BlocksKit.h"
+@interface UserInfoTableViewController ()<LXActionSheetDelegate>
 
-@interface UserInfoTableViewController ()
+/**头像*/
+@property (weak, nonatomic) IBOutlet UIImageView *iconView;
+
+@property (weak, nonatomic) IBOutlet UILabel *nickName;
+
+@property (weak, nonatomic) IBOutlet UILabel *phoneNum;
+
+@property (weak, nonatomic) IBOutlet UILabel *name;
+@property (weak, nonatomic) IBOutlet UILabel *sex;
 
 @end
 
@@ -17,6 +27,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+    self.navigationItem.title = @"个人信息";
+    
+//    self.iconView.contentMode = UIViewContentModeScaleAspectFill;
+//    self.iconView.cli
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -33,8 +48,80 @@
 
 #pragma mark - Table view data source
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    LWLog(@"%@",indexPath);
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        LXActionSheet * action = [[LXActionSheet alloc] initWithTitle:0 delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
+        __weak typeof(self) wself = self;
+        [action setIconViewSelectItem:^(int item) {
+            LWLog(@"%d",item);
+            [wself imageSelectItem:item];
+        }];
+        [action showInView:self.view];
+    }else if(indexPath.section == 0 && indexPath.row == 1){
+        LXActionSheet * action = [[LXActionSheet alloc] initWithTitle:1 delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
+        __weak typeof(self) wself = self;
+        [action setNickNameandNameSelectItem:^(NSInteger type , NSString *content) {
+            [wself setNickNameandNameSelectItem:type andContent:content];
+        }];
+        [action showInView:self.view];
+    }else if(indexPath.section == 1 && indexPath.row == 1){
+        
+        LXActionSheet * action = [[LXActionSheet alloc] initWithTitle:2 delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
+        __weak typeof(self) wself = self;
+        [action setNickNameandNameSelectItem:^(NSInteger type , NSString *content) {
+            [wself setNickNameandNameSelectItem:type andContent:content];
+        }];
+        [action showInView:self.view];
+    }else if(indexPath.section == 1 && indexPath.row == 2){
+        
+        LXActionSheet * action = [[LXActionSheet alloc] initWithTitle:3 delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
+        __weak typeof(self) wself = self;
+       
+        [action showInView:self.view];
+    }
+    
+    
+}
 
 
+- (void)setNickNameandNameSelectItem:(NSInteger)type andContent:(NSString *)content{
+    
+    LWLog(@"%d-----%@",type,content);
+    
+    if (type == 1) {
+        self.nickName.text = content;
+    }else if(type == 2){
+        self.name.text = content;
+        
+    }
+}
+
+
+/**
+ *  头像
+ */
+- (void)imageSelectItem:(int)item{
+    LWLog(@"%d",item);
+    __weak typeof(self) wself = self;
+    if(item == 1000){//拍照
+        
+    }else{//相册
+        UIImagePickerController * pick = [[UIImagePickerController alloc] init];
+        [pick setBk_didFinishPickingMediaBlock:^(UIImagePickerController *vc, NSDictionary *ac) {
+            [wself.iconView setImage:ac[@"UIImagePickerControllerOriginalImage"]];
+            [vc dismissViewControllerAnimated:YES completion:nil];
+            LWLog(@"%@",ac );
+            
+        }];
+        [pick setBk_didCancelBlock:^(UIImagePickerController * vc) {
+            [vc dismissViewControllerAnimated:YES completion:nil];
+
+        }];
+        [self presentViewController:pick animated:YES completion:nil];
+    }
+}
 
 //- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 //#warning Incomplete implementation, return the number of sections

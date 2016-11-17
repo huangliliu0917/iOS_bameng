@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+
+@protocol MyViewControllerDelegate <NSObject>
+
+
+
+@end
+
+
 @interface MyViewController : UIViewController
 
 

@@ -98,6 +98,14 @@
 		855A27FBB1FD970A3413E454 /* libPods-bamengUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94B9C71ECC90E51D5D6C3083 /* libPods-bamengUITests.a */; };
 		EF04388D1DBAFD5E00CA8902 /* AsignLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = EF04388C1DBAFD5E00CA8902 /* AsignLibrary.m */; };
 		EF0438901DBB050600CA8902 /* HTMyContainAFN.m in Sources */ = {isa = PBXBuildFile; fileRef = EF04388F1DBB050600CA8902 /* HTMyContainAFN.m */; };
+		EF1C23461DDC5793003DBFA9 /* SaveCanclePickView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF1C23451DDC5793003DBFA9 /* SaveCanclePickView.m */; };
+		EF1C23481DDC579D003DBFA9 /* SaveCanclePickView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF1C23471DDC579D003DBFA9 /* SaveCanclePickView.xib */; };
+		EF3A2F6D1DDC85B60080F9A6 /* SexPick.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3A2F6C1DDC85B60080F9A6 /* SexPick.m */; };
+		EF3A2F6F1DDC85C10080F9A6 /* SexPick.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF3A2F6E1DDC85C10080F9A6 /* SexPick.xib */; };
+		EFA5D7E31DDBF46A00962D77 /* MyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA5D7E21DDBF46A00962D77 /* MyTableViewController.m */; };
+		EFA5D7E71DDC080000962D77 /* LXActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA5D7E61DDC080000962D77 /* LXActionSheet.m */; };
+		EFA5D7EA1DDC0CE000962D77 /* pickView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA5D7E91DDC0CE000962D77 /* pickView.m */; };
+		EFA5D7EC1DDC0CEC00962D77 /* pickView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFA5D7EB1DDC0CEC00962D77 /* pickView.xib */; };
 		EFDD905D1DD5A73D00764E7A /* MyCoreLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDD905C1DD5A73D00764E7A /* MyCoreLocation.m */; };
 		EFDD90671DD5AD8D00764E7A /* HXColor.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDD90661DD5AD8D00764E7A /* HXColor.m */; };
 		EFDD90691DD98D6200764E7A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFDD90681DD98D6200764E7A /* SystemConfiguration.framework */; };
@@ -292,6 +300,19 @@
 		EF04388C1DBAFD5E00CA8902 /* AsignLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsignLibrary.m; sourceTree = "<group>"; };
 		EF04388E1DBB050600CA8902 /* HTMyContainAFN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMyContainAFN.h; sourceTree = "<group>"; };
 		EF04388F1DBB050600CA8902 /* HTMyContainAFN.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMyContainAFN.m; sourceTree = "<group>"; };
+		EF1C23441DDC5793003DBFA9 /* SaveCanclePickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveCanclePickView.h; sourceTree = "<group>"; };
+		EF1C23451DDC5793003DBFA9 /* SaveCanclePickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveCanclePickView.m; sourceTree = "<group>"; };
+		EF1C23471DDC579D003DBFA9 /* SaveCanclePickView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SaveCanclePickView.xib; sourceTree = "<group>"; };
+		EF3A2F6B1DDC85B60080F9A6 /* SexPick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SexPick.h; sourceTree = "<group>"; };
+		EF3A2F6C1DDC85B60080F9A6 /* SexPick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SexPick.m; sourceTree = "<group>"; };
+		EF3A2F6E1DDC85C10080F9A6 /* SexPick.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SexPick.xib; sourceTree = "<group>"; };
+		EFA5D7E11DDBF46A00962D77 /* MyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableViewController.h; sourceTree = "<group>"; };
+		EFA5D7E21DDBF46A00962D77 /* MyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTableViewController.m; sourceTree = "<group>"; };
+		EFA5D7E51DDC080000962D77 /* LXActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXActionSheet.h; sourceTree = "<group>"; };
+		EFA5D7E61DDC080000962D77 /* LXActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXActionSheet.m; sourceTree = "<group>"; };
+		EFA5D7E81DDC0CE000962D77 /* pickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pickView.h; sourceTree = "<group>"; };
+		EFA5D7E91DDC0CE000962D77 /* pickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pickView.m; sourceTree = "<group>"; };
+		EFA5D7EB1DDC0CEC00962D77 /* pickView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = pickView.xib; sourceTree = "<group>"; };
 		EFDD905B1DD5A73D00764E7A /* MyCoreLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCoreLocation.h; sourceTree = "<group>"; };
 		EFDD905C1DD5A73D00764E7A /* MyCoreLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCoreLocation.m; sourceTree = "<group>"; };
 		EFDD90651DD5AD8D00764E7A /* HXColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXColor.h; sourceTree = "<group>"; };
@@ -301,6 +322,7 @@
 		EFDD906C1DD9915800764E7A /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
 		EFDD906E1DD9999100764E7A /* LaucnViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaucnViewController.h; sourceTree = "<group>"; };
 		EFDD906F1DD9999100764E7A /* LaucnViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaucnViewController.m; sourceTree = "<group>"; };
+		EFDD90711DD9A61D00764E7A /* bameng.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = bameng.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -550,6 +572,15 @@
 				60F390331DC0A95C00FFCBF3 /* ExchangeListTableViewCell.h */,
 				60F390341DC0A95C00FFCBF3 /* ExchangeListTableViewCell.m */,
 				60F390351DC0A95C00FFCBF3 /* ExchangeListTableViewCell.xib */,
+				EFA5D7E81DDC0CE000962D77 /* pickView.h */,
+				EFA5D7E91DDC0CE000962D77 /* pickView.m */,
+				EFA5D7EB1DDC0CEC00962D77 /* pickView.xib */,
+				EF1C23441DDC5793003DBFA9 /* SaveCanclePickView.h */,
+				EF1C23451DDC5793003DBFA9 /* SaveCanclePickView.m */,
+				EF1C23471DDC579D003DBFA9 /* SaveCanclePickView.xib */,
+				EF3A2F6B1DDC85B60080F9A6 /* SexPick.h */,
+				EF3A2F6C1DDC85B60080F9A6 /* SexPick.m */,
+				EF3A2F6E1DDC85C10080F9A6 /* SexPick.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -649,6 +680,7 @@
 		60764AEB1DB8937A0061CC6C /* bameng */ = {
 			isa = PBXGroup;
 			children = (
+				EFDD90711DD9A61D00764E7A /* bameng.entitlements */,
 				603A39A21DB9E49400DC1ADA /* Class */,
 				60764AEF1DB8937A0061CC6C /* AppDelegate.h */,
 				60764AF01DB8937A0061CC6C /* AppDelegate.m */,
@@ -891,6 +923,15 @@
 			path = HuotuScreate;
 			sourceTree = "<group>";
 		};
+		EFA5D7E41DDC07EB00962D77 /* 自定义ActionSheet */ = {
+			isa = PBXGroup;
+			children = (
+				EFA5D7E51DDC080000962D77 /* LXActionSheet.h */,
+				EFA5D7E61DDC080000962D77 /* LXActionSheet.m */,
+			);
+			path = "自定义ActionSheet";
+			sourceTree = "<group>";
+		};
 		EFDD904F1DD5710A00764E7A /* 第三方 */ = {
 			isa = PBXGroup;
 			children = (
@@ -908,6 +949,7 @@
 		EFDD90561DD59C3700764E7A /* 工具 */ = {
 			isa = PBXGroup;
 			children = (
+				EFA5D7E41DDC07EB00962D77 /* 自定义ActionSheet */,
 				EFDD90641DD5AD8D00764E7A /* 颜色工具 */,
 				EFDD905A1DD5A73D00764E7A /* 定位工具 */,
 			);
@@ -937,6 +979,8 @@
 			children = (
 				EFDD906B1DD9915800764E7A /* MyViewController.h */,
 				EFDD906C1DD9915800764E7A /* MyViewController.m */,
+				EFA5D7E11DDBF46A00962D77 /* MyTableViewController.h */,
+				EFA5D7E21DDBF46A00962D77 /* MyTableViewController.m */,
 			);
 			path = "继承";
 			sourceTree = "<group>";
@@ -1019,6 +1063,17 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = Q3B3AD6JJH;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.Siri = {
+								enabled = 1;
+							};
+						};
 					};
 					60764B011DB8937A0061CC6C = {
 						CreatedOnToolsVersion = 8.0;
@@ -1064,10 +1119,12 @@
 				60FF24201DBF5D7600E70A09 /* MengDouTableViewCell.xib in Resources */,
 				60764AF91DB8937A0061CC6C /* Assets.xcassets in Resources */,
 				60EF5FB81DC749ED00ADBEA7 /* MengYouHomeTableViewCell.xib in Resources */,
+				EFA5D7EC1DDC0CEC00962D77 /* pickView.xib in Resources */,
 				604912EE1DC8810A00DA334C /* MYInfomationTableViewCell.xib in Resources */,
 				60979D7A1DC3471100B9E858 /* MengZhuInfomationSmallTableViewCell.xib in Resources */,
 				60979D751DC346F500B9E858 /* MengZhuInfomationBigTableViewCell.xib in Resources */,
 				60F390431DC0DAE700FFCBF3 /* MyBusinessTableViewCell.xib in Resources */,
+				EF1C23481DDC579D003DBFA9 /* SaveCanclePickView.xib in Resources */,
 				603A39CC1DB9EEBB00DC1ADA /* HomeHeadView.xib in Resources */,
 				60D18DF71DC1E0B200E0C839 /* CashCouponTableViewCell.xib in Resources */,
 				60FC8A951DBDAD8F009612C1 /* ProcessedTableViewCell.xib in Resources */,
@@ -1075,6 +1132,7 @@
 				603A39BC1DB9E72400DC1ADA /* MengZhu.storyboard in Resources */,
 				60C230CD1DC0458200E0CD11 /* DaijiesuanTableViewCell.xib in Resources */,
 				60EF5FAD1DC7380E00ADBEA7 /* MengYou.storyboard in Resources */,
+				EF3A2F6F1DDC85C10080F9A6 /* SexPick.xib in Resources */,
 				60EF5F9A1DC7173000ADBEA7 /* SelectObjectTableViewCell.xib in Resources */,
 				6033D7AB1DBB47B000B9B4DA /* HomeMengzhuTableViewCell.xib in Resources */,
 			);
@@ -1256,6 +1314,7 @@
 				60FF241B1DBF5D5000E70A09 /* MengDouTableViewController.m in Sources */,
 				600DF37A1DC21BA6000296E8 /* OrderDetailTableViewController.m in Sources */,
 				60FF24121DBF3EA400E70A09 /* PushWebViewController.m in Sources */,
+				EF3A2F6D1DDC85B60080F9A6 /* SexPick.m in Sources */,
 				600DF37D1DC22CB7000296E8 /* PostOrderTableViewController.m in Sources */,
 				60979D791DC3471100B9E858 /* MengZhuInfomationSmallTableViewCell.m in Sources */,
 				60F390461DC0DE1800FFCBF3 /* MyBusinessViewController.m in Sources */,
@@ -1268,6 +1327,7 @@
 				60E809EF1DC9B91900094CB8 /* MYOrderDetailTableViewController.m in Sources */,
 				60FF24091DBEFC3100E70A09 /* EncourageTableViewController.m in Sources */,
 				60FF241F1DBF5D7600E70A09 /* MengDouTableViewCell.m in Sources */,
+				EFA5D7E71DDC080000962D77 /* LXActionSheet.m in Sources */,
 				603E924F1DBDEA87000E3069 /* CustomDetailsTableViewController.m in Sources */,
 				6024A1441DC6F519000C721C /* AddNewInfomationTableViewController.m in Sources */,
 				60C230D61DC07C9500E0CD11 /* UserInfoTableViewController.m in Sources */,
@@ -1284,9 +1344,11 @@
 				6042F8241DCB1F2F00055329 /* UserModel.m in Sources */,
 				60EF5FB71DC749ED00ADBEA7 /* MengYouHomeTableViewCell.m in Sources */,
 				603A39CA1DB9EE3E00DC1ADA /* CircleBannerView.m in Sources */,
+				EFA5D7E31DDBF46A00962D77 /* MyTableViewController.m in Sources */,
 				60EF5FBE1DC8309B00ADBEA7 /* MYSubmitInfoTableViewController.m in Sources */,
 				60D18DF61DC1E0B200E0C839 /* CashCouponTableViewCell.m in Sources */,
 				60EF5FBB1DC765E400ADBEA7 /* MengYouTabbarViewController.m in Sources */,
+				EFA5D7EA1DDC0CE000962D77 /* pickView.m in Sources */,
 				606C37571DC326FF009F668E /* AllyInfomationTableViewController.m in Sources */,
 				60EF5F991DC7173000ADBEA7 /* SelectObjectTableViewCell.m in Sources */,
 				60C230CC1DC0458200E0CD11 /* DaijiesuanTableViewCell.m in Sources */,
@@ -1308,6 +1370,7 @@
 				6033D7AE1DBB5FEF00B9B4DA /* CustomInfoController.m in Sources */,
 				60F3902C1DC0A0F400FFCBF3 /* ExchangeSureViewController.m in Sources */,
 				60EF5FB31DC7486600ADBEA7 /* MengYouHomeViewController.m in Sources */,
+				EF1C23461DDC5793003DBFA9 /* SaveCanclePickView.m in Sources */,
 				EF0438901DBB050600CA8902 /* HTMyContainAFN.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1456,6 +1519,7 @@
 			baseConfigurationReference = 29BEC5EF9948E97E135A1D0C /* Pods-bameng.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = bameng/bameng.entitlements;
 				DEVELOPMENT_TEAM = Q3B3AD6JJH;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1476,6 +1540,7 @@
 			baseConfigurationReference = BE0691C6951F5ADD77A6E8D8 /* Pods-bameng.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = bameng/bameng.entitlements;
 				DEVELOPMENT_TEAM = Q3B3AD6JJH;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

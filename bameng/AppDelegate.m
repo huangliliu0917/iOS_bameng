@@ -11,7 +11,7 @@
 #import "MengzhuTabbarController.h"
 #import "MengYouTabbarViewController.h"
 #import "LoginController.h"
-
+#import "IQKeyboardManager.h"
 #import "MyCoreLocation.h"
 
 @interface AppDelegate ()
@@ -23,29 +23,29 @@
 @implementation AppDelegate
 
 
+- (void)test{
+    //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
+    //    self.hostReach = [Reachability reachabilityWithHostname:@"www.baidu.com"];
+    //    //开始监听，会启动一个run loop
+    //    [self.hostReach startNotifier];
+}
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    [self getAppConfig];
+   
     
     [[UITabBarItem appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName:[UIColor colorWithRed:204/255.0 green:158/255.0 blue:95/255.0 alpha:1]} forState:UIControlStateSelected];
     
-    
-    
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
-    self.hostReach = [Reachability reachabilityWithHostname:@"www.baidu.com"];
-    //开始监听，会启动一个run loop
-    [self.hostReach startNotifier];
-    
-    
+    //1、处理键盘问题
+    [IQKeyboardManager sharedManager].enable = YES;
     
     
     self.window = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight)];
-    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    LoginController *login = [story instantiateViewControllerWithIdentifier:@"LoginController"];
-    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:login];
+    self.window.backgroundColor = [UIColor whiteColor];
+    LaucnViewController * launch = [[LaucnViewController alloc] init];
+    self.window.rootViewController = launch;
     
     UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectZero];
     _Agent = [webView stringByEvaluatingJavaScriptFromString:@"navigator.userAgent"];
@@ -57,26 +57,7 @@
 
 
 
-- (void)getAppConfig {
-    [HTMyContainAFN AFN:@"Sys/Init" with:nil Success:^(id responseObject) {
-        LWLog(@"%@", responseObject);
-        if ([responseObject[@"status"] intValue] == 200) {
-            BassModel *base = [BassModel mj_objectWithKeyValues:responseObject[@"data"][@"baseData"]];
-            if (base.userStatus == 1) {
-                UserModel *user = [UserModel mj_objectWithKeyValues:responseObject[@"data"][@"userData"]];
-                LWLog(@"%@",user);
-                NSString * path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-                NSString *fileName = [path stringByAppendingPathComponent:UserInfomation];
-                [NSKeyedArchiver archiveRootObject:user toFile:fileName];
-                
-                [[NSUserDefaults standardUserDefaults] setObject:user.token forKey:UserInfomation];
-            }
-        }
-        
-    } failure:^(NSError *error) {
-        LWLog(@"%@",error);
-    }];
-}
+
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -126,13 +107,13 @@
         self.isReachable = NO;
         return;
     }
-    //    if (status == ReachableViaWiFi || status== ReachableViaWWAN) {
-    //        UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:@"网络连接信息" message:@"网络连接正常" preferredStyle:UIAlertControllerStyleAlert];
-    //        UIAlertAction * ac = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:nil];
-    //        [alertVC addAction:ac];
-    //        [self.currentVc presentViewController:alertVC animated:YES completion:nil];
-    //        self.isReachable = YES;
-    //    }
+        if (status == ReachableViaWiFi || status== ReachableViaWWAN) {
+            UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:@"网络连接信息" message:@"网络连接正常" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction * ac = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:nil];
+            [alertVC addAction:ac];
+            [self.currentVc presentViewController:alertVC animated:YES completion:nil];
+            self.isReachable = YES;
+        }
 }
 
 

@@ -28,5 +28,6 @@
 @property (nonatomic, strong) CustomInfomationModel *customModel;
 
 
+@property (nonatomic, copy) void (^didSelectCustomInfo)(BOOL isAgree);
 
 @end

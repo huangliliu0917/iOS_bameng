@@ -7,6 +7,10 @@
 //
 
 #import "LaucnViewController.h"
+#import "LoginController.h"
+#import "MengzhuTabbarController.h"
+#import "MengYouTabbarViewController.h"
+
 
 @interface LaucnViewController ()
 
@@ -18,6 +22,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setImage];
+    
+    
+//    LWLog(@"%d",self.isReachable);
+    
+    
+     [self getAppConfig];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,6 +56,60 @@
     launchView.frame = CGRectMake(0, 0, KScreenWidth, KScreenHeight);
     launchView.contentMode = UIViewContentModeScaleAspectFit;
     [self.view addSubview:launchView];
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    
+    
+    
+}
+
+
+- (void)getAppConfig {
+    [HTMyContainAFN AFN:@"Sys/Init" with:nil Success:^(id responseObject) {
+        LWLog(@"%@", responseObject);
+        LWLog(@"%@",[NSThread currentThread]);
+        if ([responseObject[@"status"] intValue] == 200) {
+            BassModel *base = [BassModel mj_objectWithKeyValues:responseObject[@"data"][@"baseData"]];
+            if (base.userStatus == 1) {
+                UserModel *user = [UserModel mj_objectWithKeyValues:responseObject[@"data"][@"userData"]];
+                LWLog(@"%@",user);
+                NSString * path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+                NSString *fileName = [path stringByAppendingPathComponent:UserInfomation];
+                [NSKeyedArchiver archiveRootObject:user toFile:fileName];
+                
+                [[NSUserDefaults standardUserDefaults] setObject:user.token forKey:UserInfomation];
+                //帐号类型判断来进行身份选择
+                if (user.UserIdentity == 1) {//盟主
+                    [[NSUserDefaults standardUserDefaults] setObject:isMengZhu forKey:mengyouIdentify];
+                    UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
+                    MengzhuTabbarController *tabbar = [story instantiateViewControllerWithIdentifier:@"MengzhuTabbarController"];
+                    [UIApplication sharedApplication].keyWindow.rootViewController = tabbar;
+                    
+                }else if (user.UserIdentity == 0) {//盟友
+                    [[NSUserDefaults standardUserDefaults] setObject:isMengYou forKey:mengyouIdentify];
+                    UIStoryboard *mengyou = [UIStoryboard storyboardWithName:@"MengYou" bundle:nil];
+                    MengYouTabbarViewController *you = [mengyou instantiateViewControllerWithIdentifier:@"MengYouTabbarViewController"];
+                    [UIApplication sharedApplication].keyWindow.rootViewController = you;
+                }
+
+                
+            }else if (base.userStatus == -1) {//帐号登陆
+                UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                LoginController *login = [story instantiateViewControllerWithIdentifier:@"LoginController"];
+                UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:login];
+                 [UIApplication sharedApplication].keyWindow.rootViewController = nav;
+            }else{ //未登陆
+                
+                
+            }
+        }
+        
+    } failure:^(NSError *error) {
+        LWLog(@"%@",error);
+    }];
 }
 
 

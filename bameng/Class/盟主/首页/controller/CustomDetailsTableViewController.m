@@ -52,6 +52,32 @@
     
 }
 
+/**
+ *  设置datepicker的工具条
+ */
+- (void)setupDatePicker
+{
+    
+    UIToolbar * toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, 44)];
+    toolBar.backgroundColor = [UIColor grayColor];
+    UIBarButtonItem * item1 = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(cancleClick)];
+    UIBarButtonItem * item2 = [[UIBarButtonItem alloc] initWithTitle:@"确定" style:UIBarButtonItemStylePlain target:self action:@selector(selectClick)];
+    UIBarButtonItem * item3 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    toolBar.items = @[item1,item3,item2];
+//    self.comeStatus.inputAccessoryView = toolBar;
+}
+
+- (void)selectClick{
+    
+    
+}
+
+- (void)cancleClick{
+    
+    
+}
+
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.tabBarController.tabBar.hidden = YES;

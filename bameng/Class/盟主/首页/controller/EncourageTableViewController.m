@@ -53,9 +53,9 @@
         LWLog(@"article/list：%@",responseObject);
         if ([responseObject[@"status"] intValue] == 200) {
 
-            self.customLabel.placeholder = [NSString stringWithFormat:@"%@", responseObject[@"data"][@"CustomerReward"]];
-            self.successMengDou.placeholder = [NSString stringWithFormat:@"%@", responseObject[@"data"][@"OrderReward"]];
-            self.inShopMengDou.placeholder = [NSString stringWithFormat:@"%@", responseObject[@"data"][@"ShopReward"]];
+            self.customLabel.text = [NSString stringWithFormat:@"%@", responseObject[@"data"][@"CustomerReward"]];
+            self.successMengDou.text = [NSString stringWithFormat:@"%@", responseObject[@"data"][@"OrderReward"]];
+            self.inShopMengDou.text = [NSString stringWithFormat:@"%@", responseObject[@"data"][@"ShopReward"]];
         }
 
     } failure:^(NSError *error) {
@@ -72,10 +72,13 @@
     dic[@"orderreward"] = self.successMengDou.text;
     dic[@"shopreward"] = self.inShopMengDou.text;
     [HTMyContainAFN AFN:@"user/setallyRaward" with:dic Success:^(NSDictionary *responseObject) {
-        LWLog(@"article/list：%@",responseObject);
+        LWLog(@"user/setallyRaward：%@",responseObject);
         if ([responseObject[@"status"] intValue] == 200) {
-            [SVProgressHUD showSuccessWithStatus:@"设置成功"];
-            [self.navigationController popViewControllerAnimated:YES];
+            UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:@"奖励设置成功" message:nil preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction * ac = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
+            [alertVC addAction:ac];
+            [self presentViewController:alertVC animated:YES completion:nil];
+//            [self.navigationController popViewControllerAnimated:YES];
         }
         
     } failure:^(NSError *error) {

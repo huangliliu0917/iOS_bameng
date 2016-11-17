@@ -22,6 +22,8 @@
     AppDelegate * appDlg = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     appDlg.currentVc = self;
     self.isReachable = appDlg.isReachable;
+    
+    LWLog(@"%d",appDlg.isReachable);
 }
 
 - (void)didReceiveMemoryWarning {

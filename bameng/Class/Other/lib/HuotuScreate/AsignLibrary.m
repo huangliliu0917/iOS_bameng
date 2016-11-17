@@ -60,7 +60,7 @@
     LWLog(@"%@",signCap);
     NSString * aa = [signCap substringToIndex:signCap.length-1];
     NSString * cc  = [NSString stringWithFormat:@"%@%@",aa,MainUrlScreate];
-    NSString *unicodeStr = [NSString stringWithCString:[cc  UTF8String] encoding:NSUTF8StringEncoding];
+//    NSString *unicodeStr = [NSString stringWithCString:[cc  UTF8String] encoding:NSUTF8StringEncoding];
     [innerParame setObject:[self md5by32:cc] forKey:@"sign"];
     LWLog(@"%@",innerParame);
     return innerParame;

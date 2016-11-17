@@ -71,13 +71,22 @@
     parme[@"mobile"] = self.phoneField.text;
     parme[@"address"] = self.addressField.text;
     parme[@"remark"] = self.otherTextView.text;
-    
     [HTMyContainAFN AFN:@"customer/create" with:parme Success:^(NSDictionary *responseObject) {
         LWLog(@"%@", responseObject);
         if ([responseObject[@"status"] intValue] == 200) {
-
-            [SVProgressHUD showSuccessWithStatus:@"提交成功"];
-            [self.navigationController popViewControllerAnimated:YES];
+            UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:@"客户信息提交成功" message:nil preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction * ac = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [self.navigationController popViewControllerAnimated:YES];
+            }];
+            [alertVC addAction:ac];
+            [self presentViewController:alertVC animated:YES completion:nil];
+            
+        }else{
+            UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:@"客户信息提交失败" message:responseObject[@"statusText"] preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction * ac = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            }];
+            [alertVC addAction:ac];
+            [self presentViewController:alertVC animated:YES completion:nil];
         }
         
     } failure:^(NSError *error) {

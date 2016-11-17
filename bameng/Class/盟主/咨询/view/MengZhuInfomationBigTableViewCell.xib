@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11535.1" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11523"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,53 +12,43 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="96"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="95"/>
+                <frame key="frameInset" width="320" height="95"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Eru-pe-08y">
-                        <rect key="frame" x="10" y="12" width="71" height="71"/>
                         <color key="backgroundColor" red="0.39841165569999998" green="0.52721941530000005" blue="0.98431372549999996" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="Eru-pe-08y" secondAttribute="height" id="bL4-m2-SLN"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="美尔凯特强市登陆央视黄金时段" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iy4-bl-5Iy">
-                        <rect key="frame" x="89" y="13" width="211" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="只有不断提升品牌形象，才能让品牌的发展之路更长久，此前，美尔" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrP-ZN-wUD">
-                        <rect key="frame" x="89" y="40" width="216" height="15"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sj" translatesAutoresizingMaskIntoConstraints="NO" id="pE6-mn-Plt">
-                        <rect key="frame" x="255" y="71" width="13" height="13"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="13" id="G0a-wT-svx"/>
                             <constraint firstAttribute="height" constant="13" id="NEv-Ld-G9d"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5小时前" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QV1-fs-HRS">
-                        <rect key="frame" x="270" y="72" width="37" height="12"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ydll" translatesAutoresizingMaskIntoConstraints="NO" id="1dk-Sn-Iw5">
-                        <rect key="frame" x="197" y="71" width="13" height="13"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="13" id="9M1-qI-vO5"/>
                             <constraint firstAttribute="height" constant="13" id="eMk-0p-pb0"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100900" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Akn-GW-VYb">
-                        <rect key="frame" x="212" y="72" width="38" height="12"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="38" id="OBc-SX-gnP"/>
-                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -74,15 +61,15 @@
                     <constraint firstAttribute="trailing" secondItem="iy4-bl-5Iy" secondAttribute="trailing" constant="20" id="GTe-GB-BDP"/>
                     <constraint firstItem="iy4-bl-5Iy" firstAttribute="top" secondItem="Eru-pe-08y" secondAttribute="top" constant="1" id="Ixi-AS-bqK"/>
                     <constraint firstAttribute="bottom" secondItem="Eru-pe-08y" secondAttribute="bottom" constant="12" id="LEH-Ww-HRt"/>
-                    <constraint firstItem="pE6-mn-Plt" firstAttribute="leading" secondItem="Akn-GW-VYb" secondAttribute="trailing" constant="5" id="O6L-4P-WYf"/>
+                    <constraint firstItem="pE6-mn-Plt" firstAttribute="leading" secondItem="Akn-GW-VYb" secondAttribute="trailing" constant="5" id="Q85-wc-GV2"/>
                     <constraint firstAttribute="bottom" secondItem="pE6-mn-Plt" secondAttribute="bottom" constant="11" id="SwR-qT-orB"/>
                     <constraint firstItem="xrP-ZN-wUD" firstAttribute="leading" secondItem="iy4-bl-5Iy" secondAttribute="leading" id="TQY-Ob-Pm6"/>
-                    <constraint firstItem="Akn-GW-VYb" firstAttribute="leading" secondItem="1dk-Sn-Iw5" secondAttribute="trailing" constant="2" id="Vjq-Ia-M2E"/>
                     <constraint firstAttribute="trailing" secondItem="QV1-fs-HRS" secondAttribute="trailing" constant="13" id="XcV-kM-SAS"/>
                     <constraint firstItem="QV1-fs-HRS" firstAttribute="centerY" secondItem="pE6-mn-Plt" secondAttribute="centerY" id="bvD-1E-7C0"/>
-                    <constraint firstItem="QV1-fs-HRS" firstAttribute="leading" secondItem="pE6-mn-Plt" secondAttribute="trailing" constant="2" id="fcg-Nc-WaE"/>
+                    <constraint firstItem="Akn-GW-VYb" firstAttribute="leading" secondItem="1dk-Sn-Iw5" secondAttribute="trailing" constant="2" id="dts-C5-av2"/>
                     <constraint firstItem="iy4-bl-5Iy" firstAttribute="leading" secondItem="Eru-pe-08y" secondAttribute="trailing" constant="8" id="kHn-nM-cXt"/>
                     <constraint firstItem="Eru-pe-08y" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="lYb-4P-RwZ"/>
+                    <constraint firstItem="QV1-fs-HRS" firstAttribute="leading" secondItem="pE6-mn-Plt" secondAttribute="trailing" constant="2" id="mPN-E3-8b6"/>
                     <constraint firstItem="Eru-pe-08y" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="nh6-lm-xBK"/>
                     <constraint firstItem="Akn-GW-VYb" firstAttribute="centerY" secondItem="1dk-Sn-Iw5" secondAttribute="centerY" id="sgZ-Ql-4u2"/>
                 </constraints>

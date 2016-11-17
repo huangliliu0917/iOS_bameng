@@ -13,6 +13,9 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    
+    self.cover.contentMode = UIViewContentModeScaleAspectFill;
+    self.cover.clipsToBounds = YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -27,7 +30,7 @@
     self.title.text = _model.ArticleTitle;
     self.intro.text = _model.ArticleIntro;
     self.browseAmout.text =  [_model.BrowseAmount stringValue];
-    self.time.text = [_model.PublishTime substringToIndex:_model.PublishTime.length - 3];
+    self.time.text = _model.PublishTimeText;
 }
 
 @end

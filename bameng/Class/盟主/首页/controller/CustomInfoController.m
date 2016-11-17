@@ -34,7 +34,9 @@
 
 @implementation CustomInfoController
 
+/**未处理*/
 static NSString *untreatedIdentify = @"untreatedIdentify";
+/**已处理*/
 static NSString *processedIdentify = @"processedIdentify";
 
 - (void)viewDidLoad {
@@ -42,6 +44,8 @@ static NSString *processedIdentify = @"processedIdentify";
     
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
     
+    
+    //是否是未处理
     self.isUntreated = YES;
     
     self.slider = [[UIView alloc] initWithFrame:CGRectMake((KScreenWidth / 2 - 77) / 2, 33, 77, 2)];
@@ -89,12 +93,10 @@ static NSString *processedIdentify = @"processedIdentify";
     if (self.selectPage == 1) {
         
         //客户信息页面
-        
-        self.title = @"客户信息";
+        self.navigationItem.title = @"客户信息";
         self.untreatedLabel.text = @"未处理信息";
         self.processedLabel.text = @"已处理信息";
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage imageNamed:@"tj"] style:UIBarButtonItemStylePlain handler:^(id sender) {
-            
             UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
             SubmitUserInfoTableViewController *submit = [story instantiateViewControllerWithIdentifier:@"SubmitUserInfoTableViewController"];
             [wself.navigationController pushViewController:submit animated:YES];
@@ -104,11 +106,9 @@ static NSString *processedIdentify = @"processedIdentify";
         self.title = @"兑换审核";
         self.untreatedLabel.text = @"未处理申请";
         self.processedLabel.text = @"已处理申请";
-        
-        
     }else if (self.selectPage == 3) {
         //3我的联盟
-        self.title = @"我的联盟";
+        self.navigationItem.title = @"我的联盟";
         self.untreatedLabel.text = @"盟友申请";
         self.processedLabel.text = @"盟友列表";
         
@@ -122,6 +122,22 @@ static NSString *processedIdentify = @"processedIdentify";
     
     
 }
+
+
+//- (void)setTabalViewRefresh {
+//    
+//    __weak typeof(self) wself = self;
+//    self.table.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+//        
+//        if (wself.selectPage == 1) {
+//            <#statements#>
+//        }
+//        [wself getNewZiXunList];
+//    }];
+//    
+//    self.table.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(getMoerZixunList)];
+//}
+
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -138,7 +154,7 @@ static NSString *processedIdentify = @"processedIdentify";
         
     }else if (self.selectPage == 3) {
         //3我的联盟
-
+        [self getMoreMengYouList];
         
     }
 
@@ -211,7 +227,7 @@ static NSString *processedIdentify = @"processedIdentify";
     }
     dic[@"pageIndex"] = @1;
     dic[@"pageSize"] = @(self.PageSize);
-    [HTMyContainAFN AFN:@"user/ConvertAuditList" with:dic Success:^(NSDictionary *responseObject) {
+    [HTMyContainAFN AFN:@"customer/list" with:dic Success:^(NSDictionary *responseObject) {
         LWLog(@"customer/list：%@", responseObject);
         if ([responseObject[@"status"] intValue] == 200) {
             
@@ -288,10 +304,10 @@ static NSString *processedIdentify = @"processedIdentify";
 - (void)getNewMengYouList {
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     
-    dic[@"identity"] = @0;
+    dic[@"type"] = @"0";
     dic[@"pageSize"] = @(self.PageSize);
     dic[@"pageIndex"] = @(1);
-    [HTMyContainAFN AFN:@"user/allylist" with:dic Success:^(NSDictionary *responseObject) {
+    [HTMyContainAFN AFN:@"user/AllyApplylist" with:dic Success:^(NSDictionary *responseObject) {
         LWLog(@"user/allylist：%@",responseObject);
         
         if ([responseObject[@"status"] intValue] == 200) {
@@ -322,10 +338,7 @@ static NSString *processedIdentify = @"processedIdentify";
     dic[@"pageIndex"] = @(self.PageIndex + 1);
     [HTMyContainAFN AFN:@"user/allylist" with:dic Success:^(NSDictionary *responseObject) {
         LWLog(@"user/allylist：%@",responseObject);
-        
         if ([responseObject[@"status"] intValue] == 200) {
-            
-
             NSArray *array = [UserModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"Rows"]];
             [self.customList addObjectsFromArray:array];
             
@@ -366,11 +379,27 @@ static NSString *processedIdentify = @"processedIdentify";
     
     if (self.selectPage == 1) {
         if (_isUntreated) {
-            
             UntreatedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:untreatedIdentify forIndexPath:indexPath];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            cell.customModel = self.customList[indexPath.row];
+            CustomInfomationModel * model = self.customList[indexPath.row];
+            cell.customModel = model;
             cell.selectPage = self.selectPage;
+            __weak typeof(self) weakSelf = self;
+            [cell setDidSelectCustomInfo:^(BOOL isAgree) {
+                LWLog(@"%d",isAgree);
+                NSMutableDictionary *parme = [NSMutableDictionary dictionary];
+                parme[@"cid"] = model.ID;
+                parme[@"status"] = isAgree?@"1":@"2";
+                [HTMyContainAFN AFN:@"customer/audit" with:parme Success:^(NSDictionary *responseObject) {
+                    LWLog(@"%@", responseObject);
+                    if ([[responseObject objectForKey:@"status"] integerValue] == 200) {
+                        [weakSelf.customList removeObjectAtIndex:[indexPath row]];  //删除_data数组里的数据
+                        [weakSelf.table deleteRowsAtIndexPaths:[NSMutableArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];  //删除对应数据的cell
+                    }
+                } failure:^(NSError *error) {
+                    LWLog(@"%@",error);
+                }];
+            }];
             return cell;
             
         }else {
@@ -446,14 +475,9 @@ static NSString *processedIdentify = @"processedIdentify";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    
-    
     if (self.selectPage == 1) {
         UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
-        
         if (_isUntreated) {
-            
             CustomInformationauditTableViewController *info = [story instantiateViewControllerWithIdentifier:@"CustomInformationauditTableViewController"];
             
             [self.navigationController pushViewController:info animated:YES];

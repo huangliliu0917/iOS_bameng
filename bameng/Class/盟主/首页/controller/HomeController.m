@@ -88,7 +88,7 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
     [SVProgressHUD setMinimumDismissTimeInterval:0.7];
     
-    self.title = @"霸盟";
+    self.navigationItem.title = @"霸盟";
     
     self.table = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight) style:UITableViewStylePlain];
     self.table.delegate = self;
@@ -132,7 +132,10 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
     [head.circulateView addSubview:self.circleView];
     
     self.table.tableHeaderView = head;
+    //中间6个栏目选择
     [head.zhanghu bk_whenTapped:^{
+        
+        LWLog(@"%@",[NSThread currentThread]);
         MyWalletTableViewController *wallet = [story instantiateViewControllerWithIdentifier:@"MyWalletTableViewController"];
         [self.navigationController pushViewController:wallet animated:YES];
     }];
@@ -142,12 +145,12 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
         [self.navigationController pushViewController:newOrder animated:YES];
     }];
     
-    [head.custom bk_whenTapped:^{
+    [head.custom bk_whenTapped:^{//客户信息
         CustomInfoController *custom = [story instantiateViewControllerWithIdentifier:@"CustomInfoController"];
         custom.selectPage = 1;
         [self.navigationController pushViewController:custom animated:YES];
     }];
-    [head.coalition bk_whenTapped:^{
+    [head.coalition bk_whenTapped:^{//我的联盟
         CustomInfoController *custom = [story instantiateViewControllerWithIdentifier:@"CustomInfoController"];
         custom.selectPage = 3;
         [self.navigationController pushViewController:custom animated:YES];
@@ -158,7 +161,7 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
         custom.selectPage = 2;
         [self.navigationController pushViewController:custom animated:YES];
     }];
-    [head.reward bk_whenTapped:^{
+    [head.reward bk_whenTapped:^{//奖励设置
         EncourageTableViewController *encourage = [story instantiateViewControllerWithIdentifier:@"EncourageTableViewController"];
         [self.navigationController pushViewController:encourage animated:YES];
     }];
@@ -207,7 +210,6 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
 - (void)bannerView:(CircleBannerView *)bannerView didSelectAtIndex:(NSUInteger)index{
     
     BMCircleModel *model = self.circleList[index];
-    
     if (model.LinkUrl.length != 0) {
         PushWebViewController *push = [[PushWebViewController alloc] init];
         push.openUrl = model.LinkUrl;

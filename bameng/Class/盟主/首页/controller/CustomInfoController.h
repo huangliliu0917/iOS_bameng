@@ -11,7 +11,10 @@
 @interface CustomInfoController : MyViewController
 
 @property (strong, nonatomic) IBOutlet UIView *chooserView;
+
+/**未处理*/
 @property (strong, nonatomic) IBOutlet UIView *untreated;
+/**已处理*/
 @property (strong, nonatomic) IBOutlet UIView *processed;
 
 @property (nonatomic, strong) UIView *slider;

@@ -57,7 +57,7 @@ static NSString *infomationIdentify = @"infomationIdentify";
     
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
     
-    self.title = @"资讯列表";
+    self.navigationItem.title = @"资讯列表";
     
     self.selectPage = 1;
     self.circleList = [NSMutableArray array];
@@ -301,7 +301,6 @@ static NSString *infomationIdentify = @"infomationIdentify";
     
     
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    
     dic[@"identity"] = @([self identityForZiXunList]);
     dic[@"pageSize"] = @(self.PageSize);
     dic[@"pageIndex"] = @(1);
