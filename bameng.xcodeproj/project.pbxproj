@@ -111,6 +111,10 @@
 		EFDD90691DD98D6200764E7A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFDD90681DD98D6200764E7A /* SystemConfiguration.framework */; };
 		EFDD906D1DD9915800764E7A /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDD906C1DD9915800764E7A /* MyViewController.m */; };
 		EFDD90701DD9999100764E7A /* LaucnViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDD906F1DD9999100764E7A /* LaucnViewController.m */; };
+		EFEE83931DDD82F80048863A /* areaCode.plist in Resources */ = {isa = PBXBuildFile; fileRef = EFEE838E1DDD82F80048863A /* areaCode.plist */; };
+		EFEE83941DDD82F80048863A /* AreaLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = EFEE83901DDD82F80048863A /* AreaLocation.m */; };
+		EFEE83951DDD82F80048863A /* AreaPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFEE83921DDD82F80048863A /* AreaPickerView.m */; };
+		EFEE839B1DDD9DAE0048863A /* UserInfoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = EFEE839A1DDD9DAE0048863A /* UserInfoTool.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -323,6 +327,13 @@
 		EFDD906E1DD9999100764E7A /* LaucnViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaucnViewController.h; sourceTree = "<group>"; };
 		EFDD906F1DD9999100764E7A /* LaucnViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaucnViewController.m; sourceTree = "<group>"; };
 		EFDD90711DD9A61D00764E7A /* bameng.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = bameng.entitlements; sourceTree = "<group>"; };
+		EFEE838E1DDD82F80048863A /* areaCode.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = areaCode.plist; sourceTree = "<group>"; };
+		EFEE838F1DDD82F80048863A /* AreaLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaLocation.h; sourceTree = "<group>"; };
+		EFEE83901DDD82F80048863A /* AreaLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaLocation.m; sourceTree = "<group>"; };
+		EFEE83911DDD82F80048863A /* AreaPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaPickerView.h; sourceTree = "<group>"; };
+		EFEE83921DDD82F80048863A /* AreaPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaPickerView.m; sourceTree = "<group>"; };
+		EFEE83991DDD9DAE0048863A /* UserInfoTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoTool.h; sourceTree = "<group>"; };
+		EFEE839A1DDD9DAE0048863A /* UserInfoTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoTool.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -651,6 +662,8 @@
 				EF04388A1DBAFD5E00CA8902 /* HuotuScreate */,
 				603A39C81DB9EE3E00DC1ADA /* CircleBannerView.h */,
 				603A39C91DB9EE3E00DC1ADA /* CircleBannerView.m */,
+				EFEE83991DDD9DAE0048863A /* UserInfoTool.h */,
+				EFEE839A1DDD9DAE0048863A /* UserInfoTool.m */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -935,6 +948,7 @@
 		EFDD904F1DD5710A00764E7A /* 第三方 */ = {
 			isa = PBXGroup;
 			children = (
+				EFEE838D1DDD82F80048863A /* AreaPickerView-master */,
 			);
 			path = "第三方";
 			sourceTree = "<group>";
@@ -983,6 +997,18 @@
 				EFA5D7E21DDBF46A00962D77 /* MyTableViewController.m */,
 			);
 			path = "继承";
+			sourceTree = "<group>";
+		};
+		EFEE838D1DDD82F80048863A /* AreaPickerView-master */ = {
+			isa = PBXGroup;
+			children = (
+				EFEE838E1DDD82F80048863A /* areaCode.plist */,
+				EFEE838F1DDD82F80048863A /* AreaLocation.h */,
+				EFEE83901DDD82F80048863A /* AreaLocation.m */,
+				EFEE83911DDD82F80048863A /* AreaPickerView.h */,
+				EFEE83921DDD82F80048863A /* AreaPickerView.m */,
+			);
+			path = "AreaPickerView-master";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1116,6 +1142,7 @@
 				60764AFC1DB8937A0061CC6C /* LaunchScreen.storyboard in Resources */,
 				60362BF51DBB3B2F00A58D4D /* InfoPlist.strings in Resources */,
 				60FC8A901DBD9ED9009612C1 /* UntreatedTableViewCell.xib in Resources */,
+				EFEE83931DDD82F80048863A /* areaCode.plist in Resources */,
 				60FF24201DBF5D7600E70A09 /* MengDouTableViewCell.xib in Resources */,
 				60764AF91DB8937A0061CC6C /* Assets.xcassets in Resources */,
 				60EF5FB81DC749ED00ADBEA7 /* MengYouHomeTableViewCell.xib in Resources */,
@@ -1327,6 +1354,7 @@
 				60E809EF1DC9B91900094CB8 /* MYOrderDetailTableViewController.m in Sources */,
 				60FF24091DBEFC3100E70A09 /* EncourageTableViewController.m in Sources */,
 				60FF241F1DBF5D7600E70A09 /* MengDouTableViewCell.m in Sources */,
+				EFEE83951DDD82F80048863A /* AreaPickerView.m in Sources */,
 				EFA5D7E71DDC080000962D77 /* LXActionSheet.m in Sources */,
 				603E924F1DBDEA87000E3069 /* CustomDetailsTableViewController.m in Sources */,
 				6024A1441DC6F519000C721C /* AddNewInfomationTableViewController.m in Sources */,
@@ -1372,6 +1400,8 @@
 				60EF5FB31DC7486600ADBEA7 /* MengYouHomeViewController.m in Sources */,
 				EF1C23461DDC5793003DBFA9 /* SaveCanclePickView.m in Sources */,
 				EF0438901DBB050600CA8902 /* HTMyContainAFN.m in Sources */,
+				EFEE839B1DDD9DAE0048863A /* UserInfoTool.m in Sources */,
+				EFEE83941DDD82F80048863A /* AreaLocation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

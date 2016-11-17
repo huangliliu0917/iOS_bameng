@@ -1179,14 +1179,14 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="123"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tqJ-55-MyM">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mrtx" translatesAutoresizingMaskIntoConstraints="NO" id="tqJ-55-MyM">
                                     <rect key="frame" x="18" y="21" width="81" height="81"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="tqJ-55-MyM" secondAttribute="height" id="pcy-GI-ol8"/>
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="kaven" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ag-Ed-2qB">
-                                    <rect key="frame" x="110" y="41" width="45" height="20.5"/>
+                                    <rect key="frame" x="120" y="41" width="45" height="20.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
@@ -1218,8 +1218,8 @@
                                 <constraint firstItem="l3s-09-B7y" firstAttribute="top" secondItem="0ag-Ed-2qB" secondAttribute="bottom" constant="9" id="PX3-mD-oBv"/>
                                 <constraint firstItem="0ag-Ed-2qB" firstAttribute="top" secondItem="rnK-SV-UED" secondAttribute="top" constant="41" id="U7E-BV-sOq"/>
                                 <constraint firstItem="l3s-09-B7y" firstAttribute="leading" secondItem="tqJ-55-MyM" secondAttribute="trailing" constant="11" id="WHG-iH-4z0"/>
-                                <constraint firstItem="0ag-Ed-2qB" firstAttribute="leading" secondItem="tqJ-55-MyM" secondAttribute="trailing" constant="11" id="dQM-NX-GBN"/>
                                 <constraint firstAttribute="trailing" secondItem="J7s-e5-G1q" secondAttribute="trailing" constant="27" id="gSy-TH-ZXG"/>
+                                <constraint firstItem="l3s-09-B7y" firstAttribute="centerX" secondItem="0ag-Ed-2qB" secondAttribute="centerX" id="nc6-Pp-4og"/>
                                 <constraint firstAttribute="bottom" secondItem="tqJ-55-MyM" secondAttribute="bottom" constant="21" id="nyy-CO-DFc"/>
                             </constraints>
                         </view>
@@ -1461,10 +1461,13 @@
                     <navigationItem key="navigationItem" id="oxa-5Y-Fmd"/>
                     <connections>
                         <outlet property="Level" destination="l3s-09-B7y" id="hUp-Cm-4lK"/>
-                        <outlet property="daijiesuan" destination="hIC-et-kj4" id="RXb-J0-zBt"/>
+                        <outlet property="daijiesuan" destination="hIC-et-kj4" id="HqP-gL-dkU"/>
+                        <outlet property="daijiesuanLable" destination="50P-Zw-kdV" id="LXb-gG-tF4"/>
                         <outlet property="headImage" destination="tqJ-55-MyM" id="8w5-u9-eGP"/>
-                        <outlet property="keyongjifen" destination="62z-i0-lSM" id="n8E-BP-mCy"/>
-                        <outlet property="mengdou" destination="yKf-H6-eDq" id="JvT-XE-Wmt"/>
+                        <outlet property="keyongjifen" destination="62z-i0-lSM" id="07j-fT-gzJ"/>
+                        <outlet property="keyongjifenLable" destination="CKA-R8-eLM" id="crY-F4-iWr"/>
+                        <outlet property="mengdou" destination="yKf-H6-eDq" id="MRx-f6-fIh"/>
+                        <outlet property="mengdouLable" destination="QJ8-m7-1Bb" id="am8-ev-b1g"/>
                         <outlet property="nickName" destination="0ag-Ed-2qB" id="0Q0-wH-wZi"/>
                         <outlet property="setting" destination="J7s-e5-G1q" id="zPX-XH-ncz"/>
                     </connections>
@@ -1902,7 +1905,7 @@
                                         <rect key="frame" x="0.0" y="314" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fBx-T6-3Mb" id="xNJ-IN-pcp">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="性别" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ANV-sy-eoS">
@@ -1911,8 +1914,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="男" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S6t-z7-eSQ">
-                                                    <rect key="frame" x="324.5" y="13" width="15.5" height="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未知" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S6t-z7-eSQ">
+                                                    <rect key="frame" x="309" y="13" width="31" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1926,11 +1929,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="44" id="3hZ-pG-NPk">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="44" id="3hZ-pG-NPk">
                                         <rect key="frame" x="0.0" y="358" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3hZ-pG-NPk" id="d3D-gW-tdQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地区" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efL-9A-WnX">
@@ -1945,12 +1948,20 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4zH-p9-prd">
+                                                    <rect key="frame" x="340" y="22" width="0.0" height="0.0"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="efL-9A-WnX" firstAttribute="leading" secondItem="d3D-gW-tdQ" secondAttribute="leading" constant="16" id="5EK-U5-FoB"/>
                                                 <constraint firstAttribute="trailing" secondItem="4ZE-Oi-BXZ" secondAttribute="trailing" constant="2" id="9AK-In-Avm"/>
                                                 <constraint firstItem="4ZE-Oi-BXZ" firstAttribute="centerY" secondItem="d3D-gW-tdQ" secondAttribute="centerY" id="Bwx-J8-KOR"/>
+                                                <constraint firstItem="4zH-p9-prd" firstAttribute="centerY" secondItem="d3D-gW-tdQ" secondAttribute="centerY" id="JMr-7d-cCJ"/>
                                                 <constraint firstItem="efL-9A-WnX" firstAttribute="centerY" secondItem="d3D-gW-tdQ" secondAttribute="centerY" id="QMC-Pp-d5f"/>
+                                                <constraint firstAttribute="trailing" secondItem="4zH-p9-prd" secondAttribute="trailing" constant="2" id="UWG-xN-XK5"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1965,6 +1976,7 @@
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="abb-n4-Fas"/>
                     <connections>
+                        <outlet property="areaLable" destination="4zH-p9-prd" id="8Po-co-QT1"/>
                         <outlet property="iconView" destination="l3W-Er-L3B" id="AdX-de-HiG"/>
                         <outlet property="name" destination="7A5-SG-DeD" id="UH1-Jt-VEG"/>
                         <outlet property="nickName" destination="tr6-jw-WXJ" id="w6k-Ma-blK"/>

@@ -8,7 +8,9 @@
 
 #import "UserInfoTableViewController.h"
 #import "UIImagePickerController+BlocksKit.h"
-@interface UserInfoTableViewController ()<LXActionSheetDelegate>
+#import "AreaPickerView.h"
+
+@interface UserInfoTableViewController ()<LXActionSheetDelegate,AreaPickerDelegate>
 
 /**头像*/
 @property (weak, nonatomic) IBOutlet UIImageView *iconView;
@@ -19,16 +21,77 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UILabel *sex;
+@property (weak, nonatomic) IBOutlet UILabel *areaLable;
+
+
+@property (nonatomic, strong) AreaPickerView * areaView;
 
 @end
 
 @implementation UserInfoTableViewController
 
+
+- (AreaPickerView *)areaView{
+    if (_areaView == nil) {
+        
+        _areaView = [[AreaPickerView alloc] initWithDelegate:self];
+    }
+    return _areaView;
+}
+
+- (void)pickerDidChaneStatus:(AreaPickerView *)picker{
+    
+    
+}
+
+- (void)pickerViewSelectAreaOfCode:(AreaLocation *)locate{
+    LWLog(@"%@---%@---%@",locate.province,locate.city,locate.area);
+    NSString * city = [NSString stringWithFormat:@"%@_%@_%@",locate.province,locate.city,locate.area];
+    NSMutableDictionary *parme = [NSMutableDictionary dictionary];
+    parme[@"type"] = @"6";
+    parme[@"content"] = city;
+    [HTMyContainAFN AFN:@"user/UpdateInfo" with:parme Success:^(NSDictionary *responseObject) {
+        LWLog(@"%@", responseObject);
+    } failure:^(NSError *error) {
+        LWLog(@"%@",error);
+    }];
+    self.areaLable.text = city;
+    UserModel * user = [UserModel GetUserModel];
+    user.UserCity = city;
+    [UserModel SaveUserModel:user];
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
     self.navigationItem.title = @"个人信息";
+    /**获取用户信息*/
+    [HTMyContainAFN AFN:@"user/myinfo" with:nil Success:^(NSDictionary *responseObject) {
+        LWLog(@"%@", responseObject);
+        if ([responseObject[@"status"] intValue] == 200) {
+            UserModel *user = [UserModel mj_objectWithKeyValues:responseObject[@"data"]];
+            NSString * path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+            NSString *fileName = [path stringByAppendingPathComponent:UserInfomation];
+            [NSKeyedArchiver archiveRootObject:user toFile:fileName];
+            self.nickName.text = user.NickName;
+            self.phoneNum.text = user.UserMobile;
+            self.name.text = user.RealName;
+            if ([user.UserGender isEqualToString:@"f"]) {
+                self.sex.text = @"女";
+            }else if([user.UserGender isEqualToString:@"m"]){
+                self.sex.text = @"男";
+            }
+            if (user.UserCity.length) {
+               self.areaLable.text =  [[user.UserCity componentsSeparatedByString:@"_"] objectAtIndex:1];
+            }
+            [self.iconView sd_setImageWithURL:[NSURL URLWithString:user.UserHeadImg] placeholderImage:nil];
+        }
+ 
+    } failure:^(NSError *error) {
+        LWLog(@"%@",error);
+    }];
+
+    
     
 //    self.iconView.contentMode = UIViewContentModeScaleAspectFill;
 //    self.iconView.cli
@@ -62,6 +125,7 @@
     }else if(indexPath.section == 0 && indexPath.row == 1){
         LXActionSheet * action = [[LXActionSheet alloc] initWithTitle:1 delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
         __weak typeof(self) wself = self;
+        action.isNickName = YES;
         [action setNickNameandNameSelectItem:^(NSInteger type , NSString *content) {
             [wself setNickNameandNameSelectItem:type andContent:content];
         }];
@@ -82,6 +146,10 @@
             [wself sexSelect:item];
         }];
         [action showInView:self.view];
+    }else if(indexPath.section == 1 && indexPath.row == 3){
+        
+        [self.areaView showInView:self.view.window];
+        
     }
     
     
@@ -92,22 +160,27 @@
  * 1001 女
  */
 - (void)sexSelect:(NSInteger)item{
-    
     LWLog(@"%ld-----",(long)item);
-    
     self.sex.text = (item==1000?@"男":@"女");
+    UserModel * user = [UserModel GetUserModel];
+    user.UserGender = (item==1000?@"m":@"f");
+    [UserModel SaveUserModel:user];
 }
 
 - (void)setNickNameandNameSelectItem:(NSInteger)type andContent:(NSString *)content{
     
     LWLog(@"%ld-----%@",(long)type,content);
+    UserModel * user = [UserModel GetUserModel];
     
     if (type == 1) {
         self.nickName.text = content;
+        user.NickName = content;
     }else if(type == 2){
         self.name.text = content;
-        
+        user.RealName = content;
     }
+    [UserModel SaveUserModel:user];
+
 }
 
 

@@ -26,4 +26,7 @@
 /**1001 男 1002 女*/
 @property(nonatomic,copy) void(^sexPickItem)(NSInteger item);
 
+
+@property(nonatomic,assign) BOOL isNickName;
+
 @end

@@ -66,12 +66,21 @@
         IntegralTableViewController *jifen = [story instantiateViewControllerWithIdentifier:@"IntegralTableViewController"];
         [self.navigationController pushViewController:jifen animated:YES];
     }];
+    
+    self.headImage.contentMode = UIViewContentModeScaleAspectFill;
+    self.headImage.clipsToBounds = YES;
 }
 
 - (void) viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
     self.tabBarController.tabBar.hidden = NO;
+    UserModel * user = [UserModel GetUserModel];
+    [self.headImage sd_setImageWithURL:[NSURL URLWithString:user.UserHeadImg] placeholderImage:[UIImage imageNamed:@"mrtx"]];
+    self.Level.text = user.LevelName;
+    self.mengdouLable.text = [NSString stringWithFormat:@"%@",user.MengBeans];
+    LWLog(@"%@",user.TempMengBeans);
+    self.daijiesuanLable.text = [NSString stringWithFormat:@"%@",user.TempMengBeans];
+    self.keyongjifenLable.text = [NSString stringWithFormat:@"%@",user.Score];
 }
 
 - (void)didReceiveMemoryWarning {

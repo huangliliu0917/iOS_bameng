@@ -114,7 +114,9 @@
     if (styleType == 1) {//昵称
         
         SaveCanclePickView * pc = [SaveCanclePickView SaveCanclePickViewShare];
-        pc.type = 1;
+        if (self.isNickName) {
+           pc.type = 1;
+        }
         pc.delegate = self;
         [self.backGroundView addSubview:pc];
         
@@ -122,7 +124,9 @@
     if (styleType == 2) {//名称
         
         SaveCanclePickView * pc = [SaveCanclePickView SaveCanclePickViewShare];
-        pc.type = 2;
+        if (!self.isNickName) {
+            pc.type = 2;
+        }
         pc.delegate = self;
         [self.backGroundView addSubview:pc];
         

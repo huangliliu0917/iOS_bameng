@@ -21,7 +21,7 @@
 @property (nonatomic, strong) NSString *NickName;
 @property (nonatomic, assign) NSInteger OrderSuccessAmount;
 @property (nonatomic, strong) NSString *RealName;
-@property (nonatomic, strong) NSNumber *Score;
+@property (nonatomic, strong) NSDecimalNumber *Score;
 @property (nonatomic, strong) NSNumber *ScoreLocked;
 @property (nonatomic, strong) NSString *ShopCity;
 @property (nonatomic, assign) NSInteger ShopId;
@@ -31,6 +31,19 @@
 @property (nonatomic, strong) NSString *UserId;
 @property (nonatomic, assign) NSInteger UserIdentity;
 @property (nonatomic, strong) NSString *UserMobile;
+/**性别*/
+@property (nonatomic, strong) NSString * UserGender;
+/**城市*/
+@property (nonatomic, strong) NSString * UserCity;
 @property (nonatomic, strong) NSString *token;
 
+
+/**待结算盟豆*/
+@property (nonatomic, strong) NSDecimalNumber * TempMengBeans;
+
+
+
++ (instancetype) GetUserModel;
+
++ (void)SaveUserModel:(UserModel *)user;
 @end
