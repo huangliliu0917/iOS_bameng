@@ -23,4 +23,7 @@
 
 @property(nonatomic,copy) void(^nickNameandNameSelectItem)(NSInteger item,NSString * content);
 
+/**1001 男 1002 女*/
+@property(nonatomic,copy) void(^sexPickItem)(NSInteger item);
+
 @end

@@ -38,7 +38,7 @@
 
 #define ANIMATE_DURATION                        0.25f
 
-@interface LXActionSheet ()<pickViewDelegate,TZImagePickerControllerDelegate,SaveCanclePickViewDelegate>
+@interface LXActionSheet ()<pickViewDelegate,TZImagePickerControllerDelegate,SaveCanclePickViewDelegate,SexPickDelegate>
 
 @property (nonatomic,strong) UIView *backGroundView;
 @property (nonatomic,strong) NSString *actionTitle;
@@ -130,8 +130,7 @@
     if (styleType == 3) {// 性别
         
         SexPick * pc = [SexPick SexPickShare];
-        //pc.type = 2;
-        //pc.delegate = self;
+        pc.delegate = self;
         [self.backGroundView addSubview:pc];
         
     }
@@ -142,11 +141,18 @@
     }];
 }
 
-
+- (void)SexPickDelegate:(NSInteger)item{
+    [self tappedCancel];
+    if (item!=1003) {
+        if (self.sexPickItem) {
+            self.sexPickItem(item);
+        }
+    }
+}
 
 - (void)pickViewOption:(NSInteger)item{
     [self tappedCancel];
-    LWLog(@"%d",item);
+    LWLog(@"%ld",(long)item);
     if (item == 1000 || item == 1001) {
         if (self.iconViewSelectItem) {
            self.iconViewSelectItem(item);
@@ -156,7 +162,7 @@
 
 - (void)SaveCanclePickViewDelegate:(NSInteger)item withContent:(NSString *)content{
     [self tappedCancel];
-    LWLog(@"%d",item);
+    LWLog(@"%ld",(long)item);
     
     if (self.nickNameandNameSelectItem) {
         self.nickNameandNameSelectItem(item,content);

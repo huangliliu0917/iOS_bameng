@@ -54,8 +54,8 @@
     if (indexPath.section == 0 && indexPath.row == 0) {
         LXActionSheet * action = [[LXActionSheet alloc] initWithTitle:0 delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
         __weak typeof(self) wself = self;
-        [action setIconViewSelectItem:^(int item) {
-            LWLog(@"%d",item);
+        [action setIconViewSelectItem:^(NSInteger item) {
+            LWLog(@"%ld",(long)item);
             [wself imageSelectItem:item];
         }];
         [action showInView:self.view];
@@ -78,17 +78,29 @@
         
         LXActionSheet * action = [[LXActionSheet alloc] initWithTitle:3 delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
         __weak typeof(self) wself = self;
-       
+        [action setSexPickItem:^(NSInteger item) {
+            [wself sexSelect:item];
+        }];
         [action showInView:self.view];
     }
     
     
 }
 
+/**
+ * 1000 男
+ * 1001 女
+ */
+- (void)sexSelect:(NSInteger)item{
+    
+    LWLog(@"%ld-----",(long)item);
+    
+    self.sex.text = (item==1000?@"男":@"女");
+}
 
 - (void)setNickNameandNameSelectItem:(NSInteger)type andContent:(NSString *)content{
     
-    LWLog(@"%d-----%@",type,content);
+    LWLog(@"%ld-----%@",(long)type,content);
     
     if (type == 1) {
         self.nickName.text = content;
@@ -102,8 +114,8 @@
 /**
  *  头像
  */
-- (void)imageSelectItem:(int)item{
-    LWLog(@"%d",item);
+- (void)imageSelectItem:(NSInteger)item{
+    LWLog(@"%ld",(long)item);
     __weak typeof(self) wself = self;
     if(item == 1000){//拍照
         
