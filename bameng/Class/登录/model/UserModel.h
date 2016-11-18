@@ -29,6 +29,8 @@
 @property (nonatomic, strong) NSString *ShopProv;
 @property (nonatomic, strong) NSString *UserHeadImg;
 @property (nonatomic, strong) NSString *UserId;
+
+/**1 盟主  0 盟友*/
 @property (nonatomic, assign) NSInteger UserIdentity;
 @property (nonatomic, strong) NSString *UserMobile;
 /**性别*/
@@ -37,7 +39,8 @@
 @property (nonatomic, strong) NSString * UserCity;
 @property (nonatomic, strong) NSString *token;
 
-
+/**1 总店  2 分店*/
+@property (nonatomic, assign)  int ShopType;
 /**待结算盟豆*/
 @property (nonatomic, strong) NSDecimalNumber * TempMengBeans;
 

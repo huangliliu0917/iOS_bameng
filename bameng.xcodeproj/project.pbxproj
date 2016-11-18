@@ -102,6 +102,8 @@
 		EF3A2F6D1DDC85B60080F9A6 /* SexPick.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3A2F6C1DDC85B60080F9A6 /* SexPick.m */; };
 		EF3A2F6F1DDC85C10080F9A6 /* SexPick.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF3A2F6E1DDC85C10080F9A6 /* SexPick.xib */; };
 		EF4103D11DDDCF7C008F79A0 /* CircleBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4103CF1DDDCF7C008F79A0 /* CircleBannerView.m */; };
+		EF785E4E1DDEB0A7002872B9 /* LiuXSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF785E4D1DDEB0A7002872B9 /* LiuXSegmentView.m */; };
+		EF785E511DDEB0C1002872B9 /* HomeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF785E501DDEB0C1002872B9 /* HomeListViewController.m */; };
 		EFA5D7E31DDBF46A00962D77 /* MyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA5D7E21DDBF46A00962D77 /* MyTableViewController.m */; };
 		EFA5D7E71DDC080000962D77 /* LXActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA5D7E61DDC080000962D77 /* LXActionSheet.m */; };
 		EFA5D7EA1DDC0CE000962D77 /* pickView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA5D7E91DDC0CE000962D77 /* pickView.m */; };
@@ -310,6 +312,10 @@
 		EF3A2F6E1DDC85C10080F9A6 /* SexPick.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SexPick.xib; sourceTree = "<group>"; };
 		EF4103CF1DDDCF7C008F79A0 /* CircleBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleBannerView.m; sourceTree = "<group>"; };
 		EF4103D01DDDCF7C008F79A0 /* CircleBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleBannerView.h; sourceTree = "<group>"; };
+		EF785E4C1DDEB0A7002872B9 /* LiuXSegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiuXSegmentView.h; sourceTree = "<group>"; };
+		EF785E4D1DDEB0A7002872B9 /* LiuXSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiuXSegmentView.m; sourceTree = "<group>"; };
+		EF785E4F1DDEB0C1002872B9 /* HomeListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeListViewController.h; sourceTree = "<group>"; };
+		EF785E501DDEB0C1002872B9 /* HomeListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeListViewController.m; sourceTree = "<group>"; };
 		EFA5D7E11DDBF46A00962D77 /* MyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableViewController.h; sourceTree = "<group>"; };
 		EFA5D7E21DDBF46A00962D77 /* MyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTableViewController.m; sourceTree = "<group>"; };
 		EFA5D7E51DDC080000962D77 /* LXActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXActionSheet.h; sourceTree = "<group>"; };
@@ -610,6 +616,8 @@
 		603A39B81DB9E62F00DC1ADA /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				EF785E4F1DDEB0C1002872B9 /* HomeListViewController.h */,
+				EF785E501DDEB0C1002872B9 /* HomeListViewController.m */,
 				60979D6E1DC3364200B9E858 /* MengZhuInfomationViewController.h */,
 				60979D6F1DC3364200B9E858 /* MengZhuInfomationViewController.m */,
 				6024A1421DC6F519000C721C /* AddNewInfomationTableViewController.h */,
@@ -630,6 +638,8 @@
 		603A39BA1DB9E62F00DC1ADA /* view */ = {
 			isa = PBXGroup;
 			children = (
+				EF785E4C1DDEB0A7002872B9 /* LiuXSegmentView.h */,
+				EF785E4D1DDEB0A7002872B9 /* LiuXSegmentView.m */,
 				60979D711DC346F500B9E858 /* MengZhuInfomationBigTableViewCell.h */,
 				60979D721DC346F500B9E858 /* MengZhuInfomationBigTableViewCell.m */,
 				60979D731DC346F500B9E858 /* MengZhuInfomationBigTableViewCell.xib */,
@@ -1353,6 +1363,7 @@
 				60F3903E1DC0D1AB00FFCBF3 /* BusinessTableViewController.m in Sources */,
 				60E809EF1DC9B91900094CB8 /* MYOrderDetailTableViewController.m in Sources */,
 				60FF24091DBEFC3100E70A09 /* EncourageTableViewController.m in Sources */,
+				EF785E4E1DDEB0A7002872B9 /* LiuXSegmentView.m in Sources */,
 				60FF241F1DBF5D7600E70A09 /* MengDouTableViewCell.m in Sources */,
 				EFEE83951DDD82F80048863A /* AreaPickerView.m in Sources */,
 				EFA5D7E71DDC080000962D77 /* LXActionSheet.m in Sources */,
@@ -1394,6 +1405,7 @@
 				60FF240F1DBF328800E70A09 /* SettingTableViewController.m in Sources */,
 				604912F11DC8843900DA334C /* MYInfomationViewController.m in Sources */,
 				603A39C51DB9ED7300DC1ADA /* HomeHeadView.m in Sources */,
+				EF785E511DDEB0C1002872B9 /* HomeListViewController.m in Sources */,
 				6033D7A21DBB434100B9B4DA /* MengzhuTabbarController.m in Sources */,
 				6033D7AE1DBB5FEF00B9B4DA /* CustomInfoController.m in Sources */,
 				60F3902C1DC0A0F400FFCBF3 /* ExchangeSureViewController.m in Sources */,

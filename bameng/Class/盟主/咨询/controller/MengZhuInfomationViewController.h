@@ -10,4 +10,8 @@
 
 @interface MengZhuInfomationViewController : MyViewController
 
+
+/***/
+@property(nonatomic,assign) int type;
+
 @end

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "BMInfomationModel.h"
 @interface MYInfomationTableViewCell : UITableViewCell
-
+@property (nonatomic, strong) BMInfomationModel *model;
 @end

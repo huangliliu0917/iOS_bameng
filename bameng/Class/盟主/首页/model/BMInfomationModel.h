@@ -18,4 +18,6 @@
 @property (nonatomic, strong) NSString *ArticleUrl;
 @property (nonatomic, strong) NSString *PublishTimeText;
 
+/**判断是否已读*/
+@property (nonatomic, assign) BOOL IsRead;
 @end

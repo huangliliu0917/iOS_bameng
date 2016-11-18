@@ -51,6 +51,13 @@ static NSString *zixunBigIdentify = @"zixunBigIdentify";
 static NSString *zixunSmallIdentify = @"zixunSmallIdentify";
 static NSString *infomationIdentify = @"infomationIdentify";
 
+
+- (NSMutableArray *)circleList{
+    if (_circleList == nil) {
+        _circleList = [NSMutableArray array];
+    }
+    return _circleList;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -59,12 +66,13 @@ static NSString *infomationIdentify = @"infomationIdentify";
     
     self.navigationItem.title = @"资讯列表";
     
+    //用于轮播
     self.selectPage = 1;
-    self.circleList = [NSMutableArray array];
+//    self.circleList = [NSMutableArray array];
     
-    self.slider = [[UIView alloc] initWithFrame:CGRectMake((KScreenWidth / 4 - 40) / 2, 33, 40, 2)];
-    self.slider.backgroundColor = [UIColor colorWithRed:248/255.0 green:152/255.0 blue:155/255.0 alpha:1];
-    [self.chooserView addSubview:self.slider];
+//    self.slider = [[UIView alloc] initWithFrame:CGRectMake((KScreenWidth / 4 - 40) / 2, 33, 40, 2)];
+//    self.slider.backgroundColor = [UIColor colorWithRed:248/255.0 green:152/255.0 blue:155/255.0 alpha:1];
+//    [self.chooserView addSubview:self.slider];
     
     [self setSelectViewAction];
     
@@ -74,6 +82,8 @@ static NSString *infomationIdentify = @"infomationIdentify";
     self.table.delegate = self;
     self.table.dataSource = self;
     [self.table removeSpaces];
+    
+    //添加头部视图
     [self allocTableHeadView];
     
     __weak MengZhuInfomationViewController *wself = self;
@@ -332,7 +342,11 @@ static NSString *infomationIdentify = @"infomationIdentify";
         if ([responseObject[@"status"] intValue] == 200) {
             [self.articleList removeAllObjects];
             if (self.selectPage == 4) {
-                
+                NSArray *rows = [BMInfomationModel mj_objectArrayWithKeyValuesArray:dic[@"list"][@"Rows"]];
+                [self.articleList removeAllObjects];
+                [self.articleList addObjectsFromArray:rows];
+                self.PageIndex = [dic[@"list"][@"PageIndex"] integerValue];
+                self.PageSize = [dic[@"list"][@"PageSize"] integerValue];
             }else {
                 NSDictionary *dic = responseObject[@"data"];
                 if ([dic.allKeys indexOfObject:@"top"] != NSNotFound) {
@@ -448,6 +462,8 @@ static NSString *infomationIdentify = @"infomationIdentify";
     
     if (_selectPage == 4) {
         MYInfomationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:infomationIdentify forIndexPath:indexPath];
+        cell.model = self.articleList[indexPath.row];
+        LWLog(@"%@",[cell.model mj_keyValues]);
         return cell;
     }else {
         if (indexPath.row == 0) {
