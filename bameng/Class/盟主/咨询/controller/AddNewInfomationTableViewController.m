@@ -50,6 +50,7 @@
 }
 
 - (void)selectMengYou:(NSString *)mengYouId {
+    LWLog(@"%@",mengYouId);
     self.userIds = mengYouId;
 }
 
@@ -64,7 +65,6 @@
         [SVProgressHUD showErrorWithStatus:@"请选择盟友"];
     }else {
         NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-        
         dic[@"title"] = self.titleField.text;
         dic[@"content"] = self.content.text;
         dic[@"ids"] = self.userIds;
@@ -75,7 +75,6 @@
                 [SVProgressHUD showSuccessWithStatus:@"发送成功"];
                 [self.navigationController popViewControllerAnimated:YES];
             }
-            
             [self.tableView.mj_header endRefreshing];
         } failure:^(NSError *error) {
             LWLog(@"%@", error);

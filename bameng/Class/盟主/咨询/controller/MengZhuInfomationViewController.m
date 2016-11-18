@@ -152,7 +152,7 @@ static NSString *infomationIdentify = @"infomationIdentify";
                 self.jituanLabel.textColor = [UIColor colorWithRed:248/255.0 green:152/255.0 blue:155/255.0 alpha:1];
                 self.slider.frame =  CGRectMake((KScreenWidth / 4 - 40) / 2 + (self.selectPage - 1) * KScreenWidth / 4, 33, 40, 2);
             }];
-            self.table.tableHeaderView = self.tableHeadView;
+            self.table.tableHeaderView = self.circleView;
             [self getNewZiXunList];
             break;
         }
@@ -221,12 +221,13 @@ static NSString *infomationIdentify = @"infomationIdentify";
 
 - (void)allocTableHeadView {
     self.tableHeadView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, 210 * (KScreenWidth / 414))];
-    self.table.tableHeaderView = self.tableHeadView;
+    
     self.tableHeadView.backgroundColor = [UIColor blueColor];
     
     self.circleView = [[CircleBannerView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, 210 * (KScreenWidth / 414))];
+    self.table.tableHeaderView = self.circleView;
     self.circleView.delegate = self;
-    [self.tableHeadView addSubview:self.circleView];
+//    [self.tableHeadView addSubview:self.circleView];
 }
 
 
