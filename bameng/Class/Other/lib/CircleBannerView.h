@@ -19,7 +19,7 @@ typedef NS_ENUM(NSInteger, CircleBannerViewScrollDirection) {
 
 @optional
 #warning 加载图片链接的代理，如果用的图片链接数组，必许实现该方法，你自己想 怎么加载 就怎么加载
-- (void)imageView:(UIImageView *)imageView loadImageForUrl:(NSString *)url;
+- (void)imageView:(UIImageView *)imageView loadImageForUrl:(NSString *)url bringBack:(CircleBannerView *)circleBannerView;
 
 //轮播图滚动到哪一个item
 - (void)bannerView:(CircleBannerView *)bannerView scrollToIndex:(NSInteger)index;
@@ -52,5 +52,6 @@ typedef NS_ENUM(NSInteger, CircleBannerViewScrollDirection) {
 
 - (void)bannerWithImageArray:(NSArray *)imageArray;
 
+@property (nonatomic, strong) UICollectionViewFlowLayout *flowLayout;
 
 @end

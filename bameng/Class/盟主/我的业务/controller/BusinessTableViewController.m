@@ -19,13 +19,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"我的业务";
+    self.navigationItem.title = @"我的业务";
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+//
     
+    [HTMyContainAFN AFN:@"user/MyBusiness" with:nil Success:^(NSDictionary *responseObject) {
+        LWLog(@"%@", responseObject);
+
+    } failure:^(NSError *error) {
+        LWLog(@"%@",error);
+    }];
     [self.tableView removeSpaces];
 }
 

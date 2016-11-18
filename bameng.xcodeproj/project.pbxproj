@@ -26,7 +26,6 @@
 		603A39BF1DB9EC2D00DC1ADA /* HomeNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 603A39BE1DB9EC2D00DC1ADA /* HomeNavViewController.m */; };
 		603A39C21DB9ECCF00DC1ADA /* HomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 603A39C11DB9ECCF00DC1ADA /* HomeController.m */; };
 		603A39C51DB9ED7300DC1ADA /* HomeHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 603A39C41DB9ED7300DC1ADA /* HomeHeadView.m */; };
-		603A39CA1DB9EE3E00DC1ADA /* CircleBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 603A39C91DB9EE3E00DC1ADA /* CircleBannerView.m */; };
 		603A39CC1DB9EEBB00DC1ADA /* HomeHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 603A39CB1DB9EEBB00DC1ADA /* HomeHeadView.xib */; };
 		603E924F1DBDEA87000E3069 /* CustomDetailsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 603E924E1DBDEA87000E3069 /* CustomDetailsTableViewController.m */; };
 		6042F8241DCB1F2F00055329 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6042F8231DCB1F2F00055329 /* UserModel.m */; };
@@ -102,6 +101,7 @@
 		EF1C23481DDC579D003DBFA9 /* SaveCanclePickView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF1C23471DDC579D003DBFA9 /* SaveCanclePickView.xib */; };
 		EF3A2F6D1DDC85B60080F9A6 /* SexPick.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3A2F6C1DDC85B60080F9A6 /* SexPick.m */; };
 		EF3A2F6F1DDC85C10080F9A6 /* SexPick.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF3A2F6E1DDC85C10080F9A6 /* SexPick.xib */; };
+		EF4103D11DDDCF7C008F79A0 /* CircleBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4103CF1DDDCF7C008F79A0 /* CircleBannerView.m */; };
 		EFA5D7E31DDBF46A00962D77 /* MyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA5D7E21DDBF46A00962D77 /* MyTableViewController.m */; };
 		EFA5D7E71DDC080000962D77 /* LXActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA5D7E61DDC080000962D77 /* LXActionSheet.m */; };
 		EFA5D7EA1DDC0CE000962D77 /* pickView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA5D7E91DDC0CE000962D77 /* pickView.m */; };
@@ -169,8 +169,6 @@
 		603A39C11DB9ECCF00DC1ADA /* HomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeController.m; sourceTree = "<group>"; };
 		603A39C31DB9ED7300DC1ADA /* HomeHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeHeadView.h; sourceTree = "<group>"; };
 		603A39C41DB9ED7300DC1ADA /* HomeHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeHeadView.m; sourceTree = "<group>"; };
-		603A39C81DB9EE3E00DC1ADA /* CircleBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleBannerView.h; sourceTree = "<group>"; };
-		603A39C91DB9EE3E00DC1ADA /* CircleBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleBannerView.m; sourceTree = "<group>"; };
 		603A39CB1DB9EEBB00DC1ADA /* HomeHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeHeadView.xib; sourceTree = "<group>"; };
 		603E924D1DBDEA87000E3069 /* CustomDetailsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomDetailsTableViewController.h; sourceTree = "<group>"; };
 		603E924E1DBDEA87000E3069 /* CustomDetailsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomDetailsTableViewController.m; sourceTree = "<group>"; };
@@ -310,6 +308,8 @@
 		EF3A2F6B1DDC85B60080F9A6 /* SexPick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SexPick.h; sourceTree = "<group>"; };
 		EF3A2F6C1DDC85B60080F9A6 /* SexPick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SexPick.m; sourceTree = "<group>"; };
 		EF3A2F6E1DDC85C10080F9A6 /* SexPick.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SexPick.xib; sourceTree = "<group>"; };
+		EF4103CF1DDDCF7C008F79A0 /* CircleBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleBannerView.m; sourceTree = "<group>"; };
+		EF4103D01DDDCF7C008F79A0 /* CircleBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleBannerView.h; sourceTree = "<group>"; };
 		EFA5D7E11DDBF46A00962D77 /* MyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableViewController.h; sourceTree = "<group>"; };
 		EFA5D7E21DDBF46A00962D77 /* MyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTableViewController.m; sourceTree = "<group>"; };
 		EFA5D7E51DDC080000962D77 /* LXActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXActionSheet.h; sourceTree = "<group>"; };
@@ -660,10 +660,10 @@
 			isa = PBXGroup;
 			children = (
 				EF04388A1DBAFD5E00CA8902 /* HuotuScreate */,
-				603A39C81DB9EE3E00DC1ADA /* CircleBannerView.h */,
-				603A39C91DB9EE3E00DC1ADA /* CircleBannerView.m */,
 				EFEE83991DDD9DAE0048863A /* UserInfoTool.h */,
 				EFEE839A1DDD9DAE0048863A /* UserInfoTool.m */,
+				EF4103D01DDDCF7C008F79A0 /* CircleBannerView.h */,
+				EF4103CF1DDDCF7C008F79A0 /* CircleBannerView.m */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -1364,6 +1364,7 @@
 				608B72AF1DCC23AA00378B5B /* BassModel.m in Sources */,
 				60764AF11DB8937A0061CC6C /* AppDelegate.m in Sources */,
 				604912ED1DC8810A00DA334C /* MYInfomationTableViewCell.m in Sources */,
+				EF4103D11DDDCF7C008F79A0 /* CircleBannerView.m in Sources */,
 				60F3902F1DC0A57300FFCBF3 /* ExchangeListViewController.m in Sources */,
 				6044736F1DC3006B00100A7C /* NewOrderTableViewController.m in Sources */,
 				60764AEE1DB8937A0061CC6C /* main.m in Sources */,
@@ -1371,7 +1372,6 @@
 				60979D741DC346F500B9E858 /* MengZhuInfomationBigTableViewCell.m in Sources */,
 				6042F8241DCB1F2F00055329 /* UserModel.m in Sources */,
 				60EF5FB71DC749ED00ADBEA7 /* MengYouHomeTableViewCell.m in Sources */,
-				603A39CA1DB9EE3E00DC1ADA /* CircleBannerView.m in Sources */,
 				EFA5D7E31DDBF46A00962D77 /* MyTableViewController.m in Sources */,
 				60EF5FBE1DC8309B00ADBEA7 /* MYSubmitInfoTableViewController.m in Sources */,
 				60D18DF61DC1E0B200E0C839 /* CashCouponTableViewCell.m in Sources */,

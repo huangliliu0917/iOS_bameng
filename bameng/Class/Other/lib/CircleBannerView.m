@@ -44,7 +44,7 @@ static char TimerKey;
 
 @property (nonatomic, strong) UIPageControl *pageControl;
 
-@property (nonatomic, strong) UICollectionViewFlowLayout *flowLayout;
+//@property (nonatomic, strong) UICollectionViewFlowLayout *flowLayout;
 
 @end
 
@@ -201,8 +201,8 @@ static char TimerKey;
         } else {
             url = _dataArray[indexPath.row];
         }
-        if ([self.delegate respondsToSelector:@selector(imageView:loadImageForUrl:)]) {
-            [self.delegate imageView:cell.imageView loadImageForUrl:url];
+        if ([self.delegate respondsToSelector:@selector(imageView:loadImageForUrl: bringBack:)]) {
+            [self.delegate imageView:cell.imageView loadImageForUrl:url bringBack:self];
         }
     } else {
         NSInteger row;

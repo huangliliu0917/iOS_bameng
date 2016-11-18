@@ -23,6 +23,7 @@
 
 @property (nonatomic, strong) CircleBannerView *circleView;
 
+@property (nonatomic, strong) HomeHeadView * head;
 
 @property (nonatomic, assign) NSInteger PageIndex;
 @property (nonatomic, assign) NSInteger PageSize;
@@ -37,6 +38,11 @@
 @property(nonatomic,strong) MyCoreLocation * core;
 /**城市按钮*/
 @property(nonatomic,strong) UIButton * cityBtn;
+
+
+@property(nonatomic,assign) CGFloat scrollH;
+@property(nonatomic,assign) CGFloat scrollHW;
+
 
 @end
 
@@ -113,7 +119,9 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
     _core.delegate = self;
     [_core MyCoreLocationStartLocal];
     
+    [self getCrircleList];
     
+    [self getNewZiXunList];
     
 }
 
@@ -123,11 +131,15 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
     
     
     HomeHeadView *head = [[NSBundle mainBundle] loadNibNamed:@"HomeHeadView" owner:self options:nil].lastObject;
-    head.frame = CGRectMake(0, 0, KScreenWidth, head.frame.size.height - 210.0 * (1 - KScreenWidth / 414));
-    head.circulateHeight.constant = 210.0 * (KScreenWidth / 414);
+    head.backgroundColor = [UIColor redColor];
+    _head = head;
+    head.frame = CGRectMake(0, 0, KScreenWidth, KScreenWidth * 328.0 / 375);
+    self.scrollHW = KScreenWidth * 328.0 / 375;
+    head.circulateHeight.constant = 210.0 * KScreenWidth / 375;
     [head layoutIfNeeded];
     
-    self.circleView = [[CircleBannerView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, 210.0 * (KScreenWidth / 414))];
+    self.circleView = [[CircleBannerView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, 210.0 * KScreenWidth / 375)];
+    self.scrollH = 210.0 * KScreenWidth / 375;
     self.circleView.delegate = self;
     [head.circulateView addSubview:self.circleView];
     
@@ -181,9 +193,9 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
     
     self.tabBarController.tabBar.hidden = NO;
     
-    [self getCrircleList];
+    //[self getCrircleList];
     
-    [self getNewZiXunList];
+    //[self getNewZiXunList];
     
     
 }
@@ -218,8 +230,55 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
     
 }
 
-- (void)imageView:(UIImageView *)imageView loadImageForUrl:(NSString *)url {
+- (void)imageView:(UIImageView *)imageView loadImageForUrl:(NSString *)url bringBack:(CircleBannerView *)circleBannerView{
     [imageView sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"banner"] options:SDWebImageRefreshCached];
+    
+     imageView.contentMode = UIViewContentModeScaleToFill;
+    imageView.clipsToBounds = YES;
+    SDWebImageManager *manager = [SDWebImageManager sharedManager];
+    static NSString * Imagesize = nil;
+    [manager downloadImageWithURL:[NSURL URLWithString:url] options:SDWebImageCacheMemoryOnly progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+     } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+        
+        imageView.image = image;
+        
+        
+        if (!Imagesize) {
+            CGFloat height =  imageView.image.size.height * KScreenWidth * 1.0 / imageView.image.size.width;
+            CGRect fm = circleBannerView.frame;
+            fm.size.height = height;
+            circleBannerView.frame = fm;
+            circleBannerView.flowLayout.itemSize = fm.size;
+//            [self ToRefreshUiWithWidges];
+            [circleBannerView layoutSubviews];
+            
+            LWLog(@"%@",[NSThread currentThread]);
+            self.head.circulateHeight.constant = height;
+            CGRect fmx = self.head.frame;
+            
+            LWLog(@"%@",NSStringFromCGRect(fmx));
+            if (height - self.scrollH) {
+                fmx.size.height += height - self.scrollH;
+            }else{
+                fmx.size.height -= height - self.scrollH;
+            }
+           
+//            CGRect newFrame = self.head.frame;
+//            newFrame.size.height = newFrame.size.height + webView.frame.size.height;
+            self.head.frame = fmx;
+            [self.table setTableHeaderView:self.head];
+//
+//            self.head.frame = fmx;
+//            
+//            [self.table layoutIfNeeded];
+//            [self.table layoutSubviews];
+            Imagesize = @"xxx";
+        }
+        
+        NSLog(@"下载完成");
+    }];
+
+    
 }
 
 #pragma mark 网络请求

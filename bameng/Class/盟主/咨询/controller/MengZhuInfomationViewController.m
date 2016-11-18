@@ -91,6 +91,11 @@ static NSString *infomationIdentify = @"infomationIdentify";
     self.PageSize = 20;
     self.PageIndex = 1;
     self.articleList = [NSMutableArray array];
+    
+    
+    [self getCrircleList];
+    
+    [self getNewZiXunList];
 }
 
 //设置选择点击事件
@@ -244,9 +249,7 @@ static NSString *infomationIdentify = @"infomationIdentify";
     
     self.tabBarController.tabBar.hidden = NO;
     
-    [self getCrircleList];
     
-    [self getNewZiXunList];
 }
 
 #pragma mark circleView
@@ -273,8 +276,26 @@ static NSString *infomationIdentify = @"infomationIdentify";
     
 }
 
-- (void)imageView:(UIImageView *)imageView loadImageForUrl:(NSString *)url {
-    [imageView sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:nil options:SDWebImageRefreshCached];
+- (void)imageView:(UIImageView *)imageView loadImageForUrl:(NSString *)url bringBack:(CircleBannerView *)circleBannerView{
+    imageView.contentMode = UIViewContentModeScaleToFill;
+    imageView.clipsToBounds = YES;
+    SDWebImageManager *manager = [SDWebImageManager sharedManager];
+    static NSString * Imagesizex = nil;
+    [manager downloadImageWithURL:[NSURL URLWithString:url] options:SDWebImageCacheMemoryOnly progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+        imageView.image = image;
+        if (!Imagesizex) {
+            CGFloat height =  imageView.image.size.height * KScreenWidth * 1.0 / imageView.image.size.width;
+            CGRect fm = circleBannerView.frame;
+            fm.size.height = height;
+            circleBannerView.frame = fm;
+            circleBannerView.flowLayout.itemSize = fm.size;
+            [circleBannerView layoutSubviews];
+            [self.table setTableHeaderView:circleBannerView];
+            Imagesizex = @"xxx";
+        }
+        LWLog(@"下载完成");
+    }];
 }
 
 
