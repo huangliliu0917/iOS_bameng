@@ -51,6 +51,13 @@ static NSString *zixunBigIdentify = @"zixunBigIdentify";
 static NSString *zixunSmallIdentify = @"zixunSmallIdentify";
 static NSString *infomationIdentify = @"infomationIdentify";
 
+- (NSMutableArray *)articleList{
+    if (_articleList == nil) {
+        
+        _articleList = [NSMutableArray array];
+    }
+    return _articleList;
+}
 
 - (NSMutableArray *)circleList{
     if (_circleList == nil) {
@@ -83,8 +90,13 @@ static NSString *infomationIdentify = @"infomationIdentify";
     self.table.dataSource = self;
     [self.table removeSpaces];
     
-    //添加头部视图
-    [self allocTableHeadView];
+    
+    if(self.type == 0){
+        //添加头部视图
+        [self allocTableHeadView];
+        [self getCrircleList];
+    }
+    
     
     __weak MengZhuInfomationViewController *wself = self;
     
@@ -100,10 +112,10 @@ static NSString *infomationIdentify = @"infomationIdentify";
     
     self.PageSize = 20;
     self.PageIndex = 1;
-    self.articleList = [NSMutableArray array];
     
     
-    [self getCrircleList];
+    
+    
     
     [self getNewZiXunList];
 }
@@ -333,20 +345,28 @@ static NSString *infomationIdentify = @"infomationIdentify";
     
     
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    dic[@"identity"] = @([self identityForZiXunList]);
+    dic[@"identity"] = @([self type]);
     dic[@"pageSize"] = @(self.PageSize);
     dic[@"pageIndex"] = @(1);
+    
+    LWLog(@"%@",dic);
     [HTMyContainAFN AFN:@"article/list" with:dic Success:^(NSDictionary *responseObject) {
         LWLog(@"article/list：%@",responseObject);
         
         if ([responseObject[@"status"] intValue] == 200) {
             [self.articleList removeAllObjects];
-            if (self.selectPage == 4) {
+            if (self.type == 4 || self.type == 3) {
+                
+                NSDictionary *dic = responseObject[@"data"];
+                LWLog(@"%@",dic[@"list"][@"Rows"]);
                 NSArray *rows = [BMInfomationModel mj_objectArrayWithKeyValuesArray:dic[@"list"][@"Rows"]];
-                [self.articleList removeAllObjects];
+                
+                
+                LWLog(@"%@",responseObject[@"list"][@"Rows"]);
+//                [self.articleList removeAllObjects];
                 [self.articleList addObjectsFromArray:rows];
-                self.PageIndex = [dic[@"list"][@"PageIndex"] integerValue];
-                self.PageSize = [dic[@"list"][@"PageSize"] integerValue];
+                self.PageIndex = [responseObject[@"list"][@"PageIndex"] integerValue];
+                self.PageSize = [responseObject[@"list"][@"PageSize"] integerValue];
             }else {
                 NSDictionary *dic = responseObject[@"data"];
                 if ([dic.allKeys indexOfObject:@"top"] != NSNotFound) {
@@ -373,7 +393,7 @@ static NSString *infomationIdentify = @"infomationIdentify";
     __weak MengZhuInfomationViewController *wself = self;
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     
-    dic[@"identity"] = @([self identityForZiXunList]);
+    dic[@"identity"] = @([self type]);
     dic[@"pageSize"] = @(self.PageSize);
     dic[@"pageIndex"] = @(self.PageIndex + 1);
     [HTMyContainAFN AFN:@"article/list" with:dic Success:^(NSDictionary *responseObject) {
@@ -447,7 +467,7 @@ static NSString *infomationIdentify = @"infomationIdentify";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (_selectPage == 4) {
+    if (self.type == 4 || self.type == 3) {
         return 44;
     }else {
         if (indexPath.row == 0) {
@@ -460,9 +480,11 @@ static NSString *infomationIdentify = @"infomationIdentify";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (_selectPage == 4) {
+    if (self.type == 4 || self.type == 3) {
         MYInfomationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:infomationIdentify forIndexPath:indexPath];
-        cell.model = self.articleList[indexPath.row];
+        
+        BMInfomationModel * model = self.articleList[indexPath.row];
+        cell.model = model;
         LWLog(@"%@",[cell.model mj_keyValues]);
         return cell;
     }else {
@@ -478,6 +500,12 @@ static NSString *infomationIdentify = @"infomationIdentify";
     }
 }
 
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    BMInfomationModel *model = self.articleList[indexPath.row];
+    
+    PushWebViewController *push = [[PushWebViewController alloc] init];
+    push.openUrl = model.ArticleUrl;
+    [self.navigationController pushViewController:push animated:YES];
+}
 
 @end

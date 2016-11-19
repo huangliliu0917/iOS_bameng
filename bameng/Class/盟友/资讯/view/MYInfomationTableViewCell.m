@@ -42,7 +42,7 @@
     if (model.IsRead) {
         self.redPoint.hidden = YES;
     }else{
-        self.redPoint.hidden = YES;
+        self.redPoint.hidden = NO;
     }
     
     self.desLable.text = model.ArticleIntro;
