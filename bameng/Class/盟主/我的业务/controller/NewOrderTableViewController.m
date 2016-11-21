@@ -8,7 +8,7 @@
 
 #import "NewOrderTableViewController.h"
 #import "TZImagePickerController.h"
-
+#import "AppDelegate.h"
 @interface NewOrderTableViewController ()<TZImagePickerControllerDelegate>
 
 /**客户姓名*/
@@ -35,6 +35,9 @@
 /**订单照片*/
 @property (weak, nonatomic) IBOutlet UIImageView *orderPic;
 
+/**现金圈编号*/
+@property (weak, nonatomic) IBOutlet UITextField *cashNunber;
+
 @end
 
 @implementation NewOrderTableViewController
@@ -43,6 +46,7 @@
     [super viewDidLoad];
     
     
+    self.externInfo.layer.borderWidth = 1;
     UITapGestureRecognizer * ges = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addImage)];
     self.addPicture.userInteractionEnabled = YES;
     [self.addPicture addGestureRecognizer:ges];
@@ -77,6 +81,28 @@
 
 - (IBAction)submitOrder:(id)sender {
     
+    
+    /**
+     userName
+     Type: String
+     客户名
+     
+     mobile
+     Type: String
+     手机号
+     
+     address
+     Type: String
+     客户地址
+     
+     cashNo
+     Type: String
+     现金卷编号
+     
+     memo
+     Type: String
+     备注
+     */
     if (!self.customName.text.length) {
         [SVProgressHUD showErrorWithStatus:@"请输入账号"];
         return;
@@ -89,9 +115,23 @@
         [SVProgressHUD showErrorWithStatus:@"请输入地址"];
         return;
     }
-    [HTMyContainAFN AFNUpLoadImage:@"sys/uploadpic" with:nil andImage:self.orderPic.image Success:^(NSDictionary *responseObject) {
-        
-        LWLog(@"%@",responseObject);
+    if (!self.cashNunber.text.length) {
+        [SVProgressHUD showErrorWithStatus:@"现金券为空"];
+        return;
+    }
+    NSMutableDictionary * parame = [NSMutableDictionary dictionary];
+    parame[@"userName"] = self.customName.text;
+    parame[@"mobile"] = self.phoneNum.text;
+    parame[@"address"] = self.customAddress.text;
+    parame[@"address"] = self.cashNunber.text;
+    parame[@"address"] = self.externInfo.text;
+    
+    AppDelegate * de = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    [HTMyContainAFN AFNUpLoadImage:@"order/create" with:parame andImage:self.orderPic.image Success:^(NSDictionary *responseObject) {
+        UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:@"订单提交" message:@"订单提交成功" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction * ac = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:nil];
+        [alertVC addAction:ac];
+        [de.currentVc presentViewController:alertVC animated:YES completion:nil];
     } failure:^(NSError *error) {
         LWLog(@"%@",error);
     }];

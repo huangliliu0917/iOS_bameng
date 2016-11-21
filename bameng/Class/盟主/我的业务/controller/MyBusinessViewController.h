@@ -10,4 +10,8 @@
 
 @interface MyBusinessViewController : MyViewController
 
+
+@property(nonatomic ,assign) int type;
+
+
 @end

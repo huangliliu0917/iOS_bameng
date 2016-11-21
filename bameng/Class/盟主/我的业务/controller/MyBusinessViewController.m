@@ -11,6 +11,9 @@
 #import "OrderDetailTableViewController.h"
 #import "NewOrderTableViewController.h"
 #import "MYOrderDetailTableViewController.h"
+#import "OrderInfoModel.h"
+
+
 
 @interface MyBusinessViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UIView *all;
@@ -27,16 +30,32 @@
 @property (nonatomic, strong) UIView *slider;
 @property (nonatomic, assign) NSInteger selectPage;
 
+
+
+/**订单*/
+@property (nonatomic, strong) NSMutableArray<OrderInfoModel *> * orders;
+
 @end
 
 @implementation MyBusinessViewController
 
 static NSString *myBusinessIdentify = @"myBusinessIdentify";
 
+
+
+- (NSMutableArray *)orders{
+    if (_orders == nil) {
+        _orders = [NSMutableArray array];
+    }
+    return _orders;
+}
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.title = @"我的订单";
+    self.navigationItem.title = @"我的订单";
     
     self.selectPage = 1;
     self.slider = [[UIView alloc] initWithFrame:CGRectMake((KScreenWidth / 4 - 40) / 2, 33, 40, 2)];
@@ -51,22 +70,65 @@ static NSString *myBusinessIdentify = @"myBusinessIdentify";
     self.table.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.table removeSpaces];
     
-#warning 盟友没有新建选项
-    NSString *identify = [[NSUserDefaults standardUserDefaults] objectForKey:mengyouIdentify];
-    if ([identify isEqualToString:isMengYou]) {
-        
-    }else {
-        
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage imageNamed:@"tj"] style:UIBarButtonItemStylePlain handler:^(id sender) {
-            UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
-            NewOrderTableViewController *newOrder = [story instantiateViewControllerWithIdentifier:@"NewOrderTableViewController"];
-            [self.navigationController pushViewController:newOrder animated:YES];
-            
-            
-        }];
-        
-    }
+    [self setTabalViewRefresh];
+    [self GetNewData];
+
 }
+- (void)setTabalViewRefresh {
+    
+    __weak typeof(self) wself = self;
+    self.table.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [wself GetNewData];
+    }];
+    
+    self.table.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(getMoerOrderList)];
+}
+
+- (void)getMoerOrderList{
+    NSMutableDictionary *parme = [NSMutableDictionary dictionary];
+    parme[@"type"] = @(self.type);
+    parme[@"lastId"] = @([self.orders lastObject].ID);
+    [HTMyContainAFN AFN:@"order/myList" with:parme Success:^(NSDictionary *responseObject) {
+        LWLog(@"%@", responseObject);
+        if ([responseObject[@"status"] integerValue] == 200) {
+            NSArray * object =  [OrderInfoModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+            [self.orders addObjectsFromArray:object];
+            [self.table reloadData];
+        }
+        [self.table.mj_footer endRefreshing];
+
+    } failure:^(NSError *error) {
+        LWLog(@"%@",error);
+    }];
+
+    
+}
+
+
+- (void)GetNewData{
+    NSMutableDictionary *parme = [NSMutableDictionary dictionary];
+    parme[@"type"] = @(self.type);
+    parme[@"lastId"] = @(0);
+    [HTMyContainAFN AFN:@"order/myList" with:parme Success:^(NSDictionary *responseObject) {
+        LWLog(@"%@", responseObject);
+        if ([responseObject[@"status"] integerValue] == 200) {
+            NSArray * object =  [OrderInfoModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+            if (object.count > 0) {
+                [self.orders removeAllObjects];
+                [self.orders addObjectsFromArray:object];
+                [self.table reloadData];
+            }
+            
+            [self.table.mj_header endRefreshing];
+            
+        }
+    } failure:^(NSError *error) {
+        LWLog(@"%@",error);
+    }];
+}
+
+
+
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -146,7 +208,7 @@ static NSString *myBusinessIdentify = @"myBusinessIdentify";
 #pragma mark tableDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return self.orders.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -155,7 +217,8 @@ static NSString *myBusinessIdentify = @"myBusinessIdentify";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MyBusinessTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:myBusinessIdentify forIndexPath:indexPath];
-    
+    OrderInfoModel * model = self.orders[indexPath.row];
+    cell.model = model;
     return cell;
 }
 

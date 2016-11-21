@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11535.1" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11761" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11523"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -100,6 +100,13 @@
                     <constraint firstItem="Tc4-T9-uwr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="vLv-B4-7KR"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="iconView" destination="tJi-k4-CSA" id="eRb-DP-ezJ"/>
+                <outlet property="mdBean" destination="GFl-NM-dCj" id="qLp-jH-bOf"/>
+                <outlet property="mobleNumber" destination="aDJ-kv-EpD" id="L0a-Dh-bkj"/>
+                <outlet property="nameLable" destination="6wo-aE-hK6" id="lac-nj-hVh"/>
+                <outlet property="statusLable" destination="MzQ-bA-lzP" id="k4i-F1-uGH"/>
+            </connections>
         </tableViewCell>
     </objects>
     <resources>

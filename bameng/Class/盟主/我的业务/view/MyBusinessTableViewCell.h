@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "OrderInfoModel.h"
 @interface MyBusinessTableViewCell : UITableViewCell
+
+@property(nonatomic,strong)OrderInfoModel * model;
 
 @end

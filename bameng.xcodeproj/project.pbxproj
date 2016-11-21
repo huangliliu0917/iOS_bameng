@@ -104,6 +104,8 @@
 		EF4103D11DDDCF7C008F79A0 /* CircleBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4103CF1DDDCF7C008F79A0 /* CircleBannerView.m */; };
 		EF785E4E1DDEB0A7002872B9 /* LiuXSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF785E4D1DDEB0A7002872B9 /* LiuXSegmentView.m */; };
 		EF785E511DDEB0C1002872B9 /* HomeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF785E501DDEB0C1002872B9 /* HomeListViewController.m */; };
+		EF8476481DE299D0007453AC /* MyOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF8476471DE299D0007453AC /* MyOrderViewController.m */; };
+		EF84764B1DE2BE74007453AC /* OrderInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EF84764A1DE2BE74007453AC /* OrderInfoModel.m */; };
 		EFA5D7E31DDBF46A00962D77 /* MyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA5D7E21DDBF46A00962D77 /* MyTableViewController.m */; };
 		EFA5D7E71DDC080000962D77 /* LXActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA5D7E61DDC080000962D77 /* LXActionSheet.m */; };
 		EFA5D7EA1DDC0CE000962D77 /* pickView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA5D7E91DDC0CE000962D77 /* pickView.m */; };
@@ -316,6 +318,10 @@
 		EF785E4D1DDEB0A7002872B9 /* LiuXSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiuXSegmentView.m; sourceTree = "<group>"; };
 		EF785E4F1DDEB0C1002872B9 /* HomeListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeListViewController.h; sourceTree = "<group>"; };
 		EF785E501DDEB0C1002872B9 /* HomeListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeListViewController.m; sourceTree = "<group>"; };
+		EF8476461DE299D0007453AC /* MyOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderViewController.h; sourceTree = "<group>"; };
+		EF8476471DE299D0007453AC /* MyOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderViewController.m; sourceTree = "<group>"; };
+		EF8476491DE2BE74007453AC /* OrderInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderInfoModel.h; sourceTree = "<group>"; };
+		EF84764A1DE2BE74007453AC /* OrderInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderInfoModel.m; sourceTree = "<group>"; };
 		EFA5D7E11DDBF46A00962D77 /* MyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableViewController.h; sourceTree = "<group>"; };
 		EFA5D7E21DDBF46A00962D77 /* MyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTableViewController.m; sourceTree = "<group>"; };
 		EFA5D7E51DDC080000962D77 /* LXActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXActionSheet.h; sourceTree = "<group>"; };
@@ -895,6 +901,8 @@
 			children = (
 				60F3903C1DC0D1AB00FFCBF3 /* BusinessTableViewController.h */,
 				60F3903D1DC0D1AB00FFCBF3 /* BusinessTableViewController.m */,
+				EF8476461DE299D0007453AC /* MyOrderViewController.h */,
+				EF8476471DE299D0007453AC /* MyOrderViewController.m */,
 				60F390441DC0DE1800FFCBF3 /* MyBusinessViewController.h */,
 				60F390451DC0DE1800FFCBF3 /* MyBusinessViewController.m */,
 				60D18DF81DC1EB2600E0C839 /* CashCouponViewController.h */,
@@ -918,6 +926,8 @@
 			children = (
 				60C8147B1DD2C7C300629935 /* CustomInfomationModel.h */,
 				60C8147C1DD2C7C300629935 /* CustomInfomationModel.m */,
+				EF8476491DE2BE74007453AC /* OrderInfoModel.h */,
+				EF84764A1DE2BE74007453AC /* OrderInfoModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -1334,6 +1344,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF84764B1DE2BE74007453AC /* OrderInfoModel.m in Sources */,
 				EF04388D1DBAFD5E00CA8902 /* AsignLibrary.m in Sources */,
 				6015F2D71DCAE6CD00E5E5A4 /* LoginController.m in Sources */,
 				600792351DD0322000BBF448 /* BMInfomationModel.m in Sources */,
@@ -1412,6 +1423,7 @@
 				60EF5FB31DC7486600ADBEA7 /* MengYouHomeViewController.m in Sources */,
 				EF1C23461DDC5793003DBFA9 /* SaveCanclePickView.m in Sources */,
 				EF0438901DBB050600CA8902 /* HTMyContainAFN.m in Sources */,
+				EF8476481DE299D0007453AC /* MyOrderViewController.m in Sources */,
 				EFEE839B1DDD9DAE0048863A /* UserInfoTool.m in Sources */,
 				EFEE83941DDD82F80048863A /* AreaLocation.m in Sources */,
 			);

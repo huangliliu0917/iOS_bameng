@@ -44,8 +44,11 @@
 /**待结算盟豆*/
 @property (nonatomic, strong) NSDecimalNumber * TempMengBeans;
 
+/**我的二维码*/
+@property (nonatomic, strong) NSString *  myqrcodeUrl;
 
-
+/**分享二维码*/
+@property (nonatomic, strong) NSString *  myShareQrcodeUrl;
 + (instancetype) GetUserModel;
 
 + (void)SaveUserModel:(UserModel *)user;

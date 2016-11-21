@@ -14,4 +14,6 @@
 @property (nonatomic, strong) NSString *agreementUrl;
 @property (nonatomic, assign) NSInteger userStatus;
 @property (nonatomic, assign) int enableSignIn;
+
+
 @end
