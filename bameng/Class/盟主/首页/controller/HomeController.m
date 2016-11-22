@@ -17,6 +17,7 @@
 #import "PushWebViewController.h"
 #import "BMCircleModel.h"
 #import "MyCoreLocation.h"
+#import "CustomSlideViewController.h"
 
 
 @interface HomeController ()<CircleBannerViewDelegate,MyCoreLocationDelegate>
@@ -158,20 +159,23 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
     }];
     
     [head.custom bk_whenTapped:^{//客户信息
-        CustomInfoController *custom = [story instantiateViewControllerWithIdentifier:@"CustomInfoController"];
-        custom.selectPage = 1;
-        [self.navigationController pushViewController:custom animated:YES];
+        
+        CustomSlideViewController * vc = [[CustomSlideViewController alloc] init];
+        vc.selectPage = 1;
+//        CustomInfoController *custom = [story instantiateViewControllerWithIdentifier:@"CustomInfoController"];
+//        custom.selectPage = 1;
+        [self.navigationController pushViewController:vc animated:YES];
     }];
     [head.coalition bk_whenTapped:^{//我的联盟
-        CustomInfoController *custom = [story instantiateViewControllerWithIdentifier:@"CustomInfoController"];
-        custom.selectPage = 3;
-        [self.navigationController pushViewController:custom animated:YES];
+        CustomSlideViewController * vc = [[CustomSlideViewController alloc] init];
+        vc.selectPage = 3;
+        [self.navigationController pushViewController:vc animated:YES];
         
     }];
     [head.exchange bk_whenTapped:^{
-        CustomInfoController *custom = [story instantiateViewControllerWithIdentifier:@"CustomInfoController"];
-        custom.selectPage = 2;
-        [self.navigationController pushViewController:custom animated:YES];
+        CustomSlideViewController * vc = [[CustomSlideViewController alloc] init];
+        vc.selectPage = 2;
+        [self.navigationController pushViewController:vc animated:YES];
     }];
     [head.reward bk_whenTapped:^{//奖励设置
         EncourageTableViewController *encourage = [story instantiateViewControllerWithIdentifier:@"EncourageTableViewController"];

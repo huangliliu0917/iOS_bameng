@@ -8,7 +8,9 @@
 
 #import "ExchangeSureViewController.h"
 
-@interface ExchangeSureViewController ()
+@interface ExchangeSureViewController ()<UITextFieldDelegate>
+
+@property (weak, nonatomic) IBOutlet UITextField *changBean;
 
 @end
 
@@ -17,12 +19,42 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.changBean.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (IBAction)DuiHuan:(id)sender {
+    
+    UserModel * user = [UserModel GetUserModel];
+    if ([self.changBean.text integerValue] > [user.MengBeans integerValue]) {
+        
+        UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:@"盟豆" message:@"当前账户可兑换盟豆不足" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction * ac = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
+        [alertVC addAction:ac];
+        [self presentViewController:alertVC animated:YES completion:nil];
+        return;
+    }else{
+        NSMutableDictionary *parme = [NSMutableDictionary dictionary];
+        parme[@"amount"] = self.changBean.text;
+        
+        [HTMyContainAFN AFN:@"user/ConvertToBean" with:parme Success:^(NSDictionary *responseObject) {
+            UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:@"成功" message:[NSString stringWithFormat:@"兑换%@盟豆成功",self.changBean.text] preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction * ac = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
+            [alertVC addAction:ac];
+            [self presentViewController:alertVC animated:YES completion:nil];
+          
+        } failure:^(NSError *error) {
+            LWLog(@"%@",error);
+        }];
+        
+    }
+}
+
 
 /*
 #pragma mark - Navigation

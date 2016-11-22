@@ -9,7 +9,7 @@
 #import "PushWebViewController.h"
 #import "AppDelegate.h"
 
-@interface PushWebViewController ()
+@interface PushWebViewController ()<WKUIDelegate,WKNavigationDelegate>
 
 @property (nonatomic, strong) WKWebView *webView;
 
@@ -31,10 +31,22 @@
     self.webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 64, KScreenWidth, KScreenHeight - 64)];
     self.webView.customUserAgent = [NSString stringWithFormat:@"%@(Authorization);%@",token, app.Agent];
     [self.view addSubview:self.webView];
-    
+    self.webView.UIDelegate = self;
+    self.webView.navigationDelegate = self;
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.openUrl]]];
     
 }
+
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
+    
+    [webView evaluateJavaScript:@"document.title" completionHandler:^(id _Nullable title, NSError * _Nullable error) {
+        NSString *str = title;
+        self.navigationItem.title = str;
+    }];
+
+}
+
+
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];

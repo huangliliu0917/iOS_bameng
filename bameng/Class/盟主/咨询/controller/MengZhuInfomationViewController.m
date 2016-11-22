@@ -98,13 +98,7 @@ static NSString *infomationIdentify = @"infomationIdentify";
     }
     
     
-    __weak MengZhuInfomationViewController *wself = self;
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage imageNamed:@"tj"] style:UIBarButtonItemStylePlain handler:^(id sender) {
-        UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
-        AddNewInfomationTableViewController *add = [story instantiateViewControllerWithIdentifier:@"AddNewInfomationTableViewController"];
-        [wself.navigationController pushViewController:add animated:YES];
-    }];
     
     [self setUserReg];
     

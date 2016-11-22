@@ -13,6 +13,7 @@
 #import "IntegralTableViewController.h"
 #import "UserInfoTableViewController.h"
 #import "MyWalletTableViewController.h"
+#import "PushWebViewController.h"
 
 @interface MyAccountTableViewController ()
 
@@ -96,11 +97,21 @@
         MyWalletTableViewController *wallet = [story instantiateViewControllerWithIdentifier:@"MyWalletTableViewController"];
         [self.navigationController pushViewController:wallet animated:YES];
     }
-    if (indexPath.section == 1 && indexPath.row == 1) {
-        UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
-        UserInfoTableViewController *user = [story instantiateViewControllerWithIdentifier:@"UserInfoTableViewController"];
-        [self.navigationController pushViewController:user animated:YES];
+    if (indexPath.section == 1) {
+        if(indexPath.row == 1){
+            UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
+            UserInfoTableViewController *user = [story instantiateViewControllerWithIdentifier:@"UserInfoTableViewController"];
+            [self.navigationController pushViewController:user animated:YES];
+        }else if(indexPath.row == 2){
+            UserModel * user = [UserModel GetUserModel];
+            PushWebViewController *push = [[PushWebViewController alloc] init];
+            push.openUrl = user.myqrcodeUrl;
+            [self.navigationController pushViewController:push animated:YES];
+        }
+        
     }
+    
+    
 }
 
 

@@ -10,7 +10,15 @@
 #import "CustomInfoController.h"
 #import "EncourageTableViewController.h"
 #import "CashCouponViewController.h"
+#import "CustomSlideViewController.h"
+
 @interface BusinessTableViewController ()
+
+@property(nonatomic,strong) NSTimer *timer;
+@property (weak, nonatomic) IBOutlet UILabel *orderNumber;
+@property (weak, nonatomic) IBOutlet UILabel *custormNumber;
+@property (weak, nonatomic) IBOutlet UILabel *duihuan;
+@property (weak, nonatomic) IBOutlet UILabel *crashNumber;
 
 @end
 
@@ -27,8 +35,21 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 //
     
+    
+//    [NSTimer s]
+    
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(GetYeWuData) userInfo:nil repeats:YES];
+    self.timer = timer;
+
+    
     [HTMyContainAFN AFN:@"user/MyBusiness" with:nil Success:^(NSDictionary *responseObject) {
         LWLog(@"%@", responseObject);
+        if([responseObject[@"status"] integerValue] == 200){
+            self.orderNumber.text = [NSString stringWithFormat:@"%@",responseObject[@"data"][@"orderAmount"]];
+            self.crashNumber.text = [NSString stringWithFormat:@"%@",responseObject[@"data"][@"cashCouponAmount"]];
+            self.duihuan.text = [NSString stringWithFormat:@"%@",responseObject[@"data"][@"exchangeAmount"]];
+            self.custormNumber.text = [NSString stringWithFormat:@"%@",responseObject[@"data"][@"customerAmount"]];
+        }
 
     } failure:^(NSError *error) {
         LWLog(@"%@",error);
@@ -36,20 +57,34 @@
     [self.tableView removeSpaces];
 }
 
+
+- (void)GetYeWuData{
+    
+    [HTMyContainAFN AFN:@"user/MyBusiness" with:nil Success:^(NSDictionary *responseObject) {
+        LWLog(@"%@", responseObject);
+        if([responseObject[@"status"] integerValue] == 200){
+            self.orderNumber.text = [NSString stringWithFormat:@"%@",responseObject[@"data"][@"orderAmount"]];
+            self.crashNumber.text = [NSString stringWithFormat:@"%@",responseObject[@"data"][@"cashCouponAmount"]];
+            self.duihuan.text = [NSString stringWithFormat:@"%@",responseObject[@"data"][@"exchangeAmount"]];
+            self.custormNumber.text = [NSString stringWithFormat:@"%@",responseObject[@"data"][@"customerAmount"]];
+        }
+        
+    } failure:^(NSError *error) {
+        LWLog(@"%@",error);
+    }];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
     self.tabBarController.tabBar.hidden = NO;
     
-    [self getMyBusinessInfo];
+
 }
 
-- (void)getMyBusinessInfo {
-    [HTMyContainAFN AFN:@"user/MyBusiness" with:nil Success:^(id responseObject) {
-        LWLog(@"%@", responseObject);
-    } failure:^(NSError *error) {
-        LWLog(@"%@", error);
-    }];
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.timer invalidate];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -70,11 +105,16 @@
             break;
         }
         case 1:
-        {  
-            //客户信息
-            CustomInfoController *custom = [story instantiateViewControllerWithIdentifier:@"CustomInfoController"];
-            custom.selectPage = 1;
-            [self.navigationController pushViewController:custom animated:YES];
+        {
+            
+            CustomSlideViewController * vc = [[CustomSlideViewController alloc] init];
+            vc.selectPage = 1;
+            [self.navigationController pushViewController:vc animated:YES];
+            
+//            //客户信息
+//            CustomInfoController *custom = [story instantiateViewControllerWithIdentifier:@"CustomInfoController"];
+//            custom.selectPage = 1;
+//            [self.navigationController pushViewController:custom animated:YES];
             break;
         }
         case 2:

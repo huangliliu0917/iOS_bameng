@@ -24,10 +24,23 @@ static NSString *mengdouIdentify = @"mengdouIdentify";
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
+    self.navigationItem.title = @"盟豆";
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
+//
+    NSMutableDictionary * parme = [NSMutableDictionary dictionary];
+    parme[@"lastId"] = @(1);
+    [HTMyContainAFN AFN:@"user/BeanFlowList" with:parme Success:^(NSDictionary *responseObject) {
+        LWLog(@"%@", responseObject);
+        if ([responseObject[@"status"] integerValue] == 200) {
+            self.incomeLabel.text = [NSString stringWithFormat:@"%@",responseObject[@"data"][@"income"]];
+            self.expendLabel.text = [NSString stringWithFormat:@"%@",responseObject[@"data"][@"outcome"]];
+        } 
+    } failure:^(NSError *error) {
+        LWLog(@"%@",error);
+    }];
+
     [self.tableView registerNib:[UINib nibWithNibName:@"MengDouTableViewCell" bundle:nil] forCellReuseIdentifier:mengdouIdentify];
 }
 

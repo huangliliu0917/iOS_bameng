@@ -16,4 +16,8 @@
 @property (nonatomic, assign) int enableSignIn;
 
 
++ (instancetype)GetBassModel;
+
++ (void)BassModelSave:(BassModel *)model;
+
 @end

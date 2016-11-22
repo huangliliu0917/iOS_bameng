@@ -21,4 +21,7 @@
 
 @property (nonatomic, assign) NSInteger selectPage;
 
+
+/**1、未为处理  2、已处理*/
+@property (nonatomic, assign) int type;
 @end

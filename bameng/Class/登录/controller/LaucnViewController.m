@@ -73,6 +73,8 @@
         LWLog(@"%@",[NSThread currentThread]);
         if ([responseObject[@"status"] intValue] == 200) {
             BassModel *base = [BassModel mj_objectWithKeyValues:responseObject[@"data"][@"baseData"]];
+            [BassModel BassModelSave:base];
+            LWLog(@"%@",[base mj_keyValues]);
             if (base.userStatus == 1) {
                 UserModel *user = [UserModel mj_objectWithKeyValues:responseObject[@"data"][@"userData"]];
                 LWLog(@"%@",user);

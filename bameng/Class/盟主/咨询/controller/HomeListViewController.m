@@ -9,7 +9,7 @@
 #import "HomeListViewController.h"
 #import "MengZhuInfomationViewController.h"
 #import "LiuXSegmentView.h"
-
+#import "AddNewInfomationTableViewController.h"
 
 #define pageSize 10
 
@@ -66,23 +66,13 @@
     self.navigationItem.title = @"资讯";
     
 
-//    UserModel * userInfo = (UserModel *)[UserLoginTool LoginReadModelDateFromCacheDateWithFileName:RegistUserDate];
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.searchButton];
-//    self.titleHeadOption.delegate  = self;
-//    UIButton * btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 32, 32)];
-//    btn.layer.cornerRadius = 16;
-//    btn.layer.masksToBounds = YES;
-//    btn.layer.borderColor = [UIColor whiteColor].CGColor;
-//    btn.layer.borderWidth = 1;
-//    self.leftBtn = btn;
-//    [btn sd_setImageWithURL:nil forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"geren"]];
-//    [btn addTarget:self action:@selector(leftButton) forControlEvents:UIControlEventTouchDown];
-//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selectController:) name:@"backToHomeView" object:nil];
-//    [self.taskTableview registerNib:[UINib nibWithNibName:@"HomeCell" bundle:nil] forCellReuseIdentifier:homeCellidentify];
-//    self.taskTableview.rowHeight = 150;
-//    self.taskTableview.separatorStyle = UITableViewCellSeparatorStyleNone;
-//    self.taskTableview.backgroundColor = [UIColor colorWithRed:0.884 green:0.890 blue:0.832 alpha:1.000]
+    __weak typeof(self) wself = self;
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage imageNamed:@"tj"] style:UIBarButtonItemStylePlain handler:^(id sender) {
+        UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
+        AddNewInfomationTableViewController *add = [story instantiateViewControllerWithIdentifier:@"AddNewInfomationTableViewController"];
+        [wself.navigationController pushViewController:add animated:YES];
+    }];
     ;
 }
 

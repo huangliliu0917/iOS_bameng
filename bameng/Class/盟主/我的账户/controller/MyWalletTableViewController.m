@@ -7,8 +7,12 @@
 //
 
 #import "MyWalletTableViewController.h"
+#import "UserModel.h"
 
 @interface MyWalletTableViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *mengBean;
+@property (weak, nonatomic) IBOutlet UILabel *userScore;
+@property (weak, nonatomic) IBOutlet UILabel *daijiesuan;
 
 @end
 
@@ -28,6 +32,11 @@
     [super viewWillAppear:animated];
     self.tabBarController.tabBar.hidden = YES;
     
+    UserModel * user = [UserModel GetUserModel];
+    
+    self.mengBean.text = [NSString stringWithFormat:@"%@",user.MengBeans];
+    self.userScore.text = [NSString stringWithFormat:@"%@",user.Score];
+    self.daijiesuan.text = [NSString stringWithFormat:@"%@",user.TempMengBeans];
     
 }
 

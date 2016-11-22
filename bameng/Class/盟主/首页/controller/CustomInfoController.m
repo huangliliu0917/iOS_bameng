@@ -30,9 +30,13 @@
 
 @property (nonatomic, strong) NSMutableArray *customList;
 
+
+
 @end
 
 @implementation CustomInfoController
+
+
 
 /**未处理*/
 static NSString *untreatedIdentify = @"untreatedIdentify";
@@ -61,64 +65,82 @@ static NSString *processedIdentify = @"processedIdentify";
     [self.view addSubview:self.table];
     
     
-    __weak CustomInfoController *wself = self;
+//    __weak CustomInfoController *wself = self;
+//    
+//    [self.untreated bk_whenTapped:^{
+//        if (!_isUntreated) {
+//            _isUntreated = YES;
+//            [UIView animateWithDuration:0.25 animations:^{
+//                wself.untreatedLabel.textColor = MainColor;
+//                wself.processedLabel.textColor = [UIColor blackColor];
+//                self.slider.frame = CGRectMake((KScreenWidth / 2 - 77) / 2, 33, 77, 2);
+//            }];
+//            [self getNewInfoWithSliderChange];
+//
+//        }
+//    }];
+//    
+//    [self.processed bk_whenTapped:^{
+//        if (_isUntreated) {
+//            _isUntreated = NO;
+//            [UIView animateWithDuration:0.25 animations:^{
+//                wself.processedLabel.textColor = MainColor;
+//                wself.untreatedLabel.textColor = [UIColor blackColor];
+//                self.slider.frame = CGRectMake((KScreenWidth / 2 - 77) / 2 + KScreenWidth / 2, 33, 77, 2);
+//            }];
+//            [self getNewInfoWithSliderChange];
+//
+//        }
+//    }];
+//    
     
-    [self.untreated bk_whenTapped:^{
-        if (!_isUntreated) {
-            _isUntreated = YES;
-            [UIView animateWithDuration:0.25 animations:^{
-                wself.untreatedLabel.textColor = MainColor;
-                wself.processedLabel.textColor = [UIColor blackColor];
-                self.slider.frame = CGRectMake((KScreenWidth / 2 - 77) / 2, 33, 77, 2);
-            }];
-            [self getNewInfoWithSliderChange];
-
-        }
-    }];
-    
-    [self.processed bk_whenTapped:^{
-        if (_isUntreated) {
-            _isUntreated = NO;
-            [UIView animateWithDuration:0.25 animations:^{
-                wself.processedLabel.textColor = MainColor;
-                wself.untreatedLabel.textColor = [UIColor blackColor];
-                self.slider.frame = CGRectMake((KScreenWidth / 2 - 77) / 2 + KScreenWidth / 2, 33, 77, 2);
-            }];
-            [self getNewInfoWithSliderChange];
-
-        }
-    }];
-    
-    
-    if (self.selectPage == 1) {
-        
-        //客户信息页面
-        self.navigationItem.title = @"客户信息";
-        self.untreatedLabel.text = @"未处理信息";
-        self.processedLabel.text = @"已处理信息";
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage imageNamed:@"tj"] style:UIBarButtonItemStylePlain handler:^(id sender) {
-            UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
-            SubmitUserInfoTableViewController *submit = [story instantiateViewControllerWithIdentifier:@"SubmitUserInfoTableViewController"];
-            [wself.navigationController pushViewController:submit animated:YES];
-        }];
-    }else if (self.selectPage == 2) {
-        //2兑换审核
-        self.title = @"兑换审核";
-        self.untreatedLabel.text = @"未处理申请";
-        self.processedLabel.text = @"已处理申请";
-    }else if (self.selectPage == 3) {
-        //3我的联盟
-        self.navigationItem.title = @"我的联盟";
-        self.untreatedLabel.text = @"盟友申请";
-        self.processedLabel.text = @"盟友列表";
-        
-    }
-    
+//    if (self.selectPage == 1) {
+//        
+//        //客户信息页面
+////        self.navigationItem.title = @"客户信息";
+//        self.untreatedLabel.text = @"未处理信息";
+//        self.processedLabel.text = @"已处理信息";
+//        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage imageNamed:@"tj"] style:UIBarButtonItemStylePlain handler:^(id sender) {
+//            UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
+//            SubmitUserInfoTableViewController *submit = [story instantiateViewControllerWithIdentifier:@"SubmitUserInfoTableViewController"];
+//            [wself.navigationController pushViewController:submit animated:YES];
+//        }];
+//    }else if (self.selectPage == 2) {
+//        //2兑换审核
+//        self.title = @"兑换审核";
+//        self.untreatedLabel.text = @"未处理申请";
+//        self.processedLabel.text = @"已处理申请";
+//    }else if (self.selectPage == 3) {
+//        //3我的联盟
+//        self.navigationItem.title = @"我的联盟";
+//        self.untreatedLabel.text = @"盟友申请";
+//        self.processedLabel.text = @"盟友列表";
+//        
+//    }
+//    
     
     
     self.PageSize = 20;
     self.PageIndex = 1;
     self.customList = [NSMutableArray array];
+    
+    
+    
+    if (self.selectPage == 1) {
+        
+        //客户信息页面
+        [self getNewCustomInfomation];
+    }else if (self.selectPage == 2) {
+        //2兑换审核
+        
+        
+        
+    }else if (self.selectPage == 3) {
+        //3我的联盟
+        [self getMoreMengYouList];
+        
+    }
+
     
     
 }
@@ -143,21 +165,7 @@ static NSString *processedIdentify = @"processedIdentify";
     [super viewWillAppear:animated];
     self.tabBarController.tabBar.hidden = YES;
     
-    if (self.selectPage == 1) {
-        
-        //客户信息页面
-        [self getNewCustomInfomation];
-    }else if (self.selectPage == 2) {
-        //2兑换审核
-
-        
-        
-    }else if (self.selectPage == 3) {
-        //3我的联盟
-        [self getMoreMengYouList];
-        
-    }
-
+    
 }
 
 
@@ -219,14 +227,10 @@ static NSString *processedIdentify = @"processedIdentify";
 
 - (void)getNewCustomInfomation {
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    if (_isUntreated) {
-        
-        dic[@"type"] = @1;
-    }else {
-        dic[@"type"] = @2;
-    }
+    dic[@"type"] = @(self.type);
     dic[@"pageIndex"] = @1;
     dic[@"pageSize"] = @(self.PageSize);
+    LWLog(@"%@",dic);
     [HTMyContainAFN AFN:@"customer/list" with:dic Success:^(NSDictionary *responseObject) {
         LWLog(@"customer/list：%@", responseObject);
         if ([responseObject[@"status"] intValue] == 200) {
@@ -249,12 +253,7 @@ static NSString *processedIdentify = @"processedIdentify";
 
 - (void)getMoreCustomInfomation {
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    if (_isUntreated) {
-        
-        dic[@"type"] = @1;
-    }else {
-        dic[@"type"] = @2;
-    }
+    dic[@"type"] = @(self.type);
     dic[@"pageIndex"] = @(self.PageIndex + 1);
     dic[@"pageSize"] = @(self.PageSize);
     [HTMyContainAFN AFN:@"customer/list" with:dic Success:^(NSDictionary *responseObject) {
@@ -378,7 +377,7 @@ static NSString *processedIdentify = @"processedIdentify";
     
     
     if (self.selectPage == 1) {
-        if (_isUntreated) {
+        if (self.type == 1) {
             UntreatedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:untreatedIdentify forIndexPath:indexPath];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             CustomInfomationModel * model = self.customList[indexPath.row];

@@ -7,7 +7,9 @@
 //
 
 #import "SettingTableViewController.h"
-
+#import "LoginController.h"
+#import "PushWebViewController.h"
+#import "BassModel.h"
 @interface SettingTableViewController ()
 
 @end
@@ -16,11 +18,39 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     self.logOutButton.layer.masksToBounds = YES;
     self.logOutButton.layer.cornerRadius = 5;
 
+    
+    
+
+    
+    [self.logOutButton addTarget:self action:@selector(loginOut) forControlEvents:UIControlEventTouchUpInside];
+
 }
+
+
+- (void)loginOut{
+    
+    
+    UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:@"帐号退出" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction * ac = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        LoginController *login = [story instantiateViewControllerWithIdentifier:@"LoginController"];
+        UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:login];
+        [UIApplication sharedApplication].keyWindow.rootViewController = nav;
+    }];
+    [alertVC addAction:ac];
+    UIAlertAction * bc = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    [alertVC addAction:bc];
+    [self presentViewController:alertVC animated:YES completion:nil];
+    
+    
+    
+    
+}
+
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -37,7 +67,23 @@
 
 
 
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    BassModel * model = [BassModel GetBassModel];
+    if (indexPath.row == 0) {
+        LWLog(@"xxxxx");
+    }else if(indexPath.row == 1){
+        LWLog(@"xxxxx");
+    }else if(indexPath.row == 2){
+        PushWebViewController *push = [[PushWebViewController alloc] init];
+        push.openUrl = model.aboutUrl;
+        [self.navigationController pushViewController:push animated:YES];
+    }else{
+        PushWebViewController *push = [[PushWebViewController alloc] init];
+        push.openUrl = model.agreementUrl;
+        [self.navigationController pushViewController:push animated:YES];
+    }
+}
 //
 //- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 //#warning Incomplete implementation, return the number of sections

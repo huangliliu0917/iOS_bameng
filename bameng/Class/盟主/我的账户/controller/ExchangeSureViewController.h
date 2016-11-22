@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ExchangeSureViewController : UIViewController
+@interface ExchangeSureViewController : MyViewController
 
 @end

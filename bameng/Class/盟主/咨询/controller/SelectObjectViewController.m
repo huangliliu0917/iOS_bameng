@@ -103,6 +103,9 @@ static NSString *selectObjectIdentify = @"selectObjectIdentify";
     dic[@"identity"] = @0;
     dic[@"pageSize"] = @(1000);
     dic[@"pageIndex"] = @(1);
+    dic[@"orderbyCode"] = @(-1);
+    dic[@"isDesc"] = @(0);
+   
     [HTMyContainAFN AFN:@"user/allylist" with:dic Success:^(NSDictionary *responseObject) {
         LWLog(@"user/allylist：%@",responseObject);
         

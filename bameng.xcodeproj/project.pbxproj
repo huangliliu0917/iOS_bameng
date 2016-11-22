@@ -119,6 +119,7 @@
 		EFEE83941DDD82F80048863A /* AreaLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = EFEE83901DDD82F80048863A /* AreaLocation.m */; };
 		EFEE83951DDD82F80048863A /* AreaPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFEE83921DDD82F80048863A /* AreaPickerView.m */; };
 		EFEE839B1DDD9DAE0048863A /* UserInfoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = EFEE839A1DDD9DAE0048863A /* UserInfoTool.m */; };
+		EFFE48FD1DE2DC3000CC3D11 /* CustomSlideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFE48FC1DE2DC3000CC3D11 /* CustomSlideViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -346,6 +347,8 @@
 		EFEE83921DDD82F80048863A /* AreaPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaPickerView.m; sourceTree = "<group>"; };
 		EFEE83991DDD9DAE0048863A /* UserInfoTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoTool.h; sourceTree = "<group>"; };
 		EFEE839A1DDD9DAE0048863A /* UserInfoTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoTool.m; sourceTree = "<group>"; };
+		EFFE48FB1DE2DC3000CC3D11 /* CustomSlideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSlideViewController.h; sourceTree = "<group>"; };
+		EFFE48FC1DE2DC3000CC3D11 /* CustomSlideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSlideViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -497,6 +500,8 @@
 				603A39BE1DB9EC2D00DC1ADA /* HomeNavViewController.m */,
 				603A39C01DB9ECCF00DC1ADA /* HomeController.h */,
 				603A39C11DB9ECCF00DC1ADA /* HomeController.m */,
+				EFFE48FB1DE2DC3000CC3D11 /* CustomSlideViewController.h */,
+				EFFE48FC1DE2DC3000CC3D11 /* CustomSlideViewController.m */,
 				6033D7AC1DBB5FEF00B9B4DA /* CustomInfoController.h */,
 				6033D7AD1DBB5FEF00B9B4DA /* CustomInfoController.m */,
 				60FC8A961DBDDD6B009612C1 /* SubmitUserInfoTableViewController.h */,
@@ -1374,6 +1379,7 @@
 				60F3903E1DC0D1AB00FFCBF3 /* BusinessTableViewController.m in Sources */,
 				60E809EF1DC9B91900094CB8 /* MYOrderDetailTableViewController.m in Sources */,
 				60FF24091DBEFC3100E70A09 /* EncourageTableViewController.m in Sources */,
+				EFFE48FD1DE2DC3000CC3D11 /* CustomSlideViewController.m in Sources */,
 				EF785E4E1DDEB0A7002872B9 /* LiuXSegmentView.m in Sources */,
 				60FF241F1DBF5D7600E70A09 /* MengDouTableViewCell.m in Sources */,
 				EFEE83951DDD82F80048863A /* AreaPickerView.m in Sources */,
