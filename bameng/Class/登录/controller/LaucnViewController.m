@@ -10,7 +10,7 @@
 #import "LoginController.h"
 #import "MengzhuTabbarController.h"
 #import "MengYouTabbarViewController.h"
-
+#import "MainNavViewController.h"
 
 @interface LaucnViewController ()
 
@@ -101,10 +101,13 @@
             }else if (base.userStatus == -1) {//帐号登陆
                 UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
                 LoginController *login = [story instantiateViewControllerWithIdentifier:@"LoginController"];
-                UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:login];
+                MainNavViewController * nav = [[MainNavViewController alloc] initWithRootViewController:login];
                  [UIApplication sharedApplication].keyWindow.rootViewController = nav;
             }else{ //未登陆
-                
+                UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                LoginController *login = [story instantiateViewControllerWithIdentifier:@"LoginController"];
+                MainNavViewController * nav = [[MainNavViewController alloc] initWithRootViewController:login];
+                [UIApplication sharedApplication].keyWindow.rootViewController = nav;
                 
             }
         }

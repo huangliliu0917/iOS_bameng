@@ -8,24 +8,110 @@
 
 #import "IntegralTableViewController.h"
 #import "DaijiesuanTableViewCell.h"
+#import "MenDouBeanExchageLists.h"
 
 @interface IntegralTableViewController ()
 
+
+@property (weak, nonatomic) IBOutlet UILabel *scoreLable;
+
+@property(nonatomic,strong) NSMutableArray * dataList;
 @end
 
 @implementation IntegralTableViewController
+
+- (NSMutableArray *)dataList{
+    if (_dataList == nil) {
+        _dataList = [NSMutableArray array];
+    }
+    return _dataList;
+}
+
 
 static NSString *integralIdentify = @"integralIdentify";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-     [self.tableView registerNib:[UINib nibWithNibName:@"DaijiesuanTableViewCell" bundle:nil] forCellReuseIdentifier:integralIdentify];
+    self.navigationItem.title = @"积分";
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"DaijiesuanTableViewCell" bundle:nil] forCellReuseIdentifier:integralIdentify];
+    
+    
+    //    user/scoreList [self setTabalViewRefresh];
+    
+    
+    [self setTabalViewRefresh];
+
+    
+    [self.tableView.mj_header beginRefreshing];
+    
+    [self.tableView removeSpaces];
+    
+    
 }
+
+
+- (void)setTabalViewRefresh {
+    
+    __weak typeof (self) wself = self;
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [wself getNewZiXunList];
+    }];
+    
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(getMoerZixunList)];
+}
+
+- (void)getMoerZixunList{
+    NSMutableDictionary * parme = [NSMutableDictionary dictionary];
+    MenDouBeanExchageLists * model = [self.dataList lastObject];
+    LWLog(@"%@",[model mj_keyValues]);
+    parme[@"lastId"] = @(model.ID);
+    [HTMyContainAFN AFN:@"user/scoreList" with:parme Success:^(NSDictionary *responseObject) {
+        LWLog(@"%@", responseObject);
+        if ([responseObject[@"status"] integerValue] == 200) {
+            NSArray * array = [MenDouBeanExchageLists mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+            if (array.count) {
+                [self.dataList addObjectsFromArray:array];
+                [self.tableView reloadData];
+            }
+        }
+        [self.tableView.mj_footer endRefreshing];
+    } failure:^(NSError *error) {
+        LWLog(@"%@",error);
+        [self.tableView.mj_footer endRefreshing];
+    }];
+    
+    
+}
+
+- (void)getNewZiXunList{
+    NSMutableDictionary * parme = [NSMutableDictionary dictionary];
+    parme[@"lastId"] = @(0);
+    [HTMyContainAFN AFN:@"user/scoreList" with:parme Success:^(NSDictionary *responseObject) {
+        LWLog(@"%@", responseObject);
+        if ([responseObject[@"status"] integerValue] == 200) {
+            NSArray * array = [MenDouBeanExchageLists mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+            if (array.count) {
+                [self.dataList removeAllObjects];
+                [self.dataList addObjectsFromArray:array];
+                [self.tableView reloadData];
+            }
+        }
+        [self.tableView.mj_header endRefreshing];
+    } failure:^(NSError *error) {
+        LWLog(@"%@",error);
+        [self.tableView.mj_header endRefreshing];
+    }];
+}
+
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.tabBarController.tabBar.hidden = YES;
+   
+    UserModel * user = [UserModel GetUserModel];
+    LWLog(@"%@",user.Score);
+    self.scoreLable.text = [NSString stringWithFormat:@"%@ 积分",user.Score];
 }
 
 
@@ -43,14 +129,15 @@ static NSString *integralIdentify = @"integralIdentify";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 10;
+    return self.dataList.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     DaijiesuanTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:integralIdentify forIndexPath:indexPath];
     cell.pageTag = 2;
-    
+    MenDouBeanExchageLists * model = self.dataList[indexPath.row];
+    cell.model = model;
     
     return cell;
 }

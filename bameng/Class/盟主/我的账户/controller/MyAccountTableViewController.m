@@ -98,7 +98,10 @@
         [self.navigationController pushViewController:wallet animated:YES];
     }
     if (indexPath.section == 1) {
-        if(indexPath.row == 1){
+        
+        if(indexPath.row == 0){
+            [self signIn];
+        }else if(indexPath.row == 1){
             UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
             UserInfoTableViewController *user = [story instantiateViewControllerWithIdentifier:@"UserInfoTableViewController"];
             [self.navigationController pushViewController:user animated:YES];
@@ -114,6 +117,21 @@
     
 }
 
+
+- (void)signIn{
+    NSMutableDictionary * parame = [NSMutableDictionary dictionary];
+    [HTMyContainAFN AFN:@"user/signin" with:parame Success:^(NSDictionary *responseObject) {
+        LWLog(@"%@", responseObject);
+        if ([responseObject[@"status"] integerValue] == 200) {
+            [self showRightWithTitle: responseObject[@"statusText"] autoCloseTime: 1.5];
+        }else{
+            [self showErrorWithTitle:responseObject[@"statusText"] autoCloseTime: 1.5];
+        }
+    } failure:^(NSError *error) {
+        LWLog(@"%@",error);
+    }];
+    
+}
 
 //- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 //#warning Incomplete implementation, return the number of sections

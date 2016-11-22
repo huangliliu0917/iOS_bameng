@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MenDouBeanExchageLists.h"
 
 @interface DaijiesuanTableViewCell : UITableViewCell
 
@@ -14,5 +15,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *time;
 @property (strong, nonatomic) IBOutlet UILabel *contentLabel;
+
+
+
+@property(nonatomic,strong) MenDouBeanExchageLists * model;
 
 @end

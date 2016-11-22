@@ -8,30 +8,109 @@
 
 #import "DaijiesuanTableViewController.h"
 #import "DaijiesuanTableViewCell.h"
+#import "MenDouBeanExchageLists.h"
 
 @interface DaijiesuanTableViewController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *daijiesuanLable;
+
+
+@property(nonatomic,strong) NSMutableArray * dataList;
 @end
 
 @implementation DaijiesuanTableViewController
+
+- (NSMutableArray *)dataList{
+    if (_dataList == nil) {
+        _dataList = [NSMutableArray array];
+    }
+    return _dataList;
+}
+
+
 
 static NSString *daijiesuanIdentify = @"daijiesuanIdentify";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+   
+    self.navigationItem.title = @"待结算";
     
     [self.tableView registerNib:[UINib nibWithNibName:@"DaijiesuanTableViewCell" bundle:nil] forCellReuseIdentifier:daijiesuanIdentify];
+    
+    
+    [self setTabalViewRefresh];
+    
+    
+    [self.tableView.mj_header beginRefreshing];
+    
+    [self.tableView removeSpaces];
+    
+    
+}
+
+
+- (void)setTabalViewRefresh {
+    
+    __weak typeof (self) wself = self;
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [wself getNewZiXunList];
+    }];
+    
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(getMoerZixunList)];
+}
+
+- (void)getMoerZixunList{
+    NSMutableDictionary * parme = [NSMutableDictionary dictionary];
+    MenDouBeanExchageLists * model = [self.dataList lastObject];
+    LWLog(@"%@",[model mj_keyValues]);
+    parme[@"lastId"] = @(model.ID);
+    [HTMyContainAFN AFN:@"user/tempsettlebeanlist" with:parme Success:^(NSDictionary *responseObject) {
+        LWLog(@"%@", responseObject);
+        if ([responseObject[@"status"] integerValue] == 200) {
+            NSArray * array = [MenDouBeanExchageLists mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+            if (array.count) {
+                [self.dataList addObjectsFromArray:array];
+                [self.tableView reloadData];
+            }
+        }
+        [self.tableView.mj_footer endRefreshing];
+    } failure:^(NSError *error) {
+        LWLog(@"%@",error);
+        [self.tableView.mj_footer endRefreshing];
+    }];
+    
+    
+}
+
+- (void)getNewZiXunList{
+    NSMutableDictionary * parme = [NSMutableDictionary dictionary];
+    parme[@"lastId"] = @(0);
+    [HTMyContainAFN AFN:@"user/tempsettlebeanlist" with:parme Success:^(NSDictionary *responseObject) {
+        LWLog(@"%@", responseObject);
+        if ([responseObject[@"status"] integerValue] == 200) {
+            NSArray * array = [MenDouBeanExchageLists mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+            if (array.count) {
+                [self.dataList removeAllObjects];
+                [self.dataList addObjectsFromArray:array];
+                [self.tableView reloadData];
+            }
+        }
+        [self.tableView.mj_header endRefreshing];
+    } failure:^(NSError *error) {
+        LWLog(@"%@",error);
+        [self.tableView.mj_header endRefreshing];
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.tabBarController.tabBar.hidden = YES;
+    
+    UserModel * user = [UserModel GetUserModel];
+    LWLog(@"%@",user.Score);
+    
+    self.daijiesuanLable.text = [NSString stringWithFormat:@"%@ 积分",user.TempMengBeans];
 }
 
 
@@ -49,14 +128,15 @@ static NSString *daijiesuanIdentify = @"daijiesuanIdentify";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 10;
+    return self.dataList.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     DaijiesuanTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:daijiesuanIdentify forIndexPath:indexPath];
     cell.pageTag = 1;
-
+    MenDouBeanExchageLists * model = self.dataList[indexPath.row];
+    cell.model = model;
     
     return cell;
 }

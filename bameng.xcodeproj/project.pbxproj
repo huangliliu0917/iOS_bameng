@@ -121,6 +121,27 @@
 		EFEE83941DDD82F80048863A /* AreaLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = EFEE83901DDD82F80048863A /* AreaLocation.m */; };
 		EFEE83951DDD82F80048863A /* AreaPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFEE83921DDD82F80048863A /* AreaPickerView.m */; };
 		EFEE839B1DDD9DAE0048863A /* UserInfoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = EFEE839A1DDD9DAE0048863A /* UserInfoTool.m */; };
+		EFFBC37C1DE435F6006D2A96 /* NSString+LK.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFBC34C1DE435F6006D2A96 /* NSString+LK.m */; };
+		EFFBC37D1DE435F6006D2A96 /* LKActionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFBC3581DE435F6006D2A96 /* LKActionItem.m */; };
+		EFFBC37E1DE435F6006D2A96 /* LKActionLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFBC35A1DE435F6006D2A96 /* LKActionLineView.m */; };
+		EFFBC37F1DE435F6006D2A96 /* LKActionSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFBC35D1DE435F6006D2A96 /* LKActionSheetView.m */; };
+		EFFBC3801DE435F6006D2A96 /* LKBubbleInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFBC3611DE435F6006D2A96 /* LKBubbleInfo.m */; };
+		EFFBC3811DE435F6006D2A96 /* LKBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFBC3631DE435F6006D2A96 /* LKBubbleView.m */; };
+		EFFBC3821DE435F6006D2A96 /* UIResponder+LKBubble.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFBC3651DE435F6006D2A96 /* UIResponder+LKBubble.m */; };
+		EFFBC3831DE435F6006D2A96 /* LKNotification.gif in Resources */ = {isa = PBXBuildFile; fileRef = EFFBC3671DE435F6006D2A96 /* LKNotification.gif */; };
+		EFFBC3841DE435F6006D2A96 /* LKNotificationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFBC36A1DE435F6006D2A96 /* LKNotificationBar.m */; };
+		EFFBC3851DE435F6006D2A96 /* LKNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFBC36C1DE435F6006D2A96 /* LKNotificationManager.m */; };
+		EFFBC3861DE435F6006D2A96 /* UIResponder+LKNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFBC36E1DE435F6006D2A96 /* UIResponder+LKNotification.m */; };
+		EFFBC3871DE435F6006D2A96 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EFFBC3711DE435F6006D2A96 /* icon.png */; };
+		EFFBC3881DE435F6006D2A96 /* lkbubble-warning.png in Resources */ = {isa = PBXBuildFile; fileRef = EFFBC3731DE435F6006D2A96 /* lkbubble-warning.png */; };
+		EFFBC3891DE435F6006D2A96 /* lkbubble1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EFFBC3741DE435F6006D2A96 /* lkbubble1.jpg */; };
+		EFFBC38A1DE435F6006D2A96 /* lkbubble2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EFFBC3751DE435F6006D2A96 /* lkbubble2.jpg */; };
+		EFFBC38B1DE435F6006D2A96 /* lkbubble3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EFFBC3761DE435F6006D2A96 /* lkbubble3.jpg */; };
+		EFFBC38C1DE435F6006D2A96 /* lkbubble4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EFFBC3771DE435F6006D2A96 /* lkbubble4.jpg */; };
+		EFFBC38D1DE435F6006D2A96 /* lkbubble5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EFFBC3781DE435F6006D2A96 /* lkbubble5.jpg */; };
+		EFFBC38E1DE435F6006D2A96 /* lkbubble6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EFFBC3791DE435F6006D2A96 /* lkbubble6.jpg */; };
+		EFFBC38F1DE435F6006D2A96 /* lkbubble7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EFFBC37A1DE435F6006D2A96 /* lkbubble7.jpg */; };
+		EFFBC3901DE435F6006D2A96 /* lkbubble8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EFFBC37B1DE435F6006D2A96 /* lkbubble8.jpg */; };
 		EFFE48FD1DE2DC3000CC3D11 /* CustomSlideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFE48FC1DE2DC3000CC3D11 /* CustomSlideViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -353,6 +374,47 @@
 		EFEE83921DDD82F80048863A /* AreaPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaPickerView.m; sourceTree = "<group>"; };
 		EFEE83991DDD9DAE0048863A /* UserInfoTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoTool.h; sourceTree = "<group>"; };
 		EFEE839A1DDD9DAE0048863A /* UserInfoTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoTool.m; sourceTree = "<group>"; };
+		EFFBC34B1DE435F6006D2A96 /* NSString+LK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+LK.h"; sourceTree = "<group>"; };
+		EFFBC34C1DE435F6006D2A96 /* NSString+LK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LK.m"; sourceTree = "<group>"; };
+		EFFBC34E1DE435F6006D2A96 /* LKColorConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKColorConst.h; sourceTree = "<group>"; };
+		EFFBC34F1DE435F6006D2A96 /* LKConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKConst.h; sourceTree = "<group>"; };
+		EFFBC3501DE435F6006D2A96 /* LKLogConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKLogConst.h; sourceTree = "<group>"; };
+		EFFBC3511DE435F6006D2A96 /* LKScreenConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKScreenConst.h; sourceTree = "<group>"; };
+		EFFBC3521DE435F6006D2A96 /* LemonKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LemonKit.h; sourceTree = "<group>"; };
+		EFFBC3541DE435F6006D2A96 /* LKUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKUI.h; sourceTree = "<group>"; };
+		EFFBC3571DE435F6006D2A96 /* LKActionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKActionItem.h; sourceTree = "<group>"; };
+		EFFBC3581DE435F6006D2A96 /* LKActionItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKActionItem.m; sourceTree = "<group>"; };
+		EFFBC3591DE435F6006D2A96 /* LKActionLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKActionLineView.h; sourceTree = "<group>"; };
+		EFFBC35A1DE435F6006D2A96 /* LKActionLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKActionLineView.m; sourceTree = "<group>"; };
+		EFFBC35B1DE435F6006D2A96 /* LKActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKActionSheet.h; sourceTree = "<group>"; };
+		EFFBC35C1DE435F6006D2A96 /* LKActionSheetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKActionSheetView.h; sourceTree = "<group>"; };
+		EFFBC35D1DE435F6006D2A96 /* LKActionSheetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKActionSheetView.m; sourceTree = "<group>"; };
+		EFFBC35F1DE435F6006D2A96 /* LKBubble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKBubble.h; sourceTree = "<group>"; };
+		EFFBC3601DE435F6006D2A96 /* LKBubbleInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKBubbleInfo.h; sourceTree = "<group>"; };
+		EFFBC3611DE435F6006D2A96 /* LKBubbleInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKBubbleInfo.m; sourceTree = "<group>"; };
+		EFFBC3621DE435F6006D2A96 /* LKBubbleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKBubbleView.h; sourceTree = "<group>"; };
+		EFFBC3631DE435F6006D2A96 /* LKBubbleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKBubbleView.m; sourceTree = "<group>"; };
+		EFFBC3641DE435F6006D2A96 /* UIResponder+LKBubble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIResponder+LKBubble.h"; sourceTree = "<group>"; };
+		EFFBC3651DE435F6006D2A96 /* UIResponder+LKBubble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+LKBubble.m"; sourceTree = "<group>"; };
+		EFFBC3671DE435F6006D2A96 /* LKNotification.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = LKNotification.gif; sourceTree = "<group>"; };
+		EFFBC3681DE435F6006D2A96 /* LKNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKNotification.h; sourceTree = "<group>"; };
+		EFFBC3691DE435F6006D2A96 /* LKNotificationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKNotificationBar.h; sourceTree = "<group>"; };
+		EFFBC36A1DE435F6006D2A96 /* LKNotificationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKNotificationBar.m; sourceTree = "<group>"; };
+		EFFBC36B1DE435F6006D2A96 /* LKNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKNotificationManager.h; sourceTree = "<group>"; };
+		EFFBC36C1DE435F6006D2A96 /* LKNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKNotificationManager.m; sourceTree = "<group>"; };
+		EFFBC36D1DE435F6006D2A96 /* UIResponder+LKNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIResponder+LKNotification.h"; sourceTree = "<group>"; };
+		EFFBC36E1DE435F6006D2A96 /* UIResponder+LKNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+LKNotification.m"; sourceTree = "<group>"; };
+		EFFBC36F1DE435F6006D2A96 /* LKTip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKTip.h; sourceTree = "<group>"; };
+		EFFBC3711DE435F6006D2A96 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		EFFBC3731DE435F6006D2A96 /* lkbubble-warning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lkbubble-warning.png"; sourceTree = "<group>"; };
+		EFFBC3741DE435F6006D2A96 /* lkbubble1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lkbubble1.jpg; sourceTree = "<group>"; };
+		EFFBC3751DE435F6006D2A96 /* lkbubble2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lkbubble2.jpg; sourceTree = "<group>"; };
+		EFFBC3761DE435F6006D2A96 /* lkbubble3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lkbubble3.jpg; sourceTree = "<group>"; };
+		EFFBC3771DE435F6006D2A96 /* lkbubble4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lkbubble4.jpg; sourceTree = "<group>"; };
+		EFFBC3781DE435F6006D2A96 /* lkbubble5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lkbubble5.jpg; sourceTree = "<group>"; };
+		EFFBC3791DE435F6006D2A96 /* lkbubble6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lkbubble6.jpg; sourceTree = "<group>"; };
+		EFFBC37A1DE435F6006D2A96 /* lkbubble7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lkbubble7.jpg; sourceTree = "<group>"; };
+		EFFBC37B1DE435F6006D2A96 /* lkbubble8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lkbubble8.jpg; sourceTree = "<group>"; };
 		EFFE48FB1DE2DC3000CC3D11 /* CustomSlideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSlideViewController.h; sourceTree = "<group>"; };
 		EFFE48FC1DE2DC3000CC3D11 /* CustomSlideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSlideViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -981,6 +1043,7 @@
 		EFDD904F1DD5710A00764E7A /* 第三方 */ = {
 			isa = PBXGroup;
 			children = (
+				EFFBC3481DE435F6006D2A96 /* pv */,
 				EFEE838D1DDD82F80048863A /* AreaPickerView-master */,
 			);
 			path = "第三方";
@@ -1044,6 +1107,134 @@
 				EFEE83921DDD82F80048863A /* AreaPickerView.m */,
 			);
 			path = "AreaPickerView-master";
+			sourceTree = "<group>";
+		};
+		EFFBC3481DE435F6006D2A96 /* pv */ = {
+			isa = PBXGroup;
+			children = (
+				EFFBC3491DE435F6006D2A96 /* Core */,
+				EFFBC3701DE435F6006D2A96 /* Resource */,
+			);
+			path = pv;
+			sourceTree = "<group>";
+		};
+		EFFBC3491DE435F6006D2A96 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				EFFBC34A1DE435F6006D2A96 /* Categories */,
+				EFFBC34D1DE435F6006D2A96 /* Const */,
+				EFFBC3521DE435F6006D2A96 /* LemonKit.h */,
+				EFFBC3531DE435F6006D2A96 /* UI */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		EFFBC34A1DE435F6006D2A96 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				EFFBC34B1DE435F6006D2A96 /* NSString+LK.h */,
+				EFFBC34C1DE435F6006D2A96 /* NSString+LK.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		EFFBC34D1DE435F6006D2A96 /* Const */ = {
+			isa = PBXGroup;
+			children = (
+				EFFBC34E1DE435F6006D2A96 /* LKColorConst.h */,
+				EFFBC34F1DE435F6006D2A96 /* LKConst.h */,
+				EFFBC3501DE435F6006D2A96 /* LKLogConst.h */,
+				EFFBC3511DE435F6006D2A96 /* LKScreenConst.h */,
+			);
+			path = Const;
+			sourceTree = "<group>";
+		};
+		EFFBC3531DE435F6006D2A96 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				EFFBC3541DE435F6006D2A96 /* LKUI.h */,
+				EFFBC3551DE435F6006D2A96 /* Tip */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		EFFBC3551DE435F6006D2A96 /* Tip */ = {
+			isa = PBXGroup;
+			children = (
+				EFFBC3561DE435F6006D2A96 /* LKActionSheet */,
+				EFFBC35E1DE435F6006D2A96 /* LKBubble */,
+				EFFBC3661DE435F6006D2A96 /* LKNotification */,
+				EFFBC36F1DE435F6006D2A96 /* LKTip.h */,
+			);
+			path = Tip;
+			sourceTree = "<group>";
+		};
+		EFFBC3561DE435F6006D2A96 /* LKActionSheet */ = {
+			isa = PBXGroup;
+			children = (
+				EFFBC3571DE435F6006D2A96 /* LKActionItem.h */,
+				EFFBC3581DE435F6006D2A96 /* LKActionItem.m */,
+				EFFBC3591DE435F6006D2A96 /* LKActionLineView.h */,
+				EFFBC35A1DE435F6006D2A96 /* LKActionLineView.m */,
+				EFFBC35B1DE435F6006D2A96 /* LKActionSheet.h */,
+				EFFBC35C1DE435F6006D2A96 /* LKActionSheetView.h */,
+				EFFBC35D1DE435F6006D2A96 /* LKActionSheetView.m */,
+			);
+			path = LKActionSheet;
+			sourceTree = "<group>";
+		};
+		EFFBC35E1DE435F6006D2A96 /* LKBubble */ = {
+			isa = PBXGroup;
+			children = (
+				EFFBC35F1DE435F6006D2A96 /* LKBubble.h */,
+				EFFBC3601DE435F6006D2A96 /* LKBubbleInfo.h */,
+				EFFBC3611DE435F6006D2A96 /* LKBubbleInfo.m */,
+				EFFBC3621DE435F6006D2A96 /* LKBubbleView.h */,
+				EFFBC3631DE435F6006D2A96 /* LKBubbleView.m */,
+				EFFBC3641DE435F6006D2A96 /* UIResponder+LKBubble.h */,
+				EFFBC3651DE435F6006D2A96 /* UIResponder+LKBubble.m */,
+			);
+			path = LKBubble;
+			sourceTree = "<group>";
+		};
+		EFFBC3661DE435F6006D2A96 /* LKNotification */ = {
+			isa = PBXGroup;
+			children = (
+				EFFBC3671DE435F6006D2A96 /* LKNotification.gif */,
+				EFFBC3681DE435F6006D2A96 /* LKNotification.h */,
+				EFFBC3691DE435F6006D2A96 /* LKNotificationBar.h */,
+				EFFBC36A1DE435F6006D2A96 /* LKNotificationBar.m */,
+				EFFBC36B1DE435F6006D2A96 /* LKNotificationManager.h */,
+				EFFBC36C1DE435F6006D2A96 /* LKNotificationManager.m */,
+				EFFBC36D1DE435F6006D2A96 /* UIResponder+LKNotification.h */,
+				EFFBC36E1DE435F6006D2A96 /* UIResponder+LKNotification.m */,
+			);
+			path = LKNotification;
+			sourceTree = "<group>";
+		};
+		EFFBC3701DE435F6006D2A96 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				EFFBC3711DE435F6006D2A96 /* icon.png */,
+				EFFBC3721DE435F6006D2A96 /* LKBubble */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		EFFBC3721DE435F6006D2A96 /* LKBubble */ = {
+			isa = PBXGroup;
+			children = (
+				EFFBC3731DE435F6006D2A96 /* lkbubble-warning.png */,
+				EFFBC3741DE435F6006D2A96 /* lkbubble1.jpg */,
+				EFFBC3751DE435F6006D2A96 /* lkbubble2.jpg */,
+				EFFBC3761DE435F6006D2A96 /* lkbubble3.jpg */,
+				EFFBC3771DE435F6006D2A96 /* lkbubble4.jpg */,
+				EFFBC3781DE435F6006D2A96 /* lkbubble5.jpg */,
+				EFFBC3791DE435F6006D2A96 /* lkbubble6.jpg */,
+				EFFBC37A1DE435F6006D2A96 /* lkbubble7.jpg */,
+				EFFBC37B1DE435F6006D2A96 /* lkbubble8.jpg */,
+			);
+			path = LKBubble;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1173,9 +1364,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFFBC3901DE435F6006D2A96 /* lkbubble8.jpg in Resources */,
+				EFFBC3891DE435F6006D2A96 /* lkbubble1.jpg in Resources */,
+				EFFBC38A1DE435F6006D2A96 /* lkbubble2.jpg in Resources */,
+				EFFBC3871DE435F6006D2A96 /* icon.png in Resources */,
 				60F390371DC0A95C00FFCBF3 /* ExchangeListTableViewCell.xib in Resources */,
 				60764AFC1DB8937A0061CC6C /* LaunchScreen.storyboard in Resources */,
 				60362BF51DBB3B2F00A58D4D /* InfoPlist.strings in Resources */,
+				EFFBC3831DE435F6006D2A96 /* LKNotification.gif in Resources */,
 				60FC8A901DBD9ED9009612C1 /* UntreatedTableViewCell.xib in Resources */,
 				EFEE83931DDD82F80048863A /* areaCode.plist in Resources */,
 				60FF24201DBF5D7600E70A09 /* MengDouTableViewCell.xib in Resources */,
@@ -1189,11 +1385,17 @@
 				EF1C23481DDC579D003DBFA9 /* SaveCanclePickView.xib in Resources */,
 				603A39CC1DB9EEBB00DC1ADA /* HomeHeadView.xib in Resources */,
 				60D18DF71DC1E0B200E0C839 /* CashCouponTableViewCell.xib in Resources */,
+				EFFBC38D1DE435F6006D2A96 /* lkbubble5.jpg in Resources */,
+				EFFBC38B1DE435F6006D2A96 /* lkbubble3.jpg in Resources */,
+				EFFBC38F1DE435F6006D2A96 /* lkbubble7.jpg in Resources */,
 				60FC8A951DBDAD8F009612C1 /* ProcessedTableViewCell.xib in Resources */,
+				EFFBC38E1DE435F6006D2A96 /* lkbubble6.jpg in Resources */,
 				60764AF71DB8937A0061CC6C /* Main.storyboard in Resources */,
 				603A39BC1DB9E72400DC1ADA /* MengZhu.storyboard in Resources */,
+				EFFBC38C1DE435F6006D2A96 /* lkbubble4.jpg in Resources */,
 				60C230CD1DC0458200E0CD11 /* DaijiesuanTableViewCell.xib in Resources */,
 				60EF5FAD1DC7380E00ADBEA7 /* MengYou.storyboard in Resources */,
+				EFFBC3881DE435F6006D2A96 /* lkbubble-warning.png in Resources */,
 				EF3A2F6F1DDC85C10080F9A6 /* SexPick.xib in Resources */,
 				60EF5F9A1DC7173000ADBEA7 /* SelectObjectTableViewCell.xib in Resources */,
 				6033D7AB1DBB47B000B9B4DA /* HomeMengzhuTableViewCell.xib in Resources */,
@@ -1361,6 +1563,7 @@
 			files = (
 				EF84764B1DE2BE74007453AC /* OrderInfoModel.m in Sources */,
 				EF04388D1DBAFD5E00CA8902 /* AsignLibrary.m in Sources */,
+				EFFBC37F1DE435F6006D2A96 /* LKActionSheetView.m in Sources */,
 				6015F2D71DCAE6CD00E5E5A4 /* LoginController.m in Sources */,
 				600792351DD0322000BBF448 /* BMInfomationModel.m in Sources */,
 				60FC8A941DBDAD8F009612C1 /* ProcessedTableViewCell.m in Sources */,
@@ -1380,6 +1583,7 @@
 				EF3A2F6D1DDC85B60080F9A6 /* SexPick.m in Sources */,
 				600DF37D1DC22CB7000296E8 /* PostOrderTableViewController.m in Sources */,
 				60979D791DC3471100B9E858 /* MengZhuInfomationSmallTableViewCell.m in Sources */,
+				EFFBC3801DE435F6006D2A96 /* LKBubbleInfo.m in Sources */,
 				60F390461DC0DE1800FFCBF3 /* MyBusinessViewController.m in Sources */,
 				600792381DD164D200BBF448 /* BMCircleModel.m in Sources */,
 				60FF24151DBF4FDF00E70A09 /* MyWalletTableViewController.m in Sources */,
@@ -1388,7 +1592,9 @@
 				60FC8A981DBDDD6B009612C1 /* SubmitUserInfoTableViewController.m in Sources */,
 				60F3903E1DC0D1AB00FFCBF3 /* BusinessTableViewController.m in Sources */,
 				60E809EF1DC9B91900094CB8 /* MYOrderDetailTableViewController.m in Sources */,
+				EFFBC3821DE435F6006D2A96 /* UIResponder+LKBubble.m in Sources */,
 				60FF24091DBEFC3100E70A09 /* EncourageTableViewController.m in Sources */,
+				EFFBC3811DE435F6006D2A96 /* LKBubbleView.m in Sources */,
 				EFFE48FD1DE2DC3000CC3D11 /* CustomSlideViewController.m in Sources */,
 				EF785E4E1DDEB0A7002872B9 /* LiuXSegmentView.m in Sources */,
 				60FF241F1DBF5D7600E70A09 /* MengDouTableViewCell.m in Sources */,
@@ -1396,6 +1602,7 @@
 				EFA5D7E71DDC080000962D77 /* LXActionSheet.m in Sources */,
 				603E924F1DBDEA87000E3069 /* CustomDetailsTableViewController.m in Sources */,
 				6024A1441DC6F519000C721C /* AddNewInfomationTableViewController.m in Sources */,
+				EFFBC3851DE435F6006D2A96 /* LKNotificationManager.m in Sources */,
 				EFA97D811DE3F83D00A48B39 /* MenDouBeanExchageLists.m in Sources */,
 				60C230D61DC07C9500E0CD11 /* UserInfoTableViewController.m in Sources */,
 				6033D7AA1DBB47B000B9B4DA /* HomeMengzhuTableViewCell.m in Sources */,
@@ -1404,6 +1611,7 @@
 				60764AF11DB8937A0061CC6C /* AppDelegate.m in Sources */,
 				604912ED1DC8810A00DA334C /* MYInfomationTableViewCell.m in Sources */,
 				EF4103D11DDDCF7C008F79A0 /* CircleBannerView.m in Sources */,
+				EFFBC37E1DE435F6006D2A96 /* LKActionLineView.m in Sources */,
 				60F3902F1DC0A57300FFCBF3 /* ExchangeListViewController.m in Sources */,
 				6044736F1DC3006B00100A7C /* NewOrderTableViewController.m in Sources */,
 				60764AEE1DB8937A0061CC6C /* main.m in Sources */,
@@ -1417,11 +1625,15 @@
 				60D18DF61DC1E0B200E0C839 /* CashCouponTableViewCell.m in Sources */,
 				60EF5FBB1DC765E400ADBEA7 /* MengYouTabbarViewController.m in Sources */,
 				EFA5D7EA1DDC0CE000962D77 /* pickView.m in Sources */,
+				EFFBC37C1DE435F6006D2A96 /* NSString+LK.m in Sources */,
 				606C37571DC326FF009F668E /* AllyInfomationTableViewController.m in Sources */,
 				60EF5F991DC7173000ADBEA7 /* SelectObjectTableViewCell.m in Sources */,
+				EFFBC3841DE435F6006D2A96 /* LKNotificationBar.m in Sources */,
 				60C230CC1DC0458200E0CD11 /* DaijiesuanTableViewCell.m in Sources */,
 				603A39C21DB9ECCF00DC1ADA /* HomeController.m in Sources */,
 				60FC8A8F1DBD9ED9009612C1 /* UntreatedTableViewCell.m in Sources */,
+				EFFBC37D1DE435F6006D2A96 /* LKActionItem.m in Sources */,
+				EFFBC3861DE435F6006D2A96 /* UIResponder+LKNotification.m in Sources */,
 				603A39BF1DB9EC2D00DC1ADA /* HomeNavViewController.m in Sources */,
 				60979D701DC3364200B9E858 /* MengZhuInfomationViewController.m in Sources */,
 				60C8147D1DD2C7C300629935 /* CustomInfomationModel.m in Sources */,
