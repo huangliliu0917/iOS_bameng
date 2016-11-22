@@ -110,6 +110,8 @@
 		EFA5D7E71DDC080000962D77 /* LXActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA5D7E61DDC080000962D77 /* LXActionSheet.m */; };
 		EFA5D7EA1DDC0CE000962D77 /* pickView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA5D7E91DDC0CE000962D77 /* pickView.m */; };
 		EFA5D7EC1DDC0CEC00962D77 /* pickView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFA5D7EB1DDC0CEC00962D77 /* pickView.xib */; };
+		EFA97D811DE3F83D00A48B39 /* MenDouBeanExchageLists.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA97D801DE3F83D00A48B39 /* MenDouBeanExchageLists.m */; };
+		EFA97D841DE4190000A48B39 /* MainNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA97D821DE4190000A48B39 /* MainNavViewController.m */; };
 		EFDD905D1DD5A73D00764E7A /* MyCoreLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDD905C1DD5A73D00764E7A /* MyCoreLocation.m */; };
 		EFDD90671DD5AD8D00764E7A /* HXColor.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDD90661DD5AD8D00764E7A /* HXColor.m */; };
 		EFDD90691DD98D6200764E7A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFDD90681DD98D6200764E7A /* SystemConfiguration.framework */; };
@@ -330,6 +332,10 @@
 		EFA5D7E81DDC0CE000962D77 /* pickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pickView.h; sourceTree = "<group>"; };
 		EFA5D7E91DDC0CE000962D77 /* pickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pickView.m; sourceTree = "<group>"; };
 		EFA5D7EB1DDC0CEC00962D77 /* pickView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = pickView.xib; sourceTree = "<group>"; };
+		EFA97D7F1DE3F83D00A48B39 /* MenDouBeanExchageLists.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenDouBeanExchageLists.h; path = "bameng/Class/盟主/首页/controller/MenDouBeanExchageLists.h"; sourceTree = SOURCE_ROOT; };
+		EFA97D801DE3F83D00A48B39 /* MenDouBeanExchageLists.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenDouBeanExchageLists.m; path = "bameng/Class/盟主/首页/controller/MenDouBeanExchageLists.m"; sourceTree = SOURCE_ROOT; };
+		EFA97D821DE4190000A48B39 /* MainNavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavViewController.m; sourceTree = "<group>"; };
+		EFA97D831DE4190000A48B39 /* MainNavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNavViewController.h; sourceTree = "<group>"; };
 		EFDD905B1DD5A73D00764E7A /* MyCoreLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCoreLocation.h; sourceTree = "<group>"; };
 		EFDD905C1DD5A73D00764E7A /* MyCoreLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCoreLocation.m; sourceTree = "<group>"; };
 		EFDD90651DD5AD8D00764E7A /* HXColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXColor.h; sourceTree = "<group>"; };
@@ -584,6 +590,8 @@
 		603A39B51DB9E62F00DC1ADA /* model */ = {
 			isa = PBXGroup;
 			children = (
+				EFA97D7F1DE3F83D00A48B39 /* MenDouBeanExchageLists.h */,
+				EFA97D801DE3F83D00A48B39 /* MenDouBeanExchageLists.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -1016,6 +1024,8 @@
 		EFDD906A1DD9914000764E7A /* 继承 */ = {
 			isa = PBXGroup;
 			children = (
+				EFA97D831DE4190000A48B39 /* MainNavViewController.h */,
+				EFA97D821DE4190000A48B39 /* MainNavViewController.m */,
 				EFDD906B1DD9915800764E7A /* MyViewController.h */,
 				EFDD906C1DD9915800764E7A /* MyViewController.m */,
 				EFA5D7E11DDBF46A00962D77 /* MyTableViewController.h */,
@@ -1386,6 +1396,7 @@
 				EFA5D7E71DDC080000962D77 /* LXActionSheet.m in Sources */,
 				603E924F1DBDEA87000E3069 /* CustomDetailsTableViewController.m in Sources */,
 				6024A1441DC6F519000C721C /* AddNewInfomationTableViewController.m in Sources */,
+				EFA97D811DE3F83D00A48B39 /* MenDouBeanExchageLists.m in Sources */,
 				60C230D61DC07C9500E0CD11 /* UserInfoTableViewController.m in Sources */,
 				6033D7AA1DBB47B000B9B4DA /* HomeMengzhuTableViewCell.m in Sources */,
 				60C230D31DC0527D00E0CD11 /* IntegralTableViewController.m in Sources */,
@@ -1402,6 +1413,7 @@
 				60EF5FB71DC749ED00ADBEA7 /* MengYouHomeTableViewCell.m in Sources */,
 				EFA5D7E31DDBF46A00962D77 /* MyTableViewController.m in Sources */,
 				60EF5FBE1DC8309B00ADBEA7 /* MYSubmitInfoTableViewController.m in Sources */,
+				EFA97D841DE4190000A48B39 /* MainNavViewController.m in Sources */,
 				60D18DF61DC1E0B200E0C839 /* CashCouponTableViewCell.m in Sources */,
 				60EF5FBB1DC765E400ADBEA7 /* MengYouTabbarViewController.m in Sources */,
 				EFA5D7EA1DDC0CE000962D77 /* pickView.m in Sources */,

@@ -8,10 +8,16 @@
 
 #import "MengDouTableViewController.h"
 #import "MengDouTableViewCell.h"
+#import "MenDouBeanExchageLists.h"
 
 @interface MengDouTableViewController ()
 @property (strong, nonatomic) IBOutlet UILabel *incomeLabel;
 @property (strong, nonatomic) IBOutlet UILabel *expendLabel;
+
+
+
+
+@property(nonatomic,strong) NSMutableArray<MenDouBeanExchageLists*> * dataList;
 
 @end
 
@@ -19,30 +25,98 @@
 
 static NSString *mengdouIdentify = @"mengdouIdentify";
 
+
+
+
+- (NSMutableArray *)dataList{
+    if (_dataList == nil) {
+        _dataList = [NSMutableArray array];
+    }
+    return _dataList;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+
     self.navigationItem.title = @"盟豆";
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-//
+
+    [self.tableView removeSpaces];
+    
+    
+    [self setTabalViewRefresh];
+    
+    
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"MengDouTableViewCell" bundle:nil] forCellReuseIdentifier:mengdouIdentify];
+    
+    [self.tableView.mj_header beginRefreshing];
+    
+
+    
+}
+
+
+- (void)setTabalViewRefresh {
+    
+    __weak typeof (self) wself = self;
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [wself getNewZiXunList];
+    }];
+    
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(getMoerZixunList)];
+}
+
+- (void)getMoerZixunList{
     NSMutableDictionary * parme = [NSMutableDictionary dictionary];
-    parme[@"lastId"] = @(1);
+    MenDouBeanExchageLists * model = [self.dataList lastObject];
+    LWLog(@"%@",[model mj_keyValues]);
+    parme[@"lastId"] = @([self.dataList lastObject].ID);
     [HTMyContainAFN AFN:@"user/BeanFlowList" with:parme Success:^(NSDictionary *responseObject) {
         LWLog(@"%@", responseObject);
         if ([responseObject[@"status"] integerValue] == 200) {
             self.incomeLabel.text = [NSString stringWithFormat:@"%@",responseObject[@"data"][@"income"]];
             self.expendLabel.text = [NSString stringWithFormat:@"%@",responseObject[@"data"][@"outcome"]];
-        } 
+            NSArray * array = [MenDouBeanExchageLists mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"list"]];
+            if (array.count) {
+                [self.dataList addObjectsFromArray:array];
+                [self.tableView reloadData];
+            }
+        }
+        [self.tableView.mj_footer endRefreshing];
     } failure:^(NSError *error) {
         LWLog(@"%@",error);
+        [self.tableView.mj_footer endRefreshing];
     }];
 
-    [self.tableView registerNib:[UINib nibWithNibName:@"MengDouTableViewCell" bundle:nil] forCellReuseIdentifier:mengdouIdentify];
+    
 }
+
+- (void)getNewZiXunList{
+    NSMutableDictionary * parme = [NSMutableDictionary dictionary];
+    parme[@"lastId"] = @(0);
+    [HTMyContainAFN AFN:@"user/BeanFlowList" with:parme Success:^(NSDictionary *responseObject) {
+        LWLog(@"%@", responseObject);
+        if ([responseObject[@"status"] integerValue] == 200) {
+            self.incomeLabel.text = [NSString stringWithFormat:@"%@",responseObject[@"data"][@"income"]];
+            self.expendLabel.text = [NSString stringWithFormat:@"%@",responseObject[@"data"][@"outcome"]];
+            NSArray * array = [MenDouBeanExchageLists mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"list"]];
+            if (array.count) {
+                [self.dataList removeAllObjects];
+                [self.dataList addObjectsFromArray:array];
+                [self.tableView reloadData];
+            }
+        }
+        [self.tableView.mj_header endRefreshing];
+    } failure:^(NSError *error) {
+        LWLog(@"%@",error);
+        [self.tableView.mj_header endRefreshing];
+    }];
+}
+
+
+
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -64,14 +138,14 @@ static NSString *mengdouIdentify = @"mengdouIdentify";
 //
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 10;
+    return self.dataList.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     MengDouTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:mengdouIdentify forIndexPath:indexPath];
-    
+    cell.model = self.dataList[indexPath.row];
     return cell;
 }
 

@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+#import "MenDouBeanExchageLists.h"
+
 @interface MengDouTableViewCell : UITableViewCell
+
+@property(nonatomic,strong) MenDouBeanExchageLists * model;
 
 @end
