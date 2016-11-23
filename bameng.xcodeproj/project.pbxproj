@@ -117,6 +117,7 @@
 		EFDD90691DD98D6200764E7A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFDD90681DD98D6200764E7A /* SystemConfiguration.framework */; };
 		EFDD906D1DD9915800764E7A /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDD906C1DD9915800764E7A /* MyViewController.m */; };
 		EFDD90701DD9999100764E7A /* LaucnViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDD906F1DD9999100764E7A /* LaucnViewController.m */; };
+		EFECF5921DE5302300A8135A /* SetPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFECF5911DE5302300A8135A /* SetPhoneViewController.m */; };
 		EFEE83931DDD82F80048863A /* areaCode.plist in Resources */ = {isa = PBXBuildFile; fileRef = EFEE838E1DDD82F80048863A /* areaCode.plist */; };
 		EFEE83941DDD82F80048863A /* AreaLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = EFEE83901DDD82F80048863A /* AreaLocation.m */; };
 		EFEE83951DDD82F80048863A /* AreaPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFEE83921DDD82F80048863A /* AreaPickerView.m */; };
@@ -367,6 +368,8 @@
 		EFDD906E1DD9999100764E7A /* LaucnViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaucnViewController.h; sourceTree = "<group>"; };
 		EFDD906F1DD9999100764E7A /* LaucnViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaucnViewController.m; sourceTree = "<group>"; };
 		EFDD90711DD9A61D00764E7A /* bameng.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = bameng.entitlements; sourceTree = "<group>"; };
+		EFECF5901DE5302300A8135A /* SetPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetPhoneViewController.h; sourceTree = "<group>"; };
+		EFECF5911DE5302300A8135A /* SetPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetPhoneViewController.m; sourceTree = "<group>"; };
 		EFEE838E1DDD82F80048863A /* areaCode.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = areaCode.plist; sourceTree = "<group>"; };
 		EFEE838F1DDD82F80048863A /* AreaLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaLocation.h; sourceTree = "<group>"; };
 		EFEE83901DDD82F80048863A /* AreaLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaLocation.m; sourceTree = "<group>"; };
@@ -645,6 +648,8 @@
 				60F3902B1DC0A0F400FFCBF3 /* ExchangeSureViewController.m */,
 				60F3902D1DC0A57300FFCBF3 /* ExchangeListViewController.h */,
 				60F3902E1DC0A57300FFCBF3 /* ExchangeListViewController.m */,
+				EFECF5901DE5302300A8135A /* SetPhoneViewController.h */,
+				EFECF5911DE5302300A8135A /* SetPhoneViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -1585,6 +1590,7 @@
 				60979D791DC3471100B9E858 /* MengZhuInfomationSmallTableViewCell.m in Sources */,
 				EFFBC3801DE435F6006D2A96 /* LKBubbleInfo.m in Sources */,
 				60F390461DC0DE1800FFCBF3 /* MyBusinessViewController.m in Sources */,
+				EFECF5921DE5302300A8135A /* SetPhoneViewController.m in Sources */,
 				600792381DD164D200BBF448 /* BMCircleModel.m in Sources */,
 				60FF24151DBF4FDF00E70A09 /* MyWalletTableViewController.m in Sources */,
 				60979D6A1DC3306A00B9E858 /* AllyReviewTableViewController.m in Sources */,

@@ -9,8 +9,9 @@
 #import "UserInfoTableViewController.h"
 #import "UIImagePickerController+BlocksKit.h"
 #import "AreaPickerView.h"
+#import "SetPhoneViewController.h"
 
-@interface UserInfoTableViewController ()<LXActionSheetDelegate,AreaPickerDelegate>
+@interface UserInfoTableViewController ()<LXActionSheetDelegate,AreaPickerDelegate,SetPhoneViewControllerDelegate>
 
 /**头像*/
 @property (weak, nonatomic) IBOutlet UIImageView *iconView;
@@ -84,7 +85,9 @@
             if (user.UserCity.length) {
                self.areaLable.text =  [[user.UserCity componentsSeparatedByString:@"_"] objectAtIndex:1];
             }
-            [self.iconView sd_setImageWithURL:[NSURL URLWithString:user.UserHeadImg] placeholderImage:nil];
+            
+            
+            [self.iconView sd_setImageWithURL:[NSURL URLWithString:user.UserHeadImg] placeholderImage:[UIImage imageNamed:@"mrtx"]];
         }
  
     } failure:^(NSError *error) {
@@ -130,6 +133,12 @@
             [wself setNickNameandNameSelectItem:type andContent:content];
         }];
         [action showInView:self.view];
+    }else if(indexPath.section == 0 && indexPath.row == 2){
+        
+        SetPhoneViewController * vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SetPhoneViewController"];
+        vc.delegate = self;
+        [self.navigationController pushViewController:vc animated:YES];
+        
     }else if(indexPath.section == 1 && indexPath.row == 1){
         
         LXActionSheet * action = [[LXActionSheet alloc] initWithTitle:2 delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
@@ -153,6 +162,10 @@
     }
     
     
+}
+
+- (void)savePhoneNumber:(NSString *)phome{
+    self.phoneNum.text= phome;
 }
 
 /**
@@ -191,7 +204,19 @@
     LWLog(@"%ld",(long)item);
     __weak typeof(self) wself = self;
     if(item == 1000){//拍照
-        
+        UIImagePickerController * pick = [[UIImagePickerController alloc] init];
+        pick.sourceType = UIImagePickerControllerSourceTypeCamera;
+        [pick setBk_didFinishPickingMediaBlock:^(UIImagePickerController *vc, NSDictionary *ac) {
+            [wself.iconView setImage:ac[@"UIImagePickerControllerOriginalImage"]];
+            [vc dismissViewControllerAnimated:YES completion:nil];
+            LWLog(@"%@",ac );
+            
+        }];
+        [pick setBk_didCancelBlock:^(UIImagePickerController * vc) {
+            [vc dismissViewControllerAnimated:YES completion:nil];
+            
+        }];
+        [self presentViewController:pick animated:YES completion:nil];
     }else{//相册
         UIImagePickerController * pick = [[UIImagePickerController alloc] init];
         [pick setBk_didFinishPickingMediaBlock:^(UIImagePickerController *vc, NSDictionary *ac) {

@@ -113,10 +113,9 @@
     }
     if (styleType == 1) {//昵称
         
+        LWLog(@"%d",self.isNickName);
         SaveCanclePickView * pc = [SaveCanclePickView SaveCanclePickViewShare];
-        if (self.isNickName) {
-           pc.type = 1;
-        }
+        pc.type = 1;
         pc.delegate = self;
         [self.backGroundView addSubview:pc];
         
@@ -124,9 +123,8 @@
     if (styleType == 2) {//名称
         
         SaveCanclePickView * pc = [SaveCanclePickView SaveCanclePickViewShare];
-        if (!self.isNickName) {
-            pc.type = 2;
-        }
+        pc.type = 2;
+       
         pc.delegate = self;
         [self.backGroundView addSubview:pc];
         

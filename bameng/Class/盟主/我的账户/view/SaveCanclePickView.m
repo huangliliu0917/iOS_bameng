@@ -31,23 +31,31 @@
 - (void)awakeFromNib{
     [super awakeFromNib];
     
+    
+    
+}
+
+- (void)setType:(int)type{
+    _type = type;
     if (self.type == 1) {
         self.nickType.text = @"昵称";
     }else if(self.type == 2){
         self.nickType.text = @"姓名";
     }
-    
 }
 
 - (IBAction)saveClick:(id)sender {
     if ([self.delegate respondsToSelector:@selector(SaveCanclePickViewDelegate: withContent:)]) {
         NSMutableDictionary *parme = [NSMutableDictionary dictionary];
+        
+        NSLog(@"%d",self.type);
         if (self.type==1) {
             parme[@"type"] = @"2";
         }else if(self.type == 2){
             parme[@"type"] = @"4";
         }
         parme[@"content"] = self.textName.text;
+        LWLog(@"%@",parme);
         [HTMyContainAFN AFN:@"user/UpdateInfo" with:parme Success:^(NSDictionary *responseObject) {
             LWLog(@"%@", responseObject);
         } failure:^(NSError *error) {
