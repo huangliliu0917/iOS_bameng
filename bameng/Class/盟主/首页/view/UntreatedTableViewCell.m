@@ -38,6 +38,8 @@
 
 
 - (void)agreeClick:(UIButton *)btn{
+    
+    LWLog(@"xxx");
     if (self.didSelectCustomInfo) {
         self.didSelectCustomInfo(YES);
     }
@@ -45,12 +47,24 @@
 }
 
 - (void)disAgreeClick:(UIButton *)btn{
+    LWLog(@"xxx");
     if (self.didSelectCustomInfo) {
         self.didSelectCustomInfo(NO);
     }
     
 }
 
+- (void)setExchagemodel:(DuiHuanModel *)exchagemodel{
+    
+    _exchagemodel = exchagemodel;
+    
+    NSLog(@"%@",[exchagemodel mj_keyValues]);
+    
+    self.name.text = exchagemodel.name;
+    self.phone.text = [NSString stringWithFormat:@"%@",exchagemodel.money];
+    self.reviewLabel.text = @"未处理";
+//    self
+}
 
 - (void)layoutSubviews {
     [super layoutSubviews];
@@ -75,7 +89,7 @@
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+//    [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
 }

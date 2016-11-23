@@ -91,7 +91,7 @@ static NSString *myBusinessIdentify = @"myBusinessIdentify";
     [HTMyContainAFN AFN:@"order/myList" with:parme Success:^(NSDictionary *responseObject) {
         LWLog(@"%@", responseObject);
         if ([responseObject[@"status"] integerValue] == 200) {
-            NSArray * object =  [OrderInfoModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+            NSArray * object =  [OrderInfoModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"list"]];
             [self.orders addObjectsFromArray:object];
             [self.table reloadData];
         }
@@ -112,7 +112,7 @@ static NSString *myBusinessIdentify = @"myBusinessIdentify";
     [HTMyContainAFN AFN:@"order/myList" with:parme Success:^(NSDictionary *responseObject) {
         LWLog(@"%@", responseObject);
         if ([responseObject[@"status"] integerValue] == 200) {
-            NSArray * object =  [OrderInfoModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+            NSArray * object =  [OrderInfoModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"list"]];
             if (object.count > 0) {
                 [self.orders removeAllObjects];
                 [self.orders addObjectsFromArray:object];

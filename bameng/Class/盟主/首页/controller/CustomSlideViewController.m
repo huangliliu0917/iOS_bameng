@@ -52,7 +52,6 @@
     
     
     // 1 客户信息  2 兑换审核  3 我的联盟
-    
     if (self.selectPage == 1) {
         self.navigationItem.title = @"客户信息";
     }else if(self.selectPage == 2){

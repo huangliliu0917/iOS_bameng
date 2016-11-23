@@ -41,6 +41,21 @@
     }
 }
 
+
+- (void)setExchagemodel:(DuiHuanModel *)exchagemodel{
+    _exchagemodel = exchagemodel;
+    LWLog(@"%@",[exchagemodel mj_keyValues]);
+    self.name.text = exchagemodel.name;
+    self.phone.text = [NSString stringWithFormat:@"%@",exchagemodel.money];
+    if (exchagemodel.status == 1) {
+        self.review.text = @"已同意";
+    }else if (exchagemodel.status == 2) {
+        self.review.text = @"已拒绝";
+    }else if (exchagemodel.status == 0) {
+        self.review.text = @"审核中";
+    }
+}
+
 - (void)setCustomModel:(CustomInfomationModel *)customModel {
     _customModel = customModel;
     self.name.text = _customModel.Name;

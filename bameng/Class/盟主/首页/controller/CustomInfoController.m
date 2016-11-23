@@ -16,6 +16,7 @@
 #import "AllyInfomationTableViewController.h"
 #import "CustomInfomationModel.h"
 
+#import "DuiHuanModel.h"
 @interface CustomInfoController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (strong, nonatomic) IBOutlet UITableView *table;
@@ -48,6 +49,8 @@ static NSString *processedIdentify = @"processedIdentify";
     
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
     
+    
+    LWLog(@"%ld",(long)self.selectPage);
     
     //是否是未处理
     self.isUntreated = YES;
@@ -126,39 +129,37 @@ static NSString *processedIdentify = @"processedIdentify";
     
     
     
-    if (self.selectPage == 1) {
-        
-        //客户信息页面
-        [self getNewCustomInfomation];
-    }else if (self.selectPage == 2) {
-        //2兑换审核
-        
-        
-        
-    }else if (self.selectPage == 3) {
-        //3我的联盟
-        [self getMoreMengYouList];
-        
-    }
-
+//    if (self.selectPage == 1) {
+//        //客户信息页面
+//        [self getNewCustomInfomation];
+//    }else if (self.selectPage == 2) {
+//        //2兑换审核
+//        
+//        [self getNewExchangeInfomation];
+//        
+//        
+//    }else if (self.selectPage == 3) {
+//        //3我的联盟
+//        [self getMoreMengYouList];
+//        
+//    }
     
+    [self setTabalViewRefresh];
+
+    [self.table.mj_header beginRefreshing];
     
 }
 
 
-//- (void)setTabalViewRefresh {
-//    
-//    __weak typeof(self) wself = self;
-//    self.table.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-//        
-//        if (wself.selectPage == 1) {
-//            <#statements#>
-//        }
-//        [wself getNewZiXunList];
-//    }];
-//    
-//    self.table.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(getMoerZixunList)];
-//}
+- (void)setTabalViewRefresh {
+    
+    __weak typeof (self) wself = self;
+    self.table.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [wself getNewInfoWithSliderChange];
+    }];
+    self.table.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(getMoreInfoWithSliderChange)];
+}
+
 
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -223,6 +224,8 @@ static NSString *processedIdentify = @"processedIdentify";
 }
 
 
+
+
 #pragma mark 客户信息网络请求
 
 - (void)getNewCustomInfomation {
@@ -231,23 +234,25 @@ static NSString *processedIdentify = @"processedIdentify";
     dic[@"pageIndex"] = @1;
     dic[@"pageSize"] = @(self.PageSize);
     LWLog(@"%@",dic);
+    [self.table showProgramFrameAnimationBubble];
     [HTMyContainAFN AFN:@"customer/list" with:dic Success:^(NSDictionary *responseObject) {
         LWLog(@"customer/list：%@", responseObject);
         if ([responseObject[@"status"] intValue] == 200) {
-            
-            [self.customList removeAllObjects];
-            
             NSArray *array = [CustomInfomationModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"Rows"]];
-            
-            [self.customList addObjectsFromArray:array];
-            
+            if (array.count) {
+                [self.customList removeAllObjects];
+                [self.customList addObjectsFromArray:array];
+            }
             self.PageIndex = [dic[@"data"][@"PageIndex"] integerValue];
 //            self.PageSize = [dic[@"data"][@"PageSize"] integerValue];
-            
             [self.table reloadData];
+            [self.table.mj_header endRefreshing];
         }
+        [self.table HideProgram];
     } failure:^(NSError *error) {
+        [self.table.mj_header endRefreshing];
         LWLog(@"%@" ,error);
+        [self.table HideProgram];
     }];
 }
 
@@ -269,34 +274,45 @@ static NSString *processedIdentify = @"processedIdentify";
 #pragma mark 兑换审核网络请求
 - (void)getNewExchangeInfomation {
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    if (_isUntreated) {
-        dic[@"type"] = @1;
-    }else {
-        dic[@"type"] = @2;
-    }
-    dic[@"pageIndex"] = @1;
-    dic[@"pageSize"] = @(self.PageSize);
-    [HTMyContainAFN AFN:@"customer/list" with:dic Success:^(NSDictionary *responseObject) {
+    dic[@"type"] = @(self.type - 1);
+    dic[@"lastId"] = @(0);
+    [HTMyContainAFN AFN:@"user/ConvertAuditList" with:dic Success:^(NSDictionary *responseObject) {
         LWLog(@"customer/list：%@", responseObject);
         if ([responseObject[@"status"] intValue] == 200) {
-            
-            [self.customList removeAllObjects];
-            
-            NSArray *array = [CustomInfomationModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"Rows"]];
-            
-            [self.customList addObjectsFromArray:array];
-            
-            self.PageIndex = [dic[@"data"][@"PageIndex"] integerValue];
-            self.PageSize = [dic[@"data"][@"PageSize"] integerValue];
-            
-            [self.table reloadData];
+            NSArray *array = [DuiHuanModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"list"]];
+            if (array.count) {
+                [self.customList removeAllObjects];
+                [self.customList addObjectsFromArray:array];
+                [self.table reloadData];
+            }
         }
+        [self.table.mj_header endRefreshing];
     } failure:^(NSError *error) {
         LWLog(@"%@" ,error);
+        [self.table.mj_header endRefreshing];
     }];
 }
 
-
+- (void)getMoreExchangeInfomation {
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    dic[@"type"] = @(self.type - 1);
+    DuiHuanModel * model = [self.customList lastObject];
+    dic[@"lastId"] = @(model.ID);
+    [HTMyContainAFN AFN:@"user/ConvertAuditList" with:dic Success:^(NSDictionary *responseObject) {
+        LWLog(@"customer/list：%@", responseObject);
+        if ([responseObject[@"status"] intValue] == 200) {
+            NSArray *array = [DuiHuanModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+            if (array.count) {
+                [self.customList addObjectsFromArray:array];
+                [self.table reloadData];
+            }
+        }
+        [self.table.mj_header endRefreshing];
+    } failure:^(NSError *error) {
+        LWLog(@"%@" ,error);
+        [self.table.mj_header endRefreshing];
+    }];
+}
 
 #pragma mark 我的联盟网络请求
 
@@ -314,10 +330,8 @@ static NSString *processedIdentify = @"processedIdentify";
             [self.customList removeAllObjects];
             NSArray *array = [UserModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"Rows"]];
             [self.customList addObjectsFromArray:array];
-            
             self.PageIndex = [dic[@"data"][@"PageIndex"] integerValue];
             self.PageSize = [dic[@"data"][@"PageSize"] integerValue];
-            
             [self.table reloadData];
         }
         
@@ -357,16 +371,6 @@ static NSString *processedIdentify = @"processedIdentify";
 
 
 #pragma mark tableView
-
-- (void)setTabalViewRefresh {
-    
-    __weak CustomInfoController *wself = self;
-    self.table.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [wself getNewInfoWithSliderChange];
-    }];
-    
-    self.table.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(getMoreCustomInfomation)];
-}
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -411,18 +415,39 @@ static NSString *processedIdentify = @"processedIdentify";
         }
     }else if (self.selectPage == 2) {
         
-        if (_isUntreated) {
+        if (self.type == 1) {
             
             UntreatedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:untreatedIdentify forIndexPath:indexPath];
+            DuiHuanModel * model = self.customList[indexPath.row];
+            cell.exchagemodel = model;
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             cell.selectPage = self.selectPage;
+            __weak typeof(self) weakSelf = self;
+            [cell setDidSelectCustomInfo:^(BOOL isAgree) {
+                LWLog(@"%d",isAgree);
+                NSMutableDictionary *parme = [NSMutableDictionary dictionary];
+                parme[@"id"] = @(model.ID);
+                parme[@"status"] = isAgree?@"1":@"2";
+                [HTMyContainAFN AFN:@"user/ConvertAudit" with:parme Success:^(NSDictionary *responseObject) {
+                    LWLog(@"%@", responseObject);
+                    if ([[responseObject objectForKey:@"status"] integerValue] == 200) {
+                        [weakSelf.customList removeObjectAtIndex:[indexPath row]];  //删除_data数组里的数据
+                        [weakSelf.table deleteRowsAtIndexPaths:[NSMutableArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];  //删除对应数据的cell
+                    }
+                } failure:^(NSError *error) {
+                    LWLog(@"%@",error);
+                }];
+            }];
+
             return cell;
             
         }else {
             
             ProcessedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:processedIdentify forIndexPath:indexPath];
+            DuiHuanModel * model = self.customList[indexPath.row];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             cell.selectPage = self.selectPage;
+            cell.exchagemodel = model;
             return cell;
         }
     }else if (self.selectPage == 3) {

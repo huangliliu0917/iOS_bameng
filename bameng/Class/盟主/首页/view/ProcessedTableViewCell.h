@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CustomInfomationModel.h"
+#import "DuiHuanModel.h"
 
 @interface ProcessedTableViewCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UIImageView *image;
@@ -25,5 +26,10 @@
 @property (nonatomic, strong) CustomInfomationModel *customModel;
 
 @property (nonatomic, strong) UserModel *mengyouModel;
+
+
+@property (nonatomic, strong) DuiHuanModel * exchagemodel;
+
+
 
 @end

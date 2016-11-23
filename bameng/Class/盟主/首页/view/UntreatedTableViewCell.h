@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CustomInfomationModel.h"
-
+#import "DuiHuanModel.h"
 
 @interface UntreatedTableViewCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UIImageView *image;
@@ -26,6 +26,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *reviewLabel;
 
 @property (nonatomic, strong) CustomInfomationModel *customModel;
+
+@property (nonatomic, strong) DuiHuanModel * exchagemodel;
 
 
 @property (nonatomic, copy) void (^didSelectCustomInfo)(BOOL isAgree);

@@ -20,4 +20,9 @@
  */
 -(void)cleanSelection;
 
+
+- (void)showProgramFrameAnimationBubble;
+
+
+- (void)HideProgram;
 @end
