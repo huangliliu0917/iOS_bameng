@@ -10,6 +10,8 @@
 #import "LoginController.h"
 #import "PushWebViewController.h"
 #import "BassModel.h"
+#import "ChangePassWdViewController.h"
+
 @interface SettingTableViewController ()
 
 @end
@@ -72,6 +74,8 @@
     BassModel * model = [BassModel GetBassModel];
     if (indexPath.row == 0) {
         LWLog(@"xxxxx");
+       ChangePassWdViewController * vc =  [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ChangePassWdViewController"];
+        [self.navigationController pushViewController:vc animated:YES];
     }else if(indexPath.row == 1){
         LWLog(@"xxxxx");
     }else if(indexPath.row == 2){

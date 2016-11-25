@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CashModel.h"
+
+
 
 @interface CashCouponTableViewCell : UITableViewCell
+
+
+@property(nonatomic,strong) CashModel * model;
 
 @end

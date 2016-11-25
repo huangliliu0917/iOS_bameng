@@ -25,4 +25,7 @@
 
 
 - (void)HideProgram;
+
+
+- (void)tableViewDisplayWitMsg:(NSString *) message ifNecessaryForRowCount:(NSUInteger) rowCount;
 @end

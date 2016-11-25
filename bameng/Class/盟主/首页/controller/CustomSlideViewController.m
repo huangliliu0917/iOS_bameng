@@ -11,6 +11,7 @@
 #import "MyBusinessViewController.h"
 #import "NewOrderTableViewController.h"
 #import "CustomInfoController.h"
+#import "MengYouListViewController.h"
 
 #define pageSize 10
 
@@ -66,13 +67,23 @@
 - (void)setupChildViewControllers
 {
     UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
-    for (int i = 0; i<[self titleArray].count; i++) {
+    if (self.selectPage == 3) {
         CustomInfoController *custom = [story instantiateViewControllerWithIdentifier:@"CustomInfoController"];
         custom.selectPage = self.selectPage;
-        
-        LWLog(@"%d",i+1);
-        custom.type = i + 1;
         [self addChildViewController:custom];
+        
+        MengYouListViewController *customx = [story instantiateViewControllerWithIdentifier:@"MengYouListViewController"];
+        [self addChildViewController:customx];
+    }else{
+        
+        for (int i = 0; i<[self titleArray].count; i++) {
+            CustomInfoController *custom = [story instantiateViewControllerWithIdentifier:@"CustomInfoController"];
+            custom.selectPage = self.selectPage;
+            
+            LWLog(@"%d",i+1);
+            custom.type = i + 1;
+            [self addChildViewController:custom];
+        }
     }
 }
 

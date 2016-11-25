@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomInfomationModel.h"
 
 @interface MYCustomDetailTableViewController : UITableViewController
+
+
+
+@property(nonatomic,strong) CustomInfomationModel * model;
 
 @end

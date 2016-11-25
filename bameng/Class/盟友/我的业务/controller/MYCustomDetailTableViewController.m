@@ -9,6 +9,13 @@
 #import "MYCustomDetailTableViewController.h"
 
 @interface MYCustomDetailTableViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *name;
+@property (weak, nonatomic) IBOutlet UILabel *phone;
+
+@property (weak, nonatomic) IBOutlet UILabel *addre;
+@property (weak, nonatomic) IBOutlet UILabel *status;
+@property (weak, nonatomic) IBOutlet UILabel *beizhu;
+@property (weak, nonatomic) IBOutlet UILabel *custominfo;
 
 @end
 
@@ -36,6 +43,33 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+- (void)setModel:(CustomInfomationModel *)model{
+    _model = model;
+    
+    
+    self.name.text = model.Name;
+    self.phone.text = model.Mobile;
+    self.addre.text = model.Addr;
+    
+    NSString * statusst = @"为审核";
+    if (model.Status == 1) {
+      statusst = @"同意";
+    }else if(model.Status == 2){
+        statusst = @"拒绝";
+    }
+    self.status.text = statusst;
+    self.beizhu.text = model.Remark;
+    
+    if(model.InShop){
+         self.custominfo.text = @"已进店";
+    }else{
+        self.custominfo.text = @"未进店";
+    }
+    
+    
+    
+}
 #pragma mark - Table view data source
 //
 //- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

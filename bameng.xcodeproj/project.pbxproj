@@ -101,6 +101,9 @@
 		EF164BFC1DE5805200ED3E41 /* WKCookieSyncManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EF164BFB1DE5805200ED3E41 /* WKCookieSyncManager.m */; };
 		EF1C23461DDC5793003DBFA9 /* SaveCanclePickView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF1C23451DDC5793003DBFA9 /* SaveCanclePickView.m */; };
 		EF1C23481DDC579D003DBFA9 /* SaveCanclePickView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF1C23471DDC579D003DBFA9 /* SaveCanclePickView.xib */; };
+		EF30ABF41DE7098F006EA853 /* ChangePassWdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF30ABF31DE7098F006EA853 /* ChangePassWdViewController.m */; };
+		EF30ABFA1DE7189B006EA853 /* KVStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = EF30ABF71DE7189B006EA853 /* KVStyle.m */; };
+		EF30ABFB1DE7189B006EA853 /* KVTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = EF30ABF91DE7189B006EA853 /* KVTimer.m */; };
 		EF3A2F6D1DDC85B60080F9A6 /* SexPick.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3A2F6C1DDC85B60080F9A6 /* SexPick.m */; };
 		EF3A2F6F1DDC85C10080F9A6 /* SexPick.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF3A2F6E1DDC85C10080F9A6 /* SexPick.xib */; };
 		EF4103D11DDDCF7C008F79A0 /* CircleBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4103CF1DDDCF7C008F79A0 /* CircleBannerView.m */; };
@@ -108,12 +111,17 @@
 		EF785E511DDEB0C1002872B9 /* HomeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF785E501DDEB0C1002872B9 /* HomeListViewController.m */; };
 		EF8476481DE299D0007453AC /* MyOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF8476471DE299D0007453AC /* MyOrderViewController.m */; };
 		EF84764B1DE2BE74007453AC /* OrderInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EF84764A1DE2BE74007453AC /* OrderInfoModel.m */; };
+		EF8977011DE5B9EC00A7757D /* MengYouListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF8977001DE5B9EC00A7757D /* MengYouListViewController.m */; };
 		EFA5D7E31DDBF46A00962D77 /* MyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA5D7E21DDBF46A00962D77 /* MyTableViewController.m */; };
 		EFA5D7E71DDC080000962D77 /* LXActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA5D7E61DDC080000962D77 /* LXActionSheet.m */; };
 		EFA5D7EA1DDC0CE000962D77 /* pickView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA5D7E91DDC0CE000962D77 /* pickView.m */; };
 		EFA5D7EC1DDC0CEC00962D77 /* pickView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFA5D7EB1DDC0CEC00962D77 /* pickView.xib */; };
 		EFA97D811DE3F83D00A48B39 /* MenDouBeanExchageLists.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA97D801DE3F83D00A48B39 /* MenDouBeanExchageLists.m */; };
 		EFA97D841DE4190000A48B39 /* MainNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA97D821DE4190000A48B39 /* MainNavViewController.m */; };
+		EFCB52251DE6CD6E002423C0 /* MeYouShenQingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EFCB52241DE6CD6E002423C0 /* MeYouShenQingModel.m */; };
+		EFCB52281DE6DFD1002423C0 /* CashModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EFCB52271DE6DFD1002423C0 /* CashModel.m */; };
+		EFCB522B1DE6E7A9002423C0 /* UIBarButtonItem+LHB.m in Sources */ = {isa = PBXBuildFile; fileRef = EFCB522A1DE6E7A9002423C0 /* UIBarButtonItem+LHB.m */; };
+		EFCB522E1DE6E7ED002423C0 /* UIImage+LHB.m in Sources */ = {isa = PBXBuildFile; fileRef = EFCB522D1DE6E7ED002423C0 /* UIImage+LHB.m */; };
 		EFDD905D1DD5A73D00764E7A /* MyCoreLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDD905C1DD5A73D00764E7A /* MyCoreLocation.m */; };
 		EFDD90671DD5AD8D00764E7A /* HXColor.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDD90661DD5AD8D00764E7A /* HXColor.m */; };
 		EFDD90691DD98D6200764E7A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFDD90681DD98D6200764E7A /* SystemConfiguration.framework */; };
@@ -340,6 +348,12 @@
 		EF1C23441DDC5793003DBFA9 /* SaveCanclePickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveCanclePickView.h; sourceTree = "<group>"; };
 		EF1C23451DDC5793003DBFA9 /* SaveCanclePickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveCanclePickView.m; sourceTree = "<group>"; };
 		EF1C23471DDC579D003DBFA9 /* SaveCanclePickView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SaveCanclePickView.xib; sourceTree = "<group>"; };
+		EF30ABF21DE7098F006EA853 /* ChangePassWdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePassWdViewController.h; sourceTree = "<group>"; };
+		EF30ABF31DE7098F006EA853 /* ChangePassWdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePassWdViewController.m; sourceTree = "<group>"; };
+		EF30ABF61DE7189B006EA853 /* KVStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KVStyle.h; sourceTree = "<group>"; };
+		EF30ABF71DE7189B006EA853 /* KVStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KVStyle.m; sourceTree = "<group>"; };
+		EF30ABF81DE7189B006EA853 /* KVTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KVTimer.h; sourceTree = "<group>"; };
+		EF30ABF91DE7189B006EA853 /* KVTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KVTimer.m; sourceTree = "<group>"; };
 		EF3A2F6B1DDC85B60080F9A6 /* SexPick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SexPick.h; sourceTree = "<group>"; };
 		EF3A2F6C1DDC85B60080F9A6 /* SexPick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SexPick.m; sourceTree = "<group>"; };
 		EF3A2F6E1DDC85C10080F9A6 /* SexPick.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SexPick.xib; sourceTree = "<group>"; };
@@ -353,6 +367,8 @@
 		EF8476471DE299D0007453AC /* MyOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderViewController.m; sourceTree = "<group>"; };
 		EF8476491DE2BE74007453AC /* OrderInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderInfoModel.h; sourceTree = "<group>"; };
 		EF84764A1DE2BE74007453AC /* OrderInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderInfoModel.m; sourceTree = "<group>"; };
+		EF8976FF1DE5B9EC00A7757D /* MengYouListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MengYouListViewController.h; sourceTree = "<group>"; };
+		EF8977001DE5B9EC00A7757D /* MengYouListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MengYouListViewController.m; sourceTree = "<group>"; };
 		EFA5D7E11DDBF46A00962D77 /* MyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableViewController.h; sourceTree = "<group>"; };
 		EFA5D7E21DDBF46A00962D77 /* MyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTableViewController.m; sourceTree = "<group>"; };
 		EFA5D7E51DDC080000962D77 /* LXActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXActionSheet.h; sourceTree = "<group>"; };
@@ -364,6 +380,14 @@
 		EFA97D801DE3F83D00A48B39 /* MenDouBeanExchageLists.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenDouBeanExchageLists.m; path = "bameng/Class/盟主/首页/controller/MenDouBeanExchageLists.m"; sourceTree = SOURCE_ROOT; };
 		EFA97D821DE4190000A48B39 /* MainNavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavViewController.m; sourceTree = "<group>"; };
 		EFA97D831DE4190000A48B39 /* MainNavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNavViewController.h; sourceTree = "<group>"; };
+		EFCB52231DE6CD6E002423C0 /* MeYouShenQingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeYouShenQingModel.h; sourceTree = "<group>"; };
+		EFCB52241DE6CD6E002423C0 /* MeYouShenQingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeYouShenQingModel.m; sourceTree = "<group>"; };
+		EFCB52261DE6DFD1002423C0 /* CashModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CashModel.h; sourceTree = "<group>"; };
+		EFCB52271DE6DFD1002423C0 /* CashModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CashModel.m; sourceTree = "<group>"; };
+		EFCB52291DE6E7A9002423C0 /* UIBarButtonItem+LHB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+LHB.h"; sourceTree = "<group>"; };
+		EFCB522A1DE6E7A9002423C0 /* UIBarButtonItem+LHB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+LHB.m"; sourceTree = "<group>"; };
+		EFCB522C1DE6E7ED002423C0 /* UIImage+LHB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LHB.h"; sourceTree = "<group>"; };
+		EFCB522D1DE6E7ED002423C0 /* UIImage+LHB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LHB.m"; sourceTree = "<group>"; };
 		EFDD905B1DD5A73D00764E7A /* MyCoreLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCoreLocation.h; sourceTree = "<group>"; };
 		EFDD905C1DD5A73D00764E7A /* MyCoreLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCoreLocation.m; sourceTree = "<group>"; };
 		EFDD90651DD5AD8D00764E7A /* HXColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXColor.h; sourceTree = "<group>"; };
@@ -499,6 +523,8 @@
 				6015F2D91DCAE6EA00E5E5A4 /* ForgotController.m */,
 				EFDD906E1DD9999100764E7A /* LaucnViewController.h */,
 				EFDD906F1DD9999100764E7A /* LaucnViewController.m */,
+				EF30ABF21DE7098F006EA853 /* ChangePassWdViewController.h */,
+				EF30ABF31DE7098F006EA853 /* ChangePassWdViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -519,6 +545,10 @@
 		6033D7A31DBB45A300B9B4DA /* 扩展 */ = {
 			isa = PBXGroup;
 			children = (
+				EFCB522C1DE6E7ED002423C0 /* UIImage+LHB.h */,
+				EFCB522D1DE6E7ED002423C0 /* UIImage+LHB.m */,
+				EFCB52291DE6E7A9002423C0 /* UIBarButtonItem+LHB.h */,
+				EFCB522A1DE6E7A9002423C0 /* UIBarButtonItem+LHB.m */,
 				6033D7A41DBB45D700B9B4DA /* UITableView+CJ.h */,
 				6033D7A51DBB45D700B9B4DA /* UITableView+CJ.m */,
 			);
@@ -589,6 +619,8 @@
 				60D75A931DBE07FA00E09FF4 /* CustomInformationauditTableViewController.m */,
 				60FF24071DBEFC3100E70A09 /* EncourageTableViewController.h */,
 				60FF24081DBEFC3100E70A09 /* EncourageTableViewController.m */,
+				EF8976FF1DE5B9EC00A7757D /* MengYouListViewController.h */,
+				EF8977001DE5B9EC00A7757D /* MengYouListViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -600,6 +632,8 @@
 				600792341DD0322000BBF448 /* BMInfomationModel.m */,
 				600792361DD164D200BBF448 /* BMCircleModel.h */,
 				600792371DD164D200BBF448 /* BMCircleModel.m */,
+				EFCB52231DE6CD6E002423C0 /* MeYouShenQingModel.h */,
+				EFCB52241DE6CD6E002423C0 /* MeYouShenQingModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -1016,6 +1050,8 @@
 				EF84764A1DE2BE74007453AC /* OrderInfoModel.m */,
 				EF164BF71DE5763100ED3E41 /* DuiHuanModel.h */,
 				EF164BF81DE5763100ED3E41 /* DuiHuanModel.m */,
+				EFCB52261DE6DFD1002423C0 /* CashModel.h */,
+				EFCB52271DE6DFD1002423C0 /* CashModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -1044,6 +1080,17 @@
 			path = HuotuScreate;
 			sourceTree = "<group>";
 		};
+		EF30ABF51DE7189B006EA853 /* ProgrameView */ = {
+			isa = PBXGroup;
+			children = (
+				EF30ABF61DE7189B006EA853 /* KVStyle.h */,
+				EF30ABF71DE7189B006EA853 /* KVStyle.m */,
+				EF30ABF81DE7189B006EA853 /* KVTimer.h */,
+				EF30ABF91DE7189B006EA853 /* KVTimer.m */,
+			);
+			path = ProgrameView;
+			sourceTree = "<group>";
+		};
 		EFA5D7E41DDC07EB00962D77 /* 自定义ActionSheet */ = {
 			isa = PBXGroup;
 			children = (
@@ -1056,6 +1103,7 @@
 		EFDD904F1DD5710A00764E7A /* 第三方 */ = {
 			isa = PBXGroup;
 			children = (
+				EF30ABF51DE7189B006EA853 /* ProgrameView */,
 				EFFBC3481DE435F6006D2A96 /* pv */,
 				EFEE838D1DDD82F80048863A /* AreaPickerView-master */,
 			);
@@ -1603,6 +1651,7 @@
 				EFECF5921DE5302300A8135A /* SetPhoneViewController.m in Sources */,
 				600792381DD164D200BBF448 /* BMCircleModel.m in Sources */,
 				60FF24151DBF4FDF00E70A09 /* MyWalletTableViewController.m in Sources */,
+				EF8977011DE5B9EC00A7757D /* MengYouListViewController.m in Sources */,
 				60979D6A1DC3306A00B9E858 /* AllyReviewTableViewController.m in Sources */,
 				60EF5F9D1DC71A8B00ADBEA7 /* SelectObjectViewController.m in Sources */,
 				60FC8A981DBDDD6B009612C1 /* SubmitUserInfoTableViewController.m in Sources */,
@@ -1615,8 +1664,10 @@
 				EF785E4E1DDEB0A7002872B9 /* LiuXSegmentView.m in Sources */,
 				60FF241F1DBF5D7600E70A09 /* MengDouTableViewCell.m in Sources */,
 				EFEE83951DDD82F80048863A /* AreaPickerView.m in Sources */,
+				EFCB52251DE6CD6E002423C0 /* MeYouShenQingModel.m in Sources */,
 				EFA5D7E71DDC080000962D77 /* LXActionSheet.m in Sources */,
 				603E924F1DBDEA87000E3069 /* CustomDetailsTableViewController.m in Sources */,
+				EFCB522B1DE6E7A9002423C0 /* UIBarButtonItem+LHB.m in Sources */,
 				6024A1441DC6F519000C721C /* AddNewInfomationTableViewController.m in Sources */,
 				EFFBC3851DE435F6006D2A96 /* LKNotificationManager.m in Sources */,
 				EFA97D811DE3F83D00A48B39 /* MenDouBeanExchageLists.m in Sources */,
@@ -1628,15 +1679,18 @@
 				60764AF11DB8937A0061CC6C /* AppDelegate.m in Sources */,
 				604912ED1DC8810A00DA334C /* MYInfomationTableViewCell.m in Sources */,
 				EF4103D11DDDCF7C008F79A0 /* CircleBannerView.m in Sources */,
+				EFCB522E1DE6E7ED002423C0 /* UIImage+LHB.m in Sources */,
 				EFFBC37E1DE435F6006D2A96 /* LKActionLineView.m in Sources */,
 				60F3902F1DC0A57300FFCBF3 /* ExchangeListViewController.m in Sources */,
 				6044736F1DC3006B00100A7C /* NewOrderTableViewController.m in Sources */,
 				60764AEE1DB8937A0061CC6C /* main.m in Sources */,
 				60F390421DC0DAE700FFCBF3 /* MyBusinessTableViewCell.m in Sources */,
 				60979D741DC346F500B9E858 /* MengZhuInfomationBigTableViewCell.m in Sources */,
+				EF30ABFB1DE7189B006EA853 /* KVTimer.m in Sources */,
 				6042F8241DCB1F2F00055329 /* UserModel.m in Sources */,
 				60EF5FB71DC749ED00ADBEA7 /* MengYouHomeTableViewCell.m in Sources */,
 				EFA5D7E31DDBF46A00962D77 /* MyTableViewController.m in Sources */,
+				EF30ABFA1DE7189B006EA853 /* KVStyle.m in Sources */,
 				60EF5FBE1DC8309B00ADBEA7 /* MYSubmitInfoTableViewController.m in Sources */,
 				EFA97D841DE4190000A48B39 /* MainNavViewController.m in Sources */,
 				60D18DF61DC1E0B200E0C839 /* CashCouponTableViewCell.m in Sources */,
@@ -1648,7 +1702,9 @@
 				EFFBC3841DE435F6006D2A96 /* LKNotificationBar.m in Sources */,
 				EF164BF91DE5763100ED3E41 /* DuiHuanModel.m in Sources */,
 				60C230CC1DC0458200E0CD11 /* DaijiesuanTableViewCell.m in Sources */,
+				EFCB52281DE6DFD1002423C0 /* CashModel.m in Sources */,
 				603A39C21DB9ECCF00DC1ADA /* HomeController.m in Sources */,
+				EF30ABF41DE7098F006EA853 /* ChangePassWdViewController.m in Sources */,
 				60FC8A8F1DBD9ED9009612C1 /* UntreatedTableViewCell.m in Sources */,
 				EFFBC37D1DE435F6006D2A96 /* LKActionItem.m in Sources */,
 				EFFBC3861DE435F6006D2A96 /* UIResponder+LKNotification.m in Sources */,

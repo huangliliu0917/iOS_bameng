@@ -8,15 +8,28 @@
 
 #import "CashCouponViewController.h"
 #import "CashCouponTableViewCell.h"
+#import "CashModel.h"
 
 @interface CashCouponViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *table;
+
+@property (strong, nonatomic) NSMutableArray * data;
 
 @end
 
 @implementation CashCouponViewController
 
 static NSString *cashCouponIdentify = @"cashCouponIdentify";
+
+
+
+- (NSMutableArray *)data{
+    if (_data == nil) {
+        _data = [NSMutableArray array];
+    }
+    return _data;
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -25,6 +38,21 @@ static NSString *cashCouponIdentify = @"cashCouponIdentify";
     [self.table removeSpaces];
     self.table.separatorStyle = UITableViewCellSeparatorStyleNone;
     
+    
+
+    NSMutableDictionary *parme = [NSMutableDictionary dictionary];
+    [HTMyContainAFN AFN:@"user/MyCashCouponList" with:parme Success:^(NSDictionary *responseObject) {
+        LWLog(@"%@", responseObject);
+        if([responseObject[@"status"] integerValue] == 200){
+           NSArray *list =  [CashModel mj_keyValuesArrayWithObjectArray:responseObject[@"data"][@"list"]];
+            if (list.count) {
+                [self.data addObject:list];
+                [self.table reloadData];
+            }
+        }
+    } failure:^(NSError *error) {
+        LWLog(@"%@",error);
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -45,11 +73,15 @@ static NSString *cashCouponIdentify = @"cashCouponIdentify";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    
+    [self.table tableViewDisplayWitMsg:nil ifNecessaryForRowCount:self.data.count];
+    return self.data.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CashCouponTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cashCouponIdentify forIndexPath:indexPath];
+    
+    CashModel * model = self.data[indexPath.row];
     return cell;
 }
 

@@ -8,9 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+#import "CustomInfomationModel.h"
+
+
+
 @interface MengYouHomeTableViewCell : UITableViewCell
-@property (strong, nonatomic) IBOutlet UILabel *name;
-@property (strong, nonatomic) IBOutlet UILabel *phone;
-@property (strong, nonatomic) IBOutlet UIImageView *icon;
+
+
+
+@property (strong, nonatomic) CustomInfomationModel * model;
+
 
 @end

@@ -14,6 +14,7 @@
 #import "IntegralTableViewController.h"
 #import "CashCouponViewController.h"
 #import "MyBusinessViewController.h"
+#import "MyOrderViewController.h"
 
 @interface MYWealthTableViewController ()
 @property (strong, nonatomic) IBOutlet UIImageView *icon;
@@ -26,6 +27,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *daijiesuanLabel;
 @property (strong, nonatomic) IBOutlet UILabel *jifenLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel *leveLable;
+
 @end
 
 @implementation MYWealthTableViewController
@@ -33,7 +36,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+    self.navigationItem.title = @"财富";
     self.setting.userInteractionEnabled = YES;
     [self.setting bk_whenTapped:^{
         UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
@@ -64,7 +67,23 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.tabBarController.tabBar.hidden = NO;
+//    self.tabBarController.tabBar.hidden = NO;
+    
+    
+    UserModel * user =  [UserModel GetUserModel];
+    
+    
+    [self.icon sd_setImageWithURL:[NSURL URLWithString:user.UserHeadImg] placeholderImage:[UIImage imageNamed:@"mrtx"]];
+    self.name.text = user.RealName;
+    self.leveLable.text = user.LevelName;
+    
+    self.mengdouLabel.text = [NSString stringWithFormat:@"%@",user.MengBeans];
+    
+    self.daijiesuanLabel.text = [NSString stringWithFormat:@"%@",user.TempMengBeans];
+    
+    self.jifenLabel.text = [NSString stringWithFormat:@"%@",user.Score];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -82,7 +101,7 @@
     }
     if (indexPath.section == 1 && indexPath.row == 0) {
         UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
-        MyBusinessViewController *business = [story instantiateViewControllerWithIdentifier:@"MyBusinessViewController"];
+        MyOrderViewController *business = [story instantiateViewControllerWithIdentifier:@"MyOrderViewController"];
         [self.navigationController pushViewController:business animated:YES];
     }
     if (indexPath.section == 1 && indexPath.row == 1) {
@@ -90,6 +109,24 @@
         CashCouponViewController *cash = [story instantiateViewControllerWithIdentifier:@"CashCouponViewController"];
         [self.navigationController pushViewController:cash animated:YES];
     }
+    if (indexPath.section == 1 && indexPath.row == 2) {
+        [self signIn];
+    }
+}
+
+- (void)signIn{
+    NSMutableDictionary * parame = [NSMutableDictionary dictionary];
+    [HTMyContainAFN AFN:@"user/signin" with:parame Success:^(NSDictionary *responseObject) {
+        LWLog(@"%@", responseObject);
+        if ([responseObject[@"status"] integerValue] == 200) {
+            [self showRightWithTitle: responseObject[@"statusText"] autoCloseTime: 1.5];
+        }else{
+            [self showErrorWithTitle:responseObject[@"statusText"] autoCloseTime: 1.5];
+        }
+    } failure:^(NSError *error) {
+        LWLog(@"%@",error);
+    }];
+    
 }
 
 /*

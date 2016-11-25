@@ -135,9 +135,9 @@
         case 4:
         {
             //我的联盟
-            CustomInfoController *custom = [story instantiateViewControllerWithIdentifier:@"CustomInfoController"];
-            custom.selectPage = 3;
-            [self.navigationController pushViewController:custom animated:YES];
+            CustomSlideViewController * vc = [[CustomSlideViewController alloc] init];
+            vc.selectPage = 3;
+            [self.navigationController pushViewController:vc animated:YES];
             break;
         }
         case 5:

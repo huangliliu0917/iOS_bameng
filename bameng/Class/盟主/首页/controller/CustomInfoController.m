@@ -15,7 +15,7 @@
 #import "AllyReviewTableViewController.h"
 #import "AllyInfomationTableViewController.h"
 #import "CustomInfomationModel.h"
-
+#import "MeYouShenQingModel.h"
 #import "DuiHuanModel.h"
 @interface CustomInfoController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -191,11 +191,9 @@ static NSString *processedIdentify = @"processedIdentify";
         
     }else if (self.selectPage == 3) {
         //3我的联盟
-        if (_isUntreated) {
-            
-        }else {
+        
             [self getNewMengYouList];
-        }
+      
         
     }
 }
@@ -318,21 +316,19 @@ static NSString *processedIdentify = @"processedIdentify";
 
 - (void)getNewMengYouList {
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    
-    dic[@"type"] = @"0";
     dic[@"pageSize"] = @(self.PageSize);
-    dic[@"pageIndex"] = @(1);
+    dic[@"pageIndex"] = @(0);
     [HTMyContainAFN AFN:@"user/AllyApplylist" with:dic Success:^(NSDictionary *responseObject) {
         LWLog(@"user/allylist：%@",responseObject);
-        
         if ([responseObject[@"status"] intValue] == 200) {
-
-            [self.customList removeAllObjects];
-            NSArray *array = [UserModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"Rows"]];
-            [self.customList addObjectsFromArray:array];
             self.PageIndex = [dic[@"data"][@"PageIndex"] integerValue];
-            self.PageSize = [dic[@"data"][@"PageSize"] integerValue];
-            [self.table reloadData];
+            NSArray *array = [MeYouShenQingModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"Rows"]];
+            if (array.count) {
+                [self.customList removeAllObjects];
+                [self.customList addObjectsFromArray:array];
+                [self.table reloadData];
+            }
+            
         }
         
         [self.table.mj_header endRefreshing];
@@ -352,6 +348,8 @@ static NSString *processedIdentify = @"processedIdentify";
     [HTMyContainAFN AFN:@"user/allylist" with:dic Success:^(NSDictionary *responseObject) {
         LWLog(@"user/allylist：%@",responseObject);
         if ([responseObject[@"status"] intValue] == 200) {
+            
+            self.PageIndex = [dic[@"data"][@"PageIndex"] integerValue];
             NSArray *array = [UserModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"Rows"]];
             [self.customList addObjectsFromArray:array];
             
@@ -421,6 +419,7 @@ static NSString *processedIdentify = @"processedIdentify";
             DuiHuanModel * model = self.customList[indexPath.row];
             cell.exchagemodel = model;
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            LWLog(@"%ld",(long)self.selectPage);
             cell.selectPage = self.selectPage;
             __weak typeof(self) weakSelf = self;
             [cell setDidSelectCustomInfo:^(BOOL isAgree) {
@@ -446,27 +445,39 @@ static NSString *processedIdentify = @"processedIdentify";
             ProcessedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:processedIdentify forIndexPath:indexPath];
             DuiHuanModel * model = self.customList[indexPath.row];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            LWLog(@"%ld",(long)self.selectPage);
             cell.selectPage = self.selectPage;
             cell.exchagemodel = model;
+            
             return cell;
         }
     }else if (self.selectPage == 3) {
         
-        if (_isUntreated) {
-            
-            UntreatedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:untreatedIdentify forIndexPath:indexPath];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            cell.selectPage = self.selectPage;
-            return cell;
-            
-        }else {
-            
-            ProcessedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:processedIdentify forIndexPath:indexPath];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            cell.selectPage = self.selectPage;
-            cell.mengyouModel = self.customList[indexPath.row];
-            return cell;
-        }
+        
+        UntreatedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:untreatedIdentify forIndexPath:indexPath];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.selectPage = self.selectPage;
+        MeYouShenQingModel * model = self.customList[indexPath.row];
+        cell.MeYouShenQing = model;
+        [cell setDidSelectCustomInfo:^(BOOL isAgree) {
+            LWLog(@"%d",isAgree);
+            NSMutableDictionary *parme = [NSMutableDictionary dictionary];
+            LWLog(@"%@",model.ID);
+            parme[@"id"] = [NSString stringWithFormat:@"%@",model.ID];
+            parme[@"status"] = isAgree?@"1":@"2";
+            __weak typeof(self) weakSelf = self;
+            [HTMyContainAFN AFN:@"user/AllyApplyAudit" with:parme Success:^(NSDictionary *responseObject) {
+                LWLog(@"%@", responseObject);
+                if ([[responseObject objectForKey:@"status"] integerValue] == 200) {
+                    [weakSelf.customList removeObjectAtIndex:[indexPath row]];  //删除_data数组里的数据
+                    [weakSelf.table deleteRowsAtIndexPaths:[NSMutableArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];  //删除对应数据的cell
+                }
+            } failure:^(NSError *error) {
+                LWLog(@"%@",error);
+            }];
+        }];
+        return cell;
+
     }
     return nil;
     

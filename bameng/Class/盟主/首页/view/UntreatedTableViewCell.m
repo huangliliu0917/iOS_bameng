@@ -54,6 +54,16 @@
     
 }
 
+
+- (void)setMeYouShenQing:(MeYouShenQingModel *)MeYouShenQing{
+   _MeYouShenQing = MeYouShenQing;
+    LWLog(@"%@",[MeYouShenQing mj_keyValues]);
+    self.name.text = MeYouShenQing.UserName;
+    self.phone.text = [NSString stringWithFormat:@"%@",MeYouShenQing.Mobile];
+}
+
+
+
 - (void)setExchagemodel:(DuiHuanModel *)exchagemodel{
     
     _exchagemodel = exchagemodel;
@@ -66,8 +76,8 @@
 //    self
 }
 
-- (void)layoutSubviews {
-    [super layoutSubviews];
+- (void)setSelectPage:(NSInteger)selectPage{
+    _selectPage = selectPage;
     if (_selectPage == 1) {
         self.nameLabel.text = @"客户姓名:";
         self.phoneLabe.text = @"联系方式:";
@@ -86,6 +96,12 @@
         self.reviewLabel.text = @"未审核";
         
     }
+    
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -21,7 +21,7 @@
 @property (nonatomic, strong) NSString *NickName;
 @property (nonatomic, assign) NSInteger OrderSuccessAmount;
 @property (nonatomic, strong) NSString *RealName;
-@property (nonatomic, strong) NSDecimalNumber *Score;
+@property (nonatomic, strong) NSNumber *Score;
 @property (nonatomic, strong) NSNumber *ScoreLocked;
 @property (nonatomic, strong) NSString *ShopCity;
 @property (nonatomic, assign) NSInteger ShopId;

@@ -47,7 +47,7 @@
 {
     if (self.viewControllers.count>0) {
         viewController.hidesBottomBarWhenPushed = YES;
-//        viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithIcon:@"main_title_left_back.png" hightIcon:nil target:self action:@selector(back)];
+        viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithIcon:@"dhjt" hightIcon:nil target:self action:@selector(back)];
 
     }
     [super pushViewController:viewController animated:YES];

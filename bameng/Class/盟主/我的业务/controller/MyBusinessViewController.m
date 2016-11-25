@@ -208,6 +208,8 @@ static NSString *myBusinessIdentify = @"myBusinessIdentify";
 #pragma mark tableDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    [self.table tableViewDisplayWitMsg:nil ifNecessaryForRowCount:self.orders.count];
     return self.orders.count;
 }
 
