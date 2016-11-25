@@ -14,6 +14,7 @@
 #import "IQKeyboardManager.h"
 #import "MyCoreLocation.h"
 
+
 @interface AppDelegate ()
 
 
@@ -40,7 +41,7 @@
     
     //1、处理键盘问题
     [IQKeyboardManager sharedManager].enable = YES;
-    
+    [self SetupInitShareSdkInfo];
     
     self.window = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight)];
     self.window.backgroundColor = [UIColor whiteColor];
@@ -52,12 +53,45 @@
     
     [self.window makeKeyAndVisible];
     
+    
+    
     return YES;
 }
 
 
 
-
+- (void)SetupInitShareSdkInfo{
+    
+    [ShareSDK registerApp:ShareSdkKey
+     
+          activePlatforms:@[
+                            
+                            @(SSDKPlatformTypeWechat)]
+                 onImport:^(SSDKPlatformType platformType)
+     {
+         switch (platformType)
+         {
+             case SSDKPlatformTypeWechat:
+                 [ShareSDKConnector connectWeChat:[WXApi class]];
+                 break;
+             default:
+                 break;
+         }
+     }
+          onConfiguration:^(SSDKPlatformType platformType, NSMutableDictionary *appInfo)
+     {
+         
+         switch (platformType)
+         {
+             case SSDKPlatformTypeWechat:
+                 [appInfo SSDKSetupWeChatByAppId:HuoBanMallBuyWeiXinAppId
+                                       appSecret:HuoBanMallShareSdkWeiXinSecret];
+                 break;
+             default:
+                 break;
+         }
+     }];
+}
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {
