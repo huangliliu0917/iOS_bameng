@@ -49,7 +49,7 @@
         // 没有数据的时候，UILabel的显示样式
         UILabel *messageLabel = [UILabel new];
         
-        messageLabel.text = @"占无数据";
+        messageLabel.text = @"暂时没有数据";
         messageLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
         messageLabel.textColor = [UIColor lightGrayColor];
         messageLabel.textAlignment = NSTextAlignmentCenter;

@@ -78,6 +78,7 @@
     UserModel * user = [UserModel GetUserModel];
     [self.headImage sd_setImageWithURL:[NSURL URLWithString:user.UserHeadImg] placeholderImage:[UIImage imageNamed:@"mrtx"]];
     self.Level.text = user.LevelName;
+    self.nickName.text = user.NickName;
     self.mengdouLable.text = [NSString stringWithFormat:@"%@",user.MengBeans];
     LWLog(@"%@",user.TempMengBeans);
     self.daijiesuanLable.text = [NSString stringWithFormat:@"%@",user.TempMengBeans];
