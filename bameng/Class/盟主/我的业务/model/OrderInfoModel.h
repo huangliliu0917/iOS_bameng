@@ -12,7 +12,7 @@
 /**手机号*/
 @property(nonatomic,strong) NSString * mobile;
 
-@property(nonatomic,strong) NSDecimalNumber * money;
+@property(nonatomic,strong) NSNumber * money;
 
 @property(nonatomic,strong) NSString * orderId;
 

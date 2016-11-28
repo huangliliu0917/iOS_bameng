@@ -71,8 +71,13 @@ static NSString *myBusinessIdentify = @"myBusinessIdentify";
     [self.table removeSpaces];
     
     [self setTabalViewRefresh];
-    [self GetNewData];
+//    [self GetNewData];
 
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.table.mj_header beginRefreshing];
 }
 - (void)setTabalViewRefresh {
     
@@ -130,10 +135,7 @@ static NSString *myBusinessIdentify = @"myBusinessIdentify";
 
 
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    self.tabBarController.tabBar.hidden = YES;
-}
+
 
 //设置选择点击事件
 - (void)setSelectViewAction {
@@ -235,7 +237,9 @@ static NSString *myBusinessIdentify = @"myBusinessIdentify";
     }else {
         
         UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
+        OrderInfoModel * model = self.orders[indexPath.row];
         OrderDetailTableViewController *ordor = [story instantiateViewControllerWithIdentifier:@"OrderDetailTableViewController"];
+        ordor.model = model;
         [self.navigationController pushViewController:ordor animated:YES];
     }
 }

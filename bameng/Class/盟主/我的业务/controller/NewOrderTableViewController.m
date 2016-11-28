@@ -115,10 +115,10 @@
         [SVProgressHUD showErrorWithStatus:@"请输入地址"];
         return;
     }
-    if (!self.cashNunber.text.length) {
-        [SVProgressHUD showErrorWithStatus:@"现金券为空"];
-        return;
-    }
+    //if (!self.cashNunber.text.length) {
+      //  [SVProgressHUD showErrorWithStatus:@"现金券为空"];
+       // return;
+    //}
     NSMutableDictionary * parame = [NSMutableDictionary dictionary];
     parame[@"userName"] = self.customName.text;
     parame[@"mobile"] = self.phoneNum.text;

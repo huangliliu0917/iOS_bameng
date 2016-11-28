@@ -7,29 +7,131 @@
 //
 
 #import "PostOrderTableViewController.h"
+#import "UIImagePickerController+BlocksKit.h"
 
-@interface PostOrderTableViewController ()
+
+@interface PostOrderTableViewController ()<LXActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@property (weak, nonatomic) IBOutlet UIImageView *pickImage;
+@property (weak, nonatomic) IBOutlet UIImageView *image;
+@property (weak, nonatomic) IBOutlet UITextField *customName;
+@property (weak, nonatomic) IBOutlet UITextField *phone;
+@property (weak, nonatomic) IBOutlet UITextField *priceName;
+
+@property (weak, nonatomic) IBOutlet UITextView *addtionInfo;
+
+
+@property (nonatomic,strong) UIImage * currentpickImage;
+
+
+
+@property(nonatomic,strong) NSMutableDictionary * dataImage;
 
 @end
 
 @implementation PostOrderTableViewController
 
+
+
+- (NSMutableDictionary *)dataImage{
+    if (_dataImage == nil) {
+        _dataImage = [NSMutableDictionary dictionary];
+        
+    }
+    return _dataImage;
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.image.contentMode = UIViewContentModeScaleToFill;
+    self.image.clipsToBounds = YES;
+    self.pickImage.userInteractionEnabled = YES;
+    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pickImagex)];
+    [self.pickImage addGestureRecognizer:tap];
+}
+
+- (void)setModel:(OrderInfoModel *)model{
+    _model = model;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)pickImagex{
+    
+    LXActionSheet * action = [[LXActionSheet alloc] initWithTitle:0 delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
+    __weak typeof(self) wself = self;
+    [action setIconViewSelectItem:^(NSInteger item) {
+        LWLog(@"%ld",(long)item);
+        [wself imageSelectItem:item];
+    }];
+    [action showInView:self.view];
+    
+    
+}
+
+- (void)imageSelectItem:(NSInteger)item{
+    
+    LWLog(@"%ld",(long)item);
+    UIImagePickerController * pick = [[UIImagePickerController alloc] init];
+    if(item == 1000){
+        pick.sourceType = UIImagePickerControllerSourceTypeCamera;
+    }else{
+        pick.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+    
+    pick.delegate = self;
+    pick.allowsEditing = YES;
+    __weak typeof(self) wself = self;
+    [pick setBk_didFinishPickingMediaBlock:^(UIImagePickerController *vc, NSDictionary *ac) {
+        [vc dismissViewControllerAnimated:YES completion:nil];
+        LWLog(@"%@",ac );
+        LWLog(@"%@",[NSThread currentThread]);
+        [self.image setImage:ac[@"UIImagePickerControllerOriginalImage"]];
+        self.currentpickImage = ac[@"UIImagePickerControllerOriginalImage"];
+    }];
+    [pick setBk_didCancelBlock:^(UIImagePickerController * vc) {
+        [vc dismissViewControllerAnimated:YES completion:nil];
+        
+    }];
+    [self presentViewController:pick animated:YES completion:nil];
+    
+}
+
+- (IBAction)tijiao:(id)sender {
+    
+    if (self.image.image == nil) {
+        [self showErrorWithTitle:@"凭证不能为空" autoCloseTime:1];
+        return;
+    }
+    self.dataImage[@"customer"] = self.customName.text;
+    self.dataImage[@"mobile"] = self.phone.text;
+    self.dataImage[@"price"] = self.priceName.text;
+    self.dataImage[@"memo"] = self.addtionInfo.text;
+    if ([self.delegate respondsToSelector:@selector(uploadImage:andImage:)]) {
+        [self.delegate uploadImage:self.dataImage andImage:self.currentpickImage];
+    }
+   
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    LWLog(@"%@",[self.model mj_keyValues]);
+    
+    __weak typeof(self) wself = self;
+    [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:self.model.pictureUrl] options:SDWebImageRetryFailed progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+        if (!error) {
+            wself.image.image = image;
+        }
+        
+    }];
+    
+    LWLog(@"%@",self.model.userName);
+    self.customName.text =self.model.userName;
+    self.phone.text = self.model.mobile;
+    self.priceName.text  = [NSString stringWithFormat:@"%@",self.model.money];
+}
 
 #pragma mark - Table view data source
 

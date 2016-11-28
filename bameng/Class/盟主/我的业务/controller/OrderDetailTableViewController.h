@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "OrderInfoModel.h"
+
 
 @interface OrderDetailTableViewController : UITableViewController
+
+
+@property(nonatomic,strong) OrderInfoModel * model;
+
 
 @end

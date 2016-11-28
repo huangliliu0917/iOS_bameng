@@ -53,6 +53,7 @@
         LWLog(@"article/list：%@",responseObject);
         if ([responseObject[@"status"] intValue] == 200) {
 
+            LWLog(@"%@",responseObject);
             self.customLabel.text = [NSString stringWithFormat:@"%@", responseObject[@"data"][@"CustomerReward"]];
             self.successMengDou.text = [NSString stringWithFormat:@"%@", responseObject[@"data"][@"OrderReward"]];
             self.inShopMengDou.text = [NSString stringWithFormat:@"%@", responseObject[@"data"][@"ShopReward"]];

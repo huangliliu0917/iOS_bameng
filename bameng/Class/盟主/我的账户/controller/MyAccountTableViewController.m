@@ -30,8 +30,8 @@
 
     
 
-    self.headImage.layer.cornerRadius = self.headImage.frame.size.width / 2;
-    self.headImage.backgroundColor = [UIColor whiteColor];
+    
+    //self.headImage.backgroundColor = [UIColor whiteColor];
     
     self.Level.layer.masksToBounds = YES;
     self.Level.layer.cornerRadius = 3;
@@ -76,7 +76,14 @@
     [super viewWillAppear:animated];
     self.tabBarController.tabBar.hidden = NO;
     UserModel * user = [UserModel GetUserModel];
+    
+    LWLog(@"%@",user.UserHeadImg);
     [self.headImage sd_setImageWithURL:[NSURL URLWithString:user.UserHeadImg] placeholderImage:[UIImage imageNamed:@"mrtx"]];
+    
+    self.headImage.layer.cornerRadius = self.headImage.frame.size.width / 2;
+    self.headImage.layer.masksToBounds = YES;
+    self.headImage.layer.borderWidth = 0.7;
+    self.headImage.layer.borderColor = [UIColor whiteColor].CGColor;
     self.Level.text = user.LevelName;
     self.nickName.text = user.NickName;
     self.mengdouLable.text = [NSString stringWithFormat:@"%@",user.MengBeans];

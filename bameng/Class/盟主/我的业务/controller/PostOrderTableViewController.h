@@ -7,7 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "OrderInfoModel.h"
+
+
+@protocol PostOrderTableViewControllerDelegate <NSObject>
+
+
+- (void)uploadImage:(NSMutableDictionary *)dict andImage:(UIImage *)image;
+
+
+@end
 
 @interface PostOrderTableViewController : UITableViewController
+
+@property(nonatomic,strong) OrderInfoModel * model;
+
+
+@property(nonatomic,weak) id <PostOrderTableViewControllerDelegate> delegate;
 
 @end

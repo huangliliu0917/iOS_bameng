@@ -278,6 +278,8 @@ static NSString *infomationIdentify = @"infomationIdentify";
         [array addObject:model.PicUrl];
     }
     [self.circleView initSubviews];
+    self.circleView.interval = 5;
+    self.circleView.scrollDirection = CircleBannerViewScrollDirectionHorizontal;
     [self.circleView bannerWithImageArray:array];
 }
 
@@ -326,9 +328,10 @@ static NSString *infomationIdentify = @"infomationIdentify";
         LWLog(@"sys/FocusPic：%@", responseObject);
         if ([responseObject[@"status"] intValue] == 200) {
             NSArray *array = [BMCircleModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
-            [self.circleList addObjectsFromArray:array];
-            
-            [self setCircleViewImages];
+            if(array.count){
+                [self.circleList addObjectsFromArray:array];
+                [self setCircleViewImages];
+            }
         }
     } failure:^(NSError *error) {
         LWLog(@"%@" ,error);
@@ -457,6 +460,7 @@ static NSString *infomationIdentify = @"infomationIdentify";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    [self.table tableViewDisplayWitMsg:nil ifNecessaryForRowCount:self.articleList.count];
     return self.articleList.count;
 }
 

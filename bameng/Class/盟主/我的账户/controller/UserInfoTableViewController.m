@@ -11,7 +11,7 @@
 #import "AreaPickerView.h"
 #import "SetPhoneViewController.h"
 
-@interface UserInfoTableViewController ()<LXActionSheetDelegate,AreaPickerDelegate,SetPhoneViewControllerDelegate>
+@interface UserInfoTableViewController ()<LXActionSheetDelegate,AreaPickerDelegate,SetPhoneViewControllerDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 /**头像*/
 @property (weak, nonatomic) IBOutlet UIImageView *iconView;
@@ -206,10 +206,13 @@
     if(item == 1000){//拍照
         UIImagePickerController * pick = [[UIImagePickerController alloc] init];
         pick.sourceType = UIImagePickerControllerSourceTypeCamera;
+        pick.delegate = self;
+        pick.allowsEditing = YES;
         [pick setBk_didFinishPickingMediaBlock:^(UIImagePickerController *vc, NSDictionary *ac) {
             [wself.iconView setImage:ac[@"UIImagePickerControllerOriginalImage"]];
             [vc dismissViewControllerAnimated:YES completion:nil];
             LWLog(@"%@",ac );
+            [wself uploadHeadImage:ac[@"UIImagePickerControllerOriginalImage"]];
             
         }];
         [pick setBk_didCancelBlock:^(UIImagePickerController * vc) {
@@ -223,6 +226,7 @@
             [wself.iconView setImage:ac[@"UIImagePickerControllerOriginalImage"]];
             [vc dismissViewControllerAnimated:YES completion:nil];
             LWLog(@"%@",ac );
+            [wself uploadHeadImage:ac[@"UIImagePickerControllerOriginalImage"]];
             
         }];
         [pick setBk_didCancelBlock:^(UIImagePickerController * vc) {
@@ -231,6 +235,22 @@
         }];
         [self presentViewController:pick animated:YES completion:nil];
     }
+}
+
+
+- (void)uploadHeadImage:(UIImage *)headImage{
+    NSMutableDictionary *parme = [NSMutableDictionary dictionary];
+    parme[@"type"] = @(1);
+    
+    __weak typeof(self)wself = self;
+    [HTMyContainAFN AFNUpLoadImage:@"user/UpdateInfo" with:parme andImage:headImage Success:^(NSDictionary *responseObject) {
+        LWLog(@"%@",responseObject);
+        if([[responseObject objectForKey:@"status"] integerValue] == 200){
+            [wself showRightWithTitle:[responseObject objectForKey:@"statusText"] autoCloseTime:1.4];
+        }
+    } failure:^(NSError *error) {
+        LWLog(@"%@",error);
+    }];
 }
 
 //- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

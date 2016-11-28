@@ -220,6 +220,8 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
         [array addObject:model.PicUrl];
     }
     [self.circleView initSubviews];
+    self.circleView.interval = 5;
+    self.circleView.scrollDirection = CircleBannerViewScrollDirectionHorizontal;
     [self.circleView bannerWithImageArray:array];
 }
 

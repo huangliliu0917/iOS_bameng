@@ -8,26 +8,69 @@
 
 #import "OrderDetailTableViewController.h"
 #import "PostOrderTableViewController.h"
-
-@interface OrderDetailTableViewController ()
+#import "OrderDetailModel.h"
+@interface OrderDetailTableViewController ()<PostOrderTableViewControllerDelegate>
 @property (strong, nonatomic) IBOutlet UIImageView *ordorImage;
 @property (strong, nonatomic) IBOutlet UIImageView *addImage;
 @property (strong, nonatomic) IBOutlet UIButton *saveButton;
 @property (strong, nonatomic) IBOutlet UIButton *postButton;
+/**订单号*/
+@property (weak, nonatomic) IBOutlet UILabel *orderNumber;
+/**下单日期*/
+@property (weak, nonatomic) IBOutlet UILabel *orderData;
+/**客户名称*/
+@property (weak, nonatomic) IBOutlet UILabel *customName;
 
+
+@property (weak, nonatomic) IBOutlet UILabel *contantInfo;
+@property (weak, nonatomic) IBOutlet UILabel *customAdd;
+@property (weak, nonatomic) IBOutlet UILabel *indoAdd;
+
+@property (weak, nonatomic) IBOutlet UILabel *said;
+
+
+/**上传凭证*/
+@property(nonatomic,strong) UIImage * backImage;
+
+@property(nonatomic,strong) NSMutableDictionary * dataDic;
+
+
+@property(nonatomic,assign) int status;
 @end
 
 @implementation OrderDetailTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    __weak typeof(self) wself = self;
     [self.postButton bk_whenTapped:^{
         UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
         PostOrderTableViewController *postOrder = [story instantiateViewControllerWithIdentifier:@"PostOrderTableViewController"];
+        postOrder.delegate = wself;
+        postOrder.model = wself.model;
         [self.navigationController pushViewController:postOrder animated:YES];
         
     }];
+    self.ordorImage.contentMode = UIViewContentModeScaleToFill;
+    self.ordorImage.clipsToBounds = YES;
+    
+    LWLog(@"%@",[self.model mj_keyValues]);
+    //order/details
+    NSMutableDictionary *parme = [NSMutableDictionary dictionary];
+    parme[@"id"] = self.model.orderId;
+    //__weak typeof(self) wself = self;
+    [HTMyContainAFN AFN:@"order/details" with:parme Success:^(NSDictionary *responseObject) {
+        LWLog(@"%@", responseObject);
+        if ([responseObject[@"status"] intValue] == 200) {
+            OrderDetailModel * model = [OrderDetailModel mj_objectWithKeyValues:responseObject[@"data"]];
+            [wself setData:model];
+        }
+        
+    } failure:^(NSError *error) {
+        LWLog(@"%@",error);
+    }];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,7 +78,171 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+- (void)setModel:(OrderInfoModel *)model{
+    _model = model;
+    
+    
+    
+    
+}
+
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    
+}
+
+- (void)setData:(OrderDetailModel *)model{
+    self.orderNumber.text = model.orderId;
+    self.orderData.text = model.orderTime;
+    self.customName.text = model.userName;
+    self.contantInfo.text = model.mobile;
+    self.indoAdd.text = model.note;
+    self.customAdd.text = model.address;
+    __weak typeof(self) wself = self;
+    NSString * imageurl = nil;
+    
+    
+    if (model.status>0) {
+        imageurl = model.successUrl;
+    }else{
+       imageurl = model.pictureUrl;
+    }
+    
+    if(model.status == 0){
+        self.said.text = @"未成交";
+        self.saveButton.hidden = YES;
+        self.postButton.hidden = YES;
+    }else if(model.status == 1){
+        self.said.text = @"成交";
+        self.saveButton.hidden = NO;
+        self.postButton.hidden = NO;
+    }else{
+        self.said.text = @"退单";
+        self.saveButton.hidden = NO;
+        self.postButton.hidden = YES;
+    }
+    LWLog(@"%@",imageurl);
+    [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:imageurl] options:SDWebImageRetryFailed progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+        
+        LWLog(@"xxx%@",imageURL);
+        if (!error) {
+           [wself.ordorImage setImage:image];
+        }
+        
+    }];
+    
+}
+
+/**上传订单*/
+- (void)uploadImage:(NSMutableDictionary *)dict andImage:(UIImage *)image{
+    
+    self.backImage = image;
+    self.dataDic = dict;
+    LWLog(@"%@",dict);
+    
+    self.ordorImage.image = image;
+}
 #pragma mark - Table view data source
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (indexPath.row == 6) {
+        UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+        __weak typeof(self) wself = self;
+        UIAlertAction * ac1 = [UIAlertAction actionWithTitle:@"未成交" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [wself setsetlect:0];
+        }];
+        [alertVC addAction:ac1];
+        
+        UIAlertAction * ac2 = [UIAlertAction actionWithTitle:@"成交" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [wself setsetlect:1];
+        }];
+        [alertVC addAction:ac2];
+        
+        UIAlertAction * ac3 = [UIAlertAction actionWithTitle:@"退单" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [wself setsetlect:2];
+        }];
+        [alertVC addAction:ac3];
+        
+        UIAlertAction * ac4 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDestructive handler:nil];
+        [alertVC addAction:ac4];
+        [self presentViewController:alertVC animated:YES completion:nil];
+    }
+    
+    
+}
+
+
+- (void)setsetlect:(int) status{
+    if (status == 0) {//未成交
+        self.status = 0;
+        self.said.text = @"未成交";
+        self.saveButton.hidden = YES;
+        self.postButton.hidden = YES;
+    }else if(status == 1){//成交
+        self.status = 1;
+        self.said.text = @"成交";
+        self.saveButton.hidden = NO;
+        self.postButton.hidden = NO;
+    }else{//退单
+        self.status = 2;
+        self.said.text = @"退单";
+        self.saveButton.hidden = NO;
+        self.postButton.hidden = YES;
+    }
+    
+}
+
+
+- (IBAction)saveBtnClick:(id)sender {
+    
+    LWLog(@"xxxxx");
+    
+    //order/UploadSuccessVoucher
+    [self updateOrder];
+    [self UploadSuccessVoucher];
+}
+
+
+- (void)updateOrder{
+    
+    
+    NSMutableDictionary *parme = [NSMutableDictionary dictionary];
+    parme[@"orderId"] = self.model.orderId;
+    parme[@"status"] = @(self.status);
+    
+    [HTMyContainAFN AFN:@"order/update" with:parme Success:^(NSDictionary *responseObject) {
+        LWLog(@"%@", responseObject);
+        if ([responseObject[@"status"] intValue] == 200) {
+            [self showRightWithTitle:responseObject[@"statusText"] autoCloseTime:1];
+                   }
+        
+    } failure:^(NSError *error) {
+        LWLog(@"%@",error);
+    }];
+
+}
+
+- (void)UploadSuccessVoucher{
+
+    NSMutableDictionary *parme = [NSMutableDictionary dictionary];
+    parme[@"orderId"] = self.model.orderId;
+    parme[@"customer"] = self.dataDic[@"customer"];
+    parme[@"mobile"] = self.dataDic[@"mobile"];
+    parme[@"price"] = self.dataDic[@"price"];
+    parme[@"memo"] = self.dataDic[@"memo"];
+    [HTMyContainAFN AFNUpLoadImage:@"order/UploadSuccessVoucher" with:parme andImage:self.backImage Success:^(NSDictionary *responseObject) {
+        LWLog(@"%@", responseObject);
+    } failure:^(NSError *error) {
+        LWLog(@"%@", error);
+    }];
+ 
+}
+
 
 //- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 //#warning Incomplete implementation, return the number of sections

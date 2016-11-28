@@ -122,6 +122,7 @@
 		EF30AC351DE81A1D006EA853 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EF30AC341DE81A1D006EA853 /* libstdc++.tbd */; };
 		EF30AC371DE81A28006EA853 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF30AC361DE81A28006EA853 /* JavaScriptCore.framework */; };
 		EF30AC391DE81A3A006EA853 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EF30AC381DE81A3A006EA853 /* libsqlite3.tbd */; };
+		EF35F6B51DEC1AF400A43BEB /* OrderDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EF35F6B41DEC1AF400A43BEB /* OrderDetailModel.m */; };
 		EF3A2F6D1DDC85B60080F9A6 /* SexPick.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3A2F6C1DDC85B60080F9A6 /* SexPick.m */; };
 		EF3A2F6F1DDC85C10080F9A6 /* SexPick.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF3A2F6E1DDC85C10080F9A6 /* SexPick.xib */; };
 		EF4103D11DDDCF7C008F79A0 /* CircleBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4103CF1DDDCF7C008F79A0 /* CircleBannerView.m */; };
@@ -393,6 +394,8 @@
 		EF30AC341DE81A1D006EA853 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		EF30AC361DE81A28006EA853 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		EF30AC381DE81A3A006EA853 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		EF35F6B31DEC1AF400A43BEB /* OrderDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailModel.h; sourceTree = "<group>"; };
+		EF35F6B41DEC1AF400A43BEB /* OrderDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDetailModel.m; sourceTree = "<group>"; };
 		EF3A2F6B1DDC85B60080F9A6 /* SexPick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SexPick.h; sourceTree = "<group>"; };
 		EF3A2F6C1DDC85B60080F9A6 /* SexPick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SexPick.m; sourceTree = "<group>"; };
 		EF3A2F6E1DDC85C10080F9A6 /* SexPick.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SexPick.xib; sourceTree = "<group>"; };
@@ -1109,6 +1112,8 @@
 				EF164BF81DE5763100ED3E41 /* DuiHuanModel.m */,
 				EFCB52261DE6DFD1002423C0 /* CashModel.h */,
 				EFCB52271DE6DFD1002423C0 /* CashModel.m */,
+				EF35F6B31DEC1AF400A43BEB /* OrderDetailModel.h */,
+				EF35F6B41DEC1AF400A43BEB /* OrderDetailModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -1806,6 +1811,7 @@
 				EFFBC3851DE435F6006D2A96 /* LKNotificationManager.m in Sources */,
 				EFA97D811DE3F83D00A48B39 /* MenDouBeanExchageLists.m in Sources */,
 				EF164BFC1DE5805200ED3E41 /* WKCookieSyncManager.m in Sources */,
+				EF35F6B51DEC1AF400A43BEB /* OrderDetailModel.m in Sources */,
 				60C230D61DC07C9500E0CD11 /* UserInfoTableViewController.m in Sources */,
 				6033D7AA1DBB47B000B9B4DA /* HomeMengzhuTableViewCell.m in Sources */,
 				60C230D31DC0527D00E0CD11 /* IntegralTableViewController.m in Sources */,
