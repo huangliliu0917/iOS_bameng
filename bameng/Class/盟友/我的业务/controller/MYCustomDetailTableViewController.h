@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CustomInfomationModel.h"
 
-@interface MYCustomDetailTableViewController : UITableViewController
+@interface MYCustomDetailTableViewController : MyTableViewController
 
 
 

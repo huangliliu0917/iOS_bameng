@@ -40,7 +40,6 @@
 		60764AF41DB8937A0061CC6C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60764AF31DB8937A0061CC6C /* ViewController.m */; };
 		60764AF71DB8937A0061CC6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60764AF51DB8937A0061CC6C /* Main.storyboard */; };
 		60764AF91DB8937A0061CC6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60764AF81DB8937A0061CC6C /* Assets.xcassets */; };
-		60764AFC1DB8937A0061CC6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60764AFA1DB8937A0061CC6C /* LaunchScreen.storyboard */; };
 		60764B071DB8937A0061CC6C /* bamengTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60764B061DB8937A0061CC6C /* bamengTests.m */; };
 		60764B121DB8937A0061CC6C /* bamengUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60764B111DB8937A0061CC6C /* bamengUITests.m */; };
 		608B72AC1DCC209600378B5B /* VersionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 608B72AB1DCC209600378B5B /* VersionModel.m */; };
@@ -126,6 +125,8 @@
 		EF3A2F6D1DDC85B60080F9A6 /* SexPick.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3A2F6C1DDC85B60080F9A6 /* SexPick.m */; };
 		EF3A2F6F1DDC85C10080F9A6 /* SexPick.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF3A2F6E1DDC85C10080F9A6 /* SexPick.xib */; };
 		EF4103D11DDDCF7C008F79A0 /* CircleBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4103CF1DDDCF7C008F79A0 /* CircleBannerView.m */; };
+		EF4FB99F1DED777D00A70DCB /* MBProgressHUD+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4FB99B1DED777D00A70DCB /* MBProgressHUD+MJ.m */; };
+		EF4FB9A01DED777D00A70DCB /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EF4FB99C1DED777D00A70DCB /* MBProgressHUD.bundle */; };
 		EF785E4E1DDEB0A7002872B9 /* LiuXSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF785E4D1DDEB0A7002872B9 /* LiuXSegmentView.m */; };
 		EF785E511DDEB0C1002872B9 /* HomeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF785E501DDEB0C1002872B9 /* HomeListViewController.m */; };
 		EF8476481DE299D0007453AC /* MyOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF8476471DE299D0007453AC /* MyOrderViewController.m */; };
@@ -251,7 +252,6 @@
 		60764AF31DB8937A0061CC6C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		60764AF61DB8937A0061CC6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		60764AF81DB8937A0061CC6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		60764AFB1DB8937A0061CC6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		60764AFD1DB8937A0061CC6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		60764B021DB8937A0061CC6C /* bamengTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bamengTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		60764B061DB8937A0061CC6C /* bamengTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = bamengTests.m; sourceTree = "<group>"; };
@@ -401,6 +401,9 @@
 		EF3A2F6E1DDC85C10080F9A6 /* SexPick.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SexPick.xib; sourceTree = "<group>"; };
 		EF4103CF1DDDCF7C008F79A0 /* CircleBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleBannerView.m; sourceTree = "<group>"; };
 		EF4103D01DDDCF7C008F79A0 /* CircleBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleBannerView.h; sourceTree = "<group>"; };
+		EF4FB99A1DED777D00A70DCB /* MBProgressHUD+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+MJ.h"; sourceTree = "<group>"; };
+		EF4FB99B1DED777D00A70DCB /* MBProgressHUD+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+MJ.m"; sourceTree = "<group>"; };
+		EF4FB99C1DED777D00A70DCB /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		EF785E4C1DDEB0A7002872B9 /* LiuXSegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiuXSegmentView.h; sourceTree = "<group>"; };
 		EF785E4D1DDEB0A7002872B9 /* LiuXSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiuXSegmentView.m; sourceTree = "<group>"; };
 		EF785E4F1DDEB0C1002872B9 /* HomeListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeListViewController.h; sourceTree = "<group>"; };
@@ -897,7 +900,6 @@
 				60764AF31DB8937A0061CC6C /* ViewController.m */,
 				60764AF51DB8937A0061CC6C /* Main.storyboard */,
 				60764AF81DB8937A0061CC6C /* Assets.xcassets */,
-				60764AFA1DB8937A0061CC6C /* LaunchScreen.storyboard */,
 				60764AFD1DB8937A0061CC6C /* Info.plist */,
 				60764AEC1DB8937A0061CC6C /* Supporting Files */,
 			);
@@ -1224,6 +1226,16 @@
 			path = Required;
 			sourceTree = "<group>";
 		};
+		EF4FB9991DED777D00A70DCB /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				EF4FB99A1DED777D00A70DCB /* MBProgressHUD+MJ.h */,
+				EF4FB99B1DED777D00A70DCB /* MBProgressHUD+MJ.m */,
+				EF4FB99C1DED777D00A70DCB /* MBProgressHUD.bundle */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
 		EFA5D7E41DDC07EB00962D77 /* 自定义ActionSheet */ = {
 			isa = PBXGroup;
 			children = (
@@ -1236,6 +1248,7 @@
 		EFDD904F1DD5710A00764E7A /* 第三方 */ = {
 			isa = PBXGroup;
 			children = (
+				EF4FB9991DED777D00A70DCB /* MBProgressHUD */,
 				EF30AC0C1DE81806006EA853 /* ShareSDK */,
 				EF30ABF51DE7189B006EA853 /* ProgrameView */,
 				EFFBC3481DE435F6006D2A96 /* pv */,
@@ -1566,7 +1579,6 @@
 				EFFBC38A1DE435F6006D2A96 /* lkbubble2.jpg in Resources */,
 				EFFBC3871DE435F6006D2A96 /* icon.png in Resources */,
 				60F390371DC0A95C00FFCBF3 /* ExchangeListTableViewCell.xib in Resources */,
-				60764AFC1DB8937A0061CC6C /* LaunchScreen.storyboard in Resources */,
 				60362BF51DBB3B2F00A58D4D /* InfoPlist.strings in Resources */,
 				EFFBC3831DE435F6006D2A96 /* LKNotification.gif in Resources */,
 				60FC8A901DBD9ED9009612C1 /* UntreatedTableViewCell.xib in Resources */,
@@ -1579,6 +1591,7 @@
 				60979D7A1DC3471100B9E858 /* MengZhuInfomationSmallTableViewCell.xib in Resources */,
 				EF30AC2C1DE81806006EA853 /* README.txt in Resources */,
 				60979D751DC346F500B9E858 /* MengZhuInfomationBigTableViewCell.xib in Resources */,
+				EF4FB9A01DED777D00A70DCB /* MBProgressHUD.bundle in Resources */,
 				60F390431DC0DAE700FFCBF3 /* MyBusinessTableViewCell.xib in Resources */,
 				EF1C23481DDC579D003DBFA9 /* SaveCanclePickView.xib in Resources */,
 				603A39CC1DB9EEBB00DC1ADA /* HomeHeadView.xib in Resources */,
@@ -1835,6 +1848,7 @@
 				EFA97D841DE4190000A48B39 /* MainNavViewController.m in Sources */,
 				60D18DF61DC1E0B200E0C839 /* CashCouponTableViewCell.m in Sources */,
 				60EF5FBB1DC765E400ADBEA7 /* MengYouTabbarViewController.m in Sources */,
+				EF4FB99F1DED777D00A70DCB /* MBProgressHUD+MJ.m in Sources */,
 				EFA5D7EA1DDC0CE000962D77 /* pickView.m in Sources */,
 				EFFBC37C1DE435F6006D2A96 /* NSString+LK.m in Sources */,
 				606C37571DC326FF009F668E /* AllyInfomationTableViewController.m in Sources */,
@@ -1911,14 +1925,6 @@
 				60764AF61DB8937A0061CC6C /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		60764AFA1DB8937A0061CC6C /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				60764AFB1DB8937A0061CC6C /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

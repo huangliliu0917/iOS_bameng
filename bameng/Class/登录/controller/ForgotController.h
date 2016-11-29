@@ -9,10 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ForgotController : MyViewController
-@property (strong, nonatomic) IBOutlet UITextField *phoneField;
-@property (strong, nonatomic) IBOutlet UITextField *captchaField;
-@property (strong, nonatomic) IBOutlet UITextField *password;
-@property (strong, nonatomic) IBOutlet UIImageView *showAndHidden;
-@property (strong, nonatomic) IBOutlet UIButton *saveButton;
 
 @end

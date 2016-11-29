@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AllyInfomationTableViewController : UITableViewController
+@interface AllyInfomationTableViewController : MyTableViewController
 
 @property (nonatomic, strong) UserModel *mengYouModel;
 @property (strong, nonatomic) IBOutlet UIImageView *headImage;

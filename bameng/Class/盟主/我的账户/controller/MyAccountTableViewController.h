@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MyAccountTableViewController : UITableViewController
+@interface MyAccountTableViewController : MyTableViewController
 @property (strong, nonatomic) IBOutlet UIImageView *headImage;
 @property (strong, nonatomic) IBOutlet UILabel *nickName;
 @property (strong, nonatomic) IBOutlet UILabel *Level;

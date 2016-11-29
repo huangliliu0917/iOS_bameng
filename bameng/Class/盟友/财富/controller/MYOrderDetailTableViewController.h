@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MYOrderDetailTableViewController : UITableViewController
+@interface MYOrderDetailTableViewController : MyTableViewController
 
 @end

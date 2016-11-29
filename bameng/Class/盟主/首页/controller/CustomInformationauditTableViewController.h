@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CustomInformationauditTableViewController : UITableViewController
+@interface CustomInformationauditTableViewController : MyTableViewController
 
 @end

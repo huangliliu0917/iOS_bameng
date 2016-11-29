@@ -26,6 +26,33 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+- (IBAction)sendMessage:(id)sender {
+    
+    if (self.titleLabel.text.length == 0) {
+        [SVProgressHUD showErrorWithStatus:@"请输入标题"];
+        return;
+    }else if (self.content.text.length == 0) {
+        [SVProgressHUD showErrorWithStatus:@"请输入咨询内容"];
+        return;
+    }else {
+        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+        dic[@"title"] = self.titleLabel.text;
+        dic[@"content"] = self.content.text;
+        dic[@"ids"] = @"";
+        [HTMyContainAFN AFN:@"article/create" with:dic Success:^(NSDictionary *responseObject) {
+            LWLog(@"user/allylist：%@",responseObject);
+            if ([responseObject[@"status"] intValue] == 200) {
+                [self showRightWithTitle:@"发送成功" autoCloseTime:1.5];
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+            [self.tableView.mj_header endRefreshing];
+        } failure:^(NSError *error) {
+            LWLog(@"%@", error);
+            [self.tableView.mj_header endRefreshing];
+        }];
+    }
+
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

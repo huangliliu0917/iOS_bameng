@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BusinessTableViewController : UITableViewController
+@interface BusinessTableViewController : MyTableViewController
 
 @end

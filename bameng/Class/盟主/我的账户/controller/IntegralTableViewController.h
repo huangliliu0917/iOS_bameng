@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface IntegralTableViewController : UITableViewController
+@interface IntegralTableViewController : MyTableViewController
 
 @end

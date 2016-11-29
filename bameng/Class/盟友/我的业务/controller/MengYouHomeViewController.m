@@ -252,6 +252,8 @@ static NSString *mengYouHomeIdentify = @"mengYouHomeIdentify";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    [tableView tableViewDisplayWitMsg:nil ifNecessaryForRowCount:self.dataLists.count];
     return self.dataLists.count;
 }
 

@@ -27,7 +27,7 @@
 
 
 /**当前展示的控制器*/
-@property (nonatomic,strong) MyViewController * currentVc;
+@property (nonatomic,strong) UIViewController * currentVc;
 
 
 @end

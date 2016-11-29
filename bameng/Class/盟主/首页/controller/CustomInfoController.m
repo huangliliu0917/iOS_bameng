@@ -372,18 +372,21 @@ static NSString *processedIdentify = @"processedIdentify";
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    [tableView tableViewDisplayWitMsg:nil ifNecessaryForRowCount:self.customList.count];
     return self.customList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    
+    LWLog(@"%ld",(long)self.selectPage);
     if (self.selectPage == 1) {
         if (self.type == 1) {
             UntreatedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:untreatedIdentify forIndexPath:indexPath];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             CustomInfomationModel * model = self.customList[indexPath.row];
             cell.customModel = model;
+            
             cell.selectPage = self.selectPage;
             __weak typeof(self) weakSelf = self;
             [cell setDidSelectCustomInfo:^(BOOL isAgree) {

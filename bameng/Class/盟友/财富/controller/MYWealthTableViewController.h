@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MYWealthTableViewController : UITableViewController
+@interface MYWealthTableViewController : MyTableViewController
 
 @end

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SettingTableViewController : UITableViewController
+@interface SettingTableViewController : MyTableViewController
 @property (strong, nonatomic) IBOutlet UITableView *logOutView;
 @property (strong, nonatomic) IBOutlet UIButton *logOutButton;
 

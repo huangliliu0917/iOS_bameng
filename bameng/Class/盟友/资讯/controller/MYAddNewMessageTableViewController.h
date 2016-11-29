@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MYAddNewMessageTableViewController : UITableViewController
+@interface MYAddNewMessageTableViewController : MyTableViewController
 
 @end

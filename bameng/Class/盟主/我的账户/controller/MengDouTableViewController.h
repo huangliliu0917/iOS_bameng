@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MengDouTableViewController : UITableViewController
+@interface MengDouTableViewController : MyTableViewController
 
 @end

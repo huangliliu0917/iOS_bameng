@@ -18,7 +18,7 @@
 
 @end
 
-@interface PostOrderTableViewController : UITableViewController
+@interface PostOrderTableViewController : MyTableViewController
 
 @property(nonatomic,strong) OrderInfoModel * model;
 

@@ -10,6 +10,7 @@
 #import "MengzhuTabbarController.h"
 #import "MengYouTabbarViewController.h"
 #import "AppDelegate.h"
+#import "ForgotController.h"
 
 
 @interface LoginController ()
@@ -24,12 +25,46 @@
     self.loginButton.layer.masksToBounds = YES;
     self.loginButton.layer.cornerRadius = 5;
     
+    
+    [self setupInit];
+    
+    
     if(self.isReachable){
         LWLog(@"有网");
     }else{
         LWLog(@"没网");
     }
 }
+
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+
+    
+    NSString * pass = [[NSUserDefaults standardUserDefaults]objectForKey:@"passwd"];
+    if (pass.length) {
+        self.password.text = pass;
+    }
+}
+
+- (void)setupInit{
+    self.forgetButton.userInteractionEnabled = YES;
+    UITapGestureRecognizer * ges = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(forgetPasswd)];
+    [self.forgetButton addGestureRecognizer:ges];
+    
+}
+
+
+- (void)forgetPasswd{
+    
+    
+    LWLog(@"xxx");
+    ForgotController * fg = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ForgotController"];
+    [self.navigationController pushViewController:fg animated:YES];
+    
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -42,6 +77,7 @@
     NSString *phoneText = self.phone.text;
     NSString *passwordText = self.password.text;
     
+    [self.view endEditing:YES];
     if (phoneText.length == 0) {
         [SVProgressHUD showErrorWithStatus:@"请输入账号"];
     }else if (passwordText.length == 0) {
@@ -75,7 +111,6 @@
                 
                 
             }
-            
         } failure:^(NSError *error) {
             LWLog(@"%@",error);
         }];

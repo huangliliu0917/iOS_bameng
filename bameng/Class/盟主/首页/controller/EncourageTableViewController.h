@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EncourageTableViewController : UITableViewController
+@interface EncourageTableViewController : MyTableViewController
 @property (strong, nonatomic) IBOutlet UIButton *saveButton;
 @property (strong, nonatomic) IBOutlet UITextField *customLabel;
 @property (strong, nonatomic) IBOutlet UITextField *successMengDou;

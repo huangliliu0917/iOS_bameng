@@ -8,7 +8,9 @@
 
 #import "HTMyContainAFN.h"
 #import "AsignLibrary.h"
-
+#import "AppDelegate.h"
+#import "LoginController.h"
+#import "MainNavViewController.h"
 
 @implementation HTMyContainAFN
 
@@ -27,14 +29,36 @@
 
     [manager POST:[NSString stringWithFormat:@"%@%@", MainUrl ,url] parameters:parame progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable responseObject) {
         
-        success(responseObject);
+        if([responseObject[@"status"] intValue] == 200){
+            success(responseObject);
+        }else if([responseObject[@"status"] intValue] == 70035){
+
+            [self showLogginOut:responseObject[@"statusText"]];
+        }else{
+            [MBProgressHUD showError:responseObject[@"statusText"]];
+        }
+        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
 
         failure(error);
+        [MBProgressHUD showError:@"服务器开小差了"];
     }];
     
 }
 
++ (void)showLogginOut:(NSString *)tip{
+    
+    AppDelegate * appde = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:@"帐号异常" message:tip preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction * ac = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        LoginController *login = [story instantiateViewControllerWithIdentifier:@"LoginController"];
+        MainNavViewController * nav = [[MainNavViewController alloc] initWithRootViewController:login];
+        [UIApplication sharedApplication].keyWindow.rootViewController = nav;
+    }];
+    [alertVC addAction:ac];
+    [appde.currentVc presentViewController:alertVC animated:YES completion:nil];
+}
 
 + (void)AFNUpLoadImage:(NSString * )url with:(NSMutableDictionary *)parames andImage:(UIImage *)pic Success:(void (^)(NSDictionary  *responseObject))success failure:(void (^)(NSError *  error))failure{
     
@@ -57,9 +81,17 @@
     } progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        success(responseObject);
+        if([responseObject[@"status"] intValue] == 200){
+            success(responseObject);
+        }else if([responseObject[@"status"] intValue] == 70035){
+            
+            [self showLogginOut:responseObject[@"statusText"]];
+        }else{
+            [MBProgressHUD showError:responseObject[@"statusText"]];
+        }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failure(error);
+        [MBProgressHUD showError:@"服务器开小差了"];
     }];
     
 }

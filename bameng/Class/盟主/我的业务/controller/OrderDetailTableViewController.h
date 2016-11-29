@@ -10,7 +10,7 @@
 #import "OrderInfoModel.h"
 
 
-@interface OrderDetailTableViewController : UITableViewController
+@interface OrderDetailTableViewController : MyTableViewController
 
 
 @property(nonatomic,strong) OrderInfoModel * model;

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SubmitUserInfoTableViewController : UITableViewController
+@interface SubmitUserInfoTableViewController : MyTableViewController
 
 @end

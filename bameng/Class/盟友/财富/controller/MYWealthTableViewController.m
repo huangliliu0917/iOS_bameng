@@ -15,6 +15,7 @@
 #import "CashCouponViewController.h"
 #import "MyBusinessViewController.h"
 #import "MyOrderViewController.h"
+#import "UserInfoTableViewController.h"
 
 @interface MYWealthTableViewController ()
 @property (strong, nonatomic) IBOutlet UIImageView *icon;
@@ -73,8 +74,18 @@
     UserModel * user =  [UserModel GetUserModel];
     
     
-    [self.icon sd_setImageWithURL:[NSURL URLWithString:user.UserHeadImg] placeholderImage:[UIImage imageNamed:@"mrtx"]];
-    self.name.text = user.RealName;
+    //[]
+    [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:user.UserHeadImg] options:SDWebImageRetryFailed progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+        
+        if (!error) {
+            [self.icon setImage:image];
+        }else{
+            [self.icon setImage:[UIImage imageNamed:@"mrtx"]];
+        }
+        
+    }];
+    
+    self.name.text = user.NickName;
     self.leveLable.text = user.LevelName;
     
     self.mengdouLabel.text = [NSString stringWithFormat:@"%@",user.MengBeans];
@@ -111,6 +122,12 @@
     }
     if (indexPath.section == 1 && indexPath.row == 2) {
         [self signIn];
+    }
+    
+    if (indexPath.section == 1 && indexPath.row == 3) {
+        UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
+        UserInfoTableViewController *user = [story instantiateViewControllerWithIdentifier:@"UserInfoTableViewController"];
+        [self.navigationController pushViewController:user animated:YES];
     }
 }
 

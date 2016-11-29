@@ -77,8 +77,19 @@
     self.tabBarController.tabBar.hidden = NO;
     UserModel * user = [UserModel GetUserModel];
     
-    LWLog(@"%@",user.UserHeadImg);
-    [self.headImage sd_setImageWithURL:[NSURL URLWithString:user.UserHeadImg] placeholderImage:[UIImage imageNamed:@"mrtx"]];
+    LWLog(@"%@",[user mj_keyValues]);
+    
+    
+    [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:user.UserHeadImg] options:SDWebImageRetryFailed progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+       
+        if (!error) {
+            [self.headImage setImage:image];
+        }else{
+            [self.headImage setImage:[UIImage imageNamed:@"mrtx"]];
+        }
+    }];
+    
+    
     
     self.headImage.layer.cornerRadius = self.headImage.frame.size.width / 2;
     self.headImage.layer.masksToBounds = YES;

@@ -76,6 +76,16 @@
 //    self
 }
 
+
+- (void)setCustomModel:(CustomInfomationModel *)customModel{
+    _customModel = customModel;
+    
+    LWLog(@"%@",[customModel mj_keyValues]);
+    self.name.text = customModel.Name;
+    self.phone.text = [NSString stringWithFormat:@"%@",customModel.Mobile];
+    self.reviewLabel.text = @"未处理";
+}
+
 - (void)setSelectPage:(NSInteger)selectPage{
     _selectPage = selectPage;
     if (_selectPage == 1) {

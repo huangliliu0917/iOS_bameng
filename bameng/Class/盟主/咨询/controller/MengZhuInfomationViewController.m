@@ -109,9 +109,9 @@ static NSString *infomationIdentify = @"infomationIdentify";
     
     
     
+    [self.table.mj_header beginRefreshing];
     
-    
-    [self getNewZiXunList];
+//    [self getNewZiXunList];
 }
 
 //设置选择点击事件

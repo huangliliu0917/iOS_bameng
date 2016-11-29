@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DaijiesuanTableViewController : UITableViewController
+@interface DaijiesuanTableViewController : MyTableViewController
 
 @end

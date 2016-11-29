@@ -36,12 +36,13 @@
 #import <ShareSDK/ShareSDK.h>
 #import <ShareSDKConnector/ShareSDKConnector.h>
 #import "WXApi.h"
-
+#import "MyTableViewController.h"
+#import "MBProgressHUD+MJ.h"
 
 
 /*** 接口地址以及签名参数 ***/
 #ifdef DEBUG
-#define MainUrl @"http://bmapi.fancat.cn/"
+#define MainUrl @"http://bmapi.guo.fancat.cn/"
 #define MainUrlScreate @"BAMEENG20161021"
 #else
 #define MainUrl @"http://bmapi.fancat.cn/"

@@ -59,10 +59,13 @@
 - (void)sendMessage {
     if (self.titleField.text.length == 0) {
         [SVProgressHUD showErrorWithStatus:@"请输入标题"];
+        return;
     }else if (self.content.text.length == 0) {
         [SVProgressHUD showErrorWithStatus:@"请输入咨询内容"];
+        return;
     }else if (self.userIds.length == 0) {
         [SVProgressHUD showErrorWithStatus:@"请选择盟友"];
+        return;
     }else {
         NSMutableDictionary *dic = [NSMutableDictionary dictionary];
         dic[@"title"] = self.titleField.text;
