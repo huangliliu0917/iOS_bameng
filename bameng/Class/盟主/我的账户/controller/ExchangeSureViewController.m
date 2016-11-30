@@ -12,6 +12,9 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *changBean;
 
+@property (weak, nonatomic) IBOutlet UILabel *firstLabel;
+@property (weak, nonatomic) IBOutlet UILabel *secondLable;
+
 @end
 
 @implementation ExchangeSureViewController
@@ -21,6 +24,22 @@
     // Do any additional setup after loading the view.
     
     self.changBean.delegate = self;
+    self.navigationItem.title = @"兑换";
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+ 
+    __weak typeof(self)wself = self;
+    NSMutableDictionary *parme = [NSMutableDictionary dictionary];
+    [HTMyContainAFN AFN:@"user/AlreadyConvertTotal" with:parme Success:^(NSDictionary *responseObject) {
+        LWLog(@"%@",responseObject);
+        wself.firstLabel.text = [NSString stringWithFormat:@"%@",responseObject[@"data"][@"mengBeansCount"]];
+        wself.secondLable.text = [NSString stringWithFormat:@"%@",responseObject[@"data"][@"alreadyConverCount"]];
+    } failure:^(NSError *error) {
+        LWLog(@"%@",error);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

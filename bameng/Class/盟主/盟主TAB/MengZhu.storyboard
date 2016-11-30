@@ -3312,9 +3312,9 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tYo-Z4-t9c">
-                                <rect key="frame" x="15" y="365" width="345" height="27"/>
+                                <rect key="frame" x="15" y="365" width="345" height="36"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="兑换记录">
                                     <color key="titleColor" red="0.58039215686274515" green="0.58431372549019611" blue="0.58823529411764708" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -3342,11 +3342,13 @@
                     <navigationItem key="navigationItem" id="0zZ-On-OiD"/>
                     <connections>
                         <outlet property="changBean" destination="I5v-kh-6rh" id="fXz-uG-7ez"/>
+                        <outlet property="firstLabel" destination="ZYT-yZ-rqk" id="87e-3b-77R"/>
+                        <outlet property="secondLable" destination="rjm-RJ-nWn" id="MeO-QY-L6K"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ShM-aD-Wgk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-388" y="1839"/>
+            <point key="canvasLocation" x="-642" y="1783"/>
         </scene>
         <!--兑换记录-->
         <scene sceneID="zvJ-d5-u8F">

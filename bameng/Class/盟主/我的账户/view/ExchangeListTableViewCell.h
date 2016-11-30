@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MenDouBeanExchageLists.h"
 
 @interface ExchangeListTableViewCell : UITableViewCell
 
+@property(nonatomic,strong) MenDouBeanExchageLists * model;
 @end

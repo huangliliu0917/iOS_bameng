@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11535.1" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11761" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11523"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -70,6 +70,12 @@
                     <constraint firstItem="bdz-Kk-H74" firstAttribute="leading" secondItem="RYg-Mf-czR" secondAttribute="trailing" constant="11" id="wJ8-R9-wqq"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="InOrOut" destination="bdz-Kk-H74" id="1Cm-Xh-Apc"/>
+                <outlet property="exchangeMenDou" destination="6XY-Pf-dQc" id="yaw-K8-nuL"/>
+                <outlet property="statusLable" destination="pnW-8e-0zn" id="xZj-YZ-XiK"/>
+                <outlet property="timeLable" destination="JM3-Lw-V2p" id="wOG-sN-a3s"/>
+            </connections>
         </tableViewCell>
     </objects>
     <resources>

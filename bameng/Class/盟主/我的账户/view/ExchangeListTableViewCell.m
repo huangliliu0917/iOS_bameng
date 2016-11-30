@@ -8,6 +8,15 @@
 
 #import "ExchangeListTableViewCell.h"
 
+@interface ExchangeListTableViewCell ()
+@property (weak, nonatomic) IBOutlet UILabel *InOrOut;
+
+@property (weak, nonatomic) IBOutlet UILabel *timeLable;
+@property (weak, nonatomic) IBOutlet UILabel *exchangeMenDou;
+@property (weak, nonatomic) IBOutlet UILabel *statusLable;
+
+@end
+
 @implementation ExchangeListTableViewCell
 
 - (void)awakeFromNib {
@@ -21,4 +30,17 @@
     // Configure the view for the selected state
 }
 
+
+- (void)setModel:(MenDouBeanExchageLists *)model{
+    _model = model;
+    
+    self.exchangeMenDou.text = [NSString stringWithFormat:@"%@",model.money];
+    self.timeLable.text = model.time;
+    
+    if (!model.status) {
+        self.statusLable.text = @"审核中";
+    }else{
+       self.statusLable.text = @"已通过";
+    }
+}
 @end
