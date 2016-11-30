@@ -11,7 +11,7 @@
 @interface MenDouBeanExchageLists : NSObject
 
 @property(nonatomic,assign) int ID;
-@property(nonatomic,assign) long  money;
+@property(nonatomic,strong) NSNumber *  money;
 @property(nonatomic,copy) NSString  * remark;
 /**0支出，1收入*/
 @property(nonatomic,assign) int status;

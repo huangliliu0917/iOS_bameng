@@ -104,15 +104,19 @@ static char TimerKey;
 
 #pragma mark - 加载视图
 - (void)initSubviews {
-    [self addSubview:self.bannerCollectionView];
-    [self addSubview:self.pageControl];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_bannerCollectionView]-0-|" options:0 metrics:0 views:NSDictionaryOfVariableBindings(_bannerCollectionView)]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[_bannerCollectionView]-0-|" options:0 metrics:0 views:NSDictionaryOfVariableBindings(_bannerCollectionView)]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_pageControl]-10-|" options:0 metrics:0 views:NSDictionaryOfVariableBindings(_pageControl)]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_pageControl]-0-|" options:0 metrics:0 views:NSDictionaryOfVariableBindings(_pageControl)]];
-    self.scrollEnabled = YES;
-    self.interval = 0.0;
-    self.scrollDirection = CircleBannerViewScrollDirectionHorizontal;
+    
+    
+        [self addSubview:self.bannerCollectionView];
+        [self addSubview:self.pageControl];
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_bannerCollectionView]-0-|" options:0 metrics:0 views:NSDictionaryOfVariableBindings(_bannerCollectionView)]];
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[_bannerCollectionView]-0-|" options:0 metrics:0 views:NSDictionaryOfVariableBindings(_bannerCollectionView)]];
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_pageControl]-10-|" options:0 metrics:0 views:NSDictionaryOfVariableBindings(_pageControl)]];
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_pageControl]-0-|" options:0 metrics:0 views:NSDictionaryOfVariableBindings(_pageControl)]];
+        self.scrollEnabled = YES;
+        self.interval = 0.0;
+        self.scrollDirection = CircleBannerViewScrollDirectionHorizontal;
+   
+    
 }
 
 #pragma mark - 计时器

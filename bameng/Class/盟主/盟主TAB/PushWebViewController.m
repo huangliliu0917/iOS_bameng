@@ -150,11 +150,11 @@
 }
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    if([self.delegate respondsToSelector:@selector(ZhiXunRefresh)]){
+        [self.delegate ZhiXunRefresh];
+    }
 }
-
-
 
 @end

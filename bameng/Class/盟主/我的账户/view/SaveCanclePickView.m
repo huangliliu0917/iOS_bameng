@@ -25,6 +25,7 @@
    SaveCanclePickView * view =  [[[NSBundle mainBundle] loadNibNamed:@"SaveCanclePickView" owner:nil options:nil] lastObject];
     CGRect fram = view.frame;
     fram.size.width = KScreenWidth;
+    view.frame = fram;
     return view;
 }
 

@@ -8,9 +8,23 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol PushWebViewControllerDelegate <NSObject>
+
+/**
+ 资讯刷新
+ */
+- (void) ZhiXunRefresh;
+
+
+@end
+
+
 @interface PushWebViewController : MyViewController
 
 @property (nonatomic ,strong) NSString *openUrl;
+
+
+@property (weak,nonatomic) id <PushWebViewControllerDelegate> delegate;
 
 
 @end

@@ -9,7 +9,7 @@
 #import "NewOrderTableViewController.h"
 #import "TZImagePickerController.h"
 #import "AppDelegate.h"
-@interface NewOrderTableViewController ()<TZImagePickerControllerDelegate>
+@interface NewOrderTableViewController ()<TZImagePickerControllerDelegate,UITextFieldDelegate>
 
 /**客户姓名*/
 @property (weak, nonatomic) IBOutlet UITextField *customName;
@@ -42,6 +42,16 @@
 
 @implementation NewOrderTableViewController
 
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if (textField == self.phoneNum) {
+        if (textField.text.length > 10) return NO;
+    }
+    return YES;
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -50,7 +60,7 @@
     UITapGestureRecognizer * ges = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addImage)];
     self.addPicture.userInteractionEnabled = YES;
     [self.addPicture addGestureRecognizer:ges];
-    
+    self.phoneNum.delegate = self;
     
     self.orderPic.contentMode = UIViewContentModeScaleAspectFill;
     self.orderPic.clipsToBounds = YES;
@@ -119,6 +129,11 @@
       //  [SVProgressHUD showErrorWithStatus:@"现金券为空"];
        // return;
     //}
+    
+    if(!self.orderPic.image){
+        [MBProgressHUD showError:@"照片凭证不能为空"];
+        return;
+    }
     NSMutableDictionary * parame = [NSMutableDictionary dictionary];
     parame[@"userName"] = self.customName.text;
     parame[@"mobile"] = self.phoneNum.text;

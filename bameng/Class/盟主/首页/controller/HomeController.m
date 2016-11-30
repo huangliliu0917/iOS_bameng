@@ -376,6 +376,7 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
     
     __weak HomeController *wself = self;
     self.table.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self getCrircleList];
         [wself getNewZiXunList];
     }];
     

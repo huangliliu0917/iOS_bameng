@@ -12,6 +12,7 @@
 #import "NewOrderTableViewController.h"
 #import "CustomInfoController.h"
 #import "MengYouListViewController.h"
+#import "SubmitUserInfoTableViewController.h"
 
 #define pageSize 10
 
@@ -51,10 +52,18 @@
 
 - (void)setUpInit{
     
-    
+    __weak typeof(self) wself = self;
     // 1 客户信息  2 兑换审核  3 我的联盟
     if (self.selectPage == 1) {
         self.navigationItem.title = @"客户信息";
+        
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage imageNamed:@"tj"] style:UIBarButtonItemStylePlain handler:^(id sender) {
+                        UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
+                        SubmitUserInfoTableViewController *submit = [story instantiateViewControllerWithIdentifier:@"SubmitUserInfoTableViewController"];
+                        [wself.navigationController pushViewController:submit animated:YES];
+                    }];
+        
+            
     }else if(self.selectPage == 2){
         self.navigationItem.title = @"兑换审核";
     }else{

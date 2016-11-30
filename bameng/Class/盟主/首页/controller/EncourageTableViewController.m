@@ -9,7 +9,7 @@
 #import "EncourageTableViewController.h"
 
 @interface EncourageTableViewController ()
-
+@property(nonatomic,strong) UIButton * btn;
 @end
 
 @implementation EncourageTableViewController
@@ -30,16 +30,37 @@
     [self.view bk_whenTapped:^{
         [self.view endEditing:YES];
     }];
+    
+    UIButton * btn = [[UIButton alloc] initWithFrame:CGRectMake(0, KScreenHeight - 48, KScreenWidth, 48)];
+    _btn = btn;
+    [btn setBackgroundColor:LWColor(245, 77, 82)];
+    [btn setTitle:@"保存" forState:UIControlStateNormal];
+    [self.view.window addSubview:btn];
+    
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.tabBarController.tabBar.hidden = YES;
+    
     
     [self getMengYouEncourage];
+    
+   
+    
 }
 
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+//    btn.backgroundColor = [UIColor blueColor];
+}
 
+- (void) viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [_btn removeFromSuperview];
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -54,9 +75,12 @@
         if ([responseObject[@"status"] intValue] == 200) {
 
             LWLog(@"%@",responseObject);
-            self.customLabel.text = [NSString stringWithFormat:@"%@", responseObject[@"data"][@"CustomerReward"]];
-            self.successMengDou.text = [NSString stringWithFormat:@"%@", responseObject[@"data"][@"OrderReward"]];
-            self.inShopMengDou.text = [NSString stringWithFormat:@"%@", responseObject[@"data"][@"ShopReward"]];
+            if(responseObject[@"data"] ){
+                self.customLabel.text = [NSString stringWithFormat:@"%@", responseObject[@"data"][@"CustomerReward"]];
+                self.successMengDou.text = [NSString stringWithFormat:@"%@", responseObject[@"data"][@"OrderReward"]];
+                self.inShopMengDou.text = [NSString stringWithFormat:@"%@", responseObject[@"data"][@"ShopReward"]];
+                
+            }
         }
 
     } failure:^(NSError *error) {

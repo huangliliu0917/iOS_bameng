@@ -16,7 +16,7 @@
 #import "BMCircleModel.h"
 #import "PushWebViewController.h"
 
-@interface MengZhuInfomationViewController ()<UITableViewDelegate,UITableViewDataSource,CircleBannerViewDelegate>
+@interface MengZhuInfomationViewController ()<UITableViewDelegate,UITableViewDataSource,CircleBannerViewDelegate,PushWebViewControllerDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *table;
 @property (nonatomic, strong) CircleBannerView *circleView;
 @property (nonatomic, strong) NSMutableArray *circleList;
@@ -42,6 +42,10 @@
 @property (nonatomic, strong) NSMutableArray *articleList;
 @property (nonatomic, assign) NSInteger PageIndex;
 @property (nonatomic, assign) NSInteger PageSize;
+
+
+
+@property(nonatomic,strong)NSIndexPath * CurrentindexPath;
 
 @end
 
@@ -499,11 +503,32 @@ static NSString *infomationIdentify = @"infomationIdentify";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    self.CurrentindexPath = indexPath;
     BMInfomationModel *model = self.articleList[indexPath.row];
-    
     PushWebViewController *push = [[PushWebViewController alloc] init];
     push.openUrl = model.ArticleUrl;
+    if (self.type == 4 || self.type == 3){
+        push.delegate = self;
+    }
+    
     [self.navigationController pushViewController:push animated:YES];
+    
+
 }
 
+- (void) ZhiXunRefresh{
+    
+    
+    LWLog(@"%@",self.CurrentindexPath);
+    BMInfomationModel *model = self.articleList[self.CurrentindexPath.row];
+    if (!model.IsRead) {
+        model.IsRead = YES;
+        self.articleList[self.CurrentindexPath.row] = model;
+        LWLog(@"%lu",(unsigned long)self.articleList.count);
+        [self.table reloadRowsAtIndexPaths:[NSArray arrayWithObjects:self.CurrentindexPath,nil] withRowAnimation:UITableViewRowAnimationNone];
+    }
+
+  
+}
 @end

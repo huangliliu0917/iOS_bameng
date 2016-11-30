@@ -12,7 +12,7 @@
 
 @interface PostOrderTableViewController ()<LXActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *pickImage;
-@property (weak, nonatomic) IBOutlet UIImageView *image;
+@property (weak, nonatomic) IBOutlet UIImageView *imagepic;
 @property (weak, nonatomic) IBOutlet UITextField *customName;
 @property (weak, nonatomic) IBOutlet UITextField *phone;
 @property (weak, nonatomic) IBOutlet UITextField *priceName;
@@ -44,11 +44,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.image.contentMode = UIViewContentModeScaleToFill;
-    self.image.clipsToBounds = YES;
+
     self.pickImage.userInteractionEnabled = YES;
     UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pickImagex)];
     [self.pickImage addGestureRecognizer:tap];
+    
+    
+    __weak typeof(self) wself = self;
+    [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:self.model.pictureUrl] options:SDWebImageRetryFailed progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+        if (!error) {
+            wself.imagepic.image = image;
+        }
+        
+    }];
+    
+    LWLog(@"%@",self.model.userName);
+    self.customName.text =self.model.userName;
+    self.phone.text = self.model.mobile;
+    self.priceName.text  = [NSString stringWithFormat:@"%@",self.model.money];
 }
 
 - (void)setModel:(OrderInfoModel *)model{
@@ -86,9 +99,20 @@
         [vc dismissViewControllerAnimated:YES completion:nil];
         LWLog(@"%@",ac );
         LWLog(@"%@",[NSThread currentThread]);
-        [self.image setImage:ac[@"UIImagePickerControllerOriginalImage"]];
-        self.currentpickImage = ac[@"UIImagePickerControllerOriginalImage"];
+        [wself.imagepic setImage:ac[@"UIImagePickerControllerOriginalImage"]];
+        wself.currentpickImage = ac[@"UIImagePickerControllerOriginalImage"];
     }];
+    
+//    pick.allowsEditing = YES;
+//    [pick setBk_didFinishPickingMediaBlock:^(UIImagePickerController *vc, NSDictionary *ac) {
+//        [wself.iconView setImage:ac[@"UIImagePickerControllerOriginalImage"]];
+//        [vc dismissViewControllerAnimated:YES completion:nil];
+//        LWLog(@"%@",ac );
+//        [wself uploadHeadImage:ac[@"UIImagePickerControllerOriginalImage"]];
+//        
+//    }];
+    
+    
     [pick setBk_didCancelBlock:^(UIImagePickerController * vc) {
         [vc dismissViewControllerAnimated:YES completion:nil];
         
@@ -99,7 +123,7 @@
 
 - (IBAction)tijiao:(id)sender {
     
-    if (self.image.image == nil) {
+    if (self.imagepic.image == nil) {
         [self showErrorWithTitle:@"凭证不能为空" autoCloseTime:1];
         return;
     }
@@ -119,18 +143,7 @@
     [super viewWillAppear:animated];
     LWLog(@"%@",[self.model mj_keyValues]);
     
-    __weak typeof(self) wself = self;
-    [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:self.model.pictureUrl] options:SDWebImageRetryFailed progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
-        if (!error) {
-            wself.image.image = image;
-        }
-        
-    }];
     
-    LWLog(@"%@",self.model.userName);
-    self.customName.text =self.model.userName;
-    self.phone.text = self.model.mobile;
-    self.priceName.text  = [NSString stringWithFormat:@"%@",self.model.money];
 }
 
 #pragma mark - Table view data source

@@ -62,11 +62,9 @@
     [HTMyContainAFN AFN:@"user/ChanagePassword" with:parme Success:^(NSDictionary *responseObject) {
         LWLog(@"%@", responseObject);
         if([responseObject[@"status"] integerValue] == 200){
-           [self showRightWithTitle:responseObject[@"statusText"] autoCloseTime: 1.5];
-        }else{
-           [self showErrorWithTitle:responseObject[@"statusText"] autoCloseTime: 1.5];
+            
+            [MBProgressHUD showSuccess:responseObject[@"statusText"]];
         }
-        
         
     } failure:^(NSError *error) {
         LWLog(@"%@",error);

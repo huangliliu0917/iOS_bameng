@@ -29,6 +29,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *said;
 
 
+
+
+
 /**上传凭证*/
 @property(nonatomic,strong) UIImage * backImage;
 
@@ -51,7 +54,7 @@
         [self.navigationController pushViewController:postOrder animated:YES];
         
     }];
-    self.ordorImage.contentMode = UIViewContentModeScaleToFill;
+    self.ordorImage.contentMode = UIViewContentModeScaleAspectFit;
     self.ordorImage.clipsToBounds = YES;
     
     LWLog(@"%@",[self.model mj_keyValues]);
@@ -130,9 +133,19 @@
         LWLog(@"xxx%@",imageURL);
         if (!error) {
            [wself.ordorImage setImage:image];
+            
+            wself.backImage = image;
         }
         
     }];
+    
+    if(self.model.status != 0){
+        self.saveButton.hidden = YES;
+        self.postButton.hidden = YES;
+    }else{
+        self.saveButton.hidden = NO;
+        self.postButton.hidden = NO;
+    }
     
 }
 
@@ -151,26 +164,30 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if (indexPath.row == 6) {
-        UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-        __weak typeof(self) wself = self;
-        UIAlertAction * ac1 = [UIAlertAction actionWithTitle:@"未成交" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [wself setsetlect:0];
-        }];
-        [alertVC addAction:ac1];
         
-        UIAlertAction * ac2 = [UIAlertAction actionWithTitle:@"成交" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [wself setsetlect:1];
-        }];
-        [alertVC addAction:ac2];
+        if(self.model.status == 0){
+            UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+            __weak typeof(self) wself = self;
+            UIAlertAction * ac1 = [UIAlertAction actionWithTitle:@"未成交" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [wself setsetlect:0];
+            }];
+            [alertVC addAction:ac1];
+            
+            UIAlertAction * ac2 = [UIAlertAction actionWithTitle:@"成交" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [wself setsetlect:1];
+            }];
+            [alertVC addAction:ac2];
+            
+            UIAlertAction * ac3 = [UIAlertAction actionWithTitle:@"退单" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [wself setsetlect:2];
+            }];
+            [alertVC addAction:ac3];
+            
+            UIAlertAction * ac4 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDestructive handler:nil];
+            [alertVC addAction:ac4];
+            [self presentViewController:alertVC animated:YES completion:nil];
+        }
         
-        UIAlertAction * ac3 = [UIAlertAction actionWithTitle:@"退单" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [wself setsetlect:2];
-        }];
-        [alertVC addAction:ac3];
-        
-        UIAlertAction * ac4 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDestructive handler:nil];
-        [alertVC addAction:ac4];
-        [self presentViewController:alertVC animated:YES completion:nil];
     }
     
     
@@ -220,7 +237,6 @@
         if ([responseObject[@"status"] intValue] == 200) {
             [self showRightWithTitle:responseObject[@"statusText"] autoCloseTime:1];
                    }
-        
     } failure:^(NSError *error) {
         LWLog(@"%@",error);
     }];

@@ -66,6 +66,7 @@
     NSString * token = [[NSUserDefaults standardUserDefaults] objectForKey:AppToken];
     [manager.requestSerializer setValue:token?token:@"" forHTTPHeaderField:@"Authorization"];
     NSData *imageData =UIImageJPEGRepresentation(pic,1);
+    
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat =@"yyyyMMddHHmmss";
     NSString *str = [formatter stringFromDate:[NSDate date]];
@@ -81,6 +82,8 @@
     } progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        LWLog(@"%@",responseObject);
         if([responseObject[@"status"] intValue] == 200){
             success(responseObject);
         }else if([responseObject[@"status"] intValue] == 70035){
@@ -91,6 +94,7 @@
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failure(error);
+        LWLog(@"%@",error);
         [MBProgressHUD showError:@"服务器开小差了"];
     }];
     
