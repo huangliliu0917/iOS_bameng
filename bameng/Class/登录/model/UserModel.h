@@ -42,7 +42,7 @@
 /**1 总店  2 分店*/
 @property (nonatomic, assign)  int ShopType;
 /**待结算盟豆*/
-@property (nonatomic, strong) NSDecimalNumber * TempMengBeans;
+@property (nonatomic, strong) NSNumber * TempMengBeans;
 
 /**我的二维码*/
 @property (nonatomic, strong) NSString *  myqrcodeUrl;

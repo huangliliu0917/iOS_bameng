@@ -514,8 +514,11 @@ static NSString *processedIdentify = @"processedIdentify";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (self.selectPage == 1) {
+        
+        LWLog(@"xxxx");
         UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
         if (_isUntreated) {
+            LWLog(@"xxxx");
             CustomInformationauditTableViewController *info = [story instantiateViewControllerWithIdentifier:@"CustomInformationauditTableViewController"];
             
             [self.navigationController pushViewController:info animated:YES];
@@ -528,11 +531,11 @@ static NSString *processedIdentify = @"processedIdentify";
             
         }
     }else if (self.selectPage == 2) {
-        
+        LWLog(@"xxxx");
         
     }else if (self.selectPage == 3) {
         UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
-
+LWLog(@"xxxx");
         if (_isUntreated) {
             AllyReviewTableViewController *review = [story instantiateViewControllerWithIdentifier:@"AllyReviewTableViewController"];
             [self.navigationController pushViewController:review animated:YES];

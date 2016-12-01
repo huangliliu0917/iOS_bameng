@@ -2223,7 +2223,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="价格名称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xgr-Xn-LGG">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="订单价格" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xgr-Xn-LGG">
                                                     <rect key="frame" x="18" y="13" width="61.5" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
@@ -4135,7 +4135,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="选择发送对象" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Umj-4E-BlH">
-                                                    <rect key="frame" x="27" y="13.5" width="86" height="17"/>
+                                                    <rect key="frame" x="27" y="14" width="307" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.50196078431372548" green="0.50588235294117645" blue="0.50980392156862742" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -4144,6 +4144,7 @@
                                             <constraints>
                                                 <constraint firstItem="Umj-4E-BlH" firstAttribute="centerY" secondItem="0qJ-3y-Zp5" secondAttribute="centerY" id="374-zv-JdH"/>
                                                 <constraint firstItem="Umj-4E-BlH" firstAttribute="leading" secondItem="0qJ-3y-Zp5" secondAttribute="leading" constant="27" id="6Td-VW-0f9"/>
+                                                <constraint firstItem="Umj-4E-BlH" firstAttribute="trailing" secondItem="0qJ-3y-Zp5" secondAttribute="trailingMargin" id="CUq-UI-59V"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -4157,13 +4158,14 @@
                     </tableView>
                     <connections>
                         <outlet property="content" destination="IRI-cj-HHI" id="SuM-UL-AWi"/>
+                        <outlet property="nameLable" destination="Umj-4E-BlH" id="vBj-C4-YHf"/>
                         <outlet property="sendButton" destination="750-Fu-UY2" id="M88-zv-JPp"/>
                         <outlet property="titleField" destination="frG-N4-3dj" id="XNX-N6-9Fp"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qZk-eL-NCt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3871" y="2696"/>
+            <point key="canvasLocation" x="-3871.5" y="2695.5"/>
         </scene>
         <!--盟友审核-->
         <scene sceneID="tNV-X2-bxQ">

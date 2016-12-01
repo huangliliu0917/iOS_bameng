@@ -50,19 +50,28 @@
     [self.pickImage addGestureRecognizer:tap];
     
     
-    __weak typeof(self) wself = self;
-    [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:self.model.pictureUrl] options:SDWebImageRetryFailed progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
-        if (!error) {
-            wself.imagepic.image = image;
-        }
-        
-    }];
+//    __weak typeof(self) wself = self;
+//    [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:self.model.pictureUrl] options:SDWebImageRetryFailed progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+//        if (!error) {
+//            wself.imagepic.image = image;
+//        }
+//        
+//    }];
     
     LWLog(@"%@",self.model.userName);
     self.customName.text =self.model.userName;
     self.phone.text = self.model.mobile;
-    self.priceName.text  = [NSString stringWithFormat:@"%@",self.model.money];
+    
+    if(self.havePickImage){
+        self.imagepic.image = self.havePickImage;
+        self.priceName.text  = [NSString stringWithFormat:@"%@",self.dict[@"price"]];
+        self.addtionInfo.text  = [NSString stringWithFormat:@"%@",self.dict[@"memo"]];
+    }else{
+        self.priceName.text  = [NSString stringWithFormat:@"%@",self.model.money];
+    }
 }
+
+
 
 - (void)setModel:(OrderInfoModel *)model{
     _model = model;

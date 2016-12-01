@@ -14,6 +14,6 @@
 @property(nonatomic,strong) NSNumber * money;
 @property(nonatomic,strong) NSString * name;
 
-
+@property(nonatomic,strong) NSString *url;
 
 @end

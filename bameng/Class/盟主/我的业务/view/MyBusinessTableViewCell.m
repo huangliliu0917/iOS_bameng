@@ -39,6 +39,9 @@
 
 - (void)setModel:(OrderInfoModel *)model{
     _model = model;
+    
+    
+    LWLog(@"%@",[model mj_keyValues]);
     [self.iconView sd_setImageWithURL:[NSURL URLWithString:model.pictureUrl] placeholderImage:[UIImage imageNamed:@"dd264x264"]];
     self.nameLable.text = model.userName;
     self.mobleNumber.text = model.mobile;
@@ -51,7 +54,7 @@
        self.statusLable.text = @"未成交";
     }
    
-    self.mdBean.text = [NSString stringWithFormat:@"%@",model.money];
+    self.mdBean.text = [NSString stringWithFormat:@"%@",model.mengbeans];
 }
 
 

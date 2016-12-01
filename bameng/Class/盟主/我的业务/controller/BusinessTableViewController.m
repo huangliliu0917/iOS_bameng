@@ -28,34 +28,26 @@
     [super viewDidLoad];
     
     self.navigationItem.title = @"我的业务";
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-//
-    
-    
-//    [NSTimer s]
-    
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(GetYeWuData) userInfo:nil repeats:YES];
-    self.timer = timer;
 
-    
-    [HTMyContainAFN AFN:@"user/MyBusiness" with:nil Success:^(NSDictionary *responseObject) {
-        LWLog(@"%@", responseObject);
-        if([responseObject[@"status"] integerValue] == 200){
-            self.orderNumber.text = [NSString stringWithFormat:@"%@",responseObject[@"data"][@"orderAmount"]];
-            self.crashNumber.text = [NSString stringWithFormat:@"%@",responseObject[@"data"][@"cashCouponAmount"]];
-            self.duihuan.text = [NSString stringWithFormat:@"%@",responseObject[@"data"][@"exchangeAmount"]];
-            self.custormNumber.text = [NSString stringWithFormat:@"%@",responseObject[@"data"][@"customerAmount"]];
-        }
-
-    } failure:^(NSError *error) {
-        LWLog(@"%@",error);
-    }];
+    [self setTabalViewRefresh];
     [self.tableView removeSpaces];
+    [self.tableView.mj_header beginRefreshing];
 }
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+}
+
+- (void)setTabalViewRefresh {
+    
+    __weak typeof(self) wself = self;
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [wself GetYeWuData];
+    }];
+
+}
+
 
 
 - (void)GetYeWuData{
@@ -68,19 +60,14 @@
             self.duihuan.text = [NSString stringWithFormat:@"%@",responseObject[@"data"][@"exchangeAmount"]];
             self.custormNumber.text = [NSString stringWithFormat:@"%@",responseObject[@"data"][@"customerAmount"]];
         }
+        [self.tableView.mj_header endRefreshing];
         
     } failure:^(NSError *error) {
         LWLog(@"%@",error);
+        [self.tableView.mj_header endRefreshing];
     }];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    self.tabBarController.tabBar.hidden = NO;
-    
-
-}
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];

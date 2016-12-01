@@ -25,4 +25,9 @@
 
 @property(nonatomic,weak) id <PostOrderTableViewControllerDelegate> delegate;
 
+
+@property(nonatomic,strong) NSMutableDictionary * dict;
+@property(nonatomic,strong) UIImage * havePickImage;
+
+
 @end

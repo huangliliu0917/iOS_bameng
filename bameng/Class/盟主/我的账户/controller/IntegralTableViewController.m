@@ -91,7 +91,7 @@ static NSString *integralIdentify = @"integralIdentify";
     [HTMyContainAFN AFN:@"user/scoreList" with:parme Success:^(NSDictionary *responseObject) {
         LWLog(@"%@", responseObject);
         if ([responseObject[@"status"] integerValue] == 200) {
-            NSArray * array = [MenDouBeanExchageLists mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+            NSArray * array = [MenDouBeanExchageLists mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"list"]];
             if (array.count) {
                 [self.dataList removeAllObjects];
                 [self.dataList addObjectsFromArray:array];

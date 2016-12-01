@@ -966,10 +966,10 @@
             </objects>
             <point key="canvasLocation" x="1005" y="-115"/>
         </scene>
-        <!--新增资讯-->
+        <!--新增消息-->
         <scene sceneID="Wsx-yq-QPH">
             <objects>
-                <tableViewController storyboardIdentifier="MYAddNewMessageTableViewController" title="新增资讯" id="euZ-Ka-OHe" customClass="MYAddNewMessageTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="MYAddNewMessageTableViewController" title="新增消息" id="euZ-Ka-OHe" customClass="MYAddNewMessageTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="p5W-2i-hlP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

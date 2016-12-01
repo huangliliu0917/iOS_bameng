@@ -35,24 +35,26 @@
     LWLog(@"%@",[model mj_keyValues]);
     if (self.pageTag == 2) {//积分
         if(model.status){
-            self.status.text = @"收入";
-            self.scoreLable.text = [NSString stringWithFormat:@"+%ld",model.money];
+            
+            
+            self.status.text = [NSString stringWithFormat:@"%@",model.remark];
+            self.scoreLable.text = [NSString stringWithFormat:@"+%@",model.money];
             self.scoreLable.textColor = [UIColor redColor];
         }else{
-            self.status.text = @"支出";
-            self.scoreLable.text = [NSString stringWithFormat:@"-%ld",model.money];
+            self.status.text = [NSString stringWithFormat:@"%@",model.remark];
+            self.scoreLable.text = [NSString stringWithFormat:@"%@",model.money];
             self.scoreLable.textColor = [UIColor greenColor];
         }
         self.timeLable.text = model.time;
         
     }else{//待结算
         if(model.status){
-            self.status.text = @"收入";
-            self.scoreLable.text = [NSString stringWithFormat:@"+%ld",model.money];
+            self.status.text = [NSString stringWithFormat:@"%@",model.remark];
+            self.scoreLable.text = [NSString stringWithFormat:@"+%@",model.money];
             self.scoreLable.textColor = [UIColor redColor];
         }else{
-            self.status.text = @"转正";
-            self.scoreLable.text = [NSString stringWithFormat:@"-%ld",model.money];
+            self.status.text = [NSString stringWithFormat:@"%@",model.remark];
+            self.scoreLable.text = [NSString stringWithFormat:@"%@",model.money];
             self.scoreLable.textColor = [UIColor greenColor];
         }
         self.timeLable.text = model.time;

@@ -13,7 +13,7 @@
 
 @optional
 
-- (void)selectMengYou:(NSString *) mengYouId;
+- (void)selectMengYou:(NSString *) mengYouId andName:(NSString *)names;
 
 @end
 

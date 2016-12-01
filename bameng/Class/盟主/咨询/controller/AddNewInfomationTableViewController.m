@@ -13,6 +13,9 @@
 
 @property (nonatomic, strong) NSString *userIds;
 
+@property (weak, nonatomic) IBOutlet UILabel *nameLable;
+
+
 @end
 
 @implementation AddNewInfomationTableViewController
@@ -23,6 +26,8 @@
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
    
     self.userIds = @"";
+    
+    self.navigationItem.title = @"新增消息";
     
     [self.sendButton bk_whenTapped:^{
         [self sendMessage];
@@ -49,9 +54,10 @@
     }
 }
 
-- (void)selectMengYou:(NSString *)mengYouId {
-    LWLog(@"%@",mengYouId);
+- (void)selectMengYou:(NSString *)mengYouId andName:(NSString *)names{
+    LWLog(@"%@-----%@",mengYouId,names);
     self.userIds = mengYouId;
+    self.nameLable.text = names;
 }
 
 #pragma mark 发送按钮

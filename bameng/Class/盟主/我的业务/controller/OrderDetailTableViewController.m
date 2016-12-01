@@ -51,6 +51,10 @@
         PostOrderTableViewController *postOrder = [story instantiateViewControllerWithIdentifier:@"PostOrderTableViewController"];
         postOrder.delegate = wself;
         postOrder.model = wself.model;
+        
+        LWLog(@"%@",wself.dataDic);
+        postOrder.havePickImage = wself.backImage;
+        postOrder.dict = wself.dataDic;
         [self.navigationController pushViewController:postOrder animated:YES];
         
     }];
@@ -72,7 +76,8 @@
     } failure:^(NSError *error) {
         LWLog(@"%@",error);
     }];
-    
+    self.saveButton.hidden = YES;
+    self.postButton.hidden = YES;
     
 }
 
@@ -116,16 +121,16 @@
     
     if(model.status == 0){
         self.said.text = @"未成交";
-        self.saveButton.hidden = YES;
-        self.postButton.hidden = YES;
+//        self.saveButton.hidden = YES;
+//        self.postButton.hidden = NO;
     }else if(model.status == 1){
         self.said.text = @"成交";
-        self.saveButton.hidden = NO;
-        self.postButton.hidden = NO;
+//        self.saveButton.hidden = YES;
+//        self.postButton.hidden = YES;
     }else{
         self.said.text = @"退单";
-        self.saveButton.hidden = NO;
-        self.postButton.hidden = YES;
+//        self.saveButton.hidden = NO;
+//        self.postButton.hidden = YES;
     }
     LWLog(@"%@",imageurl);
     [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:imageurl] options:SDWebImageRetryFailed progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
@@ -134,18 +139,13 @@
         if (!error) {
            [wself.ordorImage setImage:image];
             
-            wself.backImage = image;
+//            wself.backImage = image;
         }
         
     }];
     
-    if(self.model.status != 0){
-        self.saveButton.hidden = YES;
-        self.postButton.hidden = YES;
-    }else{
-        self.saveButton.hidden = NO;
-        self.postButton.hidden = NO;
-    }
+    
+    
     
 }
 
@@ -155,7 +155,6 @@
     self.backImage = image;
     self.dataDic = dict;
     LWLog(@"%@",dict);
-    
     self.ordorImage.image = image;
 }
 #pragma mark - Table view data source
@@ -219,8 +218,12 @@
     
     LWLog(@"xxxxx");
     
+    if (self.status == 1 && !self.backImage) {
+        [MBProgressHUD showError:@"请上传凭证"];
+        return;
+    }
     //order/UploadSuccessVoucher
-    [self updateOrder];
+    
     [self UploadSuccessVoucher];
 }
 
@@ -245,6 +248,8 @@
 
 - (void)UploadSuccessVoucher{
 
+    
+    __weak typeof(self) wself = self;
     NSMutableDictionary *parme = [NSMutableDictionary dictionary];
     parme[@"orderId"] = self.model.orderId;
     parme[@"customer"] = self.dataDic[@"customer"];
@@ -253,6 +258,7 @@
     parme[@"memo"] = self.dataDic[@"memo"];
     [HTMyContainAFN AFNUpLoadImage:@"order/UploadSuccessVoucher" with:parme andImage:self.backImage Success:^(NSDictionary *responseObject) {
         LWLog(@"%@", responseObject);
+        [wself updateOrder];
     } failure:^(NSError *error) {
         LWLog(@"%@", error);
     }];

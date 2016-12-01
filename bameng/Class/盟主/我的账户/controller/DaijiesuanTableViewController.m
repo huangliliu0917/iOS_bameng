@@ -110,7 +110,7 @@ static NSString *daijiesuanIdentify = @"daijiesuanIdentify";
     UserModel * user = [UserModel GetUserModel];
     LWLog(@"%@",user.Score);
     
-    self.daijiesuanLable.text = [NSString stringWithFormat:@"%@ 积分",user.TempMengBeans];
+    self.daijiesuanLable.text = [NSString stringWithFormat:@"%@ 盟豆",user.TempMengBeans];
 }
 
 

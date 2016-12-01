@@ -202,6 +202,7 @@ static NSString *mengYouHomeIdentify = @"mengYouHomeIdentify";
     __weak typeof(self) wself = self;
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [wself getNewZiXunList];
+        [wself GetYeWuData];
     }];
     
     self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(getMoerZixunList)];

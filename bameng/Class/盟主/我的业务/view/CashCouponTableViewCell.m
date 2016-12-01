@@ -11,13 +11,12 @@
 
 
 @interface CashCouponTableViewCell ()
+@property (weak, nonatomic) IBOutlet UILabel *moneyLable;
+@property (weak, nonatomic) IBOutlet UILabel *cashNameLable;
 
-@property (weak, nonatomic) IBOutlet UILabel *money;
-
-@property (weak, nonatomic) IBOutlet UILabel *cashName;
-@property (weak, nonatomic) IBOutlet UILabel *cashTime;
+@property (weak, nonatomic) IBOutlet UILabel *cashTimeLimited;
+@property (weak, nonatomic) IBOutlet UILabel *turnTimes;
 @property (weak, nonatomic) IBOutlet UIImageView *turnImage;
-@property (weak, nonatomic) IBOutlet UILabel *times;
 
 @end
 
@@ -38,9 +37,9 @@
 
 - (void)setModel:(CashModel *)model{
     _model = model;
-    
-    self.money.text = [NSString stringWithFormat:@"%@",model.money];
-    self.cashName.text = model.name;
-    self.times.text = model.due;
+    LWLog(@"%@",model.money);
+    self.moneyLable.text = [NSString stringWithFormat:@"%@",model.money];
+    self.cashNameLable.text = model.name;
+    self.cashTimeLimited.text = model.due;
 }
 @end

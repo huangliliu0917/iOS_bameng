@@ -76,8 +76,7 @@ static NSString *mengdouIdentify = @"mengdouIdentify";
     [HTMyContainAFN AFN:@"user/BeanFlowList" with:parme Success:^(NSDictionary *responseObject) {
         LWLog(@"%@", responseObject);
         if ([responseObject[@"status"] integerValue] == 200) {
-            self.incomeLabel.text = [NSString stringWithFormat:@"%@",responseObject[@"data"][@"income"]];
-            self.expendLabel.text = [NSString stringWithFormat:@"%@",responseObject[@"data"][@"outcome"]];
+            
             NSArray * array = [MenDouBeanExchageLists mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"list"]];
             if (array.count) {
                 [self.dataList addObjectsFromArray:array];

@@ -64,21 +64,24 @@ static NSString *selectObjectIdentify = @"selectObjectIdentify";
         
         if (_selectGoods.count != 0) {
             
-            if ([self.delegate respondsToSelector:@selector(selectMengYou:)]) {
+            if ([self.delegate respondsToSelector:@selector(selectMengYou:andName:)]) {
                 
                 
                 NSMutableString *str = [NSMutableString string];
-                
+                NSMutableString *strName = [NSMutableString string];
                 for (int i = 0; i < _selectGoods.count; i++) {
                     UserModel *user = _selectGoods[i];
                     if (i == 0) {
                         [str appendString:user.UserId];
+                        [strName appendString:user.RealName];
+                        
                     }else {
                         [str appendFormat:@"|%@",user.UserId];
+                        [strName appendFormat:@" %@",user.RealName];
                     }
                 }
                 
-                [self.delegate selectMengYou:str];
+                [self.delegate selectMengYou:str andName:strName];
                 
                 [self.navigationController popViewControllerAnimated:YES];
             }

@@ -36,7 +36,7 @@
     
     
     
-    LWLog(@"%ld",model.money);
+    LWLog(@"%@",model.money);
     /**0支出，1收入*/
     if (model.status == 1) {
         self.status.text = @"收入";
@@ -44,7 +44,7 @@
         self.status.text = @"支出";
     }
     
-    self.mendou.text = [NSString stringWithFormat:@"%ld",model.money];
+    self.mendou.text = [NSString stringWithFormat:@"%@ %@",model.remark,model.money];
     
     self.timeLable.text = model.time;
 }

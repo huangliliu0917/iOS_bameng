@@ -14,6 +14,9 @@
 
 @property(nonatomic,strong) NSNumber * money;
 
+
+@property(nonatomic,strong) NSNumber * mengbeans;
+
 @property(nonatomic,strong) NSString * orderId;
 
 @property(nonatomic,strong) NSString * pictureUrl;
