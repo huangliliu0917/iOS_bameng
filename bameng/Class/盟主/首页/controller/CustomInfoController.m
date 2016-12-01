@@ -517,7 +517,7 @@ static NSString *processedIdentify = @"processedIdentify";
         
         LWLog(@"xxxx");
         UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
-        if (_isUntreated) {
+        if (self.type == 1) {
             LWLog(@"xxxx");
             CustomInformationauditTableViewController *info = [story instantiateViewControllerWithIdentifier:@"CustomInformationauditTableViewController"];
             
