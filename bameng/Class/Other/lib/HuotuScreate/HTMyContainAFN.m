@@ -19,6 +19,7 @@
 
 + (void)AFN:(NSString  * )url with:(NSMutableDictionary *)parames Success:(void (^)(NSDictionary   *responseObject))success failure:(void (^)(NSError *  error))failure{
     
+     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
     
     NSString * token = [[NSUserDefaults standardUserDefaults] objectForKey:AppToken];
@@ -26,10 +27,16 @@
     
     NSMutableDictionary * parame = [AsignLibrary AsignLibraryWithNecessaryParame:parames];
     
+    
+   
 
+
+//    [MBProgressHUD showMessage:nil toView:nil];
     [manager POST:[NSString stringWithFormat:@"%@%@", MainUrl ,url] parameters:parame progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable responseObject) {
-        
+//         [MBProgressHUD hideHUD];
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         if([responseObject[@"status"] intValue] == 200){
+//            [MBProgressHUD hideHUD];
             success(responseObject);
         }else if([responseObject[@"status"] intValue] == 70035){
 
@@ -37,11 +44,13 @@
         }else{
             [MBProgressHUD showError:responseObject[@"statusText"]];
         }
-        
+//      [MBProgressHUD hideHUD];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
 
         failure(error);
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         [MBProgressHUD showError:@"服务器开小差了"];
+//        [MBProgressHUD hideHUD];
     }];
     
 }

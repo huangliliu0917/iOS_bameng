@@ -96,6 +96,12 @@
 		855A27FBB1FD970A3413E454 /* libPods-bamengUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94B9C71ECC90E51D5D6C3083 /* libPods-bamengUITests.a */; };
 		EF04388D1DBAFD5E00CA8902 /* AsignLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = EF04388C1DBAFD5E00CA8902 /* AsignLibrary.m */; };
 		EF0438901DBB050600CA8902 /* HTMyContainAFN.m in Sources */ = {isa = PBXBuildFile; fileRef = EF04388F1DBB050600CA8902 /* HTMyContainAFN.m */; };
+		EF0615E01DF0221B006183EC /* MJChiBaoZiFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = EF0615D51DF02213006183EC /* MJChiBaoZiFooter.m */; };
+		EF0615E11DF0221B006183EC /* MJChiBaoZiFooter2.m in Sources */ = {isa = PBXBuildFile; fileRef = EF0615D71DF02213006183EC /* MJChiBaoZiFooter2.m */; };
+		EF0615E21DF0221B006183EC /* MJChiBaoZiHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = EF0615D91DF02213006183EC /* MJChiBaoZiHeader.m */; };
+		EF0615E31DF0221B006183EC /* MJDIYAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = EF0615DB1DF02213006183EC /* MJDIYAutoFooter.m */; };
+		EF0615E41DF0221B006183EC /* MJDIYBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = EF0615DD1DF02213006183EC /* MJDIYBackFooter.m */; };
+		EF0615E51DF0221B006183EC /* MJDIYHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = EF0615DF1DF02213006183EC /* MJDIYHeader.m */; };
 		EF164BF91DE5763100ED3E41 /* DuiHuanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EF164BF81DE5763100ED3E41 /* DuiHuanModel.m */; };
 		EF164BFC1DE5805200ED3E41 /* WKCookieSyncManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EF164BFB1DE5805200ED3E41 /* WKCookieSyncManager.m */; };
 		EF1C23461DDC5793003DBFA9 /* SaveCanclePickView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF1C23451DDC5793003DBFA9 /* SaveCanclePickView.m */; };
@@ -361,6 +367,18 @@
 		EF04388E1DBB050600CA8902 /* HTMyContainAFN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMyContainAFN.h; sourceTree = "<group>"; };
 		EF04388F1DBB050600CA8902 /* HTMyContainAFN.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMyContainAFN.m; sourceTree = "<group>"; };
 		EF0615D21DEE6E91006183EC /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		EF0615D41DF02213006183EC /* MJChiBaoZiFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJChiBaoZiFooter.h; sourceTree = "<group>"; };
+		EF0615D51DF02213006183EC /* MJChiBaoZiFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJChiBaoZiFooter.m; sourceTree = "<group>"; };
+		EF0615D61DF02213006183EC /* MJChiBaoZiFooter2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJChiBaoZiFooter2.h; sourceTree = "<group>"; };
+		EF0615D71DF02213006183EC /* MJChiBaoZiFooter2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJChiBaoZiFooter2.m; sourceTree = "<group>"; };
+		EF0615D81DF02213006183EC /* MJChiBaoZiHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJChiBaoZiHeader.h; sourceTree = "<group>"; };
+		EF0615D91DF02213006183EC /* MJChiBaoZiHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJChiBaoZiHeader.m; sourceTree = "<group>"; };
+		EF0615DA1DF02213006183EC /* MJDIYAutoFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJDIYAutoFooter.h; sourceTree = "<group>"; };
+		EF0615DB1DF02213006183EC /* MJDIYAutoFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJDIYAutoFooter.m; sourceTree = "<group>"; };
+		EF0615DC1DF02213006183EC /* MJDIYBackFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJDIYBackFooter.h; sourceTree = "<group>"; };
+		EF0615DD1DF02213006183EC /* MJDIYBackFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJDIYBackFooter.m; sourceTree = "<group>"; };
+		EF0615DE1DF02213006183EC /* MJDIYHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJDIYHeader.h; sourceTree = "<group>"; };
+		EF0615DF1DF02213006183EC /* MJDIYHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJDIYHeader.m; sourceTree = "<group>"; };
 		EF164BF71DE5763100ED3E41 /* DuiHuanModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DuiHuanModel.h; sourceTree = "<group>"; };
 		EF164BF81DE5763100ED3E41 /* DuiHuanModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DuiHuanModel.m; sourceTree = "<group>"; };
 		EF164BFA1DE5805200ED3E41 /* WKCookieSyncManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKCookieSyncManager.h; sourceTree = "<group>"; };
@@ -1145,6 +1163,25 @@
 			path = HuotuScreate;
 			sourceTree = "<group>";
 		};
+		EF0615D31DF02213006183EC /* DIY */ = {
+			isa = PBXGroup;
+			children = (
+				EF0615D41DF02213006183EC /* MJChiBaoZiFooter.h */,
+				EF0615D51DF02213006183EC /* MJChiBaoZiFooter.m */,
+				EF0615D61DF02213006183EC /* MJChiBaoZiFooter2.h */,
+				EF0615D71DF02213006183EC /* MJChiBaoZiFooter2.m */,
+				EF0615D81DF02213006183EC /* MJChiBaoZiHeader.h */,
+				EF0615D91DF02213006183EC /* MJChiBaoZiHeader.m */,
+				EF0615DA1DF02213006183EC /* MJDIYAutoFooter.h */,
+				EF0615DB1DF02213006183EC /* MJDIYAutoFooter.m */,
+				EF0615DC1DF02213006183EC /* MJDIYBackFooter.h */,
+				EF0615DD1DF02213006183EC /* MJDIYBackFooter.m */,
+				EF0615DE1DF02213006183EC /* MJDIYHeader.h */,
+				EF0615DF1DF02213006183EC /* MJDIYHeader.m */,
+			);
+			path = DIY;
+			sourceTree = "<group>";
+		};
 		EF30ABF51DE7189B006EA853 /* ProgrameView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1249,6 +1286,7 @@
 		EFDD904F1DD5710A00764E7A /* 第三方 */ = {
 			isa = PBXGroup;
 			children = (
+				EF0615D31DF02213006183EC /* DIY */,
 				EF4FB9991DED777D00A70DCB /* MBProgressHUD */,
 				EF30AC0C1DE81806006EA853 /* ShareSDK */,
 				EF30ABF51DE7189B006EA853 /* ProgrameView */,
@@ -1842,10 +1880,12 @@
 				60979D741DC346F500B9E858 /* MengZhuInfomationBigTableViewCell.m in Sources */,
 				EF30ABFB1DE7189B006EA853 /* KVTimer.m in Sources */,
 				6042F8241DCB1F2F00055329 /* UserModel.m in Sources */,
+				EF0615E11DF0221B006183EC /* MJChiBaoZiFooter2.m in Sources */,
 				60EF5FB71DC749ED00ADBEA7 /* MengYouHomeTableViewCell.m in Sources */,
 				EFA5D7E31DDBF46A00962D77 /* MyTableViewController.m in Sources */,
 				EF30ABFA1DE7189B006EA853 /* KVStyle.m in Sources */,
 				60EF5FBE1DC8309B00ADBEA7 /* MYSubmitInfoTableViewController.m in Sources */,
+				EF0615E21DF0221B006183EC /* MJChiBaoZiHeader.m in Sources */,
 				EFA97D841DE4190000A48B39 /* MainNavViewController.m in Sources */,
 				60D18DF61DC1E0B200E0C839 /* CashCouponTableViewCell.m in Sources */,
 				60EF5FBB1DC765E400ADBEA7 /* MengYouTabbarViewController.m in Sources */,
@@ -1855,6 +1895,8 @@
 				606C37571DC326FF009F668E /* AllyInfomationTableViewController.m in Sources */,
 				60EF5F991DC7173000ADBEA7 /* SelectObjectTableViewCell.m in Sources */,
 				EFFBC3841DE435F6006D2A96 /* LKNotificationBar.m in Sources */,
+				EF0615E01DF0221B006183EC /* MJChiBaoZiFooter.m in Sources */,
+				EF0615E31DF0221B006183EC /* MJDIYAutoFooter.m in Sources */,
 				EF164BF91DE5763100ED3E41 /* DuiHuanModel.m in Sources */,
 				60C230CC1DC0458200E0CD11 /* DaijiesuanTableViewCell.m in Sources */,
 				EFCB52281DE6DFD1002423C0 /* CashModel.m in Sources */,
@@ -1865,7 +1907,9 @@
 				EFFBC3861DE435F6006D2A96 /* UIResponder+LKNotification.m in Sources */,
 				603A39BF1DB9EC2D00DC1ADA /* HomeNavViewController.m in Sources */,
 				60979D701DC3364200B9E858 /* MengZhuInfomationViewController.m in Sources */,
+				EF0615E41DF0221B006183EC /* MJDIYBackFooter.m in Sources */,
 				60C8147D1DD2C7C300629935 /* CustomInfomationModel.m in Sources */,
+				EF0615E51DF0221B006183EC /* MJDIYHeader.m in Sources */,
 				60C230D01DC04DC900E0CD11 /* DaijiesuanTableViewController.m in Sources */,
 				EFDD90671DD5AD8D00764E7A /* HXColor.m in Sources */,
 				60F390361DC0A95C00FFCBF3 /* ExchangeListTableViewCell.m in Sources */,

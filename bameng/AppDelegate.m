@@ -35,8 +35,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-   
-    
+        
     [[UITabBarItem appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName:[UIColor colorWithRed:204/255.0 green:158/255.0 blue:95/255.0 alpha:1]} forState:UIControlStateSelected];
     
     //1、处理键盘问题

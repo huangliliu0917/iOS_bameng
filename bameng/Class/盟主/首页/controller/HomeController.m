@@ -18,7 +18,7 @@
 #import "BMCircleModel.h"
 #import "MyCoreLocation.h"
 #import "CustomSlideViewController.h"
-
+#import "MJChiBaoZiHeader.h"
 
 @interface HomeController ()<CircleBannerViewDelegate,MyCoreLocationDelegate>
 
@@ -372,14 +372,27 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
 
 #pragma mark tabelView 
 
+- (void)headrefresh{
+//    [self getCrircleList];
+    [self getNewZiXunList];
+    
+}
 - (void)setTabalViewRefresh {
+     __weak HomeController *wself = self;
     
-    __weak HomeController *wself = self;
-    self.table.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [self getCrircleList];
-        [wself getNewZiXunList];
-    }];
-    
+    MJChiBaoZiHeader * head = [MJChiBaoZiHeader headerWithRefreshingTarget:self refreshingAction:@selector(headrefresh)];
+//    MJChiBaoZiHeader * head = [MJChiBaoZiHeader headerWithRefreshingBlock:^{
+//        [wself getCrircleList];
+//        [wself getNewZiXunList];
+//    }];
+   head.lastUpdatedTimeLabel.hidden = YES;
+    head.backgroundColor = LWColor(249, 249, 249);
+    head.labelLeftInset = 0;
+//    self.table.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+//        [self getCrircleList];
+//        [wself getNewZiXunList];
+//    }];
+    self.table.mj_header = head;
     self.table.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(getMoerZixunList)];
 }
 
