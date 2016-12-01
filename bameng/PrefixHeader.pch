@@ -41,7 +41,7 @@
 
 
 /*** 接口地址以及签名参数 ***/
-#ifndef DEBUG
+#ifdef DEBUG
 #define MainUrl @"http://bmapi.guo.fancat.cn/"
 #define MainUrlScreate @"BAMEENG20161021"
 #else

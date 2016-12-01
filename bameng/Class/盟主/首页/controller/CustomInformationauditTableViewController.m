@@ -12,6 +12,17 @@
 @property (strong, nonatomic) IBOutlet UIButton *agree;
 @property (strong, nonatomic) IBOutlet UIButton *refuse;
 
+
+@property (weak, nonatomic) IBOutlet UILabel *custemName;
+
+@property (weak, nonatomic) IBOutlet UILabel *custemPhone;
+
+@property (weak, nonatomic) IBOutlet UILabel *customAddress;
+
+@property (weak, nonatomic) IBOutlet UILabel *belong;
+@property (weak, nonatomic) IBOutlet UILabel *shenghelable;
+@property (weak, nonatomic) IBOutlet UILabel *infoMess;
+
 @end
 
 @implementation CustomInformationauditTableViewController
@@ -30,6 +41,39 @@
     self.refuse.layer.cornerRadius = 5;
 }
 
+
+- (void)setCustomModel:(CustomInfomationModel *)customModel{
+    _customModel = customModel;
+    self.custemName.text = customModel.Name;
+    self.custemPhone.text = customModel.Mobile;
+    self.customAddress.text = customModel.Addr;
+    self.belong.text = customModel.BelongOneName;
+    
+}
+
+- (IBAction)AgreebtnClick:(id)sender {
+    [self doSubmit:YES];
+}
+
+- (IBAction)refusebtnClick:(id)sender {
+    [self doSubmit:NO];
+}
+
+
+- (void)doSubmit:(BOOL)isAgree{
+    NSMutableDictionary *parme = [NSMutableDictionary dictionary];
+    parme[@"cid"] = self.customModel.ID;
+    parme[@"status"] = isAgree?@"1":@"2";
+    [HTMyContainAFN AFN:@"customer/audit" with:parme Success:^(NSDictionary *responseObject) {
+        LWLog(@"%@", responseObject);
+        if ([[responseObject objectForKey:@"status"] integerValue] == 200) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    } failure:^(NSError *error) {
+        LWLog(@"%@",error);
+    }];
+    
+}
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.tabBarController.tabBar.hidden = YES;

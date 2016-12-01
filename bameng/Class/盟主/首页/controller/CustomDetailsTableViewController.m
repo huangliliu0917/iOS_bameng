@@ -22,6 +22,10 @@
 
 @property (nonatomic, strong) UIPickerView *picker;
 
+@property (weak, nonatomic) IBOutlet UILabel *belongTo;
+
+@property (weak, nonatomic) IBOutlet UITableViewCell *accessstatus;
+
 @end
 
 @implementation CustomDetailsTableViewController
@@ -47,7 +51,7 @@
     [window addSubview:self.picker];
     
     
-    
+    self.submit.hidden = YES;
 
     
 }
@@ -76,12 +80,34 @@
     
     
 }
+- (IBAction)btnClick:(id)sender {
+    
+    
+    LWLog(@"xxxxx");
+    
+    NSMutableDictionary *parme = [NSMutableDictionary dictionary];
+    parme[@"cid"] = self.customModel.ID;
+    
+    //1进店 0未进店
+    parme[@"status"] = @(self.selcetIndex - 1);
+    LWLog(@"%@",parme);
+    [HTMyContainAFN AFN:@"customer/UpdateInShop" with:parme Success:^(NSDictionary *responseObject) {
+        LWLog(@"%@", responseObject);
+        [MBProgressHUD showSuccess:responseObject[@"statusText"]];
+    } failure:^(NSError *error) {
+        LWLog(@"%@",error);
+    }];
+}
 
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.tabBarController.tabBar.hidden = YES;
     
+    
+    LWLog(@"%@",[self.customModel mj_keyValues]);
+    
+    self.belongTo.text = self.customModel.BelongOneName;
     self.name.text = self.customModel.Name;
     self.phone.text = self.customModel.Mobile;
     self.address.text = self.customModel.Addr;
@@ -95,10 +121,10 @@
     }
     
     if (_customModel.InShop) {
-        self.submit.hidden = YES;
+        self.accessstatus.accessoryType = UITableViewCellAccessoryNone;
         self.comeStatus.text = @"已进店";
     }else {
-        self.submit.hidden = NO;
+        
         self.comeStatus.text = @"未进店";
     }
     
@@ -158,10 +184,14 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 5) {
-        [UIView animateWithDuration:0.25 animations:^{
-            self.picker.frame = CGRectMake(0, KScreenHeight - 216 , KScreenWidth, 216);
-        }];
+    if (indexPath.row == 6) {
+        
+        if(!_customModel.InShop){
+            [UIView animateWithDuration:0.25 animations:^{
+                self.picker.frame = CGRectMake(0, KScreenHeight - 216 , KScreenWidth, 216);
+            }];
+        }
+        
     }
 }
 
@@ -184,21 +214,41 @@
     return @"";
 }
 
+
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    
+    LWLog(@"xxxx");
+    [UIView animateWithDuration:0.25 animations:^{
+        self.picker.frame = CGRectMake(0, KScreenHeight , KScreenWidth, 216);
+    }];
+}
+
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    
+    LWLog(@"%ld",(long)row);
     if (row == 0) {
         self.selcetIndex = 1;
+        self.submit.hidden = YES;
+        self.comeStatus.text = @"未进店";
         [UIView animateWithDuration:0.25 animations:^{
             self.picker.frame = CGRectMake(0, KScreenHeight , KScreenWidth, 216);
         }];
     }else {
         self.selcetIndex = 2;
+        self.submit.hidden = NO;
+        self.comeStatus.text = @"已进店";
         [UIView animateWithDuration:0.25 animations:^{
             self.picker.frame = CGRectMake(0, KScreenHeight , KScreenWidth, 216);
         }];
     }
 }
 
-
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    
+    [self.picker removeFromSuperview];
+}
 
 
 #pragma mark 动态高度计算

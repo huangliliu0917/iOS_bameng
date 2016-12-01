@@ -146,7 +146,7 @@ static NSString *processedIdentify = @"processedIdentify";
     
     [self setTabalViewRefresh];
 
-    [self.table.mj_header beginRefreshing];
+    
     
 }
 
@@ -164,8 +164,8 @@ static NSString *processedIdentify = @"processedIdentify";
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.tabBarController.tabBar.hidden = YES;
-    
+
+    [self.table.mj_header beginRefreshing];
     
 }
 
@@ -520,6 +520,7 @@ static NSString *processedIdentify = @"processedIdentify";
         if (self.type == 1) {
             LWLog(@"xxxx");
             CustomInformationauditTableViewController *info = [story instantiateViewControllerWithIdentifier:@"CustomInformationauditTableViewController"];
+            info.customModel = self.customList[indexPath.row];
             
             [self.navigationController pushViewController:info animated:YES];
             

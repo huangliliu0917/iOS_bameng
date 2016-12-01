@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "CustomInfomationModel.h"
 @interface CustomInformationauditTableViewController : MyTableViewController
 
+@property (nonatomic, strong) CustomInfomationModel *customModel;
 @end
