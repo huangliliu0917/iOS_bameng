@@ -26,7 +26,29 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    
+    self.turnImage.userInteractionEnabled = YES;
+    UITapGestureRecognizer * ges = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tureImageClick)];
+    
+    [self.turnImage addGestureRecognizer:ges];
+    
 }
+
+
+
+- (void)tureImageClick{
+    
+    LWLog(@"xxx");
+    
+    UserModel * user = [UserModel GetUserModel];
+    if ([self.delegate respondsToSelector:@selector(CashCouponTableViewCellTurn:)]) {
+        
+        [self.delegate CashCouponTableViewCellTurn:user.UserIdentity];
+        
+    }
+    
+}
+
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
 //    [super setSelected:selected animated:animated];

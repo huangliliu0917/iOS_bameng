@@ -10,10 +10,21 @@
 #import "CashModel.h"
 
 
+@protocol CashCouponTableViewCellDelegate <NSObject>
+
+- (void)CashCouponTableViewCellTurn:(NSInteger)item;
+
+
+@end
+
 
 @interface CashCouponTableViewCell : UITableViewCell
 
 
 @property(nonatomic,strong) CashModel * model;
 
+
+
+
+@property(nonatomic,weak) id <CashCouponTableViewCellDelegate>delegate;
 @end
