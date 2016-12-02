@@ -9,11 +9,17 @@
 #import "CashCouponViewController.h"
 #import "CashCouponTableViewCell.h"
 #import "CashModel.h"
+#import "LXActionSheet.h"
+#import "SelectObjectViewController.h"
+#import "PushWebViewController.h"
 
-@interface CashCouponViewController ()<UITableViewDataSource,UITableViewDelegate,CashCouponTableViewCellDelegate>
+@interface CashCouponViewController ()<UITableViewDataSource,UITableViewDelegate,CashCouponTableViewCellDelegate,LXActionSheetDelegate,SelectObjectDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *table;
 
 @property (strong, nonatomic) NSMutableArray * dataList;
+
+
+@property (strong, nonatomic) CashModel  * pickCashModel;
 
 @end
 
@@ -112,9 +118,48 @@ static NSString *cashCouponIdentify = @"cashCouponIdentify";
 }
 
 
-- (void)CashCouponTableViewCellTurn:(NSInteger)item{
+- (void)CashCouponTableViewCellTurn:(NSInteger)item andmodel:(CashModel *)model{
     
+    _pickCashModel = model;
+    LWLog(@"%ld",(long)item);
+    if (item == 1) {
+        LXActionSheet * action = [[LXActionSheet alloc] initWithTitle:4 delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
+        //    __weak typeof(self) wself = self;
+        action.delegate = self;
+        [action showInView:self.view];
+    }
+
+}
+
+
+- (void)myorMengzhu:(int)item{
     
+    LWLog(@"%d",item);
+    
+    if(item == 0){//客户
+
+        NSMutableDictionary *parme = [NSMutableDictionary dictionary];
+        parme[@"couponId"] = @(self.pickCashModel.ID);
+        parme[@"toUserId"] = @(0);
+        LWLog(@"%@",parme);
+        __weak typeof(self) wself = self;
+        [HTMyContainAFN AFN:@"user/SendCashCoupon" with:parme Success:^(NSDictionary *responseObject) {
+            LWLog(@"%@", responseObject);
+            if ([responseObject[@"status"] intValue] == 200) {
+                PushWebViewController *push = [[PushWebViewController alloc] init];
+                push.openUrl = wself.pickCashModel.url;
+                [self.navigationController pushViewController:push animated:YES];
+            }
+        } failure:^(NSError *error) {
+            LWLog(@"%@",error);
+        }];
+        
+    }else{
+        UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
+        SelectObjectViewController *select = [story instantiateViewControllerWithIdentifier:@"SelectObjectViewController"];
+        select.delegate = self;
+        [self.navigationController pushViewController: select animated:YES];
+    }
 }
 
 /*

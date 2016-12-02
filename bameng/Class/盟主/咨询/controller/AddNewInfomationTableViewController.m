@@ -77,6 +77,7 @@
         dic[@"title"] = self.titleField.text;
         dic[@"content"] = self.content.text;
         dic[@"ids"] = self.userIds;
+        LWLog(@"%@",dic);
         [HTMyContainAFN AFN:@"article/create" with:dic Success:^(NSDictionary *responseObject) {
             LWLog(@"user/allylist：%@",responseObject);
             

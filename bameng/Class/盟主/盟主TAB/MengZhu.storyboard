@@ -3201,6 +3201,7 @@
                         <outlet property="postButton" destination="YFe-aU-K5e" id="SBV-GQ-k3v"/>
                         <outlet property="said" destination="ubl-X8-n45" id="LzO-Wc-xHx"/>
                         <outlet property="saveButton" destination="K3v-Jz-SG5" id="vBk-k8-ucO"/>
+                        <outlet property="statusCell" destination="NDE-jp-MRa" id="Neq-13-0fZ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y3I-iv-SWW" userLabel="First Responder" sceneMemberID="firstResponder"/>

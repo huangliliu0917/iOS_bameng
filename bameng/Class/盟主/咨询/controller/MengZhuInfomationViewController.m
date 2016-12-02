@@ -397,6 +397,7 @@ static NSString *infomationIdentify = @"infomationIdentify";
     dic[@"identity"] = @([self type]);
     dic[@"pageSize"] = @(self.PageSize);
     dic[@"pageIndex"] = @(self.PageIndex + 1);
+    LWLog(@"%@",dic);
     [HTMyContainAFN AFN:@"article/list" with:dic Success:^(NSDictionary *responseObject) {
         LWLog(@"article/list：%@",responseObject);
         if ([responseObject[@"status"] intValue] == 200) {

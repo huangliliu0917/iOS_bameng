@@ -102,6 +102,8 @@
 		EF0615E31DF0221B006183EC /* MJDIYAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = EF0615DB1DF02213006183EC /* MJDIYAutoFooter.m */; };
 		EF0615E41DF0221B006183EC /* MJDIYBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = EF0615DD1DF02213006183EC /* MJDIYBackFooter.m */; };
 		EF0615E51DF0221B006183EC /* MJDIYHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = EF0615DF1DF02213006183EC /* MJDIYHeader.m */; };
+		EF0615E71DF10D8D006183EC /* turnView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF0615E61DF10D8D006183EC /* turnView.xib */; };
+		EF0615EA1DF11027006183EC /* turnView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF0615E91DF11027006183EC /* turnView.m */; };
 		EF164BF91DE5763100ED3E41 /* DuiHuanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EF164BF81DE5763100ED3E41 /* DuiHuanModel.m */; };
 		EF164BFC1DE5805200ED3E41 /* WKCookieSyncManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EF164BFB1DE5805200ED3E41 /* WKCookieSyncManager.m */; };
 		EF1C23461DDC5793003DBFA9 /* SaveCanclePickView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF1C23451DDC5793003DBFA9 /* SaveCanclePickView.m */; };
@@ -379,6 +381,9 @@
 		EF0615DD1DF02213006183EC /* MJDIYBackFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJDIYBackFooter.m; sourceTree = "<group>"; };
 		EF0615DE1DF02213006183EC /* MJDIYHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJDIYHeader.h; sourceTree = "<group>"; };
 		EF0615DF1DF02213006183EC /* MJDIYHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJDIYHeader.m; sourceTree = "<group>"; };
+		EF0615E61DF10D8D006183EC /* turnView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = turnView.xib; sourceTree = "<group>"; };
+		EF0615E81DF11027006183EC /* turnView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = turnView.h; sourceTree = "<group>"; };
+		EF0615E91DF11027006183EC /* turnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = turnView.m; sourceTree = "<group>"; };
 		EF164BF71DE5763100ED3E41 /* DuiHuanModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DuiHuanModel.h; sourceTree = "<group>"; };
 		EF164BF81DE5763100ED3E41 /* DuiHuanModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DuiHuanModel.m; sourceTree = "<group>"; };
 		EF164BFA1DE5805200ED3E41 /* WKCookieSyncManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKCookieSyncManager.h; sourceTree = "<group>"; };
@@ -1148,6 +1153,9 @@
 				60D18DF31DC1E0B200E0C839 /* CashCouponTableViewCell.h */,
 				60D18DF41DC1E0B200E0C839 /* CashCouponTableViewCell.m */,
 				60D18DF51DC1E0B200E0C839 /* CashCouponTableViewCell.xib */,
+				EF0615E61DF10D8D006183EC /* turnView.xib */,
+				EF0615E81DF11027006183EC /* turnView.h */,
+				EF0615E91DF11027006183EC /* turnView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1628,6 +1636,7 @@
 				EFA5D7EC1DDC0CEC00962D77 /* pickView.xib in Resources */,
 				604912EE1DC8810A00DA334C /* MYInfomationTableViewCell.xib in Resources */,
 				60979D7A1DC3471100B9E858 /* MengZhuInfomationSmallTableViewCell.xib in Resources */,
+				EF0615E71DF10D8D006183EC /* turnView.xib in Resources */,
 				EF30AC2C1DE81806006EA853 /* README.txt in Resources */,
 				60979D751DC346F500B9E858 /* MengZhuInfomationBigTableViewCell.xib in Resources */,
 				EF4FB9A01DED777D00A70DCB /* MBProgressHUD.bundle in Resources */,
@@ -1906,6 +1915,7 @@
 				EFFBC37D1DE435F6006D2A96 /* LKActionItem.m in Sources */,
 				EFFBC3861DE435F6006D2A96 /* UIResponder+LKNotification.m in Sources */,
 				603A39BF1DB9EC2D00DC1ADA /* HomeNavViewController.m in Sources */,
+				EF0615EA1DF11027006183EC /* turnView.m in Sources */,
 				60979D701DC3364200B9E858 /* MengZhuInfomationViewController.m in Sources */,
 				EF0615E41DF0221B006183EC /* MJDIYBackFooter.m in Sources */,
 				60C8147D1DD2C7C300629935 /* CustomInfomationModel.m in Sources */,

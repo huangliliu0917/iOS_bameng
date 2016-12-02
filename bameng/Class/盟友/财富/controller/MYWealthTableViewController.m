@@ -64,19 +64,27 @@
     }];
     
     [self.tableView removeSpaces];
+    
+    [self setTabalViewRefresh];
+    
+    
+    
+    [self setDate:[UserModel GetUserModel]];
+    
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-//    self.tabBarController.tabBar.hidden = NO;
+- (void)setTabalViewRefresh {
+    __weak typeof(self) wself = self;
     
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [wself GetUserData];
+    }];
     
-    UserModel * user =  [UserModel GetUserModel];
+}
+
+- (void)setDate:( UserModel *)user{
     
-    
-    //[]
     [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:user.UserHeadImg] options:SDWebImageRetryFailed progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
-        
         if (!error) {
             [self.icon setImage:image];
         }else{
@@ -84,15 +92,42 @@
         }
         
     }];
-    
     self.name.text = user.NickName;
     self.leveLable.text = user.LevelName;
-    
     self.mengdouLabel.text = [NSString stringWithFormat:@"%@",user.MengBeans];
-    
     self.daijiesuanLabel.text = [NSString stringWithFormat:@"%@",user.TempMengBeans];
-    
     self.jifenLabel.text = [NSString stringWithFormat:@"%@",user.Score];
+    
+    
+}
+
+- (void)GetUserData{
+    
+    NSMutableDictionary *parme = [NSMutableDictionary dictionary];
+    __weak typeof(self) wself = self;
+    [HTMyContainAFN AFN:@"user/myinfo" with:parme Success:^(NSDictionary *responseObject) {
+        LWLog(@"%@", responseObject);
+        if ([responseObject[@"status"] intValue] == 200) {
+            UserModel *user = [UserModel mj_objectWithKeyValues:responseObject[@"data"]];
+            NSString * path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+            NSString *fileName = [path stringByAppendingPathComponent:UserInfomation];
+            [NSKeyedArchiver archiveRootObject:user toFile:fileName];
+            [[NSUserDefaults standardUserDefaults] setObject:user.token forKey:AppToken];
+            [wself setDate:user];
+        }
+        [self.tableView.mj_header endRefreshing];
+    } failure:^(NSError *error) {
+        LWLog(@"%@",error);
+        [self.tableView.mj_header endRefreshing];
+    }];
+}
+
+
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+//    self.tabBarController.tabBar.hidden = NO;
+    
     
     
 }

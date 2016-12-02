@@ -10,6 +10,9 @@
 
 @protocol LXActionSheetDelegate <NSObject>
 
+
+- (void)myorMengzhu:(int)item;
+
 @end
 
 @interface LXActionSheet : UIView
@@ -29,4 +32,6 @@
 
 @property(nonatomic,assign) BOOL isNickName;
 
+
+@property(nonatomic,weak) id <LXActionSheetDelegate> delegate;
 @end

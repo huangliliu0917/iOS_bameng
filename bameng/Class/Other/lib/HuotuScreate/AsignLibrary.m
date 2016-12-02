@@ -34,6 +34,35 @@
     
 }
 
++ (NSString *)urlSign:(NSDictionary * )dict{
+    NSArray * arr = [dict allKeys];
+    arr = [arr sortedArrayUsingComparator:^NSComparisonResult(NSString* obj1, NSString* obj2) {
+        return [[obj1 lowercaseString] compare:[obj2 lowercaseString]] == NSOrderedDescending;
+    }];
+    NSMutableString * signCap = [[NSMutableString alloc] init];
+    //进行asign拼接
+    
+    for (NSString * dicKey in arr) {
+        
+        if ([dict objectForKey:dicKey]) {
+            NSString *str = [NSString stringWithFormat:@"%@", [dict objectForKey:dicKey]];
+            if (str.length == 0) {
+                continue;
+            }else {
+                [signCap appendString:[NSString stringWithFormat:@"%@=%@&",[dicKey lowercaseString] ,[dict objectForKey:dicKey]]];
+            }
+        }
+    }
+    LWLog(@"%@",signCap);
+    NSString * aa = [signCap substringToIndex:signCap.length-1];
+    NSString * cc  = [NSString stringWithFormat:@"%@%@",aa,MainUrlScreate];
+    return [NSString stringWithFormat:@"%@&sign=%@",aa,[self md5by32:cc]];
+
+    
+    
+}
+
+
 + (NSMutableDictionary *) AsignLibraryWithNecessaryParame:(NSDictionary *)parame{
     
     NSMutableDictionary * innerParame = [self AsignLibraryAdditionParame:parame];

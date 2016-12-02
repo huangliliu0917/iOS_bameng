@@ -25,12 +25,7 @@
     
     self.changBean.delegate = self;
     self.navigationItem.title = @"兑换";
-}
-
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
     
- 
     __weak typeof(self)wself = self;
     NSMutableDictionary *parme = [NSMutableDictionary dictionary];
     [HTMyContainAFN AFN:@"user/AlreadyConvertTotal" with:parme Success:^(NSDictionary *responseObject) {
@@ -40,6 +35,13 @@
     } failure:^(NSError *error) {
         LWLog(@"%@",error);
     }];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+ 
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -60,12 +62,19 @@
     }else{
         NSMutableDictionary *parme = [NSMutableDictionary dictionary];
         parme[@"amount"] = self.changBean.text;
-        
+         __weak typeof(self)wself = self;
         [HTMyContainAFN AFN:@"user/ConvertToBean" with:parme Success:^(NSDictionary *responseObject) {
+            
+            [wself GetUserData];
             UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:@"成功" message:[NSString stringWithFormat:@"兑换%@盟豆成功",self.changBean.text] preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction * ac = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
+            UIAlertAction * ac = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                wself.firstLabel.text = [NSString stringWithFormat:@"%d",[wself.firstLabel.text integerValue] - [self.changBean.text integerValue]];
+                wself.secondLable.text = [NSString stringWithFormat:@"%d",[wself.secondLable.text integerValue] + [self.changBean.text integerValue]];
+            }];
             [alertVC addAction:ac];
             [self presentViewController:alertVC animated:YES completion:nil];
+            
+            
           
         } failure:^(NSError *error) {
             LWLog(@"%@",error);
@@ -74,6 +83,24 @@
     }
 }
 
+- (void)GetUserData{
+    NSMutableDictionary *parme = [NSMutableDictionary dictionary];
+    [HTMyContainAFN AFN:@"user/myinfo" with:parme Success:^(NSDictionary *responseObject) {
+        LWLog(@"%@", responseObject);
+        if ([responseObject[@"status"] intValue] == 200) {
+            UserModel *user = [UserModel mj_objectWithKeyValues:responseObject[@"data"]];
+            NSString * path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+            NSString *fileName = [path stringByAppendingPathComponent:UserInfomation];
+            [NSKeyedArchiver archiveRootObject:user toFile:fileName];
+            [[NSUserDefaults standardUserDefaults] setObject:user.token forKey:AppToken];
+            
+        }
+      
+    } failure:^(NSError *error) {
+        LWLog(@"%@",error);
+       
+    }];
+}
 
 /*
 #pragma mark - Navigation

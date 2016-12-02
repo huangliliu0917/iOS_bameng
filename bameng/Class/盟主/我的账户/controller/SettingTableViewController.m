@@ -24,9 +24,7 @@
     self.logOutButton.layer.masksToBounds = YES;
     self.logOutButton.layer.cornerRadius = 5;
 
-    
-    
-
+   
     
     [self.logOutButton addTarget:self action:@selector(loginOut) forControlEvents:UIControlEventTouchUpInside];
 

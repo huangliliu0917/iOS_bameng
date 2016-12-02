@@ -25,4 +25,8 @@
 + (NSString *)md5by32:(NSString*)input;
 
 
+
++ (NSString *)urlSign:(NSDictionary * )dict;
+
+
 @end

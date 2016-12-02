@@ -8,6 +8,7 @@
 
 #import "MengYouListViewController.h"
 #import "ProcessedTableViewCell.h"
+#import "AllyInfomationTableViewController.h"
 
 @interface MengYouListViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -222,6 +223,14 @@
 
     
     
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+   
+    AllyInfomationTableViewController *info = [ [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil] instantiateViewControllerWithIdentifier:@"AllyInfomationTableViewController"];
+    info.mengYouModel = self.menYouDataList[indexPath.row];
+    [self.navigationController pushViewController:info animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

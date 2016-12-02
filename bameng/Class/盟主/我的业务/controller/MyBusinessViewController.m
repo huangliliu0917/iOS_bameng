@@ -91,8 +91,10 @@ static NSString *myBusinessIdentify = @"myBusinessIdentify";
 
 - (void)getMoerOrderList{
     NSMutableDictionary *parme = [NSMutableDictionary dictionary];
-    parme[@"type"] = @(self.type);
     parme[@"lastId"] = @([self.orders lastObject].ID);
+    parme[@"type"] = @(self.type);
+    
+    LWLog(@"%@", parme);
     [HTMyContainAFN AFN:@"order/myList" with:parme Success:^(NSDictionary *responseObject) {
         LWLog(@"%@", responseObject);
         if ([responseObject[@"status"] integerValue] == 200) {
@@ -104,6 +106,7 @@ static NSString *myBusinessIdentify = @"myBusinessIdentify";
 
     } failure:^(NSError *error) {
         LWLog(@"%@",error);
+        [self.table.mj_footer endRefreshing];
     }];
 
     

@@ -41,9 +41,9 @@
     LWLog(@"xxx");
     
     UserModel * user = [UserModel GetUserModel];
-    if ([self.delegate respondsToSelector:@selector(CashCouponTableViewCellTurn:)]) {
+    if ([self.delegate respondsToSelector:@selector(CashCouponTableViewCellTurn: andmodel:)]) {
         
-        [self.delegate CashCouponTableViewCellTurn:user.UserIdentity];
+        [self.delegate CashCouponTableViewCellTurn:user.UserIdentity andmodel:self.model];
         
     }
     

@@ -25,7 +25,8 @@
     
     [super viewWillAppear:animated];
     
-    [_headImage sd_setImageWithURL:[NSURL URLWithString:_mengYouModel.UserHeadImg] placeholderImage:nil options:SDWebImageRefreshCached];
+    
+    [_headImage sd_setImageWithURL:[NSURL URLWithString:_mengYouModel.UserHeadImg] placeholderImage:[UIImage imageNamed:@"mrtx"] options:SDWebImageRefreshCached];
     _account.text = _mengYouModel.LoginName;
     _nickName.text = _mengYouModel.NickName;
     _realName.text = _mengYouModel.RealName;

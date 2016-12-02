@@ -95,6 +95,26 @@
     
     LWLog(@"%ld",(long)item);
     UIImagePickerController * pick = [[UIImagePickerController alloc] init];
+    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        
+        UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:@"霸盟当前没有使用相机权限，请去设置中打开" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction * ac = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
+        [alertVC addAction:ac];
+        [self presentViewController:alertVC animated:YES completion:nil];
+        return;
+        
+    }
+    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary] || ![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum]) {
+        
+        UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:@"霸盟当前没有使用相册权限，请去设置中打开" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction * ac = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
+        [alertVC addAction:ac];
+        [self presentViewController:alertVC animated:YES completion:nil];
+        return;
+        
+    }
+
+    
     if(item == 1000){
         pick.sourceType = UIImagePickerControllerSourceTypeCamera;
     }else{
@@ -104,6 +124,7 @@
     pick.delegate = self;
     pick.allowsEditing = YES;
     __weak typeof(self) wself = self;
+    
     [pick setBk_didFinishPickingMediaBlock:^(UIImagePickerController *vc, NSDictionary *ac) {
         [vc dismissViewControllerAnimated:YES completion:nil];
         LWLog(@"%@",ac );

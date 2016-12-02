@@ -11,6 +11,7 @@
 #import "TZImagePickerController.h"
 #import "SaveCanclePickView.h"
 #import "SexPick.h"
+#import "turnView.h"
 
 #define CANCEL_BUTTON_COLOR                     [UIColor colorWithRed:53/255.00f green:53/255.00f blue:53/255.00f alpha:1]
 #define DESTRUCTIVE_BUTTON_COLOR                [UIColor colorWithRed:185/255.00f green:45/255.00f blue:39/255.00f alpha:1]
@@ -38,7 +39,7 @@
 
 #define ANIMATE_DURATION                        0.25f
 
-@interface LXActionSheet ()<pickViewDelegate,TZImagePickerControllerDelegate,SaveCanclePickViewDelegate,SexPickDelegate>
+@interface LXActionSheet ()<pickViewDelegate,TZImagePickerControllerDelegate,SaveCanclePickViewDelegate,SexPickDelegate,turnViewDelegate>
 
 @property (nonatomic,strong) UIView *backGroundView;
 @property (nonatomic,strong) NSString *actionTitle;
@@ -48,7 +49,7 @@
 @property (nonatomic,assign) BOOL isHadOtherButton;
 @property (nonatomic,assign) BOOL isHadCancelButton;
 @property (nonatomic,assign) CGFloat LXActionSheetHeight;
-@property (nonatomic,assign) id<LXActionSheetDelegate>delegate;
+//@property (nonatomic,assign) id<LXActionSheetDelegate>delegate;
 
 
 
@@ -137,12 +138,26 @@
         
     }
     
+    if(styleType == 4){ //盟主分享
+        turnView * turn = [turnView shareturnView];
+        turn.delegate = self;
+        [self.backGroundView addSubview:turn];
+    }
+    
     [UIView animateWithDuration:ANIMATE_DURATION animations:^{
         [self.backGroundView setFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height-160, [UIScreen mainScreen].bounds.size.width, 160)];
     } completion:^(BOOL finished) {
     }];
 }
 
+
+- (void)turnClick:(int)item{
+    
+    [self tappedCancel];
+    LWLog(@"%d",item);
+    [self.delegate myorMengzhu:item];
+    
+}
 - (void)SexPickDelegate:(NSInteger)item{
     [self tappedCancel];
     if (item!=1003) {

@@ -29,7 +29,7 @@
     
 
     
-
+    [self.headImage setImage:[UIImage imageNamed:@"mrtx"]];
     
     //self.headImage.backgroundColor = [UIColor whiteColor];
     
@@ -70,30 +70,30 @@
     
     self.headImage.contentMode = UIViewContentModeScaleAspectFill;
     self.headImage.clipsToBounds = YES;
+    
+    
+    [self setTabalViewRefresh];
+    
+    
+    
+//    [self.tableView.mj_footer beginRefreshing];
 }
 
-- (void) viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    self.tabBarController.tabBar.hidden = NO;
-    UserModel * user = [UserModel GetUserModel];
-    
-    LWLog(@"%@",[user mj_keyValues]);
-    
+
+
+- (void)setDate:( UserModel *)user{
     
     [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:user.UserHeadImg] options:SDWebImageRetryFailed progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
-       
+        
         if (!error) {
             [self.headImage setImage:image];
         }else{
             [self.headImage setImage:[UIImage imageNamed:@"mrtx"]];
         }
     }];
-    
-    
-    
     self.headImage.layer.cornerRadius = self.headImage.frame.size.width / 2;
     self.headImage.layer.masksToBounds = YES;
-    self.headImage.layer.borderWidth = 0.7;
+    self.headImage.layer.borderWidth = 1;
     self.headImage.layer.borderColor = [UIColor whiteColor].CGColor;
     self.Level.text = user.LevelName;
     self.nickName.text = user.NickName;
@@ -101,7 +101,48 @@
     LWLog(@"%@",user.TempMengBeans);
     self.daijiesuanLable.text = [NSString stringWithFormat:@"%@",user.TempMengBeans];
     self.keyongjifenLable.text = [NSString stringWithFormat:@"%@",user.Score];
+
+    
 }
+
+- (void)GetUserData{
+    
+    NSMutableDictionary *parme = [NSMutableDictionary dictionary];
+    __weak typeof(self) wself = self;
+    [HTMyContainAFN AFN:@"user/myinfo" with:parme Success:^(NSDictionary *responseObject) {
+        LWLog(@"%@", responseObject);
+        if ([responseObject[@"status"] intValue] == 200) {
+            UserModel *user = [UserModel mj_objectWithKeyValues:responseObject[@"data"]];
+            NSString * path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+            NSString *fileName = [path stringByAppendingPathComponent:UserInfomation];
+            [NSKeyedArchiver archiveRootObject:user toFile:fileName];
+            [[NSUserDefaults standardUserDefaults] setObject:user.token forKey:AppToken];
+            [wself setDate:user];
+        }
+        [self.tableView.mj_header endRefreshing];
+    } failure:^(NSError *error) {
+        LWLog(@"%@",error);
+        [self.tableView.mj_header endRefreshing];
+    }];
+}
+
+- (void) viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self setDate:[UserModel GetUserModel]];
+}
+
+
+
+- (void)setTabalViewRefresh {
+    __weak typeof(self) wself = self;
+    
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [wself GetUserData];
+    }];
+  
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

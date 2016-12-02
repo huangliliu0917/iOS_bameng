@@ -29,6 +29,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *said;
 
 
+@property (weak, nonatomic) IBOutlet UITableViewCell *statusCell;
 
 
 
@@ -79,6 +80,11 @@
     self.saveButton.hidden = YES;
     self.postButton.hidden = YES;
     
+    if(self.model.status == 0){
+        self.statusCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }else{
+       self.statusCell.accessoryType = UITableViewCellAccessoryNone;
+    }
 }
 
 - (void)didReceiveMemoryWarning {

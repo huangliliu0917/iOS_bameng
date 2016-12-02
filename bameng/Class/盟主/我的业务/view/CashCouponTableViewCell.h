@@ -12,7 +12,7 @@
 
 @protocol CashCouponTableViewCellDelegate <NSObject>
 
-- (void)CashCouponTableViewCellTurn:(NSInteger)item;
+- (void)CashCouponTableViewCellTurn:(NSInteger)item andmodel:(CashModel *)model;
 
 
 @end
