@@ -381,17 +381,17 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
      __weak HomeController *wself = self;
     
     MJChiBaoZiHeader * head = [MJChiBaoZiHeader headerWithRefreshingTarget:self refreshingAction:@selector(headrefresh)];
-//    MJChiBaoZiHeader * head = [MJChiBaoZiHeader headerWithRefreshingBlock:^{
-//        [wself getCrircleList];
-//        [wself getNewZiXunList];
-//    }];
-   head.lastUpdatedTimeLabel.hidden = YES;
-    head.backgroundColor = LWColor(249, 249, 249);
-    head.labelLeftInset = 0;
-//    self.table.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-//        [self getCrircleList];
-//        [wself getNewZiXunList];
-//    }];
+////    MJChiBaoZiHeader * head = [MJChiBaoZiHeader headerWithRefreshingBlock:^{
+////        [wself getCrircleList];
+////        [wself getNewZiXunList];
+////    }];
+//   head.lastUpdatedTimeLabel.hidden = YES;
+//    head.backgroundColor = LWColor(249, 249, 249);
+//    head.labelLeftInset = 0;
+    self.table.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self getCrircleList];
+        [wself getNewZiXunList];
+    }];
     self.table.mj_header = head;
     self.table.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(getMoerZixunList)];
 }
