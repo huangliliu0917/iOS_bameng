@@ -10,7 +10,7 @@
 #import "CashCouponTableViewCell.h"
 #import "CashModel.h"
 
-@interface CashCouponViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface CashCouponViewController ()<UITableViewDataSource,UITableViewDelegate,CashCouponTableViewCellDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *table;
 
 @property (strong, nonatomic) NSMutableArray * dataList;
@@ -105,13 +105,17 @@ static NSString *cashCouponIdentify = @"cashCouponIdentify";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CashCouponTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cashCouponIdentify forIndexPath:indexPath];
      CashModel * model = self.dataList[indexPath.row];
-    
+    cell.delegate = self;
 //    LWLog(@"%@",)
     cell.model = model;
     return cell;
 }
 
 
+- (void)CashCouponTableViewCellTurn:(NSInteger)item{
+    
+    
+}
 
 /*
 #pragma mark - Navigation
