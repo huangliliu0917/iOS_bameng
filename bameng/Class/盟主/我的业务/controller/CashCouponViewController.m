@@ -162,6 +162,26 @@ static NSString *cashCouponIdentify = @"cashCouponIdentify";
     }
 }
 
+
+
+- (void)selectMengYou:(NSString *) mengYouId andName:(NSString *)names{
+    
+    LWLog(@"xxxxxxx");
+    __weak typeof(self) wself = self;
+    NSMutableDictionary *parme = [NSMutableDictionary dictionary];
+    parme[@"couponId"] = @(self.pickCashModel.ID);
+    parme[@"toUserId"] = mengYouId;
+    [HTMyContainAFN AFN:@"user/SendAllyCashCoupon" with:parme Success:^(NSDictionary *responseObject) {
+        LWLog(@"%@", responseObject);
+        if ([responseObject[@"status"] intValue] == 200) {
+            PushWebViewController *push = [[PushWebViewController alloc] init];
+            push.openUrl = wself.pickCashModel.url;
+            [self.navigationController pushViewController:push animated:YES];
+        }
+    } failure:^(NSError *error) {
+        LWLog(@"%@",error);
+    }];
+    }
 /*
 #pragma mark - Navigation
 
