@@ -127,6 +127,10 @@ static NSString *cashCouponIdentify = @"cashCouponIdentify";
         //    __weak typeof(self) wself = self;
         action.delegate = self;
         [action showInView:self.view];
+    }else{
+        PushWebViewController *push = [[PushWebViewController alloc] init];
+        push.openUrl = self.pickCashModel.url;
+        [self.navigationController pushViewController:push animated:YES];
     }
 
 }
