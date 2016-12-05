@@ -326,6 +326,7 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
                 [self.articleList addObjectsFromArray:array];
             }
             NSArray *rows = [BMInfomationModel mj_objectArrayWithKeyValuesArray:dic[@"list"][@"Rows"]];
+            [self.articleList removeAllObjects];
             [self.articleList addObjectsFromArray:rows];
             self.PageIndex = [dic[@"list"][@"PageIndex"] integerValue];
             self.PageSize = [dic[@"list"][@"PageSize"] integerValue];

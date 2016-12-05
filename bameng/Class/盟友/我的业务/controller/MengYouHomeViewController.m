@@ -155,11 +155,11 @@ static NSString *mengYouHomeIdentify = @"mengYouHomeIdentify";
         self.PageIndex = [responseObject[@"data"][@"PageIndex"] intValue];
         if ([responseObject[@"status"] intValue] == 200) {
             NSArray * data =  [CustomInfomationModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"Rows"]];
-            if (data.count) {
-                [self.dataLists removeAllObjects];
-                [self.dataLists addObjectsFromArray:data];
-                [self.tableView reloadData];
-            }
+            
+            [self.dataLists removeAllObjects];
+            [self.dataLists addObjectsFromArray:data];
+            [self.tableView reloadData];
+            
         }
         
         [self.tableView.mj_header endRefreshing];

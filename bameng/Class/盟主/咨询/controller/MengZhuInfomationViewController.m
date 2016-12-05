@@ -332,10 +332,10 @@ static NSString *infomationIdentify = @"infomationIdentify";
         LWLog(@"sys/FocusPic：%@", responseObject);
         if ([responseObject[@"status"] intValue] == 200) {
             NSArray *array = [BMCircleModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
-            if(array.count){
-                [self.circleList addObjectsFromArray:array];
-                [self setCircleViewImages];
-            }
+            [self.circleList removeAllObjects];
+            [self.circleList addObjectsFromArray:array];
+            [self setCircleViewImages];
+            
         }
     } failure:^(NSError *error) {
         LWLog(@"%@" ,error);

@@ -114,11 +114,11 @@
         if ([responseObject[@"status"] integerValue] == 200) {
             self.PageIndex = [responseObject[@"data"][@"PageIndex"] intValue];
             NSArray * array = [UserModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"Rows"]];
-            if (array) {
-                [self.menYouDataList removeAllObjects];
-                [_menYouDataList addObjectsFromArray:array];
-                [self.menyouList reloadData];
-            }
+            
+            [self.menYouDataList removeAllObjects];
+            [_menYouDataList addObjectsFromArray:array];
+            [self.menyouList reloadData];
+            
         }
         [self.menyouList.mj_header endRefreshing];
     } failure:^(NSError *error) {

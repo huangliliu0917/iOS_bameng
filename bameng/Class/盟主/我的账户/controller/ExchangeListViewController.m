@@ -54,11 +54,11 @@ static NSString *exchangeListIdentify = @"exchangeListIdentify";
     [HTMyContainAFN AFN:@"user/ConvertFlow" with:parme Success:^(NSDictionary *responseObject) {
        LWLog(@"%@",responseObject);
         NSArray * arr = [MenDouBeanExchageLists mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"list"]];
-        if (arr.count) {
-            [wself.dataList removeAllObjects];
-            [wself.dataList addObjectsFromArray:arr];
-            [wself.table reloadData];
-        }
+        
+        [wself.dataList removeAllObjects];
+        [wself.dataList addObjectsFromArray:arr];
+        [wself.table reloadData];
+        
         [wself.table.mj_header endRefreshing];
     } failure:^(NSError *error) {
         LWLog(@"%@",error);

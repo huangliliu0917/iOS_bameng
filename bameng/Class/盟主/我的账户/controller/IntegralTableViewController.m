@@ -92,11 +92,11 @@ static NSString *integralIdentify = @"integralIdentify";
         LWLog(@"%@", responseObject);
         if ([responseObject[@"status"] integerValue] == 200) {
             NSArray * array = [MenDouBeanExchageLists mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"list"]];
-            if (array.count) {
-                [self.dataList removeAllObjects];
-                [self.dataList addObjectsFromArray:array];
-                [self.tableView reloadData];
-            }
+            
+            [self.dataList removeAllObjects];
+            [self.dataList addObjectsFromArray:array];
+            [self.tableView reloadData];
+            
         }
         [self.tableView.mj_header endRefreshing];
     } failure:^(NSError *error) {

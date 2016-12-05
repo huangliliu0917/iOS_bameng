@@ -237,10 +237,10 @@ static NSString *processedIdentify = @"processedIdentify";
         LWLog(@"customer/list：%@", responseObject);
         if ([responseObject[@"status"] intValue] == 200) {
             NSArray *array = [CustomInfomationModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"Rows"]];
-            if (array.count) {
-                [self.customList removeAllObjects];
-                [self.customList addObjectsFromArray:array];
-            }
+            
+            [self.customList removeAllObjects];
+            [self.customList addObjectsFromArray:array];
+            
             self.PageIndex = [dic[@"data"][@"PageIndex"] integerValue];
 //            self.PageSize = [dic[@"data"][@"PageSize"] integerValue];
             [self.table reloadData];
@@ -278,11 +278,11 @@ static NSString *processedIdentify = @"processedIdentify";
         LWLog(@"customer/list：%@", responseObject);
         if ([responseObject[@"status"] intValue] == 200) {
             NSArray *array = [DuiHuanModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"list"]];
-            if (array.count) {
-                [self.customList removeAllObjects];
-                [self.customList addObjectsFromArray:array];
-                [self.table reloadData];
-            }
+            
+            [self.customList removeAllObjects];
+            [self.customList addObjectsFromArray:array];
+            [self.table reloadData];
+            
         }
         [self.table.mj_header endRefreshing];
     } failure:^(NSError *error) {
@@ -300,10 +300,10 @@ static NSString *processedIdentify = @"processedIdentify";
         LWLog(@"customer/list：%@", responseObject);
         if ([responseObject[@"status"] intValue] == 200) {
             NSArray *array = [DuiHuanModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
-            if (array.count) {
-                [self.customList addObjectsFromArray:array];
-                [self.table reloadData];
-            }
+           
+            [self.customList addObjectsFromArray:array];
+            [self.table reloadData];
+            
         }
         [self.table.mj_header endRefreshing];
     } failure:^(NSError *error) {

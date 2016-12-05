@@ -21,6 +21,8 @@
     
     AppDelegate * appDlg = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     appDlg.currentVc = self;
+    
+    self.tableView.backgroundColor = LWColor(245, 245, 245);
 }
 
 - (void)didReceiveMemoryWarning {

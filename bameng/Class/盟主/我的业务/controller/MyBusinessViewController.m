@@ -121,11 +121,11 @@ static NSString *myBusinessIdentify = @"myBusinessIdentify";
         LWLog(@"%@", responseObject);
         if ([responseObject[@"status"] integerValue] == 200) {
             NSArray * object =  [OrderInfoModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"list"]];
-            if (object.count > 0) {
-                [self.orders removeAllObjects];
-                [self.orders addObjectsFromArray:object];
-                [self.table reloadData];
-            }
+            
+            [self.orders removeAllObjects];
+            [self.orders addObjectsFromArray:object];
+            [self.table reloadData];
+           
             
             [self.table.mj_header endRefreshing];
             

@@ -69,11 +69,11 @@ static NSString *cashCouponIdentify = @"cashCouponIdentify";
         LWLog(@"%@", responseObject);
         if([responseObject[@"status"] integerValue] == 200){
             NSArray *list =  [CashModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"list"]];
-            if (list.count) {
-                [self.dataList removeAllObjects];
-                [self.dataList addObjectsFromArray:list];
-                [self.table reloadData];
-            }
+            
+            [self.dataList removeAllObjects];
+            [self.dataList addObjectsFromArray:list];
+            [self.table reloadData];
+            
         }
         [self.table HideProgram];
         [self.table.mj_header endRefreshing];
@@ -128,9 +128,23 @@ static NSString *cashCouponIdentify = @"cashCouponIdentify";
         action.delegate = self;
         [action showInView:self.view];
     }else{
-        PushWebViewController *push = [[PushWebViewController alloc] init];
-        push.openUrl = self.pickCashModel.url;
-        [self.navigationController pushViewController:push animated:YES];
+        
+        NSMutableDictionary *parme = [NSMutableDictionary dictionary];
+        parme[@"couponId"] = @(model.ID);
+        parme[@"toUserId"] = @(0);
+        LWLog(@"%@",parme);
+        __weak typeof(self) wself = self;
+        [HTMyContainAFN AFN:@"user/SendCashCoupon" with:parme Success:^(NSDictionary *responseObject) {
+            LWLog(@"%@", responseObject);
+            if ([responseObject[@"status"] intValue] == 200) {
+                PushWebViewController *push = [[PushWebViewController alloc] init];
+                push.openUrl = wself.pickCashModel.url;
+                [self.navigationController pushViewController:push animated:YES];
+            }
+        } failure:^(NSError *error) {
+            LWLog(@"%@",error);
+        }];
+
     }
 
 }
