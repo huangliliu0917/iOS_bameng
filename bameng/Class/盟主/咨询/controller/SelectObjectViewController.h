@@ -22,4 +22,7 @@
 
 @property (retain, nonatomic) id <SelectObjectDelegate>delegate;
 
+
+/**1 现金券  2 上传凭证*/
+@property (nonatomic,assign) int type;
 @end

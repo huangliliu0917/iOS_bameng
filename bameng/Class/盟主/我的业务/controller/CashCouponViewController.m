@@ -157,6 +157,7 @@ static NSString *cashCouponIdentify = @"cashCouponIdentify";
     }else{
         UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
         SelectObjectViewController *select = [story instantiateViewControllerWithIdentifier:@"SelectObjectViewController"];
+        select.type = 1;
         select.delegate = self;
         [self.navigationController pushViewController: select animated:YES];
     }
@@ -166,7 +167,7 @@ static NSString *cashCouponIdentify = @"cashCouponIdentify";
 
 - (void)selectMengYou:(NSString *) mengYouId andName:(NSString *)names{
     
-    LWLog(@"xxxxxxx");
+    LWLog(@"xxxxxxx%@",mengYouId);
     __weak typeof(self) wself = self;
     NSMutableDictionary *parme = [NSMutableDictionary dictionary];
     parme[@"couponId"] = @(self.pickCashModel.ID);

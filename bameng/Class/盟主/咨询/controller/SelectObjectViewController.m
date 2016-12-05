@@ -83,7 +83,12 @@ static NSString *selectObjectIdentify = @"selectObjectIdentify";
                 
                 [self.delegate selectMengYou:str andName:strName];
                 
-                [self.navigationController popViewControllerAnimated:YES];
+                if(self.type == 1){
+                    [self.navigationController popViewControllerAnimated:NO];
+                }else{
+                    [self.navigationController popViewControllerAnimated:YES];
+                }
+                
             }
         }else {
             
