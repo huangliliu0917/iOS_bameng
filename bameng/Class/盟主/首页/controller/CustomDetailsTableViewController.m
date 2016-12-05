@@ -117,7 +117,7 @@
     }else if (self.customModel.Status == 2) {
         self.reviewStatus.text = @"已拒绝";
     }else if (self.customModel.Status == 0) {
-        self.reviewStatus.text = @"审核中";
+        self.reviewStatus.text = @"未审核";
     }
     
     if (_customModel.InShop) {

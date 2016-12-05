@@ -37,7 +37,7 @@
     self.phone.text = self.model.Mobile;
     self.addre.text = self.model.Addr;
     
-    NSString * statusst = @"为审核";
+    NSString * statusst = @"未审核";
     if (self.model.Status == 1) {
         statusst = @"同意";
     }else if(self.model.Status == 2){

@@ -47,7 +47,7 @@
 
 - (void)pickerViewSelectAreaOfCode:(AreaLocation *)locate{
     LWLog(@"%@---%@---%@",locate.province,locate.city,locate.area);
-    NSString * city = [NSString stringWithFormat:@"%@_%@_%@",locate.province,locate.city,locate.area];
+    NSString * city = [NSString stringWithFormat:@"%@-%@-%@",locate.province,locate.city,locate.area];
     NSMutableDictionary *parme = [NSMutableDictionary dictionary];
     parme[@"type"] = @"6";
     parme[@"content"] = city;
@@ -83,10 +83,13 @@
                 self.sex.text = @"男";
             }
             if (user.UserCity.length) {
-               self.areaLable.text =  [[user.UserCity componentsSeparatedByString:@"-"] objectAtIndex:1];
+                NSArray * ares = [user.UserCity componentsSeparatedByString:@"-"];
+                if (ares.count) {
+                   self.areaLable.text =  [ares objectAtIndex:1];
+                }else{
+                   self.areaLable.text = @"未知";
+                }   
             }
-            
-            
             [self.iconView sd_setImageWithURL:[NSURL URLWithString:user.UserHeadImg] placeholderImage:[UIImage imageNamed:@"mrtx"]];
         }
  

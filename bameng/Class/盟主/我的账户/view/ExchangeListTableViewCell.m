@@ -38,7 +38,7 @@
     self.timeLable.text = model.time;
     
     if (!model.status) {
-        self.statusLable.text = @"审核中";
+        self.statusLable.text = @"未审核";
     }else{
        self.statusLable.text = @"已通过";
     }

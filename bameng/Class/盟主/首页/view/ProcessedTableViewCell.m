@@ -60,7 +60,7 @@
     }else if (exchagemodel.status == 2) {
         self.review.text = @"已拒绝";
     }else if (exchagemodel.status == 0) {
-        self.review.text = @"审核中";
+        self.review.text = @"未审核";
     }
 }
 
@@ -74,7 +74,7 @@
     }else if (self.customModel.Status == 2) {
         self.review.text = @"已拒绝";
     }else if (self.customModel.Status == 0) {
-        self.review.text = @"审核中";
+        self.review.text = @"未审核";
     }
 }
 

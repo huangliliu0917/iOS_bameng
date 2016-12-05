@@ -42,7 +42,7 @@
         [_titleArray addObject:@{@(0):@"集团资讯"}];
         [_titleArray addObject:@{@(1):@"总店资讯"}];
         if (user.ShopType != 1) {//没有分店
-            [_titleArray addObject:@{@(2):@"分店咨讯"}];
+            [_titleArray addObject:@{@(2):@"分店资讯"}];
         }
         if (user.UserIdentity == 1) {
             [_titleArray addObject:@{@(4):@"盟友消息"}];
