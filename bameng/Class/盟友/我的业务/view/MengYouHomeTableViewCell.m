@@ -37,6 +37,7 @@
 - (void)setModel:(CustomInfomationModel *)model{
     _model = model;
     
+    LWLog(@"%@",[model mj_keyValues]);
     self.name.text = model.Name;
     self.phone.text = model.Mobile;
     

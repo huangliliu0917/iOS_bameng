@@ -108,6 +108,7 @@ static NSString *mengYouHomeIdentify = @"mengYouHomeIdentify";
     [self.tableView removeSpaces];
     [self.tableView registerNib:[UINib nibWithNibName:@"MengYouHomeTableViewCell" bundle:nil] forCellReuseIdentifier:mengYouHomeIdentify];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+
     
     __weak MengYouHomeViewController *wself = self;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage imageNamed:@"tj"] style:UIBarButtonItemStylePlain handler:^(id sender) {
@@ -139,7 +140,7 @@ static NSString *mengYouHomeIdentify = @"mengYouHomeIdentify";
     
     [self.tableView.mj_header beginRefreshing];
     
-    
+
     
 }
 
