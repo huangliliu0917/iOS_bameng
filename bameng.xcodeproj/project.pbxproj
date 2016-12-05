@@ -1570,7 +1570,7 @@
 				TargetAttributes = {
 					60764AE81DB893790061CC6C = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = Q3B3AD6JJH;
+						DevelopmentTeam = 7R246R3B5H;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -2083,7 +2083,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = bameng/bameng.entitlements;
-				DEVELOPMENT_TEAM = Q3B3AD6JJH;
+				DEVELOPMENT_TEAM = 7R246R3B5H;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/bameng/Class/Other/第三方/BaiduMap_IOSSDK_v3.1.0_Lib",
@@ -2101,7 +2101,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/bameng/Class/Other/第三方/ShareSDK/Support/PlatformSDK/WeChatSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.huotu.fanmore---";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hutu.kaiermete.bameng;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -2113,7 +2113,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = bameng/bameng.entitlements;
-				DEVELOPMENT_TEAM = Q3B3AD6JJH;
+				DEVELOPMENT_TEAM = 7R246R3B5H;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/bameng/Class/Other/第三方/BaiduMap_IOSSDK_v3.1.0_Lib",
@@ -2131,7 +2131,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/bameng/Class/Other/第三方/ShareSDK/Support/PlatformSDK/WeChatSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.huotu.fanmore---";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hutu.kaiermete.bameng;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

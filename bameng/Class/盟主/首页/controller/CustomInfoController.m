@@ -536,15 +536,11 @@ static NSString *processedIdentify = @"processedIdentify";
         
     }else if (self.selectPage == 3) {
         UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
-LWLog(@"xxxx");
-        if (_isUntreated) {
-            AllyReviewTableViewController *review = [story instantiateViewControllerWithIdentifier:@"AllyReviewTableViewController"];
-            [self.navigationController pushViewController:review animated:YES];
-        }else {
-            AllyInfomationTableViewController *info = [story instantiateViewControllerWithIdentifier:@"AllyInfomationTableViewController"];
-            info.mengYouModel = self.customList[indexPath.row];
-            [self.navigationController pushViewController:info animated:YES];
-        }
+        AllyReviewTableViewController *review = [story instantiateViewControllerWithIdentifier:@"AllyReviewTableViewController"];
+        MeYouShenQingModel * model = self.customList[indexPath.row];
+        review.model = model;
+        [self.navigationController pushViewController:review animated:YES];
+
         
     }
 }

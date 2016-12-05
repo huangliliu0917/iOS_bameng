@@ -83,7 +83,7 @@
                 self.sex.text = @"男";
             }
             if (user.UserCity.length) {
-               self.areaLable.text =  [[user.UserCity componentsSeparatedByString:@"_"] objectAtIndex:1];
+               self.areaLable.text =  [[user.UserCity componentsSeparatedByString:@"-"] objectAtIndex:1];
             }
             
             

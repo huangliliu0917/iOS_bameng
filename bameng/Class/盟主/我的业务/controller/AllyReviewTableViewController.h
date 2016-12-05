@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MeYouShenQingModel.h"
 
-@interface AllyReviewTableViewController : UITableViewController
+@interface AllyReviewTableViewController : MyTableViewController
 
+@property(nonatomic,strong) MeYouShenQingModel * model;
 @end

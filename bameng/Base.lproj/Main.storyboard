@@ -34,13 +34,13 @@
                                                     <constraint firstAttribute="width" secondItem="IbH-AQ-Tfu" secondAttribute="height" id="13o-6c-IpM"/>
                                                 </constraints>
                                             </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="18888888888" placeholder="用户账号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uQ0-nZ-Jrd">
-                                                <rect key="frame" x="58" y="22" width="307" height="40"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="手机号/用户账号" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="uQ0-nZ-Jrd">
+                                                <rect key="frame" x="58" y="18" width="307" height="48"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="S8f-xW-KDb"/>
+                                                    <constraint firstAttribute="height" constant="48" id="S8f-xW-KDb"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
@@ -72,13 +72,13 @@
                                                     <constraint firstAttribute="width" constant="30" id="5WS-nr-3K7"/>
                                                 </constraints>
                                             </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" placeholder="输入密码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="NWV-Tx-gt5">
-                                                <rect key="frame" x="58" y="6.5" width="307" height="40"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="帐号密码" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="NWV-Tx-gt5">
+                                                <rect key="frame" x="58" y="2.5" width="307" height="48"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="zll-5g-HgU"/>
+                                                    <constraint firstAttribute="height" constant="48" id="zll-5g-HgU"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                         </subviews>
@@ -165,7 +165,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SMb-KB-cNj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-761" y="-161"/>
+            <point key="canvasLocation" x="-546" y="-171"/>
         </scene>
         <!--忘记密码-->
         <scene sceneID="g19-sE-3w7">
@@ -192,10 +192,10 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rEe-Jp-2np">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="61"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="手机号码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hFI-TQ-4dS">
-                                                <rect key="frame" x="84.5" y="10.5" width="280.5" height="40"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="手机号码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="hFI-TQ-4dS">
+                                                <rect key="frame" x="85" y="6.5" width="280" height="48"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="h79-oC-7o5"/>
+                                                    <constraint firstAttribute="height" constant="48" id="h79-oC-7o5"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -234,10 +234,10 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2CU-R4-FBD">
-                                                <rect key="frame" x="84.5" y="10.5" width="181.5" height="40"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="验证码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="2CU-R4-FBD">
+                                                <rect key="frame" x="84.5" y="6.5" width="181.5" height="48"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="ltG-EO-8VW"/>
+                                                    <constraint firstAttribute="height" constant="48" id="ltG-EO-8VW"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -270,10 +270,10 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O94-5N-QAD">
                                         <rect key="frame" x="0.0" y="124" width="375" height="61"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入密码" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OiD-oX-Nnf">
-                                                <rect key="frame" x="84.5" y="10.5" width="280.5" height="40"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入密码" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="OiD-oX-Nnf">
+                                                <rect key="frame" x="84.5" y="6.5" width="280.5" height="48"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="f1i-ia-AZZ"/>
+                                                    <constraint firstAttribute="height" constant="48" id="f1i-ia-AZZ"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
