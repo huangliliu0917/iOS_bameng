@@ -39,17 +39,16 @@
     self.refuse.layer.borderWidth = 1;
     self.refuse.layer.borderColor = [UIColor colorWithRed:246/255.0 green:77/255.0 blue:83/255.0 alpha:1].CGColor;
     self.refuse.layer.cornerRadius = 5;
-}
-
-
-- (void)setCustomModel:(CustomInfomationModel *)customModel{
-    _customModel = customModel;
-    self.custemName.text = customModel.Name;
-    self.custemPhone.text = customModel.Mobile;
-    self.customAddress.text = customModel.Addr;
-    self.belong.text = customModel.BelongOneName;
     
+    
+    self.custemName.text = self.customModel.Name;
+    self.custemPhone.text = self.customModel.Mobile;
+    self.customAddress.text = self.customModel.Addr;
+    self.belong.text = self.customModel.BelongOneName;
 }
+
+
+
 
 - (IBAction)AgreebtnClick:(id)sender {
     [self doSubmit:YES];

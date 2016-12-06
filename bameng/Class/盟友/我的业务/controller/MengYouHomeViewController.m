@@ -125,8 +125,8 @@ static NSString *mengYouHomeIdentify = @"mengYouHomeIdentify";
 //
     
     [self GetYeWuData];
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:15 target:self selector:@selector(GetYeWuData) userInfo:nil repeats:YES];
-    self.timer = timer;
+//    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:15 target:self selector:@selector(GetYeWuData) userInfo:nil repeats:YES];
+//    self.timer = timer;
     
     
 
@@ -216,9 +216,10 @@ static NSString *mengYouHomeIdentify = @"mengYouHomeIdentify";
     [HTMyContainAFN AFN:@"user/AllyHomeSummary" with:nil Success:^(NSDictionary *responseObject) {
         LWLog(@"%@", responseObject);
         if([responseObject[@"status"] integerValue] == 200){
-            self.agreeLabel.text = [NSString stringWithFormat:@"%@",responseObject[@"data"][@"AllyAmount"]]; //
-            self.rankingLabel.text = [NSString stringWithFormat:@"%@",responseObject[@"data"][@"CustomerAmount"]]; //
-            self.firendLabel.text = [NSString stringWithFormat:@"%@",responseObject[@"data"][@"CustomerRank"]]; //
+            
+            self.firendLabel.text = [NSString stringWithFormat:@"%@",responseObject[@"data"][@"AllyAmount"]]; //
+            self.agreeLabel.text = [NSString stringWithFormat:@"%@",responseObject[@"data"][@"CustomerAmount"]]; //
+            self.rankingLabel.text = [NSString stringWithFormat:@"%@",responseObject[@"data"][@"CustomerRank"]]; //
             self.ordorLabel.text = [NSString stringWithFormat:@"%@",responseObject[@"data"][@"OrderRank"]]; //
             self.clinchLabel.text = [NSString stringWithFormat:@"%@",responseObject[@"data"][@"OrderSuccessAmount"]]; //
        }

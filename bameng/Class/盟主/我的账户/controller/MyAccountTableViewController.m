@@ -93,7 +93,7 @@
     }];
     self.headImage.layer.cornerRadius = self.headImage.frame.size.width / 2;
     self.headImage.layer.masksToBounds = YES;
-    self.headImage.layer.borderWidth = 1;
+    self.headImage.layer.borderWidth = 2;
     self.headImage.layer.borderColor = [UIColor whiteColor].CGColor;
     self.Level.text = user.LevelName;
     self.nickName.text = user.NickName;

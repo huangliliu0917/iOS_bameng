@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11761" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,46 +15,55 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <frame key="frameInset" width="320" height="109"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="109"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ADR-fN-F22">
+                        <rect key="frame" x="9" y="9" width="302" height="100.5"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="264x264" translatesAutoresizingMaskIntoConstraints="NO" id="mUQ-IG-hxR">
+                                <rect key="frame" x="9" y="9" width="82.5" height="82.5"/>
                                 <color key="backgroundColor" red="0.12549019610000001" green="0.60392156860000001" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="mUQ-IG-hxR" secondAttribute="height" id="kg7-K3-VT3"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="美尔凯特强势登陆央视黄金时段" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vU1-eS-l2J">
+                                <rect key="frame" x="101.5" y="14" width="185.5" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="只有不断提升品牌形象，才能让品牌的发展之路更长久。此前，美尔凯特已在高铁广告、报纸,虽然品牌的宣传在某种" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xBn-IX-04M">
+                                <rect key="frame" x="101.5" y="38" width="190.5" height="26.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EI3-kq-JQg">
+                                <rect key="frame" x="101.5" y="75.5" width="190.5" height="25"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sj" translatesAutoresizingMaskIntoConstraints="NO" id="5Hx-AT-LxE">
+                                        <rect key="frame" x="144" y="0.0" width="15" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="15" id="Dmw-Sh-RY2"/>
                                             <constraint firstAttribute="height" constant="15" id="ZiB-gK-rMa"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w0Q-0b-1JW">
+                                        <rect key="frame" x="162" y="1" width="28.5" height="13.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eou-lL-kHr">
+                                        <rect key="frame" x="123.5" y="1" width="12.5" height="13.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lll" translatesAutoresizingMaskIntoConstraints="NO" id="uvh-If-WTU">
+                                        <rect key="frame" x="105.5" y="0.0" width="15" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="f8a-PK-eCf"/>
                                             <constraint firstAttribute="width" constant="15" id="kHB-2R-3fR"/>
@@ -71,7 +83,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.96078431372549022" green="0.96470588235294119" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="mUQ-IG-hxR" secondAttribute="bottom" constant="9" id="6Ft-1M-6hC"/>
                             <constraint firstItem="xBn-IX-04M" firstAttribute="top" secondItem="vU1-eS-l2J" secondAttribute="bottom" constant="8" id="IER-t1-NNS"/>

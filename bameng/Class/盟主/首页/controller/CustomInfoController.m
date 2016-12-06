@@ -241,7 +241,7 @@ static NSString *processedIdentify = @"processedIdentify";
             [self.customList removeAllObjects];
             [self.customList addObjectsFromArray:array];
             
-            self.PageIndex = [dic[@"data"][@"PageIndex"] integerValue];
+            self.PageIndex = 1;
 //            self.PageSize = [dic[@"data"][@"PageSize"] integerValue];
             [self.table reloadData];
             [self.table.mj_header endRefreshing];
@@ -259,10 +259,20 @@ static NSString *processedIdentify = @"processedIdentify";
     dic[@"type"] = @(self.type);
     dic[@"pageIndex"] = @(self.PageIndex + 1);
     dic[@"pageSize"] = @(self.PageSize);
+    LWLog(@"%@",dic);
     [HTMyContainAFN AFN:@"customer/list" with:dic Success:^(NSDictionary *responseObject) {
         LWLog(@"customer/list：%@", responseObject);
         if ([responseObject[@"status"] intValue] == 200) {
+            NSArray *array = [CustomInfomationModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"Rows"]];
             
+            [self.customList addObjectsFromArray:array];
+            
+            self.PageIndex = [responseObject[@"data"][@"PageIndex"] integerValue];
+            //            self.PageSize = [dic[@"data"][@"PageSize"] integerValue];
+            
+            LWLog(@"%ld",(long)self.PageIndex);
+            [self.table reloadData];
+            [self.table.mj_footer endRefreshing];
         }
     } failure:^(NSError *error) {
         LWLog(@"%@" ,error);
@@ -305,10 +315,10 @@ static NSString *processedIdentify = @"processedIdentify";
             [self.table reloadData];
             
         }
-        [self.table.mj_header endRefreshing];
+        [self.table.mj_footer endRefreshing];
     } failure:^(NSError *error) {
         LWLog(@"%@" ,error);
-        [self.table.mj_header endRefreshing];
+        [self.table.mj_footer endRefreshing];
     }];
 }
 
@@ -359,10 +369,10 @@ static NSString *processedIdentify = @"processedIdentify";
             [self.table reloadData];
         }
         
-        [self.table.mj_header endRefreshing];
+        [self.table.mj_footer endRefreshing];
     } failure:^(NSError *error) {
         LWLog(@"%@", error);
-        [self.table.mj_header endRefreshing];
+        [self.table.mj_footer endRefreshing];
     }];
 
 }

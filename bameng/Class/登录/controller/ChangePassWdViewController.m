@@ -7,6 +7,7 @@
 //
 
 #import "ChangePassWdViewController.h"
+#import "LoginController.h"
 
 @interface ChangePassWdViewController ()
 
@@ -62,8 +63,16 @@
     [HTMyContainAFN AFN:@"user/ChanagePassword" with:parme Success:^(NSDictionary *responseObject) {
         LWLog(@"%@", responseObject);
         if([responseObject[@"status"] integerValue] == 200){
-            
-            [MBProgressHUD showSuccess:responseObject[@"statusText"]];
+            UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:@"修改密码成功" message:@"请重新登录帐号" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction * ac = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                LoginController *login = [story instantiateViewControllerWithIdentifier:@"LoginController"];
+                UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:login];
+                [UIApplication sharedApplication].keyWindow.rootViewController = nav;
+            }];
+            [alertVC addAction:ac];
+            [self presentViewController:alertVC animated:YES completion:nil];
+
         }
         
     } failure:^(NSError *error) {
@@ -73,6 +82,11 @@
     
 }
 
+- (void)dealloc{
+    
+    LWLog(@"xxx");
+    
+}
 
 /*
 #pragma mark - Navigation

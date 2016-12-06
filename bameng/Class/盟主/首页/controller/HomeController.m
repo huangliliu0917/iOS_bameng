@@ -19,6 +19,10 @@
 #import "MyCoreLocation.h"
 #import "CustomSlideViewController.h"
 #import "MJChiBaoZiHeader.h"
+#import "MengZhuInfomationBigTableViewCell.h"
+#import "MengZhuInfomationSmallTableViewCell.h"
+
+
 
 @interface HomeController ()<CircleBannerViewDelegate,MyCoreLocationDelegate>
 
@@ -43,6 +47,10 @@
 
 @property(nonatomic,assign) CGFloat scrollH;
 @property(nonatomic,assign) CGFloat scrollHW;
+
+
+/**大的cell的数量*/
+@property(nonatomic,assign) NSUInteger bigCellCount;
 
 
 @end
@@ -102,7 +110,13 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
     self.table.dataSource = self;
     [self.table setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [self.table removeSpaces];
-    [self.table registerNib:[UINib nibWithNibName:@"HomeMengzhuTableViewCell" bundle:nil] forCellReuseIdentifier:homeTableCellIdentify];
+//    [self.table registerNib:[UINib nibWithNibName:@"HomeMengzhuTableViewCell" bundle:nil] forCellReuseIdentifier:homeTableCellIdentify];
+    
+    [self.table registerNib:[UINib nibWithNibName:@"MengZhuInfomationBigTableViewCell" bundle:nil] forCellReuseIdentifier:@"MengZhuInfomationBigTableViewCell"];
+    [self.table registerNib:[UINib nibWithNibName:@"MengZhuInfomationSmallTableViewCell" bundle:nil] forCellReuseIdentifier:@"MengZhuInfomationSmallTableViewCell"];
+    
+    
+    
     [self.view addSubview:self.table];
     
     self.PageSize = 20;
@@ -297,6 +311,7 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
         LWLog(@"sys/FocusPic：%@", responseObject);
         if ([responseObject[@"status"] intValue] == 200) {
             NSArray *array = [BMCircleModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+            [self.circleList removeAllObjects];
             [self.circleList addObjectsFromArray:array];
             
             [self setCircleViewImages];
@@ -314,6 +329,7 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
     dic[@"identity"] = @0;
     dic[@"pageSize"] = @(self.PageSize);
     dic[@"pageIndex"] = @(1);
+    __weak typeof(self) wself = self;
     [HTMyContainAFN AFN:@"article/list" with:dic Success:^(NSDictionary *responseObject) {
         LWLog(@"article/list：%@",responseObject);
         
@@ -323,10 +339,12 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
             NSDictionary *dic = responseObject[@"data"];
             if ([dic.allKeys indexOfObject:@"top"] != NSNotFound) {
                 NSArray *array = [BMInfomationModel mj_objectArrayWithKeyValuesArray:dic[@"top"]];
+                wself.bigCellCount = array.count;
+                LWLog(@"article/count：%lu",(unsigned long)wself.bigCellCount);
                 [self.articleList addObjectsFromArray:array];
             }
             NSArray *rows = [BMInfomationModel mj_objectArrayWithKeyValuesArray:dic[@"list"][@"Rows"]];
-            [self.articleList removeAllObjects];
+            LWLog(@"article/count：%lu",rows.count);
             [self.articleList addObjectsFromArray:rows];
             self.PageIndex = [dic[@"list"][@"PageIndex"] integerValue];
             self.PageSize = [dic[@"list"][@"PageSize"] integerValue];
@@ -374,7 +392,7 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
 #pragma mark tabelView 
 
 - (void)headrefresh{
-//    [self getCrircleList];
+    [self getCrircleList];
     [self getNewZiXunList];
     
 }
@@ -412,14 +430,30 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    HomeMengzhuTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:homeTableCellIdentify forIndexPath:indexPath];
-    cell.model = self.articleList[indexPath.row];
-
-    return cell;
+//    HomeMengzhuTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:homeTableCellIdentify forIndexPath:indexPath];
+//    cell.model = self.articleList[indexPath.row];
+//
+//    
+    if (self.bigCellCount != 0 &&  indexPath.row < self.bigCellCount) {
+        MengZhuInfomationBigTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MengZhuInfomationBigTableViewCell" forIndexPath:indexPath];
+        cell.model = self.articleList[indexPath.row];
+        return cell;
+    }else {
+        MengZhuInfomationSmallTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MengZhuInfomationSmallTableViewCell" forIndexPath:indexPath];
+        cell.model = self.articleList[indexPath.row];
+        return cell;
+    }
+    
+//    return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 110;
+    
+    if (indexPath.row < self.bigCellCount) {
+        return 105;
+    }else {
+        return 90;
+    }
+    
 }
-
 @end

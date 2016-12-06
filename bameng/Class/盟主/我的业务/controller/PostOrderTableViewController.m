@@ -64,6 +64,7 @@
     
     if(self.havePickImage){
         self.imagepic.image = self.havePickImage;
+        self.currentpickImage = self.havePickImage;
         self.priceName.text  = [NSString stringWithFormat:@"%@",self.dict[@"price"]];
         self.addtionInfo.text  = [NSString stringWithFormat:@"%@",self.dict[@"memo"]];
     }else{

@@ -114,8 +114,8 @@
         _bgScrollView.contentSize=CGSizeMake(_btn_w*titleArray.count, 0);
         [self addSubview:_bgScrollView];
         
-        UIView *line=[[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height-1, _btn_w*titleArray.count, 1)];
-        line.backgroundColor=[UIColor lightGrayColor];
+        UIView *line=[[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height-0.7, _btn_w*titleArray.count, 0.7)];
+        line.backgroundColor=LWColor(228, 228, 228);
         [_bgScrollView addSubview:line];
         
         _selectLine=[[UIView alloc] initWithFrame:CGRectMake(_btn_w * 0.4 * 0.5, self.frame.size.height-2, _btn_w * 0.6, 2)];

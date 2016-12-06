@@ -77,6 +77,7 @@ static NSString *infomationIdentify = @"infomationIdentify";
     
     self.navigationItem.title = @"资讯列表";
     
+    self.PageIndex = 1;
     //用于轮播
     self.selectPage = 1;
 //    self.circleList = [NSMutableArray array];
@@ -102,7 +103,7 @@ static NSString *infomationIdentify = @"infomationIdentify";
     }
     
     
-    
+    [self.table setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
     [self setUserReg];
     
@@ -366,8 +367,10 @@ static NSString *infomationIdentify = @"infomationIdentify";
                 LWLog(@"%@",responseObject[@"list"][@"Rows"]);
 //                [self.articleList removeAllObjects];
                 [self.articleList addObjectsFromArray:rows];
-                self.PageIndex = [responseObject[@"list"][@"PageIndex"] integerValue];
-                self.PageSize = [responseObject[@"list"][@"PageSize"] integerValue];
+                self.PageIndex = [responseObject[@"data"][@"list"][@"PageIndex"] integerValue];
+                
+                LWLog(@"%ld",(long)self.PageIndex);
+                self.PageSize = [responseObject[@"data"][@"list"][@"PageSize"] integerValue];
             }else {
                 NSDictionary *dic = responseObject[@"data"];
                 if ([dic.allKeys indexOfObject:@"top"] != NSNotFound) {
@@ -474,9 +477,9 @@ static NSString *infomationIdentify = @"infomationIdentify";
         return 44;
     }else {
         if (indexPath.row == 0) {
-            return 95;
+            return 105;
         }else {
-            return 81;
+            return 90;
         }
     }
 }
@@ -494,9 +497,11 @@ static NSString *infomationIdentify = @"infomationIdentify";
         if (indexPath.row == 0) {
             MengZhuInfomationBigTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:zixunBigIdentify forIndexPath:indexPath];
             cell.model = self.articleList[indexPath.row];
+            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
             return cell;
         }else {
             MengZhuInfomationSmallTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:zixunSmallIdentify forIndexPath:indexPath];
+            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
             cell.model = self.articleList[indexPath.row];
             return cell;
         }
