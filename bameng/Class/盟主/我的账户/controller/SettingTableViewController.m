@@ -14,6 +14,8 @@
 
 @interface SettingTableViewController ()
 
+
+@property(nonatomic,weak)  UIButton * loginBtn;
 @end
 
 @implementation SettingTableViewController
@@ -26,10 +28,24 @@
 
    
     
-    [self.logOutButton addTarget:self action:@selector(loginOut) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    
+    UIWindow * win =  [[UIApplication sharedApplication].windows lastObject];
+    UIButton * btn = [[UIButton alloc] initWithFrame:CGRectMake(0, KScreenHeight - 44, KScreenHeight, 44)];
+    btn.backgroundColor = LWColor(252, 84, 83);
+    self.loginBtn = btn;
+    [self.view.window addSubview:btn];
+    
+    [self.loginBtn addTarget:self action:@selector(loginOut) forControlEvents:UIControlEventTouchUpInside];
 
 }
 
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.loginBtn removeFromSuperview];
+}
 
 - (void)loginOut{
     
