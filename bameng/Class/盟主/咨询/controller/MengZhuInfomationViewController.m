@@ -47,6 +47,10 @@
 
 @property(nonatomic,strong)NSIndexPath * CurrentindexPath;
 
+
+
+@property(nonatomic,assign) NSUInteger topListCount;
+
 @end
 
 @implementation MengZhuInfomationViewController
@@ -375,6 +379,7 @@ static NSString *infomationIdentify = @"infomationIdentify";
                 NSDictionary *dic = responseObject[@"data"];
                 if ([dic.allKeys indexOfObject:@"top"] != NSNotFound) {
                     NSArray *array = [BMInfomationModel mj_objectArrayWithKeyValuesArray:dic[@"top"]];
+                    self.topListCount = array.count;
                     [self.articleList addObjectsFromArray:array];
                 }
                 NSArray *rows = [BMInfomationModel mj_objectArrayWithKeyValuesArray:dic[@"list"][@"Rows"]];
@@ -494,7 +499,7 @@ static NSString *infomationIdentify = @"infomationIdentify";
         LWLog(@"%@",[cell.model mj_keyValues]);
         return cell;
     }else {
-        if (indexPath.row == 0) {
+        if (self.topListCount>0 && indexPath.row < self.topListCount){
             MengZhuInfomationBigTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:zixunBigIdentify forIndexPath:indexPath];
             cell.model = self.articleList[indexPath.row];
             [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
