@@ -10,6 +10,15 @@
 
 @interface MYOrderDetailTableViewController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *orderNumber;
+
+@property (weak, nonatomic) IBOutlet UILabel *timeLable;
+@property (weak, nonatomic) IBOutlet UILabel *customName;
+@property (weak, nonatomic) IBOutlet UILabel *contantNumber;
+@property (weak, nonatomic) IBOutlet UILabel *addressLable;
+@property (weak, nonatomic) IBOutlet UILabel *beizhuLable;
+@property (weak, nonatomic) IBOutlet UILabel *statusLable;
+
 @end
 
 @implementation MYOrderDetailTableViewController
@@ -17,13 +26,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
+   
     [self.tableView removeSpaces];
+    
+    
+    self.orderNumber.text = [NSString stringWithFormat:@"%@",self.model.ID];
+    self.timeLable.text = [NSString stringWithFormat:@"%@",self.model.time];
 }
 
 - (void)didReceiveMemoryWarning {

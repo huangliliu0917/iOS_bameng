@@ -91,7 +91,7 @@ static NSString *myBusinessIdentify = @"myBusinessIdentify";
 
 - (void)getMoerOrderList{
     NSMutableDictionary *parme = [NSMutableDictionary dictionary];
-    parme[@"lastId"] = @([self.orders lastObject].ID);
+    parme[@"lastId"] = [self.orders lastObject].ID;
     parme[@"type"] = @(self.type);
     
     LWLog(@"%@", parme);
@@ -236,6 +236,8 @@ static NSString *myBusinessIdentify = @"myBusinessIdentify";
     if ([identify isEqualToString:isMengYou]) {
         UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengYou" bundle:nil];
         MYOrderDetailTableViewController *ordor = [story instantiateViewControllerWithIdentifier:@"MYOrderDetailTableViewController"];
+        OrderInfoModel * model = self.orders[indexPath.row];
+        ordor.model = model;
         [self.navigationController pushViewController:ordor animated:YES];
     }else {
         

@@ -28,6 +28,6 @@
 @property(nonatomic,strong) NSString * remark;
 @property(nonatomic,strong) NSString * userName;
 @property(nonatomic,strong) NSString * note;
-@property(nonatomic,assign) long ID;
+@property(nonatomic,strong) NSNumber * ID;
 
 @end

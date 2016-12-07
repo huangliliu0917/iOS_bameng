@@ -77,9 +77,9 @@
             self.nickName.text = user.NickName;
             self.phoneNum.text = user.UserMobile;
             self.name.text = user.RealName;
-            if ([user.UserGender isEqualToString:@"f"]) {
+            if ([user.UserGender isEqualToString:@"F"]) {
                 self.sex.text = @"女";
-            }else if([user.UserGender isEqualToString:@"m"]){
+            }else if([user.UserGender isEqualToString:@"M"]){
                 self.sex.text = @"男";
             }
             if (user.UserCity.length) {
@@ -179,7 +179,7 @@
     LWLog(@"%ld-----",(long)item);
     self.sex.text = (item==1000?@"男":@"女");
     UserModel * user = [UserModel GetUserModel];
-    user.UserGender = (item==1000?@"m":@"f");
+    user.UserGender = (item==1000?@"M":@"F");
     [UserModel SaveUserModel:user];
 }
 

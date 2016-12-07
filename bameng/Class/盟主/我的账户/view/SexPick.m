@@ -61,12 +61,14 @@
     NSMutableDictionary *parme = [NSMutableDictionary dictionary];
     parme[@"type"] = @"5";
     if(tap.view.tag == 1000){
-      parme[@"content"] = @"m";
+      parme[@"content"] = @"M";
     }else{
-      parme[@"content"] = @"f";
+      parme[@"content"] = @"F";
     }
     [HTMyContainAFN AFN:@"user/UpdateInfo" with:parme Success:^(NSDictionary *responseObject) {
         LWLog(@"%@", responseObject);
+        
+        [MBProgressHUD showSuccess:responseObject[@"statusText"]];
     } failure:^(NSError *error) {
         LWLog(@"%@",error);
     }];
