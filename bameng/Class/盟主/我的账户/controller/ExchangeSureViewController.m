@@ -14,6 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *firstLabel;
 @property (weak, nonatomic) IBOutlet UILabel *secondLable;
+@property (weak, nonatomic) IBOutlet UIButton *exchangeBtn;
 
 @end
 
@@ -25,7 +26,8 @@
     
     self.changBean.delegate = self;
     self.navigationItem.title = @"兑换";
-    
+    self.exchangeBtn.layer.cornerRadius = 5;
+    self.exchangeBtn.layer.masksToBounds = YES;
     __weak typeof(self)wself = self;
     NSMutableDictionary *parme = [NSMutableDictionary dictionary];
     [HTMyContainAFN AFN:@"user/AlreadyConvertTotal" with:parme Success:^(NSDictionary *responseObject) {

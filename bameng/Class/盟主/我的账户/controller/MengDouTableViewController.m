@@ -137,6 +137,7 @@ static NSString *mengdouIdentify = @"mengdouIdentify";
 //
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
+    [tableView tableViewDisplayWitMsg:nil ifNecessaryForRowCount:self.dataList.count];
     return self.dataList.count;
 }
 

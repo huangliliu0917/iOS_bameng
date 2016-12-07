@@ -16,6 +16,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *currentPasswdNew;
 
 @property (weak, nonatomic) IBOutlet UITextField *currentPasswdNewone;
+
+@property (weak, nonatomic) IBOutlet UIButton *btnOver;
+
 @end
 
 @implementation ChangePassWdViewController
@@ -27,7 +30,8 @@
     // Do any additional setup after loading the view.
     
     
-    
+    self.btnOver.layer.cornerRadius = 5;
+    self.btnOver.layer.masksToBounds = YES;
     
     
 }
