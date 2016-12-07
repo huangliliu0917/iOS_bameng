@@ -68,12 +68,13 @@
     
     _exchagemodel = exchagemodel;
     
-    NSLog(@"%@",[exchagemodel mj_keyValues]);
+    LWLog(@"%@",[exchagemodel mj_keyValues]);
     
     self.name.text = exchagemodel.name;
     self.phone.text = [NSString stringWithFormat:@"%@",exchagemodel.money];
     self.reviewLabel.text = @"未处理";
 //    self
+    [self.image sd_setImageWithURL:[NSURL URLWithString:exchagemodel.headimg] placeholderImage:[UIImage imageNamed:@"264x264"]];
 }
 
 

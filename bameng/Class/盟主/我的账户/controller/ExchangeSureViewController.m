@@ -68,8 +68,7 @@
             [wself GetUserData];
             UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:@"成功" message:[NSString stringWithFormat:@"成功提交兑换%@盟豆申请",self.changBean.text] preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction * ac = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                wself.firstLabel.text = [NSString stringWithFormat:@"%d",[wself.firstLabel.text integerValue] - [self.changBean.text integerValue]];
-                wself.secondLable.text = [NSString stringWithFormat:@"%d",[wself.secondLable.text integerValue] + [self.changBean.text integerValue]];
+                wself.firstLabel.text = [NSString stringWithFormat:@"%ld",[wself.firstLabel.text integerValue] - [self.changBean.text integerValue]];
             }];
             [alertVC addAction:ac];
             [self presentViewController:alertVC animated:YES completion:nil];

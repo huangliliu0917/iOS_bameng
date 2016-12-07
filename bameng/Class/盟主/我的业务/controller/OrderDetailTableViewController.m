@@ -229,8 +229,12 @@
         return;
     }
     //order/UploadSuccessVoucher
+    if (self.status == 1) {
+        [self UploadSuccessVoucher];
+    }else{
+        [self updateOrder];
+    }
     
-    [self UploadSuccessVoucher];
 }
 
 

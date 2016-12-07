@@ -62,8 +62,6 @@
         btn.frame = CGRectMake(KScreenWidth / 3.0 * i, 0, KScreenWidth / 3.0, 40);
         // 还可增设间距
         [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-
-
          // 图片右移
         btn.titleLabel.font = [UIFont systemFontOfSize:13];
         btn.tag = 100 + i;

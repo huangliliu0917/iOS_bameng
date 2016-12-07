@@ -62,6 +62,7 @@
     }else if (exchagemodel.status == 0) {
         self.review.text = @"未审核";
     }
+    [self.iconImage sd_setImageWithURL:[NSURL URLWithString:exchagemodel.headimg] placeholderImage:[UIImage imageNamed:@"264x264"]];
 }
 
 - (void)setCustomModel:(CustomInfomationModel *)customModel {
@@ -82,10 +83,17 @@
     _mengyouModel = mengyouModel;
     self.review.hidden = YES;
     
-    LWLog(@"%@",mengyouModel.LevelName);
+    LWLog(@"%@",[mengyouModel mj_keyValues]);
     self.name.text = mengyouModel.RealName;
     self.phone.text = mengyouModel.LevelName;
-    [self.image sd_setImageWithURL:[NSURL URLWithString:_mengyouModel.UserHeadImg] placeholderImage:nil options:SDWebImageRefreshCached];
+    
+    [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:_mengyouModel.UserHeadImg] options:SDWebImageRetryFailed progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+        if (image) {
+            LWLog(@"%@",imageURL);
+            [self.iconImage setImage:image];
+        }
+    }];
+//    [self.image sd_setImageWithURL:[NSURL URLWithString:_mengyouModel.UserHeadImg] placeholderImage:nil options:SDWebImageRefreshCached];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -11,7 +11,7 @@
 #import "DuiHuanModel.h"
 
 @interface ProcessedTableViewCell : UITableViewCell
-@property (strong, nonatomic) IBOutlet UIImageView *image;
+@property (strong, nonatomic) IBOutlet UIImageView *iconImage;
 //名字 盟友
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
 //手机 兑换盟逗

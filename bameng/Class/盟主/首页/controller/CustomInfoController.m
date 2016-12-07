@@ -207,16 +207,13 @@ static NSString *processedIdentify = @"processedIdentify";
         
     }else if (self.selectPage == 2) {
         //2兑换审核
-        
+        [self getMoreExchangeInfomation];
         
         
     }else if (self.selectPage == 3) {
-        //3我的联盟
-        if (_isUntreated) {
-            
-        }else {
-            [self getMoreMengYouList];
-        }
+        
+        [self getMoreMengYouList];
+       
         
     }
 }
@@ -327,11 +324,12 @@ static NSString *processedIdentify = @"processedIdentify";
 - (void)getNewMengYouList {
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     dic[@"pageSize"] = @(self.PageSize);
-    dic[@"pageIndex"] = @(0);
+    dic[@"pageIndex"] = @(1);
     [HTMyContainAFN AFN:@"user/AllyApplylist" with:dic Success:^(NSDictionary *responseObject) {
         LWLog(@"user/allylist：%@",responseObject);
         if ([responseObject[@"status"] intValue] == 200) {
-            self.PageIndex = [dic[@"data"][@"PageIndex"] integerValue];
+            self.PageIndex = [responseObject[@"data"][@"PageIndex"] integerValue];
+            LWLog(@"%ld",(long)self.PageIndex);
             NSArray *array = [MeYouShenQingModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"Rows"]];
             if (array.count) {
                 [self.customList removeAllObjects];
@@ -350,23 +348,22 @@ static NSString *processedIdentify = @"processedIdentify";
 
 
 - (void)getMoreMengYouList {
-    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     
-    dic[@"identity"] = @0;
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     dic[@"pageSize"] = @(self.PageSize);
     dic[@"pageIndex"] = @(self.PageIndex + 1);
-    [HTMyContainAFN AFN:@"user/allylist" with:dic Success:^(NSDictionary *responseObject) {
+    LWLog(@"%@",dic);
+    [HTMyContainAFN AFN:@"user/AllyApplylist" with:dic Success:^(NSDictionary *responseObject) {
         LWLog(@"user/allylist：%@",responseObject);
         if ([responseObject[@"status"] intValue] == 200) {
+            self.PageIndex = [responseObject[@"data"][@"PageIndex"] integerValue];
+            NSArray *array = [MeYouShenQingModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"Rows"]];
+            if (array.count) {
+                [self.customList removeAllObjects];
+                [self.customList addObjectsFromArray:array];
+                [self.table reloadData];
+            }
             
-            self.PageIndex = [dic[@"data"][@"PageIndex"] integerValue];
-            NSArray *array = [UserModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"Rows"]];
-            [self.customList addObjectsFromArray:array];
-            
-            self.PageIndex = [dic[@"data"][@"PageIndex"] integerValue];
-            self.PageSize = [dic[@"data"][@"PageSize"] integerValue];
-            
-            [self.table reloadData];
         }
         
         [self.table.mj_footer endRefreshing];
@@ -374,6 +371,33 @@ static NSString *processedIdentify = @"processedIdentify";
         LWLog(@"%@", error);
         [self.table.mj_footer endRefreshing];
     }];
+
+//    
+//    
+//    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+//    
+//    dic[@"identity"] = @0;
+//    dic[@"pageSize"] = @(self.PageSize);
+//    dic[@"pageIndex"] = @(self.PageIndex + 1);
+//    [HTMyContainAFN AFN:@"user/AllyApplylist" with:dic Success:^(NSDictionary *responseObject) {
+//        LWLog(@"user/allylist：%@",responseObject);
+//        if ([responseObject[@"status"] intValue] == 200) {
+//            
+//            self.PageIndex = [dic[@"data"][@"PageIndex"] integerValue];
+//            NSArray *array = [UserModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"Rows"]];
+//            [self.customList addObjectsFromArray:array];
+//            
+//            self.PageIndex = [dic[@"data"][@"PageIndex"] integerValue];
+//            self.PageSize = [dic[@"data"][@"PageSize"] integerValue];
+//            
+//            [self.table reloadData];
+//        }
+//        
+//        [self.table.mj_footer endRefreshing];
+//    } failure:^(NSError *error) {
+//        LWLog(@"%@", error);
+//        [self.table.mj_footer endRefreshing];
+//    }];
 
 }
 
