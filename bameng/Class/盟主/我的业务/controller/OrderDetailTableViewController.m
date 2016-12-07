@@ -248,8 +248,14 @@
     [HTMyContainAFN AFN:@"order/update" with:parme Success:^(NSDictionary *responseObject) {
         LWLog(@"%@", responseObject);
         if ([responseObject[@"status"] intValue] == 200) {
-            [self showRightWithTitle:responseObject[@"statusText"] autoCloseTime:1];
-                   }
+            
+            [MBProgressHUD showSuccess:responseObject[@"statusText"]];
+            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self.navigationController popViewControllerAnimated:YES];
+            });
+           
+        }
     } failure:^(NSError *error) {
         LWLog(@"%@",error);
     }];
