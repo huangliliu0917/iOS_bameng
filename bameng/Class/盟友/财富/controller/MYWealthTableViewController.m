@@ -68,7 +68,10 @@
     [self setTabalViewRefresh];
     
     
-    
+    self.icon.layer.cornerRadius = self.icon.frame.size.height * 0.5;
+    self.icon.layer.masksToBounds =  YES;
+    self.icon.layer.borderWidth = 1;
+    self.icon.layer.borderColor = [UIColor whiteColor].CGColor;
     [self setDate:[UserModel GetUserModel]];
     
 }

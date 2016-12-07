@@ -138,8 +138,8 @@
     parame[@"userName"] = self.customName.text;
     parame[@"mobile"] = self.phoneNum.text;
     parame[@"address"] = self.customAddress.text;
-    parame[@"address"] = self.cashNunber.text;
-    parame[@"address"] = self.externInfo.text;
+    parame[@"cashNo"] = self.cashNunber.text;
+    parame[@"memo"] = self.externInfo.text;
     
     AppDelegate * de = (AppDelegate*)[UIApplication sharedApplication].delegate;
     [HTMyContainAFN AFNUpLoadImage:@"order/create" with:parame andImage:self.orderPic.image Success:^(NSDictionary *responseObject) {

@@ -11,11 +11,16 @@
 #import "PushWebViewController.h"
 #import "BassModel.h"
 #import "ChangePassWdViewController.h"
+#import "SDImageCache.h"
 
 @interface SettingTableViewController ()
 
 
 @property(nonatomic,weak)  UIButton * loginBtn;
+
+
+@property (weak, nonatomic) IBOutlet UILabel *rightLable;
+
 @end
 
 @implementation SettingTableViewController
@@ -29,7 +34,9 @@
    
     
     
-    
+    float tmpSize = [[SDImageCache sharedImageCache] getSize];
+    LWLog(@"%f",tmpSize/1024);
+    self.rightLable.text = [NSString stringWithFormat:@"%.2fM",tmpSize/1024/1024];
     
     UIWindow * win =  [[UIApplication sharedApplication].windows lastObject];
     UIButton * btn = [[UIButton alloc] initWithFrame:CGRectMake(0, KScreenHeight - 44, KScreenHeight, 44)];
@@ -91,7 +98,11 @@
        ChangePassWdViewController * vc =  [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ChangePassWdViewController"];
         [self.navigationController pushViewController:vc animated:YES];
     }else if(indexPath.row == 1){
-        LWLog(@"xxxxx");
+        [[SDImageCache sharedImageCache] clearDisk];
+        
+        [[SDImageCache sharedImageCache] clearMemory];//可有可无
+        
+        self.rightLable.text = @"0M";
     }else if(indexPath.row == 2){
         PushWebViewController *push = [[PushWebViewController alloc] init];
         push.openUrl = model.aboutUrl;
