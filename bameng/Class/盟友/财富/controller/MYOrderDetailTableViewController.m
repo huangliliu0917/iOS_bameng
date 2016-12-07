@@ -7,6 +7,8 @@
 //
 
 #import "MYOrderDetailTableViewController.h"
+#import "OrderDetailModel.h"
+
 
 @interface MYOrderDetailTableViewController ()
 
@@ -30,8 +32,39 @@
     [self.tableView removeSpaces];
     
     
-    self.orderNumber.text = [NSString stringWithFormat:@"%@",self.model.ID];
-    self.timeLable.text = [NSString stringWithFormat:@"%@",self.model.time];
+    NSMutableDictionary *parme = [NSMutableDictionary dictionary];
+    parme[@"id"] = self.model.orderId;
+    __weak typeof(self) wself = self;
+    [HTMyContainAFN AFN:@"order/details" with:parme Success:^(NSDictionary *responseObject) {
+        LWLog(@"%@", responseObject);
+        if ([responseObject[@"status"] intValue] == 200) {
+            OrderDetailModel * model = [OrderDetailModel mj_objectWithKeyValues:responseObject[@"data"]];
+            [wself setData:model];
+        }
+        
+    } failure:^(NSError *error) {
+        LWLog(@"%@",error);
+    }];
+
+//    self.orderNumber.text = [NSString stringWithFormat:@"%@",self.model.orderId];
+   // self.timeLable.text = [NSString stringWithFormat:@"%@",self.model.time];
+}
+
+- (void)setData:(OrderDetailModel *)model{
+    self.orderNumber.text = model.orderId;
+    self.timeLable.text = model.orderTime;
+    self.customName.text = model.userName;
+    self.contantNumber.text = model.mobile;
+    self.addressLable.text = model.address;
+    self.beizhuLable.text = model.remark;
+    if(model.status == 0){
+        self.statusLable.text = @"未成交";
+    }else if(model.status == 1){
+        self.statusLable.text = @"成交";
+
+    }
+   
+    
 }
 
 - (void)didReceiveMemoryWarning {
