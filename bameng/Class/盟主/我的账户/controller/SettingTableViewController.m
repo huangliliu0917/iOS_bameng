@@ -38,14 +38,9 @@
     LWLog(@"%f",tmpSize/1024);
     self.rightLable.text = [NSString stringWithFormat:@"%.2fM",tmpSize/1024/1024];
     
-    UIWindow * win =  [[UIApplication sharedApplication].windows lastObject];
-    UIButton * btn = [[UIButton alloc] initWithFrame:CGRectMake(0, KScreenHeight - 44, KScreenHeight, 44)];
-    btn.backgroundColor = LWColor(252, 84, 83);
-    self.loginBtn = btn;
-    [self.view.window addSubview:btn];
+    [self.tableView removeSpaces];
     
-    [self.loginBtn addTarget:self action:@selector(loginOut) forControlEvents:UIControlEventTouchUpInside];
-
+    
 }
 
 
@@ -54,10 +49,12 @@
     [self.loginBtn removeFromSuperview];
 }
 
+
+
 - (void)loginOut{
     
     
-    UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:@"帐号退出" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:@"确定要退出登录吗？" message:nil preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction * ac = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
         UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         LoginController *login = [story instantiateViewControllerWithIdentifier:@"LoginController"];
@@ -74,12 +71,41 @@
     
 }
 
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    
+    
+    
+}
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.tabBarController.tabBar.hidden = YES;
+//    self.tabBarController.tabBar.hidden = NO;
+//    [UIView animateWithDuration:0.3 animations:^{
+//        
+//        self.loginBtn.frame = CGRectMake(0, KScreenHeight - 44, KScreenWidth, 44);
+//    }];
+    
+//    UIButton * btn = [[UIButton alloc] initWithFrame:CGRectMake(0, KScreenHeight - 44, KScreenHeight, 44)];
+//    btn.backgroundColor = LWColor(252, 84, 83);
+//    self.loginBtn = btn;
+//    
+//    [self.tabBarController.tabBar addSubview:btn];
+    
+    UIWindow * win =  [[UIApplication sharedApplication].windows firstObject];
+    UIButton * btn = [[UIButton alloc] initWithFrame:CGRectMake(0,KScreenHeight - 44, KScreenWidth, 44)];
+    btn.backgroundColor = LWColor(252, 84, 83);
+    self.loginBtn = btn;
+    [btn setTitle:@"退出登录" forState:UIControlStateNormal];
+    [win addSubview:btn];
+    [self.loginBtn addTarget:self action:@selector(loginOut) forControlEvents:UIControlEventTouchUpInside];
 }
 
+
+- (void)dealloc{
+    LWLog(@"xxxxx");
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
