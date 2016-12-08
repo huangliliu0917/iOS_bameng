@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11761" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -382,7 +382,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QHY-yh-VdU">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="61"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="手机号码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="2eF-h1-Pa6">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="手机号码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="2eF-h1-Pa6">
                                                 <rect key="frame" x="84.5" y="15.5" width="280.5" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="oa5-D0-Fdx"/>
@@ -410,9 +410,9 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NgD-47-No0">
                                         <rect key="frame" x="0.0" y="61" width="375" height="1"/>
-                                        <color key="backgroundColor" red="0.75294117650000003" green="0.75686274509999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="1" id="jw4-Ba-zgN"/>
+                                            <constraint firstAttribute="height" constant="0.5" id="jw4-Ba-zgN"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0VC-8X-Pdo">
@@ -424,7 +424,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L8q-iR-cZz">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L8q-iR-cZz">
                                                 <rect key="frame" x="84.5" y="15.5" width="181.5" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="qNq-Xb-ISD"/>
@@ -444,6 +444,13 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Ba-YM-jfp">
+                                                <rect key="frame" x="0.0" y="60.5" width="375" height="0.5"/>
+                                                <color key="backgroundColor" red="0.94891935586929321" green="0.94907814264297485" blue="0.94889837503433228" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="0.5" id="0ri-e6-XLo"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -451,9 +458,12 @@
                                             <constraint firstItem="g0d-HI-cvl" firstAttribute="centerY" secondItem="0VC-8X-Pdo" secondAttribute="centerY" id="5XS-ax-EBH"/>
                                             <constraint firstItem="g0d-HI-cvl" firstAttribute="leading" secondItem="L8q-iR-cZz" secondAttribute="trailing" constant="10" id="BRw-Dl-IoR"/>
                                             <constraint firstAttribute="trailing" secondItem="g0d-HI-cvl" secondAttribute="trailing" constant="10" id="Cib-bT-veM"/>
+                                            <constraint firstItem="6Ba-YM-jfp" firstAttribute="leading" secondItem="0VC-8X-Pdo" secondAttribute="leading" id="Is7-Mn-0ZO"/>
                                             <constraint firstAttribute="height" constant="61" id="SXs-Rr-vbc"/>
                                             <constraint firstItem="L8q-iR-cZz" firstAttribute="leading" secondItem="Ied-Zy-P7W" secondAttribute="trailing" constant="2" id="cnv-0V-AUY"/>
                                             <constraint firstItem="L8q-iR-cZz" firstAttribute="centerY" secondItem="Ied-Zy-P7W" secondAttribute="centerY" id="g6J-xU-jGq"/>
+                                            <constraint firstAttribute="trailing" secondItem="6Ba-YM-jfp" secondAttribute="trailing" id="n12-Ar-Q8W"/>
+                                            <constraint firstAttribute="bottom" secondItem="6Ba-YM-jfp" secondAttribute="bottom" id="oRD-iR-5sL"/>
                                             <constraint firstItem="Ied-Zy-P7W" firstAttribute="centerY" secondItem="0VC-8X-Pdo" secondAttribute="centerY" id="sja-Yj-VOC"/>
                                         </constraints>
                                     </view>
@@ -498,13 +508,14 @@
                     </view>
                     <connections>
                         <outlet property="phoneTextField" destination="2eF-h1-Pa6" id="haK-1b-vCx"/>
+                        <outlet property="saveBtn" destination="QV6-iT-nSQ" id="psu-RY-bRW"/>
                         <outlet property="yanLable" destination="g0d-HI-cvl" id="T9o-hT-L0Y"/>
                         <outlet property="yanzhengMa" destination="L8q-iR-cZz" id="dSK-uj-Wqi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Xf-AZ-dMp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1308" y="-131"/>
+            <point key="canvasLocation" x="1308" y="-131.78410794602701"/>
         </scene>
         <!--Change Pass Wd View Controller-->
         <scene sceneID="yrI-pl-gVo">

@@ -148,8 +148,8 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
     HomeHeadView *head = [[NSBundle mainBundle] loadNibNamed:@"HomeHeadView" owner:self options:nil].lastObject;
     head.backgroundColor = [UIColor redColor];
     _head = head;
-    head.frame = CGRectMake(0, 0, KScreenWidth, KScreenWidth * 328.0 / 375);
-    self.scrollHW = KScreenWidth * 328.0 / 375;
+    head.frame = CGRectMake(0, 0, KScreenWidth, KScreenWidth * 340.0 / 375);
+    self.scrollHW = KScreenWidth * 340.0 / 375;
     head.circulateHeight.constant = 210.0 * KScreenWidth / 375;
     [head layoutIfNeeded];
     

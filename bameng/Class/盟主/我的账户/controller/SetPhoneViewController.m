@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
 @property (weak, nonatomic) IBOutlet UITextField *yanzhengMa;
 @property (weak, nonatomic) IBOutlet UILabel *yanLable;
+@property (weak, nonatomic) IBOutlet UIButton *saveBtn;
 
 @end
 
@@ -26,6 +27,14 @@
     UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(getTabzma)];
     self.yanLable.userInteractionEnabled = YES;
     [self.yanLable addGestureRecognizer:tap];
+    
+    
+    self.yanLable.layer.cornerRadius = 5;
+    self.yanLable.layer.masksToBounds = YES;
+    
+    
+    self.saveBtn.layer.cornerRadius = 5;
+    self.saveBtn.layer.masksToBounds = YES;
 }
 
 
