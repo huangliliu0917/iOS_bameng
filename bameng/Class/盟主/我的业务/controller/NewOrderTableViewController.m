@@ -38,6 +38,11 @@
 /**现金圈编号*/
 @property (weak, nonatomic) IBOutlet UITextField *cashNunber;
 
+@property (weak, nonatomic) IBOutlet UITableViewCell *lastcell;
+
+@property (weak, nonatomic) IBOutlet UIButton *upbtn;
+
+
 @end
 
 @implementation NewOrderTableViewController
@@ -52,11 +57,20 @@
 }
 
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    self.tableView.backgroundColor = [UIColor whiteColor];
+    
+    
+    [self.lastcell setSelectionStyle:UITableViewCellSelectionStyleNone];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     
-    self.externInfo.layer.borderWidth = 1;
+//    self.externInfo.layer.borderWidth = 1;
     UITapGestureRecognizer * ges = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addImage)];
     self.addPicture.userInteractionEnabled = YES;
     [self.addPicture addGestureRecognizer:ges];
@@ -64,6 +78,14 @@
     
     self.orderPic.contentMode = UIViewContentModeScaleAspectFill;
     self.orderPic.clipsToBounds = YES;
+    
+    
+    [self.tableView removeSpaces];
+    
+    
+    self.upbtn.layer.cornerRadius = 5;
+    self.upbtn.layer.masksToBounds = YES;
+    
 }
 
 
