@@ -13,6 +13,7 @@
 
 @property (weak, nonatomic) IBOutlet UIView *man;
 @property (weak, nonatomic) IBOutlet UIView *female;
+@property (weak, nonatomic) IBOutlet UIView *UnKnow;
 
 @end
 
@@ -52,6 +53,14 @@
      
      addGestureRecognizer:ges1];
     
+    
+    UITapGestureRecognizer * ges2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectItem:)];
+    self.UnKnow.tag = 1002;
+    self.UnKnow.userInteractionEnabled = YES;
+    [self.UnKnow
+     
+     addGestureRecognizer:ges2];
+    
 }
 
 
@@ -62,8 +71,10 @@
     parme[@"type"] = @"5";
     if(tap.view.tag == 1000){
       parme[@"content"] = @"M";
-    }else{
+    }else if(tap.view.tag == 1001){
       parme[@"content"] = @"F";
+    }else{
+      parme[@"content"] = @"FM";
     }
     [HTMyContainAFN AFN:@"user/UpdateInfo" with:parme Success:^(NSDictionary *responseObject) {
         LWLog(@"%@", responseObject);

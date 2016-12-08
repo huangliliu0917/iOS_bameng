@@ -81,6 +81,8 @@
                 self.sex.text = @"女";
             }else if([user.UserGender isEqualToString:@"M"]){
                 self.sex.text = @"男";
+            }else{
+                self.sex.text = @"未知";
             }
             if (user.UserCity.length) {
                 NSArray * ares = [user.UserCity componentsSeparatedByString:@"-"];
@@ -177,9 +179,9 @@
  */
 - (void)sexSelect:(NSInteger)item{
     LWLog(@"%ld-----",(long)item);
-    self.sex.text = (item==1000?@"男":@"女");
+    self.sex.text = (item==1000?@"男":(item==1001?@"女":@"未知"));
     UserModel * user = [UserModel GetUserModel];
-    user.UserGender = (item==1000?@"M":@"F");
+    user.UserGender = (item==1000?@"M":(item==1001?@"F":@"MF"));
     [UserModel SaveUserModel:user];
 }
 

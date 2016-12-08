@@ -96,7 +96,7 @@
 {
         //生成LXActionSheetView
     self.backGroundView = [[UIView alloc] initWithFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width, 160)];
-    self.backGroundView.backgroundColor = [UIColor redColor];
+//    self.backGroundView.backgroundColor = [UIColor redColor];
     
     //给LXActionSheetView添加响应事件
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedBackGroundView)];
@@ -160,11 +160,11 @@
 }
 - (void)SexPickDelegate:(NSInteger)item{
     [self tappedCancel];
-    if (item!=1003) {
-        if (self.sexPickItem) {
-            self.sexPickItem(item);
-        }
+    
+    if (self.sexPickItem) {
+        self.sexPickItem(item);
     }
+    
 }
 
 - (void)pickViewOption:(NSInteger)item{
@@ -192,6 +192,10 @@
 - (void)tappedCancel
 {
     [UIView animateWithDuration:ANIMATE_DURATION animations:^{
+        
+        for (UIView * vw in self.backGroundView.subviews) {
+            [vw removeFromSuperview];
+        }
         [self.backGroundView setFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width, 0)];
         self.alpha = 0;
     } completion:^(BOOL finished) {
