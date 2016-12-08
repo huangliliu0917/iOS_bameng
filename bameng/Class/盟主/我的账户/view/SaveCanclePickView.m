@@ -15,6 +15,7 @@
 
 /**名字*/
 @property (weak, nonatomic) IBOutlet UITextField *textName;
+@property (weak, nonatomic) IBOutlet UIButton *saveBtn;
 
 @end
 
@@ -32,7 +33,8 @@
 - (void)awakeFromNib{
     [super awakeFromNib];
     
-    
+    self.saveBtn.layer.cornerRadius = 5;
+    self.saveBtn.layer.masksToBounds = YES;
     
 }
 
@@ -59,6 +61,7 @@
         LWLog(@"%@",parme);
         [HTMyContainAFN AFN:@"user/UpdateInfo" with:parme Success:^(NSDictionary *responseObject) {
             LWLog(@"%@", responseObject);
+            [MBProgressHUD showSuccess:responseObject[@"statusText"]];
         } failure:^(NSError *error) {
             LWLog(@"%@",error);
         }];
@@ -67,10 +70,6 @@
     }
 }
 
-- (IBAction)cancleClick:(id)sender {
-    if ([self.delegate respondsToSelector:@selector(SaveCanclePickViewDelegate: withContent:)]) {
-        [self.delegate SaveCanclePickViewDelegate:0 withContent:nil];
-    }
-}
+
 
 @end
