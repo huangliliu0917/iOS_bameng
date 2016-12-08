@@ -221,9 +221,7 @@
 
 
 - (IBAction)saveBtnClick:(id)sender {
-    
-    LWLog(@"xxxxx");
-    
+
     if (self.status == 1 && !self.backImage) {
         [MBProgressHUD showError:@"请上传凭证"];
         return;
