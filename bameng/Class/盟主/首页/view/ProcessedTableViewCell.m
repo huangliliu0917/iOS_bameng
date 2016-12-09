@@ -85,8 +85,8 @@
     
     LWLog(@"%@",[mengyouModel mj_keyValues]);
     self.name.text = mengyouModel.RealName;
-    self.phone.text = mengyouModel.LevelName;
-    
+    self.phone.text = [NSString stringWithFormat:@" %@ ",mengyouModel.LevelName];
+    [self.phone setTextColor:[UIColor whiteColor]];
     [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:_mengyouModel.UserHeadImg] options:SDWebImageRetryFailed progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
         if (image) {
             LWLog(@"%@",imageURL);

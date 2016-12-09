@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *mengBean;
 @property (weak, nonatomic) IBOutlet UILabel *userScore;
 @property (weak, nonatomic) IBOutlet UILabel *daijiesuan;
+@property (weak, nonatomic) IBOutlet UIButton *duihuanBtn;
 
 @end
 
@@ -26,6 +27,9 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.duihuanBtn.layer.cornerRadius = 5;
+    self.duihuanBtn.layer.masksToBounds = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated {

@@ -1,10 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11761" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -25,13 +26,13 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支出" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bdz-Kk-H74">
-                        <rect key="frame" x="52" y="12" width="27" height="16"/>
+                        <rect key="frame" x="52" y="14" width="27" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016.01.06 10:100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JM3-Lw-V2p">
-                        <rect key="frame" x="52" y="35" width="96" height="14"/>
+                        <rect key="frame" x="52" y="30" width="96" height="13.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" red="0.60392156860000001" green="0.60784313729999995" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -54,18 +55,28 @@
                         <color key="textColor" red="0.87450980392156863" green="0.0" blue="0.086274509803921567" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R67-EW-FTO">
+                        <rect key="frame" x="41" y="30" width="271" height="0.0"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" id="yrw-wq-cWJ"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="JM3-Lw-V2p" firstAttribute="top" secondItem="bdz-Kk-H74" secondAttribute="bottom" constant="7" id="14j-6q-AZ2"/>
                     <constraint firstItem="6XY-Pf-dQc" firstAttribute="leading" secondItem="1MC-bA-Xrc" secondAttribute="trailing" constant="2" id="2ft-lX-jXB"/>
-                    <constraint firstItem="bdz-Kk-H74" firstAttribute="top" secondItem="RYg-Mf-czR" secondAttribute="top" constant="-4" id="D7C-bS-kFE"/>
+                    <constraint firstItem="R67-EW-FTO" firstAttribute="top" secondItem="bdz-Kk-H74" secondAttribute="bottom" id="E2p-Bs-Pvk"/>
                     <constraint firstAttribute="trailing" secondItem="pnW-8e-0zn" secondAttribute="trailing" constant="12" id="PXg-X9-503"/>
+                    <constraint firstItem="R67-EW-FTO" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Qx6-oa-LJv"/>
                     <constraint firstItem="RYg-Mf-czR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14" id="RCE-Qb-PJl"/>
                     <constraint firstAttribute="trailing" secondItem="6XY-Pf-dQc" secondAttribute="trailing" constant="12" id="S0f-ls-vM7"/>
+                    <constraint firstItem="JM3-Lw-V2p" firstAttribute="top" secondItem="R67-EW-FTO" secondAttribute="bottom" id="Ufe-TF-j5f"/>
                     <constraint firstAttribute="bottom" secondItem="pnW-8e-0zn" secondAttribute="bottom" constant="8" id="YiN-NZ-gD8"/>
+                    <constraint firstItem="R67-EW-FTO" firstAttribute="leading" secondItem="RYg-Mf-czR" secondAttribute="trailing" id="btS-dk-Y7R"/>
                     <constraint firstItem="6XY-Pf-dQc" firstAttribute="top" secondItem="1MC-bA-Xrc" secondAttribute="top" id="fVi-O7-bC5"/>
                     <constraint firstItem="6XY-Pf-dQc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="kKr-Qn-iW8"/>
                     <constraint firstItem="JM3-Lw-V2p" firstAttribute="leading" secondItem="RYg-Mf-czR" secondAttribute="trailing" constant="11" id="kek-ha-9tV"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="R67-EW-FTO" secondAttribute="trailing" id="kmn-U8-5j8"/>
                     <constraint firstItem="RYg-Mf-czR" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="lSb-PX-IVp"/>
                     <constraint firstItem="bdz-Kk-H74" firstAttribute="leading" secondItem="RYg-Mf-czR" secondAttribute="trailing" constant="11" id="wJ8-R9-wqq"/>
                 </constraints>

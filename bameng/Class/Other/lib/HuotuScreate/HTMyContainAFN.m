@@ -30,10 +30,12 @@
     
    
 
-
+    LWLog(@"%@",[NSString stringWithFormat:@"%@%@", MainUrl ,url]);
 //    [MBProgressHUD showMessage:nil toView:nil];
     [manager POST:[NSString stringWithFormat:@"%@%@", MainUrl ,url] parameters:parame progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable responseObject) {
 //         [MBProgressHUD hideHUD];
+        
+        LWLog(@"%@",task);
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         if([responseObject[@"status"] intValue] == 200){
 //            [MBProgressHUD hideHUD];
@@ -47,6 +49,7 @@
 //      [MBProgressHUD hideHUD];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
 
+        LWLog(@"%@",task.originalRequest);
         failure(error);
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         [MBProgressHUD showError:@"服务器开小差了"];

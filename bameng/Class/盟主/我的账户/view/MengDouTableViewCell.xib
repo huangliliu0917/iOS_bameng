@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11761" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -25,13 +25,13 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支出" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xqG-Io-ObW">
-                        <rect key="frame" x="52" y="13" width="27" height="16"/>
+                        <rect key="frame" x="52" y="14" width="27" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016.01.06 10:100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XMy-2S-vJe">
-                        <rect key="frame" x="52" y="36" width="96" height="14"/>
+                        <rect key="frame" x="52" y="31" width="96" height="13.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" red="0.60392156862745094" green="0.60784313725490191" blue="0.61176470588235299" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -54,21 +54,31 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kqz-du-1JR">
+                        <rect key="frame" x="41" y="30" width="176" height="1"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="fc2-aH-bIP"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="bil-Sf-DNC" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="0G1-6D-PP3"/>
-                    <constraint firstItem="XMy-2S-vJe" firstAttribute="top" secondItem="xqG-Io-ObW" secondAttribute="bottom" constant="7" id="Kg8-Q6-ArI"/>
+                    <constraint firstItem="kqz-du-1JR" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="1Ba-7M-7ml"/>
+                    <constraint firstItem="kqz-du-1JR" firstAttribute="top" secondItem="xqG-Io-ObW" secondAttribute="bottom" id="8P1-25-Xdp"/>
+                    <constraint firstItem="kqz-du-1JR" firstAttribute="leading" secondItem="DLI-ZB-Hjd" secondAttribute="trailing" id="F4q-8s-0rk"/>
                     <constraint firstItem="tCp-dy-cUN" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Oki-ad-mBQ"/>
                     <constraint firstItem="tCp-dy-cUN" firstAttribute="leading" secondItem="X8j-4c-62S" secondAttribute="trailing" constant="2" id="Pdo-mi-Nc4"/>
                     <constraint firstItem="DLI-ZB-Hjd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14" id="Q68-2K-Giv"/>
+                    <constraint firstItem="XMy-2S-vJe" firstAttribute="top" secondItem="kqz-du-1JR" secondAttribute="bottom" id="R3A-ee-7yt"/>
                     <constraint firstItem="DLI-ZB-Hjd" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="VQk-8j-2P1"/>
                     <constraint firstItem="X8j-4c-62S" firstAttribute="leading" secondItem="bil-Sf-DNC" secondAttribute="trailing" constant="2" id="XPU-ob-AaZ"/>
                     <constraint firstItem="XMy-2S-vJe" firstAttribute="leading" secondItem="DLI-ZB-Hjd" secondAttribute="trailing" constant="11" id="bCs-a0-hBe"/>
                     <constraint firstItem="bil-Sf-DNC" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="cpE-wc-fWX"/>
-                    <constraint firstItem="xqG-Io-ObW" firstAttribute="top" secondItem="DLI-ZB-Hjd" secondAttribute="top" constant="-4" id="cwI-sC-MUC"/>
                     <constraint firstAttribute="trailing" secondItem="tCp-dy-cUN" secondAttribute="trailing" constant="17" id="dxw-ye-yAf"/>
                     <constraint firstItem="X8j-4c-62S" firstAttribute="leading" secondItem="bil-Sf-DNC" secondAttribute="trailing" constant="2" id="eeZ-ed-TZf"/>
                     <constraint firstItem="X8j-4c-62S" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="g1m-8I-SgZ"/>
+                    <constraint firstItem="bil-Sf-DNC" firstAttribute="leading" secondItem="kqz-du-1JR" secondAttribute="trailing" id="jkl-eN-nv3"/>
                     <constraint firstItem="xqG-Io-ObW" firstAttribute="leading" secondItem="DLI-ZB-Hjd" secondAttribute="trailing" constant="11" id="wIq-JH-AFl"/>
                 </constraints>
             </tableViewCellContentView>
@@ -78,7 +88,7 @@
                 <outlet property="status" destination="xqG-Io-ObW" id="eoN-1o-YIq"/>
                 <outlet property="timeLable" destination="XMy-2S-vJe" id="3iz-MQ-4Sb"/>
             </connections>
-            <point key="canvasLocation" x="-253" y="32"/>
+            <point key="canvasLocation" x="-118" y="34.5"/>
         </tableViewCell>
     </objects>
     <resources>

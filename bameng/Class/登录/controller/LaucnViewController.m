@@ -27,7 +27,24 @@
 //    LWLog(@"%d",self.isReachable);
     
     
-     [self getAppConfig];
+    AFNetworkReachabilityManager * manager = [AFNetworkReachabilityManager sharedManager];
+    [manager startMonitoring];
+    
+    
+    if (manager.networkReachabilityStatus > 0) {
+       [self getAppConfig];
+    }
+    
+    [manager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        
+        if (!(status == 0) || (status == -1)) {
+            [self getAppConfig];
+            
+        }else{
+            [MBProgressHUD showError:@"请检查网络,退出后重进"];
+        }
+    }];
+    
     
 }
 

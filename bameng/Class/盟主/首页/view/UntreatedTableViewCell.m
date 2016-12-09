@@ -10,6 +10,20 @@
 
 
 @interface UntreatedTableViewCell()
+@property (strong, nonatomic) IBOutlet UIImageView *image;
+@property (strong, nonatomic) IBOutlet UILabel *name;
+@property (strong, nonatomic) IBOutlet UILabel *phone;
+@property (strong, nonatomic) IBOutlet UIButton *agreeButtom;
+@property (strong, nonatomic) IBOutlet UIButton *refuseButtom;
+//名字： 盟友
+@property (strong, nonatomic) IBOutlet UILabel *nameLabel;
+
+//手机：兑换盟逗
+@property (strong, nonatomic) IBOutlet UILabel *phoneLabe;
+
+
+@property (strong, nonatomic) IBOutlet UILabel *reviewLabel;
+
 
 
 
@@ -20,8 +34,15 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     
-    self.agreeButtom.layer.borderColor = [UIColor colorWithRed:192/255.0 green:193/255.0 blue:194/255.0 alpha:1].CGColor;
-    self.agreeButtom.layer.borderWidth = 1;
+    
+  
+    
+    LWLog(@"%@",NSStringFromCGSize(self.image.frame.size));
+    self.image.layer.cornerRadius = self.image.frame.size.width * 0.5;
+    self.image.layer.masksToBounds = YES;
+    
+//    self.agreeButtom.layer.borderColor = [UIColor colorWithRed:192/255.0 green:193/255.0 blue:194/255.0 alpha:1].CGColor;
+//    self.agreeButtom.layer.borderWidth = 1;
     self.agreeButtom.layer.cornerRadius = 5;
     self.agreeButtom.layer.masksToBounds = YES;
     
@@ -110,9 +131,16 @@
     
 }
 
+- (void)setFrame:(CGRect)frame{
+    [super setFrame:frame];
+    
+    LWLog(@"xxxxxxx%@",NSStringFromCGSize(frame.size));
+}
+
+
 - (void)layoutSubviews {
     [super layoutSubviews];
-    
+    LWLog(@"xxxxxxx");
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

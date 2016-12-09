@@ -27,6 +27,10 @@
 
 @property (nonatomic, strong) AreaPickerView * areaView;
 
+
+@property (weak, nonatomic) IBOutlet UILabel *countLable;
+
+
 @end
 
 @implementation UserInfoTableViewController
@@ -66,6 +70,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"个人信息";
+    
+    
+    self.iconView.layer.cornerRadius = self.iconView.frame.size.height * 0.5;
+    self.iconView.layer.masksToBounds = YES;
+    
+  
     /**获取用户信息*/
     [HTMyContainAFN AFN:@"user/myinfo" with:nil Success:^(NSDictionary *responseObject) {
         LWLog(@"%@", responseObject);
@@ -92,6 +102,8 @@
                    self.areaLable.text = @"未知";
                 }   
             }
+            
+            self.countLable.text = user.LoginName;
             [self.iconView sd_setImageWithURL:[NSURL URLWithString:user.UserHeadImg] placeholderImage:[UIImage imageNamed:@"mrtx"]];
         }
  

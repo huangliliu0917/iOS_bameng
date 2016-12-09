@@ -18,6 +18,10 @@
     [super viewDidLoad];
     
     [self.tableView removeSpaces];
+    
+    
+    self.headImage.layer.cornerRadius = self.headImage.frame.size.height * 0.5;
+    self.headImage.layer.masksToBounds = YES;
 }
 
 

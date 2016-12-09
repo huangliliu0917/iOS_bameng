@@ -128,7 +128,7 @@
         
         [[SDImageCache sharedImageCache] clearMemory];//可有可无
         
-        self.rightLable.text = @"0M";
+        self.rightLable.text = @"0.00M";
     }else if(indexPath.row == 2){
         PushWebViewController *push = [[PushWebViewController alloc] init];
         push.openUrl = model.aboutUrl;

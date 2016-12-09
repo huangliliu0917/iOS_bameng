@@ -61,7 +61,7 @@
     NSMutableDictionary *parme = [NSMutableDictionary dictionary];
     parme[@"mobile"] = self.phoneTextField.text;
     parme[@"type"] = @"1";
-    [HTMyContainAFN AFN:@"sys/sendsms" with:parme Success:^(NSDictionary *responseObject) {
+    [HTMyContainAFN AFN:@"sys/SendUserSms" with:parme Success:^(NSDictionary *responseObject) {
         if ([responseObject[@"status"] integerValue] == 200) {
             [self showRightWithTitle: responseObject[@"statusText"] autoCloseTime: 1.5];
         }else{

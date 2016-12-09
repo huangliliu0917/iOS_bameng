@@ -45,7 +45,7 @@
 #define MainUrl @"http://bmapi.51flashmall.com/"
 #define MainUrlScreate @"BAMEENG20161021"
 #else
-#define MainUrl @"http://bmapi.fancat.cn/"
+#define MainUrl @"http://bmapi.mellkit.com"
 //http://bmapi.guo.fancat.cn/
 #define MainUrlScreate @"BAMEENG20161021"
 #endif
@@ -65,7 +65,7 @@
 #define ShareSdkKey @"195924e904402"
 
 
-#define HuoBanMallBuyWeiXinAppId @"wx7a334070f7d14aee"
+#define HuoBanMallBuyWeiXinAppId @"wxd1b7f1a08b8d4470"
 #define HuoBanMallShareSdkWeiXinSecret @"8f3c73001dc3d128a37c0f96af7b28b5"
 
 

@@ -68,6 +68,8 @@ static NSString *processedIdentify = @"processedIdentify";
     [self.view addSubview:self.table];
     
     
+//    self.table.contentInset = UIEdgeInsetsMake(10, 10, 10, 10);
+    
 //    __weak CustomInfoController *wself = self;
 //    
 //    [self.untreated bk_whenTapped:^{
@@ -127,6 +129,8 @@ static NSString *processedIdentify = @"processedIdentify";
     self.PageIndex = 1;
     self.customList = [NSMutableArray array];
     
+    
+
     
     
 //    if (self.selectPage == 1) {
@@ -524,19 +528,19 @@ static NSString *processedIdentify = @"processedIdentify";
     
     
     if (self.selectPage == 1) {
-        if (_isUntreated) {
+        if (self.type == 1) {
             return 108;
         }else {
             return 76;
         }
     }else if (self.selectPage == 2) {
-        if (_isUntreated) {
+        if (self.type == 1) {
             return 108;
         }else {
             return 76;
         }
     }else if (self.selectPage == 3) {
-        if (_isUntreated) {
+        if (self.type == 1) {
             return 108;
         }else {
             return 76;
