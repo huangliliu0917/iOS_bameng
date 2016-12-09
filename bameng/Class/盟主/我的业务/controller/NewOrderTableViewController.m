@@ -162,15 +162,19 @@
     parame[@"address"] = self.customAddress.text;
     parame[@"cashNo"] = self.cashNunber.text;
     parame[@"memo"] = self.externInfo.text;
-    
+    [MBProgressHUD showMessage:@"订单提交中"];
     AppDelegate * de = (AppDelegate*)[UIApplication sharedApplication].delegate;
     [HTMyContainAFN AFNUpLoadImage:@"order/create" with:parame andImage:self.orderPic.image Success:^(NSDictionary *responseObject) {
+        [MBProgressHUD hideHUD];
         UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:@"订单提交" message:@"订单提交成功" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction * ac = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:nil];
+        UIAlertAction * ac = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }];
         [alertVC addAction:ac];
         [de.currentVc presentViewController:alertVC animated:YES completion:nil];
     } failure:^(NSError *error) {
         LWLog(@"%@",error);
+        [MBProgressHUD hideHUD];
     }];
    
 

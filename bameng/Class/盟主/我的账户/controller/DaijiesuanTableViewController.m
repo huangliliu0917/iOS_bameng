@@ -90,6 +90,8 @@ static NSString *daijiesuanIdentify = @"daijiesuanIdentify";
     [HTMyContainAFN AFN:@"user/tempsettlebeanlist" with:parme Success:^(NSDictionary *responseObject) {
         LWLog(@"%@", responseObject);
         if ([responseObject[@"status"] integerValue] == 200) {
+            
+           self.daijiesuanLable.text = [NSString stringWithFormat:@"%@ 盟豆",responseObject[@"data"][@"TempMengBeans"]];
             NSArray * array = [MenDouBeanExchageLists mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"list"]];
             if (array.count) {
                 [self.dataList removeAllObjects];

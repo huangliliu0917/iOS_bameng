@@ -29,6 +29,7 @@
     [self.yanLable addGestureRecognizer:tap];
     
     
+    self.navigationItem.title = @"新手机号";
     self.yanLable.layer.cornerRadius = 5;
     self.yanLable.layer.masksToBounds = YES;
     
@@ -117,11 +118,12 @@
     parme[@"verifyCode"] = self.yanzhengMa.text;
     parme[@"mobile"] = self.phoneTextField.text;
     LWLog(@"%@",parme);
+    [MBProgressHUD showMessage:nil];
     [HTMyContainAFN AFN:@"user/ChanageMobile" with:parme Success:^(NSDictionary *responseObject) {
+        [MBProgressHUD hideHUD];
         if ([responseObject[@"status"] integerValue] == 200) {
             [self showRightWithTitle: responseObject[@"statusText"] autoCloseTime: 1.5];
-            
-            if ([self.delegate respondsToSelector:@selector(savePhoneNumber:)]) {
+            if([self.delegate respondsToSelector:@selector(savePhoneNumber:)]) {
                 [self.delegate savePhoneNumber:self.phoneTextField.text];
             }
         }else{
@@ -129,6 +131,7 @@
         }
     } failure:^(NSError *error) {
         LWLog(@"%@",error);
+        [MBProgressHUD hideHUD];
     }];
 
 }

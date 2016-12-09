@@ -32,19 +32,22 @@
 
     LWLog(@"%@",[NSString stringWithFormat:@"%@%@", MainUrl ,url]);
 //    [MBProgressHUD showMessage:nil toView:nil];
+    
+    LWLog(@"%@",parame);
     [manager POST:[NSString stringWithFormat:@"%@%@", MainUrl ,url] parameters:parame progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable responseObject) {
 //         [MBProgressHUD hideHUD];
         
-        LWLog(@"%@",task);
+        LWLog(@"%@",task.originalRequest);
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         if([responseObject[@"status"] intValue] == 200){
 //            [MBProgressHUD hideHUD];
             success(responseObject);
         }else if([responseObject[@"status"] intValue] == 70035){
-
+            [MBProgressHUD hideHUD];
             [self showLogginOut:responseObject[@"statusText"]];
         }else{
-            [MBProgressHUD showError:responseObject[@"statusText"]];
+            [MBProgressHUD hideHUD];
+           [MBProgressHUD showError:responseObject[@"statusText"]];
         }
 //      [MBProgressHUD hideHUD];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -99,9 +102,10 @@
         if([responseObject[@"status"] intValue] == 200){
             success(responseObject);
         }else if([responseObject[@"status"] intValue] == 70035){
-            
+            [MBProgressHUD hideHUD];;
             [self showLogginOut:responseObject[@"statusText"]];
         }else{
+            [MBProgressHUD hideHUD];
             [MBProgressHUD showError:responseObject[@"statusText"]];
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

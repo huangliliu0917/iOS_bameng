@@ -59,18 +59,62 @@
 }
 
 
+
+
+- (void)shengheyonghuxingxi:(BOOL) item andModel:(NSIndexPath *) index{
+    
+    
+    
+}
+
+
+
 - (void)doSubmit:(BOOL)isAgree{
-    NSMutableDictionary *parme = [NSMutableDictionary dictionary];
-    parme[@"cid"] = self.customModel.ID;
-    parme[@"status"] = isAgree?@"1":@"2";
-    [HTMyContainAFN AFN:@"customer/audit" with:parme Success:^(NSDictionary *responseObject) {
-        LWLog(@"%@", responseObject);
-        if ([[responseObject objectForKey:@"status"] integerValue] == 200) {
-            [self.navigationController popViewControllerAnimated:YES];
-        }
-    } failure:^(NSError *error) {
-        LWLog(@"%@",error);
+//    NSMutableDictionary *parme = [NSMutableDictionary dictionary];
+//    parme[@"cid"] = self.customModel.ID;
+//    parme[@"status"] = isAgree?@"1":@"2";
+//    [HTMyContainAFN AFN:@"customer/audit" with:parme Success:^(NSDictionary *responseObject) {
+//        LWLog(@"%@", responseObject);
+//        if ([[responseObject objectForKey:@"status"] integerValue] == 200) {
+//            [self.navigationController popViewControllerAnimated:YES];
+//        }
+//    } failure:^(NSError *error) {
+//        LWLog(@"%@",error);
+//    }];
+//    
+    NSString *tile = nil;
+    if (isAgree) {
+        tile =  @"确定要同意申请";
+    }else{
+        tile =  @"确定要拒绝申请";
+    }
+    
+    UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:@"审核提醒" message:tile preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction * ac = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+
+        NSMutableDictionary *parme = [NSMutableDictionary dictionary];
+        parme[@"cid"] = self.customModel.ID;
+        parme[@"status"] = isAgree?@"1":@"2";
+        [HTMyContainAFN AFN:@"customer/audit" with:parme Success:^(NSDictionary *responseObject) {
+            LWLog(@"%@", responseObject);
+            if ([[responseObject objectForKey:@"status"] integerValue] == 200) {
+               [self.navigationController popViewControllerAnimated:YES];
+            }
+        } failure:^(NSError *error) {
+            LWLog(@"%@",error);
+        }];
+        
+        
     }];
+    
+    
+    UIAlertAction * ac1 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
+    
+    [alertVC addAction:ac];
+    [alertVC addAction:ac1];
+    [self presentViewController:alertVC animated:YES completion:nil];
+    
+
     
 }
 - (void)viewWillAppear:(BOOL)animated {

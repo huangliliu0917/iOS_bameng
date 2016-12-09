@@ -34,13 +34,16 @@
 - (void)setModel:(MenDouBeanExchageLists *)model{
     _model = model;
     
+    LWLog(@"%@",[model mj_keyValues]);
     self.exchangeMenDou.text = [NSString stringWithFormat:@"%@",model.money];
     self.timeLable.text = model.time;
     
     if (!model.status) {
         self.statusLable.text = @"未审核";
-    }else{
+    }else if(model.status == 1){
        self.statusLable.text = @"已通过";
+    }else{
+        self.statusLable.text = @"未通过";
     }
 }
 @end

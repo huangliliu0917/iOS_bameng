@@ -61,6 +61,9 @@
     self.showAndHidden.tag = 100;
     UITapGestureRecognizer * ges1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showMima:)];
     [self.showAndHidden addGestureRecognizer:ges1];
+    
+    
+    
 }
 
 
@@ -138,6 +141,8 @@
         [MBProgressHUD showError:@"密码为空"];
         return;
     }
+    
+    [self getCaptchaFormServer];
 }
 
 
@@ -146,8 +151,10 @@
     
     dic[@"mobile"] = self.phoneField.text;
     dic[@"password"] = [AsignLibrary md5by32:self.password.text];
-    dic[@"verifyCode"] = self.captchaField;
+    dic[@"verifyCode"] = self.captchaField.text;
+    [MBProgressHUD showMessage:nil];
     [HTMyContainAFN AFN:@"user/forgetpwd" with:dic Success:^(NSDictionary *responseObject) {
+        [MBProgressHUD hideHUD];
         LWLog(@"article/list：%@",responseObject);
         if ([responseObject[@"status"] intValue] == 200) {
             [MBProgressHUD showSuccess:responseObject[@"statusText"]];
@@ -162,7 +169,7 @@
 
     } failure:^(NSError *error) {
         LWLog(@"%@", error);
-
+        [MBProgressHUD hideHUD];
     }];
 }
 

@@ -25,7 +25,7 @@
     self.loginButton.layer.masksToBounds = YES;
     self.loginButton.layer.cornerRadius = 5;
     
-    
+//    [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:AppToken];
     [self setupInit];
     
     
@@ -87,8 +87,10 @@
         parme[@"loginName"] = phoneText;
         parme[@"password"] = [AsignLibrary md5by32:passwordText];
         
+        [MBProgressHUD showMessage:nil];
         [HTMyContainAFN AFN:@"user/login" with:parme Success:^(NSDictionary *responseObject) {
             LWLog(@"%@", responseObject);
+            [MBProgressHUD hideHUD];
             if ([responseObject[@"status"] intValue] == 200) {
                 UserModel *user = [UserModel mj_objectWithKeyValues:responseObject[@"data"]];
                 NSString * path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
@@ -113,6 +115,7 @@
             }
         } failure:^(NSError *error) {
             LWLog(@"%@",error);
+            [MBProgressHUD hideHUD];
         }];
     }
     

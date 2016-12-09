@@ -65,8 +65,10 @@
         NSMutableDictionary *parme = [NSMutableDictionary dictionary];
         parme[@"amount"] = self.changBean.text;
          __weak typeof(self)wself = self;
+        [MBProgressHUD showMessage:nil];
         [HTMyContainAFN AFN:@"user/ConvertToBean" with:parme Success:^(NSDictionary *responseObject) {
             
+            [MBProgressHUD hideHUD];
             [wself GetUserData];
             UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:@"成功" message:[NSString stringWithFormat:@"成功提交兑换%@盟豆申请",self.changBean.text] preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction * ac = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -79,6 +81,7 @@
           
         } failure:^(NSError *error) {
             LWLog(@"%@",error);
+            [MBProgressHUD hideHUD];
         }];
         
     }

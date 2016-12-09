@@ -111,8 +111,10 @@
 - (void)setSelectPage:(NSInteger)selectPage{
     _selectPage = selectPage;
     if (_selectPage == 1) {
-        self.nameLabel.text = @"客户姓名:";
-        self.phoneLabe.text = @"联系方式:";
+        self.nameLabel.text = @"1";
+        self.nameLabel.hidden = YES;
+        self.phoneLabe.text = @"1";
+        self.phoneLabe.hidden = YES;
         self.phone.textColor = [UIColor blackColor];
         self.reviewLabel.text = @"未审核";
         
@@ -122,8 +124,11 @@
         self.phone.textColor = [UIColor colorWithRed:250/255.0 green:76/255.0 blue:81/255.0 alpha:1];
         self.reviewLabel.text = @"未审核";
     }else if (_selectPage == 3) {
-        self.nameLabel.text = @"姓名:";
-        self.phoneLabe.text = @"联系方式:";
+        self.nameLabel.text = @"1";
+        self.nameLabel.hidden = YES;
+        self.phoneLabe.text = @"1";
+        self.phoneLabe.hidden = YES;
+
         self.phone.textColor = [UIColor blackColor];
         self.reviewLabel.text = @"未审核";
         

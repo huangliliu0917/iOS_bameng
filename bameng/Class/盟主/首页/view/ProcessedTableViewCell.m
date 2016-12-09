@@ -14,6 +14,8 @@
     [super awakeFromNib];
     
     
+    self.iconImage.layer.cornerRadius = self.iconImage.frame.size.height * 0.5;
+    self.iconImage.layer.masksToBounds = YES;
 }
 
 
@@ -21,8 +23,10 @@
     
     _selectPage = selectPage;
     if (selectPage == 1) {
-        self.nameLabel.text = @"客户姓名:";
-        self.phoneLabel.text = @"联系方式:";
+        self.nameLabel.text = @"1";
+        self.nameLabel.hidden = YES;
+        self.phoneLabel.text = @"1";
+        self.phoneLabel.hidden = YES;
         
     }else if (selectPage == 2) {
         self.nameLabel.text = @"盟友:";
@@ -30,7 +34,8 @@
         self.phone.textColor = [UIColor colorWithRed:250/255.0 green:76/255.0 blue:81/255.0 alpha:1];
         
     }else if (selectPage == 3) {
-        self.nameLabel.text = @"姓名:";
+        self.nameLabel.text = @"盟友:";
+//        self.nameLabel.hidden = YES;
         self.phoneLabel.text = @"联盟等级:";
         self.phone.layer.masksToBounds = YES;
         self.phone.layer.borderWidth = 1;
