@@ -150,13 +150,13 @@
             [wself setNickNameandNameSelectItem:type andContent:content];
         }];
         [action showInView:self.view];
-    }else if(indexPath.section == 0 && indexPath.row == 2){
+    }else if(indexPath.section == 0 && indexPath.row == 3){
         
         SetPhoneViewController * vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SetPhoneViewController"];
         vc.delegate = self;
         [self.navigationController pushViewController:vc animated:YES];
         
-    }else if(indexPath.section == 1 && indexPath.row == 1){
+    }else if(indexPath.section == 1 && indexPath.row == 0){
         
         LXActionSheet * action = [[LXActionSheet alloc] initWithTitle:2 delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
         __weak typeof(self) wself = self;
@@ -164,7 +164,7 @@
             [wself setNickNameandNameSelectItem:type andContent:content];
         }];
         [action showInView:self.view];
-    }else if(indexPath.section == 1 && indexPath.row == 2){
+    }else if(indexPath.section == 1 && indexPath.row == 1){
         
         LXActionSheet * action = [[LXActionSheet alloc] initWithTitle:3 delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
         __weak typeof(self) wself = self;
@@ -172,7 +172,7 @@
             [wself sexSelect:item];
         }];
         [action showInView:self.view];
-    }else if(indexPath.section == 1 && indexPath.row == 3){
+    }else if(indexPath.section == 1 && indexPath.row == 2){
         
         [self.areaView showInView:self.view.window];
         

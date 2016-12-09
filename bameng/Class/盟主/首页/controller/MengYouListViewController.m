@@ -97,7 +97,7 @@
 - (void)getNewData{
     
     NSMutableDictionary *parme = [NSMutableDictionary dictionary];
-    parme[@"pageIndex"] = @"0";
+    parme[@"pageIndex"] = @"1";
     parme[@"pageSize"] = @(20);
     if(self.selectBtn.tag == 100){
         parme[@"orderbyCode"] = @(0);
@@ -111,6 +111,8 @@
         LWLog(@"%@", responseObject);
         if ([responseObject[@"status"] integerValue] == 200) {
             self.PageIndex = [responseObject[@"data"][@"PageIndex"] intValue];
+            
+            LWLog(@"%d",self.PageIndex);
             NSArray * array = [UserModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"Rows"]];
             
             [self.menYouDataList removeAllObjects];
@@ -139,10 +141,14 @@
         parme[@"orderbyCode"] = @(2);
     }
     parme[@"isDesc"] = self.status?@(1):@(0);
+    
+    LWLog(@"%@",parme);
     [HTMyContainAFN AFN:@"user/allylist" with:parme Success:^(NSDictionary *responseObject) {
         LWLog(@"%@", responseObject);
         if ([responseObject[@"status"] integerValue] == 200) {
             self.PageIndex = [responseObject[@"data"][@"PageIndex"] intValue];
+            LWLog(@"%d",self.PageIndex);
+
             NSArray * array = [UserModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"Rows"]];
             if (array) {
                 [_menYouDataList addObjectsFromArray:array];

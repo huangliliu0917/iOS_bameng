@@ -540,7 +540,10 @@ static NSString *processedIdentify = @"processedIdentify";
             return 76;
         }
     }else if (self.selectPage == 3) {
-        if (self.type == 1) {
+        
+        
+        LWLog(@"%d",self.type);
+        if (self.type == 0) {
             return 108;
         }else {
             return 76;
