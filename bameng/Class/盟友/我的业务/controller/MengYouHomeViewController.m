@@ -112,8 +112,8 @@ static NSString *mengYouHomeIdentify = @"mengYouHomeIdentify";
     
     __weak MengYouHomeViewController *wself = self;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage imageNamed:@"tj"] style:UIBarButtonItemStylePlain handler:^(id sender) {
-        UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
-        SubmitUserInfoTableViewController *sub = [story instantiateViewControllerWithIdentifier:@"SubmitUserInfoTableViewController"];
+        UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengYou" bundle:nil];
+        MYSubmitInfoTableViewController *sub = [story instantiateViewControllerWithIdentifier:@"MYSubmitInfoTableViewController"];
         [wself.navigationController pushViewController:sub animated:YES];
     }];
     
