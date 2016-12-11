@@ -28,23 +28,54 @@
     [self test:NO];
 }
 
-- (void)test:(BOOL)isAgree{
-    NSMutableDictionary *parme = [NSMutableDictionary dictionary];
-    LWLog(@"%@",self.model.ID);
-    parme[@"id"] = [NSString stringWithFormat:@"%@",self.model.ID];
-    parme[@"status"] = isAgree?@"1":@"2";
-    __weak typeof(self) weakSelf = self;
-    [HTMyContainAFN AFN:@"user/AllyApplyAudit" with:parme Success:^(NSDictionary *responseObject) {
-        LWLog(@"%@", responseObject);
-        if ([[responseObject objectForKey:@"status"] integerValue] == 200) {
-            [MBProgressHUD showSuccess:responseObject[@"statusText"]];
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [weakSelf.navigationController popViewControllerAnimated:YES];
-            });
-        }
-    } failure:^(NSError *error) {
-        LWLog(@"%@",error);
+
+- (void)shengheMengyouxingxi:(BOOL) item{
+    
+    NSString *tile = nil;
+    if (item) {
+        tile =  @"确定要同意申请";
+    }else{
+        tile =  @"确定要拒绝申请";
+    }
+    
+    UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:@"审核提醒" message:tile preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction * ac = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSMutableDictionary *parme = [NSMutableDictionary dictionary];
+        LWLog(@"%@",self.model.ID);
+        parme[@"id"] = [NSString stringWithFormat:@"%@",self.model.ID];
+        parme[@"status"] = item?@"1":@"2";
+        __weak typeof(self) weakSelf = self;
+        [HTMyContainAFN AFN:@"user/AllyApplyAudit" with:parme Success:^(NSDictionary *responseObject) {
+            LWLog(@"%@", responseObject);
+            if ([[responseObject objectForKey:@"status"] integerValue] == 200) {
+                [MBProgressHUD showSuccess:responseObject[@"statusText"]];
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [weakSelf.navigationController popViewControllerAnimated:YES];
+                });
+            }
+        } failure:^(NSError *error) {
+            LWLog(@"%@",error);
+        }];
+        
+        
+        
     }];
+    
+    
+    UIAlertAction * ac1 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
+    
+    [alertVC addAction:ac];
+    [alertVC addAction:ac1];
+    [self presentViewController:alertVC animated:YES completion:nil];
+    
+    
+    
+}
+
+
+- (void)test:(BOOL)isAgree{
+    
+    [self shengheMengyouxingxi:isAgree];
 
 }
 

@@ -458,6 +458,92 @@ static NSString *processedIdentify = @"processedIdentify";
     
 }
 
+
+- (void)shengheMengyouxingxi:(BOOL) item andModel:(NSIndexPath *) index{
+    
+    NSString *tile = nil;
+    if (item) {
+        tile =  @"确定要同意申请";
+    }else{
+        tile =  @"确定要拒绝申请";
+    }
+    
+    UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:@"审核提醒" message:tile preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction * ac = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        CustomInfomationModel * model = self.customList[index.row];
+        NSMutableDictionary *parme = [NSMutableDictionary dictionary];
+        LWLog(@"%@",model.ID);
+        parme[@"id"] = [NSString stringWithFormat:@"%@",model.ID];
+        parme[@"status"] = item?@"1":@"2";
+        __weak typeof(self) weakSelf = self;
+        [HTMyContainAFN AFN:@"user/AllyApplyAudit" with:parme Success:^(NSDictionary *responseObject) {
+            LWLog(@"%@", responseObject);
+            if ([[responseObject objectForKey:@"status"] integerValue] == 200) {
+                [weakSelf.customList removeObjectAtIndex:[index row]];  //删除_data数组里的数据
+                [weakSelf.table deleteRowsAtIndexPaths:[NSMutableArray arrayWithObject:index] withRowAnimation:UITableViewRowAnimationAutomatic];  //删除对应数据的cell
+            }
+        } failure:^(NSError *error) {
+            LWLog(@"%@",error);
+        }];
+
+        
+        
+    }];
+    
+    
+    UIAlertAction * ac1 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
+    
+    [alertVC addAction:ac];
+    [alertVC addAction:ac1];
+    [self presentViewController:alertVC animated:YES completion:nil];
+    
+    
+    
+}
+
+
+- (void)shengheDuihuanxingxi:(BOOL) item andModel:(NSIndexPath *) index{
+    
+    NSString *tile = nil;
+    if (item) {
+        tile =  @"确定要同意申请";
+    }else{
+        tile =  @"确定要拒绝申请";
+    }
+    
+    UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:@"审核提醒" message:tile preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction * ac = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        DuiHuanModel * model = self.customList[index.row];
+        NSMutableDictionary *parme = [NSMutableDictionary dictionary];
+        parme[@"id"] = @(model.ID);
+        parme[@"status"] = item?@"1":@"2";
+        __weak typeof(self) weakSelf = self;
+        [HTMyContainAFN AFN:@"user/ConvertAudit" with:parme Success:^(NSDictionary *responseObject) {
+            LWLog(@"%@", responseObject);
+            if ([[responseObject objectForKey:@"status"] integerValue] == 200) {
+                [weakSelf.customList removeObjectAtIndex:[index row]];  //删除_data数组里的数据
+                [weakSelf.table deleteRowsAtIndexPaths:[NSMutableArray arrayWithObject:index] withRowAnimation:UITableViewRowAnimationAutomatic];  //删除对应数据的cell
+            }
+        } failure:^(NSError *error) {
+            LWLog(@"%@",error);
+        }];
+        
+        
+        
+    }];
+    
+    
+    UIAlertAction * ac1 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
+    
+    [alertVC addAction:ac];
+    [alertVC addAction:ac1];
+    [self presentViewController:alertVC animated:YES completion:nil];
+    
+    
+    
+}
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     LWLog(@"%ld",(long)self.selectPage);
@@ -497,18 +583,8 @@ static NSString *processedIdentify = @"processedIdentify";
             __weak typeof(self) weakSelf = self;
             [cell setDidSelectCustomInfo:^(BOOL isAgree) {
                 LWLog(@"%d",isAgree);
-                NSMutableDictionary *parme = [NSMutableDictionary dictionary];
-                parme[@"id"] = @(model.ID);
-                parme[@"status"] = isAgree?@"1":@"2";
-                [HTMyContainAFN AFN:@"user/ConvertAudit" with:parme Success:^(NSDictionary *responseObject) {
-                    LWLog(@"%@", responseObject);
-                    if ([[responseObject objectForKey:@"status"] integerValue] == 200) {
-                        [weakSelf.customList removeObjectAtIndex:[indexPath row]];  //删除_data数组里的数据
-                        [weakSelf.table deleteRowsAtIndexPaths:[NSMutableArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];  //删除对应数据的cell
-                    }
-                } failure:^(NSError *error) {
-                    LWLog(@"%@",error);
-                }];
+               
+                [weakSelf shengheDuihuanxingxi:isAgree andModel:indexPath];
             }];
 
             return cell;
@@ -532,22 +608,11 @@ static NSString *processedIdentify = @"processedIdentify";
         cell.selectPage = self.selectPage;
         MeYouShenQingModel * model = self.customList[indexPath.row];
         cell.MeYouShenQing = model;
+        __weak typeof(self) weakSelf = self;
         [cell setDidSelectCustomInfo:^(BOOL isAgree) {
             LWLog(@"%d",isAgree);
-            NSMutableDictionary *parme = [NSMutableDictionary dictionary];
-            LWLog(@"%@",model.ID);
-            parme[@"id"] = [NSString stringWithFormat:@"%@",model.ID];
-            parme[@"status"] = isAgree?@"1":@"2";
-            __weak typeof(self) weakSelf = self;
-            [HTMyContainAFN AFN:@"user/AllyApplyAudit" with:parme Success:^(NSDictionary *responseObject) {
-                LWLog(@"%@", responseObject);
-                if ([[responseObject objectForKey:@"status"] integerValue] == 200) {
-                    [weakSelf.customList removeObjectAtIndex:[indexPath row]];  //删除_data数组里的数据
-                    [weakSelf.table deleteRowsAtIndexPaths:[NSMutableArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];  //删除对应数据的cell
-                }
-            } failure:^(NSError *error) {
-                LWLog(@"%@",error);
-            }];
+            LWLog(@"%d",isAgree);
+            [weakSelf shengheMengyouxingxi:isAgree andModel:indexPath];
         }];
         return cell;
 
