@@ -57,6 +57,14 @@
     UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:@"确定要退出登录吗？" message:nil preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction * ac = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
         UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        
+        
+        [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"account"];
+        [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"passwd"];
+        [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:AppToken];
+        
+        
+        LWLog(@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:AppToken]);
         LoginController *login = [story instantiateViewControllerWithIdentifier:@"LoginController"];
         UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:login];
         [UIApplication sharedApplication].keyWindow.rootViewController = nav;

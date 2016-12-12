@@ -146,7 +146,7 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
     
     
     HomeHeadView *head = [[NSBundle mainBundle] loadNibNamed:@"HomeHeadView" owner:self options:nil].lastObject;
-    head.backgroundColor = [UIColor redColor];
+//    head.backgroundColor = [UIColor redColor];
     _head = head;
     head.frame = CGRectMake(0, 0, KScreenWidth, KScreenWidth * 340.0 / 375);
     self.scrollHW = KScreenWidth * 340.0 / 375;

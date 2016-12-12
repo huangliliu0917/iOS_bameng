@@ -32,7 +32,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016.01.06 10:100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JM3-Lw-V2p">
-                        <rect key="frame" x="52" y="30" width="96" height="13.5"/>
+                        <rect key="frame" x="52" y="33" width="96" height="13.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" red="0.60392156860000001" green="0.60784313729999995" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -70,7 +70,7 @@
                     <constraint firstItem="R67-EW-FTO" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Qx6-oa-LJv"/>
                     <constraint firstItem="RYg-Mf-czR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14" id="RCE-Qb-PJl"/>
                     <constraint firstAttribute="trailing" secondItem="6XY-Pf-dQc" secondAttribute="trailing" constant="12" id="S0f-ls-vM7"/>
-                    <constraint firstItem="JM3-Lw-V2p" firstAttribute="top" secondItem="R67-EW-FTO" secondAttribute="bottom" id="Ufe-TF-j5f"/>
+                    <constraint firstItem="JM3-Lw-V2p" firstAttribute="top" secondItem="R67-EW-FTO" secondAttribute="bottom" constant="3" id="Ufe-TF-j5f"/>
                     <constraint firstAttribute="bottom" secondItem="pnW-8e-0zn" secondAttribute="bottom" constant="8" id="YiN-NZ-gD8"/>
                     <constraint firstItem="R67-EW-FTO" firstAttribute="leading" secondItem="RYg-Mf-czR" secondAttribute="trailing" id="btS-dk-Y7R"/>
                     <constraint firstItem="6XY-Pf-dQc" firstAttribute="top" secondItem="1MC-bA-Xrc" secondAttribute="top" id="fVi-O7-bC5"/>

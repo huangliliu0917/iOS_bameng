@@ -42,6 +42,8 @@
         self.phone.layer.cornerRadius = 3;
         self.phone.layer.borderColor = [UIColor redColor].CGColor;
         self.phone.backgroundColor = [UIColor redColor];
+        
+        [self.phone setFont:[UIFont systemFontOfSize:12]];
         self.phone.frame = CGRectMake(_phone.frame.origin.x, _phone.frame.origin.y, _phone.frame.size.width + 10, _phone.frame.size.height);
         self.review.hidden = YES;
     }

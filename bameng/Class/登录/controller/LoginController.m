@@ -29,6 +29,14 @@
     [self setupInit];
     
     
+    NSString * phone =  [[NSUserDefaults standardUserDefaults] objectForKey:@"account"];
+    if (phone.length) {
+        self.phone.text = phone;
+    }
+    NSString * passwd =  [[NSUserDefaults standardUserDefaults] objectForKey:@"passwd"];
+    if (passwd.length) {
+        self.password.text = phone;
+    }
     if(self.isReachable){
         LWLog(@"有网");
     }else{
@@ -92,6 +100,11 @@
             LWLog(@"%@", responseObject);
             [MBProgressHUD hideHUD];
             if ([responseObject[@"status"] intValue] == 200) {
+                
+                [[NSUserDefaults standardUserDefaults] setObject:phoneText forKey:@"account"];
+                [[NSUserDefaults standardUserDefaults] setObject:passwordText forKey:@"passwd"];
+                
+                
                 UserModel *user = [UserModel mj_objectWithKeyValues:responseObject[@"data"]];
                 NSString * path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
                 NSString *fileName = [path stringByAppendingPathComponent:UserInfomation];

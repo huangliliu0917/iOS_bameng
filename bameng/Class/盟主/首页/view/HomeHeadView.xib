@@ -28,7 +28,7 @@
                             <rect key="frame" x="0.0" y="97" width="375" height="33"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="集团资讯" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fmz-Ss-nvf">
-                                    <rect key="frame" x="18" y="8" width="62" height="18"/>
+                                    <rect key="frame" x="10" y="8" width="62" height="18"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
@@ -45,7 +45,7 @@
                                 <constraint firstItem="fmz-Ss-nvf" firstAttribute="centerY" secondItem="jTA-vN-bHR" secondAttribute="centerY" id="GOn-Qs-4UZ"/>
                                 <constraint firstItem="G8t-Tl-Ykm" firstAttribute="centerY" secondItem="jTA-vN-bHR" secondAttribute="centerY" id="Sbd-HO-EtI"/>
                                 <constraint firstAttribute="height" constant="33" id="UKR-VX-eK8"/>
-                                <constraint firstItem="fmz-Ss-nvf" firstAttribute="leading" secondItem="jTA-vN-bHR" secondAttribute="leading" constant="18" id="ZcV-wk-WXu"/>
+                                <constraint firstItem="fmz-Ss-nvf" firstAttribute="leading" secondItem="jTA-vN-bHR" secondAttribute="leading" constant="10" id="ZcV-wk-WXu"/>
                                 <constraint firstAttribute="trailing" secondItem="G8t-Tl-Ykm" secondAttribute="trailing" constant="10" id="eqa-E6-Lvz"/>
                             </constraints>
                         </view>

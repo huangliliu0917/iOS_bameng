@@ -106,9 +106,7 @@ static NSString *infomationIdentify = @"infomationIdentify";
         [self getCrircleList];
     }
     
-    
-    [self.table setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    
+ 
     [self setUserReg];
     
     [self setTabalViewRefresh];
@@ -120,6 +118,7 @@ static NSString *infomationIdentify = @"infomationIdentify";
     
     [self.table.mj_header beginRefreshing];
     
+    [self.table setSeparatorStyle:UITableViewCellSeparatorStyleNone];
 //    [self getNewZiXunList];
 }
 
@@ -247,7 +246,7 @@ static NSString *infomationIdentify = @"infomationIdentify";
 - (void)allocTableHeadView {
     self.tableHeadView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, 210 * (KScreenWidth / 414))];
     
-    self.tableHeadView.backgroundColor = [UIColor blueColor];
+//    self.tableHeadView.backgroundColor = [UIColor blueColor];
     
     self.circleView = [[CircleBannerView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, 210 * (KScreenWidth / 414))];
     self.table.tableHeaderView = self.circleView;

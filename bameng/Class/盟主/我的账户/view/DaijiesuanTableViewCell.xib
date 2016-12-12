@@ -14,7 +14,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="61"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="60.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="djsmd" translatesAutoresizingMaskIntoConstraints="NO" id="EmS-cB-dtK">
@@ -31,7 +31,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016.01.06 10:100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NWd-I7-rRr">
-                        <rect key="frame" x="52" y="30.5" width="96" height="13.5"/>
+                        <rect key="frame" x="52" y="33.5" width="96" height="13.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" red="0.60392156860000001" green="0.60784313729999995" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -56,7 +56,7 @@
                     <constraint firstItem="JLU-X5-TNf" firstAttribute="leading" secondItem="EmS-cB-dtK" secondAttribute="trailing" id="6Hz-SH-4y7"/>
                     <constraint firstItem="EmS-cB-dtK" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="BxA-6y-p0H"/>
                     <constraint firstItem="EmS-cB-dtK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14" id="HtC-5Z-qdm"/>
-                    <constraint firstItem="NWd-I7-rRr" firstAttribute="top" secondItem="JLU-X5-TNf" secondAttribute="bottom" id="My0-E7-9Y9"/>
+                    <constraint firstItem="NWd-I7-rRr" firstAttribute="top" secondItem="JLU-X5-TNf" secondAttribute="bottom" constant="3" id="My0-E7-9Y9"/>
                     <constraint firstItem="JLU-X5-TNf" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="QkO-Mc-H8T"/>
                     <constraint firstItem="j0t-AI-bsy" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Rio-Zx-HSM"/>
                     <constraint firstItem="32p-o5-qCw" firstAttribute="leading" secondItem="EmS-cB-dtK" secondAttribute="trailing" constant="11" id="bbw-DM-o9P"/>

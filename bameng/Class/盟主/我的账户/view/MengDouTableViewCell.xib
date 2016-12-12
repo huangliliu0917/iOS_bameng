@@ -14,7 +14,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="61"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="60.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="djsmd" translatesAutoresizingMaskIntoConstraints="NO" id="DLI-ZB-Hjd">
@@ -31,7 +31,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016.01.06 10:100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XMy-2S-vJe">
-                        <rect key="frame" x="52" y="31" width="96" height="13.5"/>
+                        <rect key="frame" x="52" y="34" width="96" height="13.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" red="0.60392156862745094" green="0.60784313725490191" blue="0.61176470588235299" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -70,7 +70,7 @@
                     <constraint firstItem="tCp-dy-cUN" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Oki-ad-mBQ"/>
                     <constraint firstItem="tCp-dy-cUN" firstAttribute="leading" secondItem="X8j-4c-62S" secondAttribute="trailing" constant="2" id="Pdo-mi-Nc4"/>
                     <constraint firstItem="DLI-ZB-Hjd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14" id="Q68-2K-Giv"/>
-                    <constraint firstItem="XMy-2S-vJe" firstAttribute="top" secondItem="kqz-du-1JR" secondAttribute="bottom" id="R3A-ee-7yt"/>
+                    <constraint firstItem="XMy-2S-vJe" firstAttribute="top" secondItem="kqz-du-1JR" secondAttribute="bottom" constant="3" id="R3A-ee-7yt"/>
                     <constraint firstItem="DLI-ZB-Hjd" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="VQk-8j-2P1"/>
                     <constraint firstItem="X8j-4c-62S" firstAttribute="leading" secondItem="bil-Sf-DNC" secondAttribute="trailing" constant="2" id="XPU-ob-AaZ"/>
                     <constraint firstItem="XMy-2S-vJe" firstAttribute="leading" secondItem="DLI-ZB-Hjd" secondAttribute="trailing" constant="11" id="bCs-a0-hBe"/>

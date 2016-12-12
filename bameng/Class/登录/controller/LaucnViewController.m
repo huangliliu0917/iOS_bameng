@@ -41,7 +41,12 @@
             [self getAppConfig];
             
         }else{
-            [MBProgressHUD showError:@"请检查网络,退出后重进"];
+            UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:@"网络异常" message:@"网络异常请检查网络" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction * ac = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+                [self getAppConfig];
+            }];
+            [alertVC addAction:ac];
+            [self presentViewController:alertVC animated:YES completion:nil];
         }
     }];
     

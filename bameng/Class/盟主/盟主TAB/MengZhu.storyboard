@@ -4002,17 +4002,14 @@
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZ5-e4-Ew2">
-                                        <rect key="frame" x="244" y="0.0" width="131" height="44"/>
+                                        <rect key="frame" x="93" y="0.0" width="282" height="44"/>
                                         <color key="backgroundColor" red="0.79607843137254897" green="0.25098039215686274" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="131" id="XQ5-fH-d9N"/>
-                                        </constraints>
                                         <state key="normal" title="完成">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ff9-5J-VEN">
-                                        <rect key="frame" x="0.0" y="0.0" width="244" height="44"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="93" height="44"/>
                                         <state key="normal" title="全选">
                                             <color key="titleColor" red="0.92549019607843142" green="0.41568627450980394" blue="0.42745098039215684" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -4023,11 +4020,12 @@
                                     <constraint firstItem="ff9-5J-VEN" firstAttribute="top" secondItem="2aD-L7-iLA" secondAttribute="top" id="MKp-OO-5kr"/>
                                     <constraint firstAttribute="height" constant="44" id="ScZ-6O-Cc8"/>
                                     <constraint firstItem="dZ5-e4-Ew2" firstAttribute="top" secondItem="2aD-L7-iLA" secondAttribute="top" id="Y3B-ga-yM2"/>
-                                    <constraint firstItem="dZ5-e4-Ew2" firstAttribute="leading" secondItem="ff9-5J-VEN" secondAttribute="trailing" id="ctS-kG-PdX"/>
                                     <constraint firstItem="ff9-5J-VEN" firstAttribute="leading" secondItem="2aD-L7-iLA" secondAttribute="leading" id="hM1-g0-Ooy"/>
                                     <constraint firstAttribute="trailing" secondItem="dZ5-e4-Ew2" secondAttribute="trailing" id="lEH-NC-PZk"/>
+                                    <constraint firstItem="dZ5-e4-Ew2" firstAttribute="width" secondItem="2aD-L7-iLA" secondAttribute="width" multiplier="3:4" constant="1" id="myg-WA-9jj"/>
                                     <constraint firstAttribute="bottom" secondItem="ff9-5J-VEN" secondAttribute="bottom" id="o5R-iM-Nmq"/>
                                     <constraint firstAttribute="bottom" secondItem="dZ5-e4-Ew2" secondAttribute="bottom" id="tzH-g4-ota"/>
+                                    <constraint firstItem="dZ5-e4-Ew2" firstAttribute="leading" secondItem="ff9-5J-VEN" secondAttribute="trailing" id="x0U-Ax-VGJ"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -4051,7 +4049,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p8i-Pu-eb0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-6081" y="2603"/>
+            <point key="canvasLocation" x="-6082.3999999999996" y="2602.8485757121443"/>
         </scene>
         <!--新增资讯-->
         <scene sceneID="hMJ-Kb-W8Z">

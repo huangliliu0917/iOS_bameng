@@ -222,6 +222,13 @@
     __weak typeof(self) wself = self;
     if(item == 1000){//拍照
         UIImagePickerController * pick = [[UIImagePickerController alloc] init];
+        
+        
+        if(![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
+            [MBProgressHUD showError:@"当前相机没权限"];
+            return;
+        }
+        
         pick.sourceType = UIImagePickerControllerSourceTypeCamera;
         pick.delegate = self;
         pick.allowsEditing = YES;
@@ -239,6 +246,11 @@
         [self presentViewController:pick animated:YES completion:nil];
     }else{//相册
         UIImagePickerController * pick = [[UIImagePickerController alloc] init];
+        
+        if(![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]){
+            [MBProgressHUD showError:@"当前相册没权限"];
+            return;
+        }
         [pick setBk_didFinishPickingMediaBlock:^(UIImagePickerController *vc, NSDictionary *ac) {
             [wself.iconView setImage:ac[@"UIImagePickerControllerOriginalImage"]];
             [vc dismissViewControllerAnimated:YES completion:nil];

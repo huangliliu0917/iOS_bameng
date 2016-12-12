@@ -18,6 +18,20 @@
 @property (weak, nonatomic) IBOutlet UILabel *turnTimes;
 @property (weak, nonatomic) IBOutlet UIImageView *turnImage;
 
+@property (weak, nonatomic) IBOutlet UIView *first;
+
+@property (weak, nonatomic) IBOutlet UIView *second;
+
+@property (weak, nonatomic) IBOutlet UIView *third;
+@property (weak, nonatomic) IBOutlet UIView *fourth;
+
+
+@property (weak, nonatomic) IBOutlet UIView *five;
+
+@property (weak, nonatomic) IBOutlet UIView *six;
+@property (weak, nonatomic) IBOutlet UIView *seven;
+@property (weak, nonatomic) IBOutlet UIView *eight;
+
 @end
 
 
@@ -32,6 +46,36 @@
     
     [self.turnImage addGestureRecognizer:ges];
     
+    self.first.layer.cornerRadius = 6;
+    self.first.layer.masksToBounds = YES;
+    
+    
+    self.second.layer.cornerRadius = 6;
+    self.second.layer.masksToBounds = YES;
+    
+    
+    self.third.layer.cornerRadius = 6;
+    self.third.layer.masksToBounds = YES;
+    
+    
+    self.fourth.layer.cornerRadius = 6;
+    self.fourth.layer.masksToBounds = YES;
+    
+    
+    self.five.layer.cornerRadius = 6;
+    self.five.layer.masksToBounds = YES;
+    
+    
+    self.six.layer.cornerRadius = 6;
+    self.six.layer.masksToBounds = YES;
+    
+    
+    self.seven.layer.cornerRadius = 6;
+    self.seven.layer.masksToBounds = YES;
+    
+    
+    self.eight.layer.cornerRadius = 6;
+    self.eight.layer.masksToBounds = YES;
 }
 
 
