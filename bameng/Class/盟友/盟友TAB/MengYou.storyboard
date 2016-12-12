@@ -323,20 +323,20 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.每条成交的订单可获得100盟豆奖励" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uqh-Pe-wKS">
-                                    <rect key="frame" x="16" y="157" width="185" height="14"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.每条成交的订单可获得0盟豆奖励" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uqh-Pe-wKS">
+                                    <rect key="frame" x="16" y="157" width="173" height="14"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                     <color key="textColor" red="0.64313725490196083" green="0.6470588235294118" blue="0.65098039215686276" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2.每条成功提交的信息可获得1盟豆奖励" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j4i-tl-luE">
-                                    <rect key="frame" x="16" y="178" width="195" height="14"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2.每条成功提交的信息可获得0盟豆奖励" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j4i-tl-luE">
+                                    <rect key="frame" x="16" y="178" width="197" height="14"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                     <color key="textColor" red="0.64313725489999995" green="0.64705882349999999" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3.客户上门20盟豆奖励" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D7E-Bs-pio">
-                                    <rect key="frame" x="16" y="199" width="114" height="14"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3.客户上门0盟豆奖励" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D7E-Bs-pio">
+                                    <rect key="frame" x="16" y="199" width="107" height="14"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                     <color key="textColor" red="0.64313725489999995" green="0.64705882349999999" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -484,10 +484,13 @@
                     </tableView>
                     <connections>
                         <outlet property="address" destination="RRi-OX-Ach" id="3Mk-W4-v7p"/>
+                        <outlet property="firstLable" destination="Uqh-Pe-wKS" id="zlQ-bB-BLz"/>
                         <outlet property="name" destination="uxO-Xy-qRR" id="MVH-Mz-YGM"/>
                         <outlet property="phone" destination="KHN-TZ-OWG" id="84x-1a-k05"/>
                         <outlet property="remarks" destination="YnT-9C-1zt" id="NVK-Cl-rfa"/>
+                        <outlet property="secondLable" destination="j4i-tl-luE" id="2Id-nu-e37"/>
                         <outlet property="submitbtn" destination="vSC-6U-Dsb" id="nVa-2f-xbB"/>
+                        <outlet property="thredLable" destination="D7E-Bs-pio" id="qSD-50-U4O"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rgf-og-XM3" userLabel="First Responder" sceneMemberID="firstResponder"/>

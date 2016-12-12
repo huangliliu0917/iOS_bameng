@@ -15,6 +15,9 @@
 @property (strong, nonatomic) IBOutlet UITextField *address;
 @property (strong, nonatomic) IBOutlet UITextView *remarks;
 @property (weak, nonatomic) IBOutlet UIButton *submitbtn;
+@property (weak, nonatomic) IBOutlet UILabel *firstLable;
+@property (weak, nonatomic) IBOutlet UILabel *secondLable;
+@property (weak, nonatomic) IBOutlet UILabel *thredLable;
 
 @end
 
@@ -27,6 +30,25 @@
     self.submitbtn.layer.masksToBounds = YES;
     
     self.phone.delegate = self;
+    
+    
+    
+    
+    NSMutableDictionary *parme = [NSMutableDictionary dictionary];
+    [HTMyContainAFN AFN:@"user/GetAllyReward" with:parme Success:^(NSDictionary *responseObject) {
+        LWLog(@"%@", responseObject);
+        [MBProgressHUD hideHUD];
+        if ([responseObject[@"status"] intValue] == 200) {
+            self.firstLable.text = [NSString stringWithFormat:@"1.每条成交的订单可获得%@盟豆奖励",responseObject[@"data"][@"OrderReward"]];
+            self.secondLable.text = [NSString stringWithFormat:@"2.每条成功提交的信息可获得%@盟豆奖励",responseObject[@"data"][@"CustomerReward"]];
+            self.thredLable.text = [NSString stringWithFormat:@"3.客户上门%@盟豆奖励",responseObject[@"data"][@"ShopReward"]];
+            
+        }
+    } failure:^(NSError *error) {
+        LWLog(@"%@",error);
+        [MBProgressHUD hideHUD];
+    }];
+
 }
 
 
