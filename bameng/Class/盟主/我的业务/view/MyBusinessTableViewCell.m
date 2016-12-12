@@ -26,8 +26,10 @@
     [super awakeFromNib];
     // Initialization code
     
-    self.iconView.contentMode = UIViewContentModeScaleAspectFill;
-    self.iconView.clipsToBounds = YES;
+//    self.iconView.backgroundColor = [UIColor redColor];
+    
+    self.iconView.layer.cornerRadius = self.iconView.frame.size.height * 0.5;
+    self.iconView.layer.masksToBounds = YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

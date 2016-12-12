@@ -44,6 +44,7 @@
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="5oY-vU-tpd"/>
                                     </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <state key="normal" title="提交">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
@@ -733,6 +734,7 @@
                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="9ju-Zg-kVO"/>
                                         <constraint firstAttribute="height" constant="40" id="KBF-gQ-c4g"/>
                                     </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <state key="normal" title="提交">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
@@ -3346,6 +3348,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="wVW-N2-lHG"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="确认兑换">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
