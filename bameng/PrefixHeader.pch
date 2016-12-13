@@ -45,7 +45,7 @@
 #define MainUrl @"http://bmapi.51flashmall.com/"
 #define MainUrlScreate @"BAMEENG20161021"
 #else
-#define MainUrl @"http://bmapi.mellkit.com"
+#define MainUrl @"http://bmapi.mellkit.com/"
 //http://bmapi.fancat.cn/
 #define MainUrlScreate @"BAMEENG20161021"
 #endif

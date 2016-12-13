@@ -164,7 +164,12 @@
     parame[@"memo"] = self.externInfo.text;
     [MBProgressHUD showMessage:@"订单提交中"];
     AppDelegate * de = (AppDelegate*)[UIApplication sharedApplication].delegate;
-    [HTMyContainAFN AFNUpLoadImage:@"order/create" with:parame andImage:self.orderPic.image Success:^(NSDictionary *responseObject) {
+    
+    NSData *imgData = UIImageJPEGRepresentation(self.orderPic.image, 0.5);
+    // 原始图片
+    UIImage *result = [UIImage imageWithData:imgData];
+    
+    [HTMyContainAFN AFNUpLoadImage:@"order/create" with:parame andImage:result Success:^(NSDictionary *responseObject) {
         [MBProgressHUD hideHUD];
         UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:@"订单提交" message:@"订单提交成功" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction * ac = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {

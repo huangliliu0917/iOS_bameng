@@ -245,6 +245,8 @@
     
     [HTMyContainAFN AFN:@"order/update" with:parme Success:^(NSDictionary *responseObject) {
         LWLog(@"%@", responseObject);
+        [MBProgressHUD hideHUD];
+
         if ([responseObject[@"status"] intValue] == 200) {
             
             [MBProgressHUD showSuccess:responseObject[@"statusText"]];
@@ -256,6 +258,8 @@
         }
     } failure:^(NSError *error) {
         LWLog(@"%@",error);
+        [MBProgressHUD hideHUD];
+
     }];
 
 }
@@ -270,15 +274,80 @@
     parme[@"mobile"] = self.dataDic[@"mobile"];
     parme[@"price"] = self.dataDic[@"price"];
     parme[@"memo"] = self.dataDic[@"memo"];
-    [HTMyContainAFN AFNUpLoadImage:@"order/UploadSuccessVoucher" with:parme andImage:self.backImage Success:^(NSDictionary *responseObject) {
+    
+    LWLog(@"%@",parme);
+    [MBProgressHUD showMessage:nil];
+    
+    
+    NSData *imgData = UIImageJPEGRepresentation(self.backImage, 0.5);
+    // 原始图片
+    UIImage *result = [UIImage imageWithData:imgData];
+    
+    
+    [HTMyContainAFN AFNUpLoadImage:@"order/UploadSuccessVoucher" with:parme andImage:result Success:^(NSDictionary *responseObject) {
         LWLog(@"%@", responseObject);
         [wself updateOrder];
     } failure:^(NSError *error) {
         LWLog(@"%@", error);
+        [MBProgressHUD hideHUD];
     }];
  
 }
-
+//图片压缩到指定大小
+- (UIImage*)imageByScalingAndCroppingForSize:(CGSize)targetSize
+{
+    UIImage *sourceImage = self.backImage;
+    UIImage *newImage = nil;
+    CGSize imageSize = sourceImage.size;
+    CGFloat width = imageSize.width;
+    CGFloat height = imageSize.height;
+    CGFloat targetWidth = targetSize.width;
+    CGFloat targetHeight = targetSize.height;
+    CGFloat scaleFactor = 0.0;
+    CGFloat scaledWidth = targetWidth;
+    CGFloat scaledHeight = targetHeight;
+    CGPoint thumbnailPoint = CGPointMake(0.0,0.0);
+    
+    if (CGSizeEqualToSize(imageSize, targetSize) == NO)
+    {
+        CGFloat widthFactor = targetWidth / width;
+        CGFloat heightFactor = targetHeight / height;
+        
+        if (widthFactor > heightFactor)
+            scaleFactor = widthFactor; // scale to fit height
+        else
+            scaleFactor = heightFactor; // scale to fit width
+        scaledWidth= width * scaleFactor;
+        scaledHeight = height * scaleFactor;
+        
+        // center the image
+        if (widthFactor > heightFactor)
+        {
+            thumbnailPoint.y = (targetHeight - scaledHeight) * 0.5;
+        }
+        else if (widthFactor < heightFactor)
+        {
+            thumbnailPoint.x = (targetWidth - scaledWidth) * 0.5;
+        }
+    }
+    
+    UIGraphicsBeginImageContext(targetSize); // this will crop
+    
+    CGRect thumbnailRect = CGRectZero;
+    thumbnailRect.origin = thumbnailPoint;
+    thumbnailRect.size.width= scaledWidth;
+    thumbnailRect.size.height = scaledHeight;
+    
+    [sourceImage drawInRect:thumbnailRect];
+    
+    newImage = UIGraphicsGetImageFromCurrentImageContext();
+    if(newImage == nil)
+        NSLog(@"could not scale image");
+    
+    //pop the context to get back to the default
+    UIGraphicsEndImageContext();
+    return newImage;
+}
 
 //- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 //#warning Incomplete implementation, return the number of sections
