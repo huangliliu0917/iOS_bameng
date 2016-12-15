@@ -19,6 +19,13 @@
 @property (weak, nonatomic) IBOutlet UILabel *custormNumber;
 @property (weak, nonatomic) IBOutlet UILabel *duihuan;
 @property (weak, nonatomic) IBOutlet UILabel *crashNumber;
+@property (weak, nonatomic) IBOutlet UILabel *menyouNumber;
+@property (weak, nonatomic) IBOutlet UIView *custormRed;
+
+@property (weak, nonatomic) IBOutlet UIView *duihuanmRed;
+
+@property (weak, nonatomic) IBOutlet UIView *lianMenRed;
+
 
 @end
 
@@ -32,6 +39,21 @@
     [self setTabalViewRefresh];
     [self.tableView removeSpaces];
     [self.tableView.mj_header beginRefreshing];
+    
+    
+    self.custormRed.layer.cornerRadius = 5;
+    self.custormRed.layer.masksToBounds = YES;
+    
+    
+    self.duihuanmRed.layer.cornerRadius = 5;
+    self.duihuanmRed.layer.masksToBounds = YES;
+    
+    
+    self.lianMenRed.layer.cornerRadius = 5;
+    self.lianMenRed.layer.masksToBounds = YES;
+    
+ 
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -59,6 +81,8 @@
             self.crashNumber.text = [NSString stringWithFormat:@"%@",responseObject[@"data"][@"cashCouponAmount"]];
             self.duihuan.text = [NSString stringWithFormat:@"%@",responseObject[@"data"][@"exchangeAmount"]];
             self.custormNumber.text = [NSString stringWithFormat:@"%@",responseObject[@"data"][@"customerAmount"]];
+            
+            self.menyouNumber.text = [NSString stringWithFormat:@"%@",responseObject[@"data"][@"allyApplyAmount"]];
         }
         [self.tableView.mj_header endRefreshing];
         

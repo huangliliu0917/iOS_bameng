@@ -79,8 +79,8 @@
     [self.geoC reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
         if (error == nil) {
             CLPlacemark *pl = [placemarks firstObject];
-            if ([wself.delegate respondsToSelector:@selector(MyCoreLocationTakeBackCity: andLatLong:)]) {
-                [wself.delegate MyCoreLocationTakeBackCity:pl.locality andLatLong:lw];
+            if ([wself.delegate respondsToSelector:@selector(MyCoreLocationTakeBackCity: andLatLong: andFullInfo:)]) {
+                [wself.delegate MyCoreLocationTakeBackCity:pl.locality andLatLong:lw andFullInfo:location];
             }
         }else{
             LWLog(@"错误");

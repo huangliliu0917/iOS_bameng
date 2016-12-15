@@ -17,7 +17,7 @@ pod 'AFNetworking', '~> 3.0'
 pod 'IQKeyboardManager'
 pod 'TZImagePickerController'
 pod 'MBProgressHUD'
-
+pod 'BaiduMapKit'
   target 'bamengTests' do
     inherit! :search_paths
     # Pods for testing

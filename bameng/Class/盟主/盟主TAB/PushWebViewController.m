@@ -132,14 +132,25 @@
     
     self.navigationItem.rightBarButtonItems = @[[[UIBarButtonItem alloc] initWithCustomView:self.shareBtn]];
     
+    
+    if (self.articalTitle.length) {
+        self.navigationItem.title = self.articalTitle;
+    }
+    
 }
 
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
     
-    [webView evaluateJavaScript:@"document.title" completionHandler:^(id _Nullable title, NSError * _Nullable error) {
-        NSString *str = title;
-        self.navigationItem.title = str;
-    }];
+    
+    LWLog(@"xxxxx%@",self.articalTitle);
+    
+    if (!self.articalTitle.length) {
+        [webView evaluateJavaScript:@"document.title" completionHandler:^(id _Nullable title, NSError * _Nullable error) {
+            NSString *str = title;
+            self.navigationItem.title = str;
+        }];
+    }
+    
     
     [webView evaluateJavaScript:@"getShareData()" completionHandler:^(id _Nullable shareStr, NSError * _Nullable error) {
         

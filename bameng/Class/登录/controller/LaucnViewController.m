@@ -11,8 +11,10 @@
 #import "MengzhuTabbarController.h"
 #import "MengYouTabbarViewController.h"
 #import "MainNavViewController.h"
-
+#import <BaiduMapAPI_Map/BMKMapComponent.h>
 @interface LaucnViewController ()
+
+@property(nonatomic,strong) BMKMapManager * manager;
 
 @end
 
@@ -24,6 +26,14 @@
     [self setImage];
     
     
+    // 要使用百度地图，请先启动BaiduMapManager
+    self.manager = [[BMKMapManager alloc]init];
+    BOOL ret = [self.manager start:HuoBanMallBaiDu generalDelegate:nil];
+    if (!ret) {
+        NSLog(@"manager start failed!");
+    }
+    
+    
 //    LWLog(@"%d",self.isReachable);
     
     
@@ -33,6 +43,9 @@
     
     if (manager.networkReachabilityStatus > 0) {
        [self getAppConfig];
+        
+        
+        
     }
     
     [manager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {

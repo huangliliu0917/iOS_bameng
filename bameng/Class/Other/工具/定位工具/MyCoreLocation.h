@@ -11,7 +11,7 @@
 @protocol MyCoreLocationDelegate <NSObject>
 
 
-- (void) MyCoreLocationTakeBackCity:(NSString *)city andLatLong:(NSString *)info;
+- (void) MyCoreLocationTakeBackCity:(NSString *)city andLatLong:(NSString *)info andFullInfo:(CLLocation *)local;
 
 
 @end

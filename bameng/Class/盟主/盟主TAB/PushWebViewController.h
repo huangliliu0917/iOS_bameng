@@ -27,4 +27,7 @@
 @property (weak,nonatomic) id <PushWebViewControllerDelegate> delegate;
 
 
+/**文章详情标题*/
+@property (nonatomic,copy) NSString * articalTitle;
+
 @end

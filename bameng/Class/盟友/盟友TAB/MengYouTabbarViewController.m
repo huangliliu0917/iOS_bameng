@@ -16,22 +16,38 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    NSTimer * timer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(checkUnreadCount) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    
+    self.selectedIndex = 0;
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+- (void)checkUnreadCount{
+    
+    
+    LWLog(@"xxxxxx---MengzhuTabbarController");
+    
+    static int a = 1;
+    NSArray<UITabBarItem *> * items =  self.tabBar.items;
+    items[0].badgeValue = [NSString stringWithFormat:@"%d",a];
+    a++;
+    LWLog(@"%@",items[0].badgeValue);
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+//- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
+//
+//    LWLog(@"%lu",(unsigned long)self.selectedIndex ) ;
+//    LWLog(@"xxxxxx---MengzhuTabbarController");
+//}
+
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
+    
+    NSLog(@"didSelectItem%lu",(unsigned long)item.tag ) ;
+    NSLog(@"%@",item.title);
 }
-*/
+
 
 @end

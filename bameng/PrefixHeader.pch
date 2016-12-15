@@ -38,7 +38,7 @@
 #import "WXApi.h"
 #import "MyTableViewController.h"
 #import "MBProgressHUD+MJ.h"
-
+#import "UITabBar+XSDExt.h"
 
 /*** 接口地址以及签名参数 ***/
 #ifdef DEBUG
@@ -68,6 +68,8 @@
 #define HuoBanMallBuyWeiXinAppId @"wxd1b7f1a08b8d4470"
 #define HuoBanMallShareSdkWeiXinSecret @"8f3c73001dc3d128a37c0f96af7b28b5"
 
+
+#define HuoBanMallBaiDu @"a1etTGNbIZhl8OdIWdjQlSEUDfaDcE9I"
 
 
 

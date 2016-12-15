@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0ECACC7AB1F44CC7EA4C676C /* libPods-bameng.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA4A0725E52CF05F19286687 /* libPods-bameng.a */; };
+		12E932F61E023E54009AEFBF /* BaiDuMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12E932F51E023E54009AEFBF /* BaiDuMapViewController.m */; };
+		12E932F91E028AA3009AEFBF /* UITabBar+XSDExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 12E932F81E028AA3009AEFBF /* UITabBar+XSDExt.m */; };
 		600792351DD0322000BBF448 /* BMInfomationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 600792341DD0322000BBF448 /* BMInfomationModel.m */; };
 		600792381DD164D200BBF448 /* BMCircleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 600792371DD164D200BBF448 /* BMCircleModel.m */; };
 		600DF37A1DC21BA6000296E8 /* OrderDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600DF3791DC21BA6000296E8 /* OrderDetailTableViewController.m */; };
@@ -202,6 +204,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		12E932F41E023E54009AEFBF /* BaiDuMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiDuMapViewController.h; sourceTree = "<group>"; };
+		12E932F51E023E54009AEFBF /* BaiDuMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaiDuMapViewController.m; sourceTree = "<group>"; };
+		12E932F71E028AA3009AEFBF /* UITabBar+XSDExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+XSDExt.h"; sourceTree = "<group>"; };
+		12E932F81E028AA3009AEFBF /* UITabBar+XSDExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+XSDExt.m"; sourceTree = "<group>"; };
 		29BEC5EF9948E97E135A1D0C /* Pods-bameng.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bameng.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bameng/Pods-bameng.debug.xcconfig"; sourceTree = "<group>"; };
 		2E089ECC66D0C7C9DE572EA1 /* Pods-bamengTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bamengTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bamengTests/Pods-bamengTests.debug.xcconfig"; sourceTree = "<group>"; };
 		34F28DCCF0229D29337C4518 /* Pods-bamengTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bamengTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-bamengTests/Pods-bamengTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -638,6 +644,8 @@
 				EFCB522A1DE6E7A9002423C0 /* UIBarButtonItem+LHB.m */,
 				6033D7A41DBB45D700B9B4DA /* UITableView+CJ.h */,
 				6033D7A51DBB45D700B9B4DA /* UITableView+CJ.m */,
+				12E932F71E028AA3009AEFBF /* UITabBar+XSDExt.h */,
+				12E932F81E028AA3009AEFBF /* UITabBar+XSDExt.m */,
 			);
 			path = "扩展";
 			sourceTree = "<group>";
@@ -708,6 +716,8 @@
 				60FF24081DBEFC3100E70A09 /* EncourageTableViewController.m */,
 				EF8976FF1DE5B9EC00A7757D /* MengYouListViewController.h */,
 				EF8977001DE5B9EC00A7757D /* MengYouListViewController.m */,
+				12E932F41E023E54009AEFBF /* BaiDuMapViewController.h */,
+				12E932F51E023E54009AEFBF /* BaiDuMapViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -1709,7 +1719,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		2A2F44E867E335A9136EDB68 /* [CP] Copy Pods Resources */ = {
@@ -1754,7 +1764,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		6990E5CC69292165D65C9FA8 /* [CP] Copy Pods Resources */ = {
@@ -1799,7 +1809,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		E90A6AF77C71F63D0D59FD62 /* [CP] Embed Pods Frameworks */ = {
@@ -1846,6 +1856,7 @@
 				EF3A2F6D1DDC85B60080F9A6 /* SexPick.m in Sources */,
 				600DF37D1DC22CB7000296E8 /* PostOrderTableViewController.m in Sources */,
 				60979D791DC3471100B9E858 /* MengZhuInfomationSmallTableViewCell.m in Sources */,
+				12E932F91E028AA3009AEFBF /* UITabBar+XSDExt.m in Sources */,
 				EFFBC3801DE435F6006D2A96 /* LKBubbleInfo.m in Sources */,
 				60F390461DC0DE1800FFCBF3 /* MyBusinessViewController.m in Sources */,
 				EFECF5921DE5302300A8135A /* SetPhoneViewController.m in Sources */,
@@ -1853,6 +1864,7 @@
 				60FF24151DBF4FDF00E70A09 /* MyWalletTableViewController.m in Sources */,
 				EF8977011DE5B9EC00A7757D /* MengYouListViewController.m in Sources */,
 				60979D6A1DC3306A00B9E858 /* AllyReviewTableViewController.m in Sources */,
+				12E932F61E023E54009AEFBF /* BaiDuMapViewController.m in Sources */,
 				60EF5F9D1DC71A8B00ADBEA7 /* SelectObjectViewController.m in Sources */,
 				60FC8A981DBDDD6B009612C1 /* SubmitUserInfoTableViewController.m in Sources */,
 				60F3903E1DC0D1AB00FFCBF3 /* BusinessTableViewController.m in Sources */,
