@@ -12,6 +12,8 @@
 
 @property(nonatomic,strong) NSString * address;
 
+@property(nonatomic,strong) NSNumber * cashcouponmoney;
+@property(nonatomic,strong) NSNumber *  fianlamount;
 
 @property(nonatomic,strong) NSString * mobile;
 @property(nonatomic,strong) NSString * note ;

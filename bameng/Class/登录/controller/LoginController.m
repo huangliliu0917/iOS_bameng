@@ -11,9 +11,10 @@
 #import "MengYouTabbarViewController.h"
 #import "AppDelegate.h"
 #import "ForgotController.h"
-
+#import "PushWebViewController.h"
 
 @interface LoginController ()
+@property (weak, nonatomic) IBOutlet UIView *registView;
 
 @end
 
@@ -27,6 +28,7 @@
     
 //    [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:AppToken];
     [self setupInit];
+    
     
     
     NSString * phone =  [[NSUserDefaults standardUserDefaults] objectForKey:@"account"];
@@ -60,6 +62,24 @@
     self.forgetButton.userInteractionEnabled = YES;
     UITapGestureRecognizer * ges = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(forgetPasswd)];
     [self.forgetButton addGestureRecognizer:ges];
+    
+    
+    self.registView.userInteractionEnabled = YES;
+    UITapGestureRecognizer * ges1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(registViewPP)];
+    [self.registView addGestureRecognizer:ges1];
+    
+    
+    
+}
+
+- (void)registViewPP{
+    
+    
+    BassModel * model = [BassModel GetBassModel];
+    PushWebViewController *push = [[PushWebViewController alloc] init];
+    push.articalTitle = @"账号注册";
+    push.openUrl = model.registerUrl;
+    [self.navigationController pushViewController:push animated:YES];
     
 }
 

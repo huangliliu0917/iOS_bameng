@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -137,9 +137,26 @@
                                     <action selector="loginButtonAction:" destination="lQE-YY-jDJ" eventType="touchUpInside" id="5OK-zR-Lns"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SuI-IA-Wgs">
+                                <rect key="frame" x="0.0" y="144" width="76" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="注册" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8b-a0-Dib">
+                                        <rect key="frame" x="17" y="16.5" width="22.5" height="13.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <color key="textColor" red="0.42365166544914246" green="0.42752143740653992" blue="0.42752930521965027" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="d8b-a0-Dib" firstAttribute="leading" secondItem="SuI-IA-Wgs" secondAttribute="leading" constant="17" id="0UP-ho-H9A"/>
+                                    <constraint firstAttribute="bottom" secondItem="d8b-a0-Dib" secondAttribute="bottom" id="dfR-im-bfJ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="SuI-IA-Wgs" firstAttribute="leading" secondItem="Cfb-hV-fQl" secondAttribute="leading" id="7Au-lh-uJa"/>
                             <constraint firstItem="BLX-F7-xoD" firstAttribute="top" secondItem="cvL-ik-zRa" secondAttribute="bottom" id="EjA-wx-XCX"/>
                             <constraint firstAttribute="trailing" secondItem="BLX-F7-xoD" secondAttribute="trailing" id="Ek7-Dk-eTt"/>
                             <constraint firstItem="DqQ-fa-DdZ" firstAttribute="leading" secondItem="Cfb-hV-fQl" secondAttribute="leading" constant="15" id="L74-HT-UJF"/>
@@ -150,10 +167,13 @@
                             <constraint firstItem="Up6-eP-CA4" firstAttribute="centerY" secondItem="0Vn-iZ-jce" secondAttribute="centerY" id="WtJ-XS-ssY"/>
                             <constraint firstItem="0Vn-iZ-jce" firstAttribute="bottom" secondItem="BLX-F7-xoD" secondAttribute="bottom" id="c74-U8-gGU"/>
                             <constraint firstItem="cvL-ik-zRa" firstAttribute="top" secondItem="Dc4-D6-2Kg" secondAttribute="bottom" id="cjO-bx-A5M"/>
+                            <constraint firstItem="BLX-F7-xoD" firstAttribute="height" secondItem="SuI-IA-Wgs" secondAttribute="height" id="fJd-GA-E31"/>
                             <constraint firstAttribute="trailing" secondItem="DqQ-fa-DdZ" secondAttribute="trailing" constant="15" id="loW-js-0nc"/>
                             <constraint firstAttribute="trailing" secondItem="cvL-ik-zRa" secondAttribute="trailing" id="p35-Fb-ckb"/>
+                            <constraint firstItem="SuI-IA-Wgs" firstAttribute="top" secondItem="cvL-ik-zRa" secondAttribute="bottom" id="uLt-v0-4D6"/>
                             <constraint firstItem="DqQ-fa-DdZ" firstAttribute="top" secondItem="cvL-ik-zRa" secondAttribute="bottom" constant="60" id="uyh-iA-swp"/>
                             <constraint firstAttribute="trailing" secondItem="Up6-eP-CA4" secondAttribute="trailing" constant="14" id="v44-fI-ekG"/>
+                            <constraint firstItem="BLX-F7-xoD" firstAttribute="width" secondItem="SuI-IA-Wgs" secondAttribute="width" id="xU2-o8-aIp"/>
                         </constraints>
                     </view>
                     <connections>
@@ -161,11 +181,12 @@
                         <outlet property="loginButton" destination="DqQ-fa-DdZ" id="Q2W-Am-gNr"/>
                         <outlet property="password" destination="NWV-Tx-gt5" id="dJX-A0-Ih3"/>
                         <outlet property="phone" destination="uQ0-nZ-Jrd" id="LvB-UN-Fd6"/>
+                        <outlet property="registView" destination="SuI-IA-Wgs" id="rL7-eK-kaU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SMb-KB-cNj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-546" y="-171"/>
+            <point key="canvasLocation" x="-546.39999999999998" y="-171.36431784107947"/>
         </scene>
         <!--忘记密码-->
         <scene sceneID="g19-sE-3w7">

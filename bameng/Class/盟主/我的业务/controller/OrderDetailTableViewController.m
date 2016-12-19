@@ -9,6 +9,8 @@
 #import "OrderDetailTableViewController.h"
 #import "PostOrderTableViewController.h"
 #import "OrderDetailModel.h"
+#import "MJPhotoBrowser.h"
+
 @interface OrderDetailTableViewController ()<PostOrderTableViewControllerDelegate>
 @property (strong, nonatomic) IBOutlet UIImageView *ordorImage;
 @property (strong, nonatomic) IBOutlet UIImageView *addImage;
@@ -33,6 +35,12 @@
 
 
 
+@property (weak, nonatomic) IBOutlet UITableViewCell *cashMoney;
+@property (weak, nonatomic) IBOutlet UITableViewCell *orderMoney;
+@property (weak, nonatomic) IBOutlet UILabel *cashMoneyLable;
+@property (weak, nonatomic) IBOutlet UILabel *orderMoneyLable;
+
+
 /**上传凭证*/
 @property(nonatomic,strong) UIImage * backImage;
 
@@ -40,6 +48,11 @@
 
 
 @property(nonatomic,assign) int status;
+
+
+@property(nonatomic,strong) OrderDetailModel *  DetailModel;
+
+
 @end
 
 @implementation OrderDetailTableViewController
@@ -109,6 +122,9 @@
 }
 
 - (void)setData:(OrderDetailModel *)model{
+    
+    self.DetailModel = model;
+    
     self.orderNumber.text = model.orderId;
     self.orderData.text = model.orderTime;
     self.customName.text = model.userName;
@@ -117,6 +133,10 @@
     self.customAdd.text = model.address;
     __weak typeof(self) wself = self;
     NSString * imageurl = nil;
+    
+    self.cashMoneyLable.text = [NSString stringWithFormat:@"%@",model.cashcouponmoney];
+    self.orderMoneyLable.text = [NSString stringWithFormat:@"%@",model.fianlamount];
+    
     
     
     if (model.status>0) {
@@ -150,11 +170,26 @@
         
     }];
     
+    UITapGestureRecognizer * ges = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(MakePhoto)];
+    self.ordorImage.userInteractionEnabled = YES;
+    [self.ordorImage addGestureRecognizer:ges];
     
-    
+    [self.tableView reloadData];
     
 }
 
+
+-(void)MakePhoto{
+    
+   
+    
+    MJPhotoBrowser * mvc =[[MJPhotoBrowser alloc] init];
+    LWLog(@"%@",self.model.pictureUrl);
+    MJPhoto * pj = [[MJPhoto alloc] init];
+    pj.url = [NSURL URLWithString:self.model.pictureUrl];
+    mvc.photos = @[pj];
+    [mvc show];
+}
 /**上传订单*/
 - (void)uploadImage:(NSMutableDictionary *)dict andImage:(UIImage *)image{
     
@@ -168,7 +203,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    if (indexPath.row == 6) {
+    if (indexPath.row == 8) {
         
         if(self.model.status == 0){
             UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
@@ -348,6 +383,34 @@
     UIGraphicsEndImageContext();
     return newImage;
 }
+
+
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // 变高行数
+    if (indexPath.row == 5) {
+        
+        if (!([self.DetailModel.cashcouponmoney doubleValue] > 0)) {
+            return 0;
+        }else{
+           return [super tableView:tableView heightForRowAtIndexPath:indexPath];
+        }
+    
+    }else if(indexPath.row == 6){
+        if (!([self.DetailModel.fianlamount doubleValue] > 0)) {
+            return 0;
+        }else{
+            return [super tableView:tableView heightForRowAtIndexPath:indexPath];
+        }
+    }else {
+        /** 返回静态单元格故事板中的高度 */
+        return [super tableView:tableView heightForRowAtIndexPath:indexPath];
+    }
+   
+}
+
 
 //- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 //#warning Incomplete implementation, return the number of sections

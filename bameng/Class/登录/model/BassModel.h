@@ -14,7 +14,7 @@
 @property (nonatomic, strong) NSString *agreementUrl;
 @property (nonatomic, assign) NSInteger userStatus;
 @property (nonatomic, assign) int enableSignIn;
-
+@property (nonatomic, strong) NSString * registerUrl;
 
 + (instancetype)GetBassModel;
 
