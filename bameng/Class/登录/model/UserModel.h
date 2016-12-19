@@ -10,6 +10,10 @@
 
 @interface UserModel : NSObject
 
+
+@property (nonatomic, strong) NSNumber * BelongOne;
+@property (nonatomic, strong) NSString * BelongOneUserName;
+
 @property (nonatomic, strong) NSString *CreateTime;
 @property (nonatomic, strong) NSString *CustomerAmount;
 @property (nonatomic, assign) NSInteger IsActive;

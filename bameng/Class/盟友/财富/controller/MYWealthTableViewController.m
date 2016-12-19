@@ -30,12 +30,22 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *leveLable;
 
+@property (weak, nonatomic) IBOutlet UILabel *mengzhuLable;
+
 @end
 
 @implementation MYWealthTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    self.leveLable.layer.cornerRadius = 5;
+    self.leveLable.layer.masksToBounds = YES;
+    
+    self.mengzhuLable.layer.cornerRadius = 5;
+    self.mengzhuLable.layer.masksToBounds = YES;
+
     
     self.navigationItem.title = @"财富";
     self.setting.userInteractionEnabled = YES;
@@ -100,7 +110,7 @@
     self.mengdouLabel.text = [NSString stringWithFormat:@"%@",user.MengBeans];
     self.daijiesuanLabel.text = [NSString stringWithFormat:@"%@",user.TempMengBeans];
     self.jifenLabel.text = [NSString stringWithFormat:@"%@",user.Score];
-    
+    self.mengzhuLable.text = [NSString stringWithFormat:@" 盟主:%@ ",user.BelongOneUserName];
     
 }
 
