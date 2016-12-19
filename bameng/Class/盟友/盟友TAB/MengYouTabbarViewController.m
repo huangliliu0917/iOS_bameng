@@ -42,6 +42,7 @@
 - (void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
     [self.timer invalidate];
+    self.timer = nil;
 }
 
 

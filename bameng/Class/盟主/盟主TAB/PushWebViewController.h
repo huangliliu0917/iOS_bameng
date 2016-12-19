@@ -30,4 +30,9 @@
 /**文章详情标题*/
 @property (nonatomic,copy) NSString * articalTitle;
 
+
+@property (nonatomic,assign) int type;
+
+
+
 @end

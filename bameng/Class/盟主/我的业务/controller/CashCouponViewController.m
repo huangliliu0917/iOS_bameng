@@ -165,6 +165,7 @@ static NSString *cashCouponIdentify = @"cashCouponIdentify";
             LWLog(@"%@", responseObject);
             if ([responseObject[@"status"] intValue] == 200) {
                 PushWebViewController *push = [[PushWebViewController alloc] init];
+                push.type = 1;
                 push.openUrl = wself.pickCashModel.url;
                 [self.navigationController pushViewController:push animated:YES];
             }

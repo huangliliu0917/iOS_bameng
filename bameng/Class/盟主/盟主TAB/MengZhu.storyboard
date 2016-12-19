@@ -3822,7 +3822,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mdj-87-NyX">
+                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mdj-87-NyX">
                                                     <rect key="frame" x="15" y="23.5" width="10" height="10"/>
                                                     <color key="backgroundColor" red="1" green="0.26910415291786194" blue="0.26077368855476379" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
@@ -3860,7 +3860,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cRt-3K-0Hc">
+                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cRt-3K-0Hc">
                                                     <rect key="frame" x="15" y="23" width="10" height="10"/>
                                                     <color key="backgroundColor" red="1" green="0.26910415291786194" blue="0.26077368855476379" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
@@ -3912,7 +3912,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Mc-dt-tFM">
+                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Mc-dt-tFM">
                                                     <rect key="frame" x="15" y="24" width="10" height="10"/>
                                                     <color key="backgroundColor" red="1" green="0.26910415291786194" blue="0.26077368855476379" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>

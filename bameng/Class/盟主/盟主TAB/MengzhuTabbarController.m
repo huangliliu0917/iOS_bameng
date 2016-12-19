@@ -22,8 +22,9 @@
     
     
     NSTimer * timer = [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(checkUnreadCount) userInfo:nil repeats:YES];
-    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
     self.timer = timer;
+    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    
     self.selectedIndex = 0;
     [self checkUnreadCount];
     
@@ -36,6 +37,7 @@
     
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [self.timer invalidate];
+     self.timer = nil;
     
 }
 

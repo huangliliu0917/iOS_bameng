@@ -90,16 +90,22 @@
             if (!([responseObject[@"data"][@"customerAmount"] integerValue] > 0)) {
                 
                 self.custormRed.hidden = YES;
+            }else{
+                self.custormRed.hidden = NO;
             }
             
             if (!([responseObject[@"data"][@"exchangeAmount"] integerValue] > 0)) {
                 
                 self.duihuanmRed.hidden = YES;
+            }else{
+                self.duihuanmRed.hidden = NO;
             }
             
             if (!([responseObject[@"data"][@"allyApplyAmount"] integerValue] > 0)) {
                 
                 self.lianMenRed.hidden = YES;
+            }else{
+                self.lianMenRed.hidden = NO;
             }
             
             

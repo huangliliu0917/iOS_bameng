@@ -151,6 +151,12 @@
         }];
     }
     
+    if (self.type == 1) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+             [self screenShot];
+        });
+       
+    }
     
     [webView evaluateJavaScript:@"getShareData()" completionHandler:^(id _Nullable shareStr, NSError * _Nullable error) {
         
@@ -179,6 +185,52 @@
     if([self.delegate respondsToSelector:@selector(ZhiXunRefresh)]){
         [self.delegate ZhiXunRefresh];
     }
+}
+
+
+
+/**
+ *截图功能
+ */
+-(void)screenShot{
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(640, 960), YES, 0);
+    
+    //设置截屏大小
+    
+    [[self.view layer] renderInContext:UIGraphicsGetCurrentContext()];
+    
+    UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    CGImageRef imageRef = viewImage.CGImage;
+    CGRect rect = CGRectMake(0, 0, 641, KScreenHeight + 300);//这里可以设置想要截图的区域
+    
+    CGImageRef imageRefRect =CGImageCreateWithImageInRect(imageRef, rect);
+    UIImage *sendImage = [[UIImage alloc] initWithCGImage:imageRefRect];
+    
+    
+    //以下为图片保存代码
+    
+    UIImageWriteToSavedPhotosAlbum(sendImage, nil, nil, nil);//保存图片到照片库
+    
+//    NSData *imageViewData = UIImagePNGRepresentation(sendImage);
+//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//    
+//    NSString *documentsDirectory = [paths objectAtIndex:0];
+//    NSString *pictureName= @"screenShow.png";
+//    NSString *savedImagePath = [documentsDirectory stringByAppendingPathComponent:pictureName];
+//    [imageViewData writeToFile:savedImagePath atomically:YES];//保存照片到沙盒目录
+//    
+//    CGImageRelease(imageRefRect);
+//    
+//    
+//    
+//    //从手机本地加载图片
+//    
+//    UIImage *bgImage2 = [[UIImage alloc]initWithContentsOfFile:savedImagePath];
+//    
+    
 }
 
 @end
