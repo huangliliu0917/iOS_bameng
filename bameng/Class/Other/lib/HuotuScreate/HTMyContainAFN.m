@@ -75,7 +75,9 @@
         [UIApplication sharedApplication].keyWindow.rootViewController = nav;
     }];
     [alertVC addAction:ac];
-    [appde.currentVc presentViewController:alertVC animated:YES completion:nil];
+    [appde.currentVc presentViewController:alertVC animated:YES completion:^{
+       [[NSNotificationCenter defaultCenter] postNotificationName:@"accountLoginout" object:nil];
+    }];
 }
 
 + (void)AFNUpLoadImage:(NSString * )url with:(NSMutableDictionary *)parames andImage:(UIImage *)pic Success:(void (^)(NSDictionary  *responseObject))success failure:(void (^)(NSError *  error))failure{

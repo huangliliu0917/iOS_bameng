@@ -439,6 +439,7 @@ static NSString *processedIdentify = @"processedIdentify";
             if ([[responseObject objectForKey:@"status"] integerValue] == 200) {
                 [weakSelf.customList removeObjectAtIndex:[index row]];  //删除_data数组里的数据
                 [weakSelf.table deleteRowsAtIndexPaths:[NSMutableArray arrayWithObject:index] withRowAnimation:UITableViewRowAnimationAutomatic];  //删除对应数据的cell
+                [weakSelf.table reloadData];
             }
         } failure:^(NSError *error) {
             LWLog(@"%@",error);
@@ -479,8 +480,11 @@ static NSString *processedIdentify = @"processedIdentify";
         [HTMyContainAFN AFN:@"user/AllyApplyAudit" with:parme Success:^(NSDictionary *responseObject) {
             LWLog(@"%@", responseObject);
             if ([[responseObject objectForKey:@"status"] integerValue] == 200) {
+                
+                LWLog(@"%@",index);
                 [weakSelf.customList removeObjectAtIndex:[index row]];  //删除_data数组里的数据
                 [weakSelf.table deleteRowsAtIndexPaths:[NSMutableArray arrayWithObject:index] withRowAnimation:UITableViewRowAnimationAutomatic];  //删除对应数据的cell
+                [weakSelf.table reloadData];
             }
         } failure:^(NSError *error) {
             LWLog(@"%@",error);
@@ -523,6 +527,7 @@ static NSString *processedIdentify = @"processedIdentify";
             if ([[responseObject objectForKey:@"status"] integerValue] == 200) {
                 [weakSelf.customList removeObjectAtIndex:[index row]];  //删除_data数组里的数据
                 [weakSelf.table deleteRowsAtIndexPaths:[NSMutableArray arrayWithObject:index] withRowAnimation:UITableViewRowAnimationAutomatic];  //删除对应数据的cell
+                [weakSelf.table reloadData];
             }
         } failure:^(NSError *error) {
             LWLog(@"%@",error);
@@ -603,6 +608,7 @@ static NSString *processedIdentify = @"processedIdentify";
     }else if (self.selectPage == 3) {
         
         
+        
         UntreatedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:untreatedIdentify forIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.selectPage = self.selectPage;
@@ -612,6 +618,7 @@ static NSString *processedIdentify = @"processedIdentify";
         [cell setDidSelectCustomInfo:^(BOOL isAgree) {
             LWLog(@"%d",isAgree);
             LWLog(@"%d",isAgree);
+            LWLog(@"%ld-----%ld",(long)indexPath.row,(long)indexPath.section);
             [weakSelf shengheMengyouxingxi:isAgree andModel:indexPath];
         }];
         return cell;
@@ -626,13 +633,13 @@ static NSString *processedIdentify = @"processedIdentify";
     
     if (self.selectPage == 1) {
         if (self.type == 1) {
-            return 108;
+            return 80;
         }else {
             return 76;
         }
     }else if (self.selectPage == 2) {
         if (self.type == 1) {
-            return 108;
+            return 80;
         }else {
             return 76;
         }
@@ -641,7 +648,7 @@ static NSString *processedIdentify = @"processedIdentify";
         
         LWLog(@"%d",self.type);
         if (self.type == 0) {
-            return 108;
+            return 80;
         }else {
             return 76;
         }

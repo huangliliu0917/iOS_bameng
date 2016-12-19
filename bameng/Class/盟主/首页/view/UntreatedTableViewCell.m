@@ -111,6 +111,9 @@
 - (void)setSelectPage:(NSInteger)selectPage{
     _selectPage = selectPage;
     if (_selectPage == 1) {
+        
+        self.agreeButtom.hidden = YES;
+        self.refuseButtom.hidden= YES;
         self.nameLabel.text = @"1";
         self.nameLabel.hidden = YES;
         self.phoneLabe.text = @"1";

@@ -742,12 +742,29 @@
                                         <action selector="btnClick:" destination="BgR-mj-m0v" eventType="touchUpInside" id="Cep-8Q-Gda"/>
                                     </connections>
                                 </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tqu-Q0-ljZ">
+                                    <rect key="frame" x="17" y="31" width="341" height="44"/>
+                                    <color key="backgroundColor" red="0.92200684547424316" green="0.44015243649482727" blue="0.41574183106422424" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="t24-kf-XGk"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <state key="normal" title="新建订单">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="CreateOrderBtn:" destination="BgR-mj-m0v" eventType="touchUpInside" id="vcS-Qa-y1Y"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="Wh9-GC-f4U" firstAttribute="top" secondItem="08s-ci-YYz" secondAttribute="top" constant="77" id="1OT-F0-4TO"/>
+                                <constraint firstItem="Wh9-GC-f4U" firstAttribute="trailing" secondItem="Tqu-Q0-ljZ" secondAttribute="trailing" id="CWF-Os-hcQ"/>
                                 <constraint firstItem="Wh9-GC-f4U" firstAttribute="leading" secondItem="08s-ci-YYz" secondAttribute="leading" constant="17" id="G1E-li-99O"/>
                                 <constraint firstAttribute="trailing" secondItem="Wh9-GC-f4U" secondAttribute="trailing" constant="17" id="Sya-IT-b0V"/>
+                                <constraint firstItem="Wh9-GC-f4U" firstAttribute="leading" secondItem="Tqu-Q0-ljZ" secondAttribute="leading" id="f6y-1E-OaX"/>
+                                <constraint firstItem="Wh9-GC-f4U" firstAttribute="top" secondItem="Tqu-Q0-ljZ" secondAttribute="bottom" constant="2" id="y3b-f6-xKa"/>
                             </constraints>
                         </view>
                         <sections>
@@ -964,6 +981,7 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="CNewOrderbtn" destination="Tqu-Q0-ljZ" id="1mr-zz-E57"/>
                         <outlet property="accessstatus" destination="DSC-S2-HfT" id="2cx-HN-m9h"/>
                         <outlet property="address" destination="TWq-bj-P9l" id="Qrb-9c-YQf"/>
                         <outlet property="belongTo" destination="S3E-5E-uWN" id="ltu-jd-E2b"/>
@@ -977,7 +995,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H3w-Ty-ljl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5929" y="-330"/>
+            <point key="canvasLocation" x="-5929.5" y="-330.5"/>
         </scene>
         <!--Mengzhu Tabbar Controller-->
         <scene sceneID="I91-AB-Sf3">

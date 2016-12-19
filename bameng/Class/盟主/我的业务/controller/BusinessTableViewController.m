@@ -15,10 +15,15 @@
 @interface BusinessTableViewController ()
 
 @property(nonatomic,strong) NSTimer *timer;
+/**我的订单*/
 @property (weak, nonatomic) IBOutlet UILabel *orderNumber;
+/**客户信息*/
 @property (weak, nonatomic) IBOutlet UILabel *custormNumber;
+/**兑换审核*/
 @property (weak, nonatomic) IBOutlet UILabel *duihuan;
 @property (weak, nonatomic) IBOutlet UILabel *crashNumber;
+
+/**我的联盟*/
 @property (weak, nonatomic) IBOutlet UILabel *menyouNumber;
 @property (weak, nonatomic) IBOutlet UIView *custormRed;
 
@@ -81,6 +86,23 @@
             self.crashNumber.text = [NSString stringWithFormat:@"%@",responseObject[@"data"][@"cashCouponAmount"]];
             self.duihuan.text = [NSString stringWithFormat:@"%@",responseObject[@"data"][@"exchangeAmount"]];
             self.custormNumber.text = [NSString stringWithFormat:@"%@",responseObject[@"data"][@"customerAmount"]];
+            
+            if (!([responseObject[@"data"][@"customerAmount"] integerValue] > 0)) {
+                
+                self.custormRed.hidden = YES;
+            }
+            
+            if (!([responseObject[@"data"][@"exchangeAmount"] integerValue] > 0)) {
+                
+                self.duihuanmRed.hidden = YES;
+            }
+            
+            if (!([responseObject[@"data"][@"allyApplyAmount"] integerValue] > 0)) {
+                
+                self.lianMenRed.hidden = YES;
+            }
+            
+            
             
             self.menyouNumber.text = [NSString stringWithFormat:@"%@",responseObject[@"data"][@"allyApplyAmount"]];
         }

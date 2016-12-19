@@ -10,6 +10,10 @@
 
 @interface MengYouTabbarViewController ()
 
+@property(nonatomic,strong) NSTimer * timer;
+
+
+
 @end
 
 @implementation MengYouTabbarViewController
@@ -17,23 +21,51 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSTimer * timer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(checkUnreadCount) userInfo:nil repeats:YES];
+    self.timer = timer;
     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
     
     self.selectedIndex = 0;
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(test) name:@"accountLoginout" object:nil];
+    
 }
+
+
+- (void)test{
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self.timer invalidate];
+    
+}
+
+
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    [self.timer invalidate];
+}
+
 
 
 - (void)checkUnreadCount{
     
+    NSMutableDictionary *parme = [NSMutableDictionary dictionary];
+    [HTMyContainAFN AFN:@"user/remind" with:parme Success:^(NSDictionary *responseObject) {
+        LWLog(@"%@", responseObject);
+        if ([responseObject[@"status"] integerValue] == 200) {
+            
+            if ([responseObject[@"data"][@"messageCount"] integerValue]) {
+                [self.tabBar showBadgeOnItemIndex:1];
+            }else{
+                [self.tabBar hideBadgeOnItemIndex:1];
+            }
+           
+        }
+        
+    } failure:^(NSError *error) {
+        LWLog(@"%@",error);
+        
+    }];
     
-    LWLog(@"xxxxxx---MengzhuTabbarController");
-    
-    static int a = 1;
-    NSArray<UITabBarItem *> * items =  self.tabBar.items;
-    items[0].badgeValue = [NSString stringWithFormat:@"%d",a];
-    a++;
-    LWLog(@"%@",items[0].badgeValue);
 }
 
 

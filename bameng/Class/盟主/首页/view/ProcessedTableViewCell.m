@@ -77,13 +77,19 @@
     self.name.text = _customModel.Name;
     self.phone.text = _customModel.Mobile;
     
-    if (self.customModel.Status == 1) {
-        self.review.text = @"已同意";
-    }else if (self.customModel.Status == 2) {
-        self.review.text = @"已拒绝";
-    }else if (self.customModel.Status == 0) {
-        self.review.text = @"未审核";
+    if (customModel.InShop) {
+       self.review.text = @"已进店";
+    }else{
+        if (self.customModel.Status == 1) {
+            self.review.text = @"已同意";
+        }else if (self.customModel.Status == 2) {
+            self.review.text = @"已拒绝";
+        }else if (self.customModel.Status == 0) {
+            self.review.text = @"未审核";
+        }
+        
     }
+    
 }
 
 - (void)setMengyouModel:(UserModel *)mengyouModel {

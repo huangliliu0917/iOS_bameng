@@ -7,6 +7,7 @@
 //
 
 #import "CustomDetailsTableViewController.h"
+#import "NewOrderTableViewController.h"
 
 @interface CustomDetailsTableViewController ()<UIPickerViewDelegate,UIPickerViewDataSource>
 @property (strong, nonatomic) IBOutlet UILabel *name;
@@ -26,16 +27,36 @@
 
 @property (weak, nonatomic) IBOutlet UITableViewCell *accessstatus;
 
+
+
+@property (weak, nonatomic) IBOutlet UIButton *CNewOrderbtn;
+
+
 @end
 
 @implementation CustomDetailsTableViewController
+
+
+/**新建订单*/
+- (IBAction)CreateOrderBtn:(id)sender {
+    
+    UIStoryboard * story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
+    NewOrderTableViewController *newOrder = [story instantiateViewControllerWithIdentifier:@"NewOrderTableViewController"];
+    newOrder.customModel = self.customModel;
+    [self.navigationController pushViewController:newOrder animated:YES];
+}
+
+
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
     
-
+    self.CNewOrderbtn.layer.masksToBounds = YES;
+    self.CNewOrderbtn.layer.cornerRadius = 5;
     
     self.submit.layer.masksToBounds = YES;
     self.submit.layer.cornerRadius = 5;
@@ -53,7 +74,11 @@
     
     self.submit.hidden = YES;
 
-    
+    if (self.customModel.InShop) {
+        self.CNewOrderbtn.hidden = NO;
+    }else{
+        self.CNewOrderbtn.hidden = YES;
+    }
 }
 
 /**

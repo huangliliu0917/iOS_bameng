@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomInfomationModel.h"
 
 @interface NewOrderTableViewController : MyTableViewController
+
+@property (nonatomic, strong) CustomInfomationModel *customModel;
 
 @end

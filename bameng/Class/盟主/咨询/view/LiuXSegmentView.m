@@ -138,6 +138,7 @@
                 _titleBtn=btn;
                 btn.selected=YES;
             }
+            
             self.block=block;
             
         }

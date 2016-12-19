@@ -95,6 +95,16 @@
     self.upbtn.layer.cornerRadius = 5;
     self.upbtn.layer.masksToBounds = YES;
     
+    if (self.customModel) {
+        
+        
+        LWLog(@"%@",[self.customModel mj_keyValues]);
+        self.customName.text = self.customModel.Name;
+        self.phoneNum.text = self.customModel.Mobile;
+        self.customAddress.text = self.customModel.Addr;
+        self.externInfo.text = self.customModel.Remark;
+    }
+    
 }
 
 

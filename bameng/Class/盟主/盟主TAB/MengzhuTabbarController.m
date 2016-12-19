@@ -10,6 +10,8 @@
 
 @interface MengzhuTabbarController ()
 
+@property(nonatomic,strong) NSTimer * timer;
+
 @end
 
 @implementation MengzhuTabbarController
@@ -21,12 +23,21 @@
     
     NSTimer * timer = [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(checkUnreadCount) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
-    
+    self.timer = timer;
     self.selectedIndex = 0;
     [self checkUnreadCount];
+    
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(test) name:@"accountLoginout" object:nil];
 
 }
 
+
+- (void)test{
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self.timer invalidate];
+    
+}
 
 - (void)checkUnreadCount{
     

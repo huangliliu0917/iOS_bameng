@@ -13,9 +13,11 @@
 #import "MyCoreLocation.h"
 #import "CustomInfomationModel.h"
 #import "SubmitUserInfoTableViewController.h"
+#import <BaiduMapAPI_Search/BMKShareURLSearch.h>
+#import "MyShareSdkTool.h"
 
 
-@interface MengYouHomeViewController ()<UITableViewDataSource, UITableViewDelegate,MyCoreLocationDelegate>
+@interface MengYouHomeViewController ()<UITableViewDataSource, UITableViewDelegate,MyCoreLocationDelegate,BMKShareURLSearchDelegate>
 
 
 @property (strong, nonatomic) IBOutlet UILabel *agreeLabel;
@@ -47,6 +49,13 @@
 
 @property(nonatomic,assign) int PageIndex;
 
+
+@property(nonatomic,strong) CLLocation * local;
+
+
+@property(nonatomic,strong) BMKShareURLSearch * searcher;
+
+
 @end
 
 @implementation MengYouHomeViewController
@@ -72,6 +81,7 @@ static NSString *mengYouHomeIdentify = @"mengYouHomeIdentify";
         [_cityBtn setImageEdgeInsets:UIEdgeInsetsMake(0, -30, 0, 0)];
         [_cityBtn setTitleEdgeInsets:UIEdgeInsetsMake(0, -27, 0, 0)];
         [_cityBtn setImage:[UIImage imageNamed:@"gps"] forState:UIControlStateNormal];
+        [_cityBtn addTarget:self action:@selector(shareLocaltion:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _cityBtn;
 }
@@ -81,11 +91,58 @@ static NSString *mengYouHomeIdentify = @"mengYouHomeIdentify";
     [self.timer invalidate];
 }
 
+
+
+- (void)shareLocaltion:(UIButton *)btn{
+    
+    if (![btn.titleLabel.text isEqualToString:@"未知"]) {
+        //        BaiDuMapViewController * vc = [[BaiDuMapViewController alloc] init];
+        //        vc.local = self.local;
+        //        [self.navigationController pushViewController:vc animated:YES];
+        
+        //
+        //        //初始化检索对象
+        self.searcher =[[BMKShareURLSearch alloc]init];
+        _searcher.delegate = self;
+        //发起短串搜索获取poi分享url
+        
+        BMKLocationShareURLOption * lo = [[BMKLocationShareURLOption alloc] init];
+        lo.name = @"我的当前城市";
+        lo.snippet = @"分享自霸盟";
+        lo.location = self.local.coordinate;
+        BOOL flag = [_searcher requestLocationShareURL:lo];
+        if(flag)
+        {
+            NSLog(@"详情url检索发送成功");
+        }
+        else
+        {
+            NSLog(@"详情url检索发送失败");
+        }
+    }
+    
+    
+}
+
+- (void)onGetLocationShareURLResult:(BMKShareURLSearch *)searcher result:(BMKShareURLResult *)result errorCode:(BMKSearchErrorCode)error{
+    
+    if (!error) {
+        LWLog(@"%@",result.url);
+        
+        [[MyShareSdkTool MyShareSdkToolShare]  MyShareSdkTool:result.url];
+    }else{
+        LWLog(@"%u",error);
+    }
+    
+}
+
+
 /*
  * 定位服务
  */
-- (void) MyCoreLocationTakeBackCity:(NSString *)city andLatLong:(NSString *)info{
+- (void) MyCoreLocationTakeBackCity:(NSString *)city andLatLong:(NSString *)info andFullInfo:(CLLocation *)local{
     LWLog(@"%@---%@",city,info);
+    self.local = local;
     if (city.length) {
         [self.cityBtn setTitle:city forState:UIControlStateNormal];
         [_core MyCoreLocationStopLocal];
@@ -98,7 +155,12 @@ static NSString *mengYouHomeIdentify = @"mengYouHomeIdentify";
             LWLog(@"%@" ,error);
         }];
     }
+
 }
+/*
+ * 定位服务
+ */
+
 
 - (void)addInfo{
     

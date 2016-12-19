@@ -15,7 +15,7 @@
 
 @implementation MyShareSdkTool
 
-- (instancetype)MyShareSdkToolShare{
++ (instancetype)MyShareSdkToolShare{
     
     return [[MyShareSdkTool alloc] init];
 }
