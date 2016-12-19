@@ -100,7 +100,12 @@ static NSString *mengYouHomeIdentify = @"mengYouHomeIdentify";
     }
 }
 
-
+- (void)addInfo{
+    
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengYou" bundle:nil];
+    MYSubmitInfoTableViewController *sub = [story instantiateViewControllerWithIdentifier:@"MYSubmitInfoTableViewController"];
+    [self.navigationController pushViewController:sub animated:YES];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -110,12 +115,17 @@ static NSString *mengYouHomeIdentify = @"mengYouHomeIdentify";
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
     
-    __weak MengYouHomeViewController *wself = self;
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage imageNamed:@"tj"] style:UIBarButtonItemStylePlain handler:^(id sender) {
-        UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengYou" bundle:nil];
-        MYSubmitInfoTableViewController *sub = [story instantiateViewControllerWithIdentifier:@"MYSubmitInfoTableViewController"];
-        [wself.navigationController pushViewController:sub animated:YES];
-    }];
+
+    
+    UIButton * rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [rightBtn setTitle:@"新增" forState:UIControlStateNormal];
+    [rightBtn setImage:[UIImage imageNamed:@"tj"] forState:UIControlStateNormal];
+    [rightBtn sizeToFit];
+    [rightBtn setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 20)];
+    [rightBtn.titleLabel setFont:[UIFont fontWithName:@"ArialMT"size:15]];
+    [rightBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [rightBtn addTarget:self action:@selector(addInfo) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
     
     
     _core = [MyCoreLocation MyCoreLocationShare];

@@ -23,6 +23,7 @@
 #import "MengZhuInfomationSmallTableViewCell.h"
 #import "BaiDuMapViewController.h"
 #import <BaiduMapAPI_Search/BMKShareURLSearch.h>
+#import "MyShareSdkTool.h"
 
 
 
@@ -108,7 +109,7 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
             NSLog(@"详情url检索发送成功");
         }
         else
-        {  
+        {
             NSLog(@"详情url检索发送失败");  
         }
     }
@@ -120,6 +121,8 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
     
     if (!error) {
         LWLog(@"%@",result.url);
+        
+        [[MyShareSdkTool MyShareSdkToolShare]  MyShareSdkTool:result.url];
     }else{
         LWLog(@"%u",error);
     }

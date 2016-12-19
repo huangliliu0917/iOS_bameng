@@ -38,16 +38,27 @@
     self.saveBtn.layer.masksToBounds = YES;
 }
 
-
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
-{
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    // Prevent crashing undo bug – see note below.
+    
     if (textField == self.phoneTextField) {
-        if (textField.text.length > 10) return NO;
+        if(range.length + range.location > textField.text.length)
+        {
+            return NO;
+        }
+        NSUInteger newLength = [textField.text length] + [string length] - range.length;
+        return newLength <= 11;
     }
     if (textField == self.yanzhengMa) {
-        if (textField.text.length > 5) return NO;
+        if(range.length + range.location > textField.text.length)
+        {
+            return NO;
+        }
+        NSUInteger newLength = [textField.text length] + [string length] - range.length;
+        return newLength <= 6;
     }
     return YES;
+    
 }
 
 

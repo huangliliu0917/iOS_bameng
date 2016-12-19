@@ -8,8 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		0ECACC7AB1F44CC7EA4C676C /* libPods-bameng.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA4A0725E52CF05F19286687 /* libPods-bameng.a */; };
+		120CABCB1E06270100F37B37 /* MJPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 120CABBD1E06270100F37B37 /* MJPhoto.m */; };
+		120CABCC1E06270100F37B37 /* MJPhotoBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 120CABBE1E06270100F37B37 /* MJPhotoBrowser.bundle */; };
+		120CABCD1E06270100F37B37 /* MJPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 120CABC01E06270100F37B37 /* MJPhotoBrowser.m */; };
+		120CABCE1E06270100F37B37 /* MJPhotoLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 120CABC21E06270100F37B37 /* MJPhotoLoadingView.m */; };
+		120CABCF1E06270100F37B37 /* MJPhotoProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 120CABC41E06270100F37B37 /* MJPhotoProgressView.m */; };
+		120CABD01E06270100F37B37 /* MJPhotoToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 120CABC61E06270100F37B37 /* MJPhotoToolbar.m */; };
+		120CABD11E06270100F37B37 /* MJPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 120CABC81E06270100F37B37 /* MJPhotoView.m */; };
+		120CABD21E06270100F37B37 /* SDWebImageManager+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 120CABCA1E06270100F37B37 /* SDWebImageManager+MJ.m */; };
 		12E932F61E023E54009AEFBF /* BaiDuMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12E932F51E023E54009AEFBF /* BaiDuMapViewController.m */; };
 		12E932F91E028AA3009AEFBF /* UITabBar+XSDExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 12E932F81E028AA3009AEFBF /* UITabBar+XSDExt.m */; };
+		12FAE2B81E0380D40041AE3B /* MyShareSdkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FAE2B71E0380D40041AE3B /* MyShareSdkTool.m */; };
 		600792351DD0322000BBF448 /* BMInfomationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 600792341DD0322000BBF448 /* BMInfomationModel.m */; };
 		600792381DD164D200BBF448 /* BMCircleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 600792371DD164D200BBF448 /* BMCircleModel.m */; };
 		600DF37A1DC21BA6000296E8 /* OrderDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600DF3791DC21BA6000296E8 /* OrderDetailTableViewController.m */; };
@@ -204,10 +213,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		120CABBC1E06270100F37B37 /* MJPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhoto.h; sourceTree = "<group>"; };
+		120CABBD1E06270100F37B37 /* MJPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhoto.m; sourceTree = "<group>"; };
+		120CABBE1E06270100F37B37 /* MJPhotoBrowser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJPhotoBrowser.bundle; sourceTree = "<group>"; };
+		120CABBF1E06270100F37B37 /* MJPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhotoBrowser.h; sourceTree = "<group>"; };
+		120CABC01E06270100F37B37 /* MJPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhotoBrowser.m; sourceTree = "<group>"; };
+		120CABC11E06270100F37B37 /* MJPhotoLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhotoLoadingView.h; sourceTree = "<group>"; };
+		120CABC21E06270100F37B37 /* MJPhotoLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhotoLoadingView.m; sourceTree = "<group>"; };
+		120CABC31E06270100F37B37 /* MJPhotoProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhotoProgressView.h; sourceTree = "<group>"; };
+		120CABC41E06270100F37B37 /* MJPhotoProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhotoProgressView.m; sourceTree = "<group>"; };
+		120CABC51E06270100F37B37 /* MJPhotoToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhotoToolbar.h; sourceTree = "<group>"; };
+		120CABC61E06270100F37B37 /* MJPhotoToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhotoToolbar.m; sourceTree = "<group>"; };
+		120CABC71E06270100F37B37 /* MJPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhotoView.h; sourceTree = "<group>"; };
+		120CABC81E06270100F37B37 /* MJPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhotoView.m; sourceTree = "<group>"; };
+		120CABC91E06270100F37B37 /* SDWebImageManager+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SDWebImageManager+MJ.h"; sourceTree = "<group>"; };
+		120CABCA1E06270100F37B37 /* SDWebImageManager+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SDWebImageManager+MJ.m"; sourceTree = "<group>"; };
 		12E932F41E023E54009AEFBF /* BaiDuMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiDuMapViewController.h; sourceTree = "<group>"; };
 		12E932F51E023E54009AEFBF /* BaiDuMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaiDuMapViewController.m; sourceTree = "<group>"; };
 		12E932F71E028AA3009AEFBF /* UITabBar+XSDExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+XSDExt.h"; sourceTree = "<group>"; };
 		12E932F81E028AA3009AEFBF /* UITabBar+XSDExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+XSDExt.m"; sourceTree = "<group>"; };
+		12FAE2B61E0380D40041AE3B /* MyShareSdkTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyShareSdkTool.h; sourceTree = "<group>"; };
+		12FAE2B71E0380D40041AE3B /* MyShareSdkTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyShareSdkTool.m; sourceTree = "<group>"; };
 		29BEC5EF9948E97E135A1D0C /* Pods-bameng.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bameng.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bameng/Pods-bameng.debug.xcconfig"; sourceTree = "<group>"; };
 		2E089ECC66D0C7C9DE572EA1 /* Pods-bamengTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bamengTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bamengTests/Pods-bamengTests.debug.xcconfig"; sourceTree = "<group>"; };
 		34F28DCCF0229D29337C4518 /* Pods-bamengTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bamengTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-bamengTests/Pods-bamengTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -569,6 +595,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		120CABBB1E06270100F37B37 /* MJPhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				120CABBC1E06270100F37B37 /* MJPhoto.h */,
+				120CABBD1E06270100F37B37 /* MJPhoto.m */,
+				120CABBE1E06270100F37B37 /* MJPhotoBrowser.bundle */,
+				120CABBF1E06270100F37B37 /* MJPhotoBrowser.h */,
+				120CABC01E06270100F37B37 /* MJPhotoBrowser.m */,
+				120CABC11E06270100F37B37 /* MJPhotoLoadingView.h */,
+				120CABC21E06270100F37B37 /* MJPhotoLoadingView.m */,
+				120CABC31E06270100F37B37 /* MJPhotoProgressView.h */,
+				120CABC41E06270100F37B37 /* MJPhotoProgressView.m */,
+				120CABC51E06270100F37B37 /* MJPhotoToolbar.h */,
+				120CABC61E06270100F37B37 /* MJPhotoToolbar.m */,
+				120CABC71E06270100F37B37 /* MJPhotoView.h */,
+				120CABC81E06270100F37B37 /* MJPhotoView.m */,
+				120CABC91E06270100F37B37 /* SDWebImageManager+MJ.h */,
+				120CABCA1E06270100F37B37 /* SDWebImageManager+MJ.m */,
+			);
+			path = MJPhotoBrowser;
+			sourceTree = "<group>";
+		};
+		12FAE2B51E0380A30041AE3B /* MyShareSdkTool */ = {
+			isa = PBXGroup;
+			children = (
+				12FAE2B61E0380D40041AE3B /* MyShareSdkTool.h */,
+				12FAE2B71E0380D40041AE3B /* MyShareSdkTool.m */,
+			);
+			name = MyShareSdkTool;
+			sourceTree = "<group>";
+		};
 		38BB90BB48F4B67E0D602F49 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1326,6 +1383,8 @@
 		EFDD90561DD59C3700764E7A /* 工具 */ = {
 			isa = PBXGroup;
 			children = (
+				120CABBB1E06270100F37B37 /* MJPhotoBrowser */,
+				12FAE2B51E0380A30041AE3B /* MyShareSdkTool */,
 				EFA5D7E41DDC07EB00962D77 /* 自定义ActionSheet */,
 				EFDD90641DD5AD8D00764E7A /* 颜色工具 */,
 				EFDD905A1DD5A73D00764E7A /* 定位工具 */,
@@ -1637,6 +1696,7 @@
 				EFFBC3871DE435F6006D2A96 /* icon.png in Resources */,
 				60F390371DC0A95C00FFCBF3 /* ExchangeListTableViewCell.xib in Resources */,
 				60362BF51DBB3B2F00A58D4D /* InfoPlist.strings in Resources */,
+				120CABCC1E06270100F37B37 /* MJPhotoBrowser.bundle in Resources */,
 				EFFBC3831DE435F6006D2A96 /* LKNotification.gif in Resources */,
 				60FC8A901DBD9ED9009612C1 /* UntreatedTableViewCell.xib in Resources */,
 				EFEE83931DDD82F80048863A /* areaCode.plist in Resources */,
@@ -1870,9 +1930,11 @@
 				60F3903E1DC0D1AB00FFCBF3 /* BusinessTableViewController.m in Sources */,
 				60E809EF1DC9B91900094CB8 /* MYOrderDetailTableViewController.m in Sources */,
 				EFFBC3821DE435F6006D2A96 /* UIResponder+LKBubble.m in Sources */,
+				120CABCB1E06270100F37B37 /* MJPhoto.m in Sources */,
 				60FF24091DBEFC3100E70A09 /* EncourageTableViewController.m in Sources */,
 				EFFBC3811DE435F6006D2A96 /* LKBubbleView.m in Sources */,
 				EFFE48FD1DE2DC3000CC3D11 /* CustomSlideViewController.m in Sources */,
+				120CABCD1E06270100F37B37 /* MJPhotoBrowser.m in Sources */,
 				EF785E4E1DDEB0A7002872B9 /* LiuXSegmentView.m in Sources */,
 				60FF241F1DBF5D7600E70A09 /* MengDouTableViewCell.m in Sources */,
 				EFEE83951DDD82F80048863A /* AreaPickerView.m in Sources */,
@@ -1888,8 +1950,11 @@
 				60C230D61DC07C9500E0CD11 /* UserInfoTableViewController.m in Sources */,
 				6033D7AA1DBB47B000B9B4DA /* HomeMengzhuTableViewCell.m in Sources */,
 				60C230D31DC0527D00E0CD11 /* IntegralTableViewController.m in Sources */,
+				120CABD11E06270100F37B37 /* MJPhotoView.m in Sources */,
 				608B72AF1DCC23AA00378B5B /* BassModel.m in Sources */,
+				120CABD01E06270100F37B37 /* MJPhotoToolbar.m in Sources */,
 				60764AF11DB8937A0061CC6C /* AppDelegate.m in Sources */,
+				12FAE2B81E0380D40041AE3B /* MyShareSdkTool.m in Sources */,
 				604912ED1DC8810A00DA334C /* MYInfomationTableViewCell.m in Sources */,
 				EF4103D11DDDCF7C008F79A0 /* CircleBannerView.m in Sources */,
 				EFCB522E1DE6E7ED002423C0 /* UIImage+LHB.m in Sources */,
@@ -1899,10 +1964,12 @@
 				60764AEE1DB8937A0061CC6C /* main.m in Sources */,
 				60F390421DC0DAE700FFCBF3 /* MyBusinessTableViewCell.m in Sources */,
 				60979D741DC346F500B9E858 /* MengZhuInfomationBigTableViewCell.m in Sources */,
+				120CABCE1E06270100F37B37 /* MJPhotoLoadingView.m in Sources */,
 				EF30ABFB1DE7189B006EA853 /* KVTimer.m in Sources */,
 				6042F8241DCB1F2F00055329 /* UserModel.m in Sources */,
 				EF0615E11DF0221B006183EC /* MJChiBaoZiFooter2.m in Sources */,
 				60EF5FB71DC749ED00ADBEA7 /* MengYouHomeTableViewCell.m in Sources */,
+				120CABCF1E06270100F37B37 /* MJPhotoProgressView.m in Sources */,
 				EFA5D7E31DDBF46A00962D77 /* MyTableViewController.m in Sources */,
 				EF30ABFA1DE7189B006EA853 /* KVStyle.m in Sources */,
 				60EF5FBE1DC8309B00ADBEA7 /* MYSubmitInfoTableViewController.m in Sources */,
@@ -1934,6 +2001,7 @@
 				EF0615E51DF0221B006183EC /* MJDIYHeader.m in Sources */,
 				60C230D01DC04DC900E0CD11 /* DaijiesuanTableViewController.m in Sources */,
 				EFDD90671DD5AD8D00764E7A /* HXColor.m in Sources */,
+				120CABD21E06270100F37B37 /* SDWebImageManager+MJ.m in Sources */,
 				60F390361DC0A95C00FFCBF3 /* ExchangeListTableViewCell.m in Sources */,
 				60D75A941DBE07FA00E09FF4 /* CustomInformationauditTableViewController.m in Sources */,
 				608B72AC1DCC209600378B5B /* VersionModel.m in Sources */,

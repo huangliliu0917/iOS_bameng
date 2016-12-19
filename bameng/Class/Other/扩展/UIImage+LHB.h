@@ -22,4 +22,7 @@
  */
 +(UIImage*)resizedWithName:(NSString *) name;
 +(UIImage*)resizedWithName:(NSString *) name left:(CGFloat) left top:(CGFloat) top;
+
+/**获取分享图标*/
++ (UIImage *)getAppIconName;
 @end

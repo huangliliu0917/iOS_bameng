@@ -39,6 +39,8 @@
 #import "MyTableViewController.h"
 #import "MBProgressHUD+MJ.h"
 #import "UITabBar+XSDExt.h"
+#import "MJPhoto.h"
+
 
 /*** 接口地址以及签名参数 ***/
 #ifdef DEBUG

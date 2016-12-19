@@ -29,4 +29,16 @@
     return [image stretchableImageWithLeftCapWidth:image.size.width*left topCapHeight:image.size.height*top];
 }
 
+
+
++ (UIImage *)getAppIconName{
+    NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary];
+    //获取app中所有icon名字数组
+    NSArray *iconsArr = infoDict[@"CFBundleIcons"][@"CFBundlePrimaryIcon"][@"CFBundleIconFiles"];
+    //取最后一个icon的名字
+    NSString *iconLastName = [iconsArr lastObject];
+    //打印icon名字
+    return [UIImage imageNamed:iconLastName];
+}
+
 @end
