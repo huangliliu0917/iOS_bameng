@@ -2107,7 +2107,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -2149,7 +2149,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -2164,9 +2164,9 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = bameng/bameng.entitlements;
 				DEVELOPMENT_TEAM = 7R246R3B5H;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/bameng/Class/Other/第三方/BaiduMap_IOSSDK_v3.1.0_Lib",
 					"$(PROJECT_DIR)/bameng/Class/Other/第三方/ShareSDK",
 					"$(PROJECT_DIR)/bameng/Class/Other/第三方/ShareSDK/Support/Optional",
 					"$(PROJECT_DIR)/bameng/Class/Other/第三方/ShareSDK/Support/PlatformConnector",
@@ -2183,6 +2183,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hutu.kaiermete.bameng;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -2194,9 +2195,9 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = bameng/bameng.entitlements;
 				DEVELOPMENT_TEAM = 7R246R3B5H;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/bameng/Class/Other/第三方/BaiduMap_IOSSDK_v3.1.0_Lib",
 					"$(PROJECT_DIR)/bameng/Class/Other/第三方/ShareSDK",
 					"$(PROJECT_DIR)/bameng/Class/Other/第三方/ShareSDK/Support/Optional",
 					"$(PROJECT_DIR)/bameng/Class/Other/第三方/ShareSDK/Support/PlatformConnector",
@@ -2213,6 +2214,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hutu.kaiermete.bameng;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
