@@ -17,6 +17,8 @@
 #import "CustomInfomationModel.h"
 #import "MeYouShenQingModel.h"
 #import "DuiHuanModel.h"
+#import "PhoteTableViewCell.h"
+
 @interface CustomInfoController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (strong, nonatomic) IBOutlet UITableView *table;
@@ -48,6 +50,11 @@ static NSString *processedIdentify = @"processedIdentify";
     [super viewDidLoad];
     
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+    
+    
+    
+    [self.table registerNib:[UINib nibWithNibName:@"PhoteTableViewCell" bundle:nil] forCellReuseIdentifier:@"PhoteTableViewCell"];
+    
     
     
     LWLog(@"%ld",(long)self.selectPage);
@@ -568,12 +575,20 @@ static NSString *processedIdentify = @"processedIdentify";
             return cell;
             
         }else {
+            CustomInfomationModel * model = self.customList[indexPath.row];
+            if (model.isSave == 0) {
+                ProcessedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:processedIdentify forIndexPath:indexPath];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                cell.customModel = model;
+                cell.selectPage = self.selectPage;
+                return cell;
+            }else{
+                
+                PhoteTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"PhoteTableViewCell"];
+                cell.model = model;
+                return cell;
+            }
             
-            ProcessedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:processedIdentify forIndexPath:indexPath];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            cell.customModel = self.customList[indexPath.row];
-            cell.selectPage = self.selectPage;
-            return cell;
         }
     }else if (self.selectPage == 2) {
         
@@ -635,7 +650,12 @@ static NSString *processedIdentify = @"processedIdentify";
         if (self.type == 1) {
             return 80;
         }else {
-            return 76;
+            
+            CustomInfomationModel * model = self.customList[indexPath.row];
+            if (model.isSave == 0) {
+                return 76;
+            }
+            return 98;
         }
     }else if (self.selectPage == 2) {
         if (self.type == 1) {

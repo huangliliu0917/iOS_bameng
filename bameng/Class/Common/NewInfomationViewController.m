@@ -10,6 +10,8 @@
 #import "LiuXSegmentView.h"
 #import "MengZhuInfomationViewController.h"
 #import "InfomationViewController.h"
+#import "AddNewInfomationTableViewController.h"
+#import "MYAddNewMessageTableViewController.h"
 
 @interface NewInfomationViewController ()<UIScrollViewDelegate>
 @property(nonatomic,strong) UIScrollView * scrollView;
@@ -47,33 +49,33 @@
 
 - (void)setUpInit{
     
-    
-    
-    
-    
-    
-    //    [self.navigationController.navigationBar  setBarTintColor:HuoBanMallBuyNavColor];
-    
+
     self.navigationItem.title = @"我的消息";
+    UIButton * rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [rightBtn setTitle:@"新增" forState:UIControlStateNormal];
+    [rightBtn setImage:[UIImage imageNamed:@"tj"] forState:UIControlStateNormal];
+    [rightBtn sizeToFit];
+    [rightBtn setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 20)];
+    [rightBtn.titleLabel setFont:[UIFont fontWithName:@"ArialMT"size:15]];
+    [rightBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [rightBtn addTarget:self action:@selector(addInfo) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
+
     
-    
-    __weak typeof(self) wself = self;
-    
+}
+
+- (void)addInfo{
     UserModel * user = [UserModel GetUserModel];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage imageNamed:@"tj"] style:UIBarButtonItemStylePlain handler:^(id sender) {
+    if (user.UserIdentity) {
+        UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
+        AddNewInfomationTableViewController *add = [story instantiateViewControllerWithIdentifier:@"AddNewInfomationTableViewController"];
+        [self.navigationController pushViewController:add animated:YES];
         
-//        if (user.UserIdentity) {
-//            UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
-//            AddNewInfomationTableViewController *add = [story instantiateViewControllerWithIdentifier:@"AddNewInfomationTableViewController"];
-//            [wself.navigationController pushViewController:add animated:YES];
-//            
-//        }else{
-//            UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengYou" bundle:nil];
-//            MYAddNewMessageTableViewController *add = [story instantiateViewControllerWithIdentifier:@"MYAddNewMessageTableViewController"];
-//            [wself.navigationController pushViewController:add animated:YES];
-//        }
-    }];
-    
+    }else{
+        UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengYou" bundle:nil];
+        MYAddNewMessageTableViewController *add = [story instantiateViewControllerWithIdentifier:@"MYAddNewMessageTableViewController"];
+        [self.navigationController pushViewController:add animated:YES];
+    }
 }
 
 

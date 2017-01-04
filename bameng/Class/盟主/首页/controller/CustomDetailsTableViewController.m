@@ -27,6 +27,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableViewCell *accessstatus;
 
+@property (weak, nonatomic) IBOutlet UIImageView *iconImage;
 
 
 @property (weak, nonatomic) IBOutlet UIButton *CNewOrderbtn;
@@ -78,6 +79,12 @@
         self.CNewOrderbtn.hidden = NO;
     }else{
         self.CNewOrderbtn.hidden = YES;
+    }
+    
+    
+    if (self.customModel.isSave == 1) {
+        
+        [self.iconImage sd_setImageWithURL:[NSURL URLWithString:self.customModel.DataImg] placeholderImage:[UIImage imageNamed:@"mrtx"]];
     }
 }
 
@@ -171,29 +178,41 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0:{
-            return 44;
-            break;
+            
+            if (self.customModel.isSave == 0) {
+               return 0;
+                break;
+            }else{
+                return 180;
+                break;
+            }
+            
+           
         }
         case 1:{
             return 44;
             break;
         }
         case 2:{
+            return 44;
+            break;
+        }
+        case 3:{
             
             CGSize size = [self getLabelSizeFormSize:CGSizeMake(KScreenWidth - 136 - 20, MAXFLOAT) AndStr:self.customModel.Addr];
             return 44 + size.height - 20.5;
             break;
         }
-        case 3:{
+        case 4:{
             return 44;
             break;
         }
-        case 4:{
+        case 5:{
             CGSize size = [self getLabelSizeFormSize:CGSizeMake(KScreenWidth - 136 - 20, MAXFLOAT) AndStr:self.customModel.Remark];
             return 44 + size.height - 20.5;
             break;
         }
-        case 5:{
+        case 6:{
             if (self.customModel.Status == 2) {
                 self.submit.hidden = YES;
                 return 0;
@@ -209,7 +228,7 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 6) {
+    if (indexPath.row == 7) {
         
         if(!_customModel.InShop){
             [UIView animateWithDuration:0.25 animations:^{

@@ -66,19 +66,19 @@
     __weak typeof(self) wself = self;
     
     UserModel * user = [UserModel GetUserModel];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage imageNamed:@"tj"] style:UIBarButtonItemStylePlain handler:^(id sender) {
-        
-        if (user.UserIdentity) {
-            UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
-            AddNewInfomationTableViewController *add = [story instantiateViewControllerWithIdentifier:@"AddNewInfomationTableViewController"];
-            [wself.navigationController pushViewController:add animated:YES];
-
-        }else{
-            UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengYou" bundle:nil];
-            MYAddNewMessageTableViewController *add = [story instantiateViewControllerWithIdentifier:@"MYAddNewMessageTableViewController"];
-            [wself.navigationController pushViewController:add animated:YES];
-        }
-    }];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage imageNamed:@"tj"] style:UIBarButtonItemStylePlain handler:^(id sender) {
+//        
+//        if (user.UserIdentity) {
+//            UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
+//            AddNewInfomationTableViewController *add = [story instantiateViewControllerWithIdentifier:@"AddNewInfomationTableViewController"];
+//            [wself.navigationController pushViewController:add animated:YES];
+//
+//        }else{
+//            UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengYou" bundle:nil];
+//            MYAddNewMessageTableViewController *add = [story instantiateViewControllerWithIdentifier:@"MYAddNewMessageTableViewController"];
+//            [wself.navigationController pushViewController:add animated:YES];
+//        }
+//    }];
     
 }
 

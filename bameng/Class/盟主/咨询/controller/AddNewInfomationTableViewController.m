@@ -15,6 +15,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLable;
 
+@property (weak, nonatomic) IBOutlet UITableViewCell *addcell;
 
 @end
 
@@ -27,7 +28,14 @@
    
     self.userIds = @"";
     
-    self.navigationItem.title = @"新增消息";
+    if (self.type == 1) {
+       self.navigationItem.title = @"新增留言";
+       self.nameLable.text = @"发送对象: 霸盟";
+        self.addcell.accessoryType = UITableViewCellAccessoryNone;
+    }else{
+      self.navigationItem.title = @"新增消息";
+    }
+    
     
     [self.sendButton bk_whenTapped:^{
         [self sendMessage];
@@ -44,7 +52,7 @@
 #pragma mark - Table view data source
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 2) {
+    if (indexPath.section == 2 && !self.type) {
         UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
         SelectObjectViewController *select = [story instantiateViewControllerWithIdentifier:@"SelectObjectViewController"];
         select.delegate = self;
@@ -69,14 +77,18 @@
     }else if (self.content.text.length == 0) {
         [SVProgressHUD showErrorWithStatus:@"请输入咨询内容"];
         return;
-    }else if (self.userIds.length == 0) {
+    }else if (!self.type && self.userIds.length == 0) {
         [SVProgressHUD showErrorWithStatus:@"请选择盟友"];
         return;
     }else {
         NSMutableDictionary *dic = [NSMutableDictionary dictionary];
         dic[@"title"] = self.titleField.text;
         dic[@"content"] = self.content.text;
-        dic[@"ids"] = self.userIds;
+        if (self.type == 1) {
+           dic[@"ids"] = @(-1);
+        }else{
+            dic[@"ids"] = self.userIds;
+        }
         LWLog(@"%@",dic);
         [HTMyContainAFN AFN:@"article/create" with:dic Success:^(NSDictionary *responseObject) {
             LWLog(@"user/allylist：%@",responseObject);

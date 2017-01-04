@@ -23,6 +23,10 @@
 
 @property (nonatomic, strong) UserModel *userInfo;
 
+
+@property (weak, nonatomic) IBOutlet UIView *myliuyanLable;
+
+@property (weak, nonatomic) IBOutlet UIView *mymessageLable;
 @end
 
 @implementation MyAccountTableViewController
@@ -31,7 +35,9 @@
     [super viewDidLoad];
     
     
-
+    self.myliuyanLable.layer.cornerRadius = self.myliuyanLable.frame.size.width * 0.5;
+    
+    self.mymessageLable.layer.cornerRadius = self.myliuyanLable.frame.size.width * 0.5;
     
     [self.headImage setImage:[UIImage imageNamed:@"mrtx"]];
     

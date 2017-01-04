@@ -11,8 +11,8 @@
 #import "NewInfoParame.h"
 #import "MYInfomationTableViewCell.h"
 #import "PushWebViewController.h"
-
-
+#import "AddNewInfomationTableViewController.h"
+#import "MYAddNewMessageTableViewController.h"
 @interface InfomationViewController ()<PushWebViewControllerDelegate>
 
 
@@ -64,7 +64,9 @@
     dict[@"pageIndex"] = @(1);
     dict[@"pageSize"] = @(20);
     dict[@"type"] = @(self.isLiuyan);
-    dict[@"isSend"] = @(self.type);
+    dict[@"isSend"] = (self.isLiuyan ? @(1): @(self.type));
+    
+    LWLog(@"%@",[dict mj_keyValues]);
     [HTMyContainAFN AFN:@"article/maillist" with:dict Success:^(NSDictionary *responseObject) {
         LWLog(@"%@", responseObject);
         if ([responseObject[@"status"] intValue] == 200) {
@@ -88,7 +90,7 @@
     dict[@"pageIndex"] = @(self.pageindex + 1);
     dict[@"pageSize"] = @(20);
     dict[@"type"] = @(self.isLiuyan);
-    dict[@"isSend"] = @(self.type);
+    dict[@"isSend"] = (self.isLiuyan ? @(1): @(self.type));
     [HTMyContainAFN AFN:@"article/maillist" with:dict Success:^(NSDictionary *responseObject) {
         LWLog(@"%@", responseObject);
         if ([responseObject[@"status"] intValue] == 200) {
@@ -109,6 +111,11 @@
 }
 
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.tableView.mj_header beginRefreshing];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -123,12 +130,38 @@
     [self setTabalViewRefresh];
     
     
-    [self.tableView.mj_header beginRefreshing];
+    
     
     
     [self.tableView removeSpaces];
     
+    UIButton * rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [rightBtn setTitle:@"新增" forState:UIControlStateNormal];
+    [rightBtn setImage:[UIImage imageNamed:@"tj"] forState:UIControlStateNormal];
+    [rightBtn sizeToFit];
+    [rightBtn setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 20)];
+    [rightBtn.titleLabel setFont:[UIFont fontWithName:@"ArialMT"size:15]];
+    [rightBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [rightBtn addTarget:self action:@selector(addInfo) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
     
+    
+}
+
+- (void)addInfo{
+    UserModel * user = [UserModel GetUserModel];
+    if (user.UserIdentity) {
+        UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
+        AddNewInfomationTableViewController *add = [story instantiateViewControllerWithIdentifier:@"AddNewInfomationTableViewController"];
+        add.type = 1;
+        [self.navigationController pushViewController:add animated:YES];
+        
+    }else{
+        UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengYou" bundle:nil];
+        MYAddNewMessageTableViewController *add = [story instantiateViewControllerWithIdentifier:@"MYAddNewMessageTableViewController"];
+        add.type = 1;
+        [self.navigationController pushViewController:add animated:YES];
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

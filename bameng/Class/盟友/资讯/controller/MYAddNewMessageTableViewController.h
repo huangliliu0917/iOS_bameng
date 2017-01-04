@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface MYAddNewMessageTableViewController : MyTableViewController
-
+/**1 表示留言*/
+@property (nonatomic,assign) int type;
 @end

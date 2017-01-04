@@ -48,10 +48,10 @@
         LWLog(@"%@", responseObject);
         if ([responseObject[@"status"] integerValue] == 200) {
             
-            if ([responseObject[@"data"][@"messageCount"] integerValue]) {
-                [self.tabBar showBadgeOnItemIndex:1];
+            if ([responseObject[@"data"][@"messageCount"] integerValue] || [responseObject[@"data"][@"messagePullCount"] integerValue] || [responseObject[@"data"][@"messagePushCount"] integerValue]) {
+                [self.tabBar showBadgeOnItemIndex:3];
             }else{
-                [self.tabBar hideBadgeOnItemIndex:1];
+                [self.tabBar hideBadgeOnItemIndex:3];
             }
             
             if ([responseObject[@"data"][@"businessRemind"] integerValue]) {

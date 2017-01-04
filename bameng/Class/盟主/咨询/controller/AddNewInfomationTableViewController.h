@@ -13,4 +13,8 @@
 @property (strong, nonatomic) IBOutlet UITextView *content;
 @property (strong, nonatomic) IBOutlet UIButton *sendButton;
 
+
+/**1 表示留言*/
+@property (nonatomic,assign) int type;
+
 @end
