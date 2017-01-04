@@ -561,18 +561,28 @@ static NSString *processedIdentify = @"processedIdentify";
     LWLog(@"%ld",(long)self.selectPage);
     if (self.selectPage == 1) {
         if (self.type == 1) {
-            UntreatedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:untreatedIdentify forIndexPath:indexPath];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            CustomInfomationModel * model = self.customList[indexPath.row];
-            cell.customModel = model;
             
-            cell.selectPage = self.selectPage;
-            __weak typeof(self) weakSelf = self;
-            [cell setDidSelectCustomInfo:^(BOOL isAgree) {
-                LWLog(@"%d",isAgree);
-                [weakSelf shengheyonghuxingxi:isAgree andModel:indexPath];
-            }];
-            return cell;
+            CustomInfomationModel * model = self.customList[indexPath.row];
+            if (model.isSave == 0) {
+                UntreatedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:untreatedIdentify forIndexPath:indexPath];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                CustomInfomationModel * model = self.customList[indexPath.row];
+                cell.customModel = model;
+                
+                cell.selectPage = self.selectPage;
+                __weak typeof(self) weakSelf = self;
+                [cell setDidSelectCustomInfo:^(BOOL isAgree) {
+                    LWLog(@"%d",isAgree);
+                    [weakSelf shengheyonghuxingxi:isAgree andModel:indexPath];
+                }];
+                return cell;
+            }else{
+                PhoteTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"PhoteTableViewCell"];
+                cell.model = model;
+                cell.type = 1;
+                return cell;
+            }
+            
             
         }else {
             CustomInfomationModel * model = self.customList[indexPath.row];
@@ -648,7 +658,11 @@ static NSString *processedIdentify = @"processedIdentify";
     
     if (self.selectPage == 1) {
         if (self.type == 1) {
-            return 80;
+            CustomInfomationModel * model = self.customList[indexPath.row];
+            if (model.isSave == 0) {
+                return 80;
+            }
+            return 98;
         }else {
             
             CustomInfomationModel * model = self.customList[indexPath.row];

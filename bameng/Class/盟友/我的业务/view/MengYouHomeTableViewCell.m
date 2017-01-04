@@ -43,13 +43,19 @@
     
     [self.icon sd_setImageWithURL:nil placeholderImage:[UIImage imageNamed:@"mrtx"]];
     
-    if (model.Status == 1) {
-        self.statusLable.text = @"同意";
-    }else if(model.Status == 2){
-        self.statusLable.text = @"拒绝";
+    
+    if (model.InShop) {
+        self.statusLable.text = @"已进店";
     }else{
-        self.statusLable.text = @"未审核";
+        if (model.Status == 1) {
+            self.statusLable.text = @"同意";
+        }else if(model.Status == 2){
+            self.statusLable.text = @"拒绝";
+        }else{
+            self.statusLable.text = @"未审核";
+        }
     }
+    
     
 }
 @end

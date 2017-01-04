@@ -23,6 +23,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *shenghelable;
 @property (weak, nonatomic) IBOutlet UILabel *infoMess;
 
+
+
+/**dddd*/
+@property (weak, nonatomic) IBOutlet UIImageView *iconImageInfo;
+
+
 @end
 
 @implementation CustomInformationauditTableViewController
@@ -45,6 +51,11 @@
     self.custemPhone.text = self.customModel.Mobile;
     self.customAddress.text = self.customModel.Addr;
     self.belong.text = self.customModel.BelongOneName;
+    
+    self.iconImageInfo.contentMode = UIViewContentModeScaleAspectFill;
+    self.iconImageInfo.clipsToBounds = YES;
+    
+    [self.iconImageInfo sd_setImageWithURL:[NSURL URLWithString:self.customModel.DataImg] placeholderImage:nil];
 }
 
 
@@ -130,10 +141,35 @@
 
 #pragma mark - Table view data source
 
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//#warning Incomplete implementation, return the number of sections
-//    return 0;
-//}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // 变高行数
+    if (self.customModel.isSave == 0) {
+        
+        if (indexPath.row == 0) {
+         
+            return 0;
+            
+        }else{
+            return [super tableView:tableView heightForRowAtIndexPath:indexPath];
+        }
+        
+    }else{
+        if (indexPath.row == 0) {
+            
+            return 160;
+           
+        }else if(indexPath.row == 1 || indexPath.row == 2 || indexPath.row == 3){
+            return 0;
+        }
+        
+        return [super tableView:tableView heightForRowAtIndexPath:indexPath];
+    }
+    
+    
+    
+    
+}
 //
 //- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 //#warning Incomplete implementation, return the number of rows

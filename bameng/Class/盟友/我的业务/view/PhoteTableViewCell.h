@@ -13,4 +13,8 @@
 
 @property (strong, nonatomic) CustomInfomationModel * model;
 
+
+
+@property (nonatomic,assign) int type;
+
 @end

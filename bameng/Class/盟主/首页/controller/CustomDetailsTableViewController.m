@@ -126,6 +126,15 @@
     [HTMyContainAFN AFN:@"customer/UpdateInShop" with:parme Success:^(NSDictionary *responseObject) {
         LWLog(@"%@", responseObject);
         [MBProgressHUD showSuccess:responseObject[@"statusText"]];
+        if ([responseObject[@"status"] intValue] == 200) {
+           
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self.navigationController popViewControllerAnimated:YES];
+            });
+        }
+        
+        
+        
     } failure:^(NSError *error) {
         LWLog(@"%@",error);
     }];
@@ -190,18 +199,38 @@
            
         }
         case 1:{
-            return 44;
-            break;
+            
+            if (self.customModel.isSave == 1) {
+                return 0;
+                break;
+            }else{
+                return 44;
+                break;
+            }
+            
         }
         case 2:{
-            return 44;
-            break;
+            if (self.customModel.isSave == 1) {
+                return 0;
+                break;
+            }else{
+                return 44;
+                break;
+            }
         }
         case 3:{
             
-            CGSize size = [self getLabelSizeFormSize:CGSizeMake(KScreenWidth - 136 - 20, MAXFLOAT) AndStr:self.customModel.Addr];
-            return 44 + size.height - 20.5;
-            break;
+            
+            if (self.customModel.isSave == 1) {
+                return 0;
+                break;
+            }else{
+                CGSize size = [self getLabelSizeFormSize:CGSizeMake(KScreenWidth - 136 - 20, MAXFLOAT) AndStr:self.customModel.Addr];
+                return 44 + size.height - 20.5;
+
+                break;
+            }
+                    
         }
         case 4:{
             return 44;

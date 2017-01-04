@@ -98,18 +98,26 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // 变高行数
-    if (indexPath.row == 0) {
-        if (self.model.isSave == 0) {
-            // 假设改行原来高度为200
+    
+    if(self.model.isSave == 0){
+        if (indexPath.row == 0) {
             return 0;
-        } else {
-            return 160;
+        }else{
+            return [super tableView:tableView heightForRowAtIndexPath:indexPath];
         }
-    } else {
-        /** 返回静态单元格故事板中的高度 */
-        return [super tableView:tableView heightForRowAtIndexPath:indexPath];
+        
+    }else{
+        
+        if (indexPath.row == 0) {
+            return 160;
+        }else if(indexPath.row == 1 || indexPath.row == 2 || indexPath.row == 3){
+            return 0;
+        }else{
+            return [super tableView:tableView heightForRowAtIndexPath:indexPath];
+        }
+        
     }
+   
 }
 
 /*

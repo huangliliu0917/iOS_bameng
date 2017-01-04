@@ -52,6 +52,7 @@
     
     [self setTabalViewRefresh];
     
+    [self.tableView removeSpaces];
     [self.tableView.mj_header beginRefreshing];
 
     

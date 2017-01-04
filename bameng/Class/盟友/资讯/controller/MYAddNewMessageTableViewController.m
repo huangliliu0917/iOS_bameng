@@ -13,6 +13,7 @@
 @property (strong, nonatomic) IBOutlet UITextView *content;
 @property (strong, nonatomic) IBOutlet UIButton *sendButton;
 
+
 @end
 
 @implementation MYAddNewMessageTableViewController
@@ -61,10 +62,21 @@
 
 #pragma mark - Table view data source
 
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//#warning Incomplete implementation, return the number of sections
-//    return 0;
-//}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // 变高行数
+    if (indexPath.section == 2 && indexPath.row == 0 ) {
+        if (self.type != 1) {
+            // 假设改行原来高度为200
+            return 00;
+        } else {
+            return [super tableView:tableView heightForRowAtIndexPath:indexPath];
+        }
+    } else {
+        /** 返回静态单元格故事板中的高度 */
+        return [super tableView:tableView heightForRowAtIndexPath:indexPath];
+    }
+}
 //
 //- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 //#warning Incomplete implementation, return the number of rows

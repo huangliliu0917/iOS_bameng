@@ -32,6 +32,8 @@
     self.phone.delegate = self;
     
     
+//    self.remarks.layer.borderWidth= 0.7;
+//    self.remarks.layer.borderColor = LWColor(239, 239, 244).CGColor;
     
     
     NSMutableDictionary *parme = [NSMutableDictionary dictionary];
@@ -147,15 +149,19 @@
 //    return 0;
 //}
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // 变高行数
+   
+    if (indexPath.row == 3) {
+        
+        return 0;
+        
+    } else {
+        /** 返回静态单元格故事板中的高度 */
+        return [super tableView:tableView heightForRowAtIndexPath:indexPath];
+    }
 }
-*/
 
 /*
 // Override to support conditional editing of the table view.

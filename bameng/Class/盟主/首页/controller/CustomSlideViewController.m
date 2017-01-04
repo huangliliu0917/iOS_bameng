@@ -77,15 +77,15 @@
     if (self.selectPage == 1) {
         self.navigationItem.title = @"客户信息";
         
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage imageNamed:@"tj"] style:UIBarButtonItemStylePlain handler:^(id sender) {
-            
-                //添加客户信息选择
-                MyActionView * ac = [[MyActionView alloc] init];
-                ac.delegate = self;
-                [ac showInView:nil];
-            
-            }];
-        
+        UIButton * rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [rightBtn setTitle:@"新增" forState:UIControlStateNormal];
+        [rightBtn setImage:[UIImage imageNamed:@"tj"] forState:UIControlStateNormal];
+        [rightBtn sizeToFit];
+        [rightBtn setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 20)];
+        [rightBtn.titleLabel setFont:[UIFont fontWithName:@"ArialMT"size:15]];
+        [rightBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [rightBtn addTarget:self action:@selector(addInfo) forControlEvents:UIControlEventTouchUpInside];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
             
     }else if(self.selectPage == 2){
         self.navigationItem.title = @"兑换审核";
@@ -95,6 +95,13 @@
     
 }
 
+- (void) addInfo{
+    
+    //添加客户信息选择
+    MyActionView * ac = [[MyActionView alloc] init];
+    ac.delegate = self;
+    [ac showInView:nil];
+}
 
 - (void)setupChildViewControllers
 {

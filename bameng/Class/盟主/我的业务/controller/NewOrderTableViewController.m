@@ -102,7 +102,7 @@
         self.customName.text = self.customModel.Name;
         self.phoneNum.text = self.customModel.Mobile;
         self.customAddress.text = self.customModel.Addr;
-        self.externInfo.text = self.customModel.Remark;
+//        self.externInfo.text = self.customModel.Remark;
     }
     
 }

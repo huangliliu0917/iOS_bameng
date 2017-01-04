@@ -27,6 +27,9 @@
     
     self.iconView.layer.cornerRadius = self.iconView.frame.size.width * 0.5;
     self.iconView.layer.masksToBounds = YES;
+    
+    
+    
 }
 
 
@@ -35,16 +38,34 @@
     
     LWLog(@"%@",[model mj_keyValues]);
     [self.iconView sd_setImageWithURL:[NSURL URLWithString:model.DataImg] placeholderImage:[UIImage imageNamed:@"mrtx"]];
-    self.nameLable.text = model.Name;
+    self.nameLable.text = model.BelongOneName;
     
-    if (model.Status == 1) {
-        self.statusLable.text = @"同意";
-    }else if(model.Status == 2){
-        self.statusLable.text = @"拒绝";
+    
+    
+    if (model.InShop) {
+        self.statusLable.text = @"已进店";
     }else{
-        self.statusLable.text = @"未审核";
+        if (model.Status == 1) {
+            self.statusLable.text = @"同意";
+        }else if(model.Status == 2){
+            self.statusLable.text = @"拒绝";
+        }else{
+            self.statusLable.text = @"未审核";
+        }
     }
+    
+    
 
+}
+
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    
+    if (self.type == 1) {
+        self.statusLable.hidden = YES;
+    }else{
+        self.statusLable.hidden = NO;
+    }
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
 //    [super setSelected:selected animated:animated];
