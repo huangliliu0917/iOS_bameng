@@ -44,11 +44,7 @@
         if (user.ShopType != 1) {//没有分店
             [_titleArray addObject:@{@(2):@"分店资讯"}];
         }
-        if (user.UserIdentity == 1) {
-            [_titleArray addObject:@{@(4):@"盟友消息"}];
-        }else{
-            [_titleArray addObject:@{@(3):@"盟主消息"}];
-        }
+       
     }
     return _titleArray;
 }

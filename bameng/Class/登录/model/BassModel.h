@@ -10,12 +10,12 @@
 
 @interface BassModel : NSObject
 
-@property (nonatomic, strong) NSString *aboutUrl;
-@property (nonatomic, strong) NSString *agreementUrl;
+@property (nonatomic, copy) NSString *aboutUrl;
+@property (nonatomic, copy) NSString *agreementUrl;
 @property (nonatomic, assign) NSInteger userStatus;
 @property (nonatomic, assign) int enableSignIn;
-@property (nonatomic, strong) NSString * registerUrl;
-
+@property (nonatomic, copy) NSString * registerUrl;
+@property (nonatomic, copy) NSString * reportUrl;
 + (instancetype)GetBassModel;
 
 + (void)BassModelSave:(BassModel *)model;

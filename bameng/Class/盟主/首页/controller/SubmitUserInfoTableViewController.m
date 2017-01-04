@@ -7,13 +7,22 @@
 //
 
 #import "SubmitUserInfoTableViewController.h"
+#import "SelectObjectViewController.h"
 
-@interface SubmitUserInfoTableViewController ()
+@interface SubmitUserInfoTableViewController ()<SelectObjectDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *nameField;
 @property (strong, nonatomic) IBOutlet UITextField *phoneField;
 @property (strong, nonatomic) IBOutlet UITextField *addressField;
 @property (strong, nonatomic) IBOutlet UITextView *otherTextView;
 @property (strong, nonatomic) IBOutlet UIButton *sendButton;
+
+
+@property (weak, nonatomic) IBOutlet UILabel *mengyouids;
+
+@property (weak, nonatomic) IBOutlet UIImageView *mengdian;
+
+
+@property (nonatomic, copy) NSString * hasmengYouId;
 
 @end
 
@@ -24,8 +33,14 @@
     
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
     
-//    self.otherTextView.layer.borderWidth = 1;
-//    self.otherTextView.layer.borderColor = [UIColor blackColor].CGColor;
+    self.otherTextView.layer.borderWidth = 0.8;
+    
+    self.otherTextView.layer.borderColor = LWColor(200, 199, 204).CGColor;
+    [self.tableView removeSpaces];
+    
+    
+    
+    self.mengdian.tag = 100;
     
     self.sendButton.layer.masksToBounds = YES;
     self.sendButton.layer.cornerRadius = 5;
@@ -66,13 +81,31 @@
 
 - (void)sendUserInfomation {
     
+    if (!self.nameField.text.length) {
+        [MBProgressHUD showError:@"用户名不能为空"];
+        return;
+    }else if (!self.phoneField.text.length) {
+        [MBProgressHUD showError:@"电话不能为空"];
+        return;
+    }else if (!self.addressField.text.length) {
+        [MBProgressHUD showError:@"地址不能为空"];
+        return;
+    }else{
+        
+        if (self.mengdian.tag == 101 && self.hasmengYouId.length == 0) {
+            [MBProgressHUD showError:@"请选择盟友门店"];
+            return;
+        }
+    }
     NSMutableDictionary *parme = [NSMutableDictionary dictionary];
     parme[@"username"] = self.nameField.text;
     parme[@"mobile"] = self.phoneField.text;
     parme[@"address"] = self.addressField.text;
     parme[@"remark"] = self.otherTextView.text;
+    parme[@"issave"] = (self.mengdian.tag == 100 ? @(1) : @(0));
+    parme[@"ids"] = self.hasmengYouId;
     [MBProgressHUD showMessage:nil];
-    [HTMyContainAFN AFN:@"customer/create" with:parme Success:^(NSDictionary *responseObject) {
+    [HTMyContainAFN AFN:@"customer/addInfo" with:parme Success:^(NSDictionary *responseObject) {
         LWLog(@"%@", responseObject);
         [MBProgressHUD hideHUD];
         if ([responseObject[@"status"] intValue] == 200) {
@@ -114,5 +147,56 @@
     }
     return YES;
 }
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 5;
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 1) {
+        
+        if (indexPath.row == 0) {
+            [self pickMengYou];
+        }else{
+            [self fenxiangMengdianp];
+        }
+    }
+}
+
+
+- (void)pickMengYou{
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
+    SelectObjectViewController *select = [story instantiateViewControllerWithIdentifier:@"SelectObjectViewController"];
+    select.type = 1;
+    select.delegate = self;
+    [self.navigationController pushViewController: select animated:YES];
+    
+}
+
+- (void)selectMengYou:(NSString *) mengYouId andName:(NSString *)names{
+    
+    LWLog(@"xxx%@",names);
+    self.hasmengYouId = mengYouId;
+    if (names.length) {
+        self.mengyouids.text = names;
+    }
+    
+}
+
+
+- (void)fenxiangMengdianp{
+
+    UIImageView * vc = self.mengdian;
+    if (vc.tag == 100) {
+        self.mengdian.hidden = YES;
+        vc.tag = 101;
+    }else{
+        self.mengdian.hidden = NO;
+        vc.tag = 100;
+    }
+}
+
 
 @end

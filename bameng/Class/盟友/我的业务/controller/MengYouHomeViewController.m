@@ -15,9 +15,12 @@
 #import "SubmitUserInfoTableViewController.h"
 #import <BaiduMapAPI_Search/BMKShareURLSearch.h>
 #import "MyShareSdkTool.h"
+#import "MyActionView.h"
+#import "AddUserInfoPhotoViewController.h"
+#import "PhoteTableViewCell.h"
 
 
-@interface MengYouHomeViewController ()<UITableViewDataSource, UITableViewDelegate,MyCoreLocationDelegate,BMKShareURLSearchDelegate>
+@interface MengYouHomeViewController ()<UITableViewDataSource, UITableViewDelegate,MyCoreLocationDelegate,BMKShareURLSearchDelegate,MyActionViewDelegate>
 
 
 @property (strong, nonatomic) IBOutlet UILabel *agreeLabel;
@@ -145,6 +148,7 @@ static NSString *mengYouHomeIdentify = @"mengYouHomeIdentify";
     self.local = local;
     if (city.length) {
         [self.cityBtn setTitle:city forState:UIControlStateNormal];
+        [[NSUserDefaults standardUserDefaults] setObject:city forKey:@"currentCity"];
         [_core MyCoreLocationStopLocal];
         NSMutableDictionary * pareme = [NSMutableDictionary dictionary];
         pareme[@"mylocation"] = city;
@@ -158,15 +162,36 @@ static NSString *mengYouHomeIdentify = @"mengYouHomeIdentify";
 
 }
 /*
- * 定位服务
+ * 添加客户信息选择
  */
-
+- (void)MyActionViewDelegate:(int)item{
+    
+    //1 客户 2 照片
+    LWLog(@"xxxxxxx%d",item);
+    
+    if (item == 1) {
+        UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengYou" bundle:nil];
+        MYSubmitInfoTableViewController *sub = [story instantiateViewControllerWithIdentifier:@"MYSubmitInfoTableViewController"];
+        [self.navigationController pushViewController:sub animated:YES];
+    }else if(item == 2){
+        
+       AddUserInfoPhotoViewController * vc =  [[UIStoryboard storyboardWithName:@"MengYou" bundle:nil] instantiateViewControllerWithIdentifier:@"AddUserInfoPhotoViewController"];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+}
 
 - (void)addInfo{
     
-    UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengYou" bundle:nil];
-    MYSubmitInfoTableViewController *sub = [story instantiateViewControllerWithIdentifier:@"MYSubmitInfoTableViewController"];
-    [self.navigationController pushViewController:sub animated:YES];
+    
+    //添加客户信息选择
+    MyActionView * ac = [[MyActionView alloc] init];
+    ac.delegate = self;
+    [ac showInView:nil];
+    
+    
+    
+    
+
 }
 
 - (void)viewDidLoad {
@@ -174,6 +199,10 @@ static NSString *mengYouHomeIdentify = @"mengYouHomeIdentify";
     
     [self.tableView removeSpaces];
     [self.tableView registerNib:[UINib nibWithNibName:@"MengYouHomeTableViewCell" bundle:nil] forCellReuseIdentifier:mengYouHomeIdentify];
+//    
+    [self.tableView registerNib:[UINib nibWithNibName:@"PhoteTableViewCell" bundle:nil] forCellReuseIdentifier:@"PhoteTableViewCell"];
+    
+    
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
     
@@ -333,10 +362,18 @@ static NSString *mengYouHomeIdentify = @"mengYouHomeIdentify";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    MengYouHomeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:mengYouHomeIdentify forIndexPath:indexPath];
+    
     CustomInfomationModel * model = self.dataLists[indexPath.row];
-    cell.model = model;
-    return cell;
+    if (model.isSave == 0) {
+        MengYouHomeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:mengYouHomeIdentify];
+        cell.model = model;
+        return cell;
+    }else{
+        PhoteTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"PhoteTableViewCell"];
+        cell.model = model;
+        return cell;
+    }
+    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -137,6 +137,7 @@ static NSString *homeTableCellIdentify = @"homeTableCellIdentify";
     self.local = local;
     if (city.length) {
         [self.cityBtn setTitle:city forState:UIControlStateNormal];
+        [[NSUserDefaults standardUserDefaults] setObject:city forKey:@"currentCity"];
         [_core MyCoreLocationStopLocal];
         NSMutableDictionary * pareme = [NSMutableDictionary dictionary];
         pareme[@"mylocation"] = city;

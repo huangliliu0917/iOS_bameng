@@ -13,7 +13,8 @@
 #import "LoginController.h"
 #import "IQKeyboardManager.h"
 #import "MyCoreLocation.h"
-
+#include <sys/types.h>
+#include <sys/sysctl.h>
 
 @interface AppDelegate ()
 
@@ -24,6 +25,23 @@
 @implementation AppDelegate
 
 
+- (NSString *)getCurrentDeviceModel:(UIViewController *)controller
+{
+    int mib[2];
+    size_t len;
+    char *machine;
+    
+    mib[0] = CTL_HW;
+    mib[1] = HW_MACHINE;
+    sysctl(mib, 2, NULL, &len, NULL, 0);
+    machine = malloc(len);
+    sysctl(mib, 2, machine, &len, NULL, 0);
+    
+    NSString *platform = [NSString stringWithCString:machine encoding:NSASCIIStringEncoding];
+    free(machine);
+    return platform;
+}
+
 - (void)test{
     //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
     //    self.hostReach = [Reachability reachabilityWithHostname:@"www.baidu.com"];
@@ -33,6 +51,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    
+    LWLog(@"%@",[self getCurrentDeviceModel:nil]);
     
         
     [[UITabBarItem appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName:[UIColor colorWithRed:204/255.0 green:158/255.0 blue:95/255.0 alpha:1]} forState:UIControlStateSelected];

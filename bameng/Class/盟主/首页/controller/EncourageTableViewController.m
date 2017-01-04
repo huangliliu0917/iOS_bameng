@@ -73,13 +73,12 @@
         [HTMyContainAFN AFN:@"user/GetAllyReward" with:dic Success:^(NSDictionary *responseObject) {
         LWLog(@"article/list：%@",responseObject);
         if ([responseObject[@"status"] intValue] == 200) {
-
             LWLog(@"%@",responseObject);
             if(responseObject[@"data"] ){
                 self.customLabel.text = [NSString stringWithFormat:@"%@", responseObject[@"data"][@"CustomerReward"]];
                 self.successMengDou.text = [NSString stringWithFormat:@"%@", responseObject[@"data"][@"OrderReward"]];
                 self.inShopMengDou.text = [NSString stringWithFormat:@"%@", responseObject[@"data"][@"ShopReward"]];
-                
+                self.extraReward.text = [NSString stringWithFormat:@"%@", responseObject[@"data"][@"ExtraReward"]];
             }
         }
 
@@ -96,10 +95,11 @@
     dic[@"creward"] = self.customLabel.text;
     dic[@"orderreward"] = self.successMengDou.text;
     dic[@"shopreward"] = self.inShopMengDou.text;
+    dic[@"extrareward"] = self.inShopMengDou.text;
     [HTMyContainAFN AFN:@"user/setallyRaward" with:dic Success:^(NSDictionary *responseObject) {
         LWLog(@"user/setallyRaward：%@",responseObject);
         if ([responseObject[@"status"] intValue] == 200) {
-            UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:@"奖励设置成功" message:nil preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:@"盟友奖励设置成功" message:nil preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction * ac = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
             [alertVC addAction:ac];
             [self presentViewController:alertVC animated:YES completion:nil];

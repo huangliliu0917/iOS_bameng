@@ -16,6 +16,9 @@
 #import "MyBusinessViewController.h"
 #import "MyOrderViewController.h"
 #import "UserInfoTableViewController.h"
+#import "InfomationViewController.h"
+#import "NewInfomationViewController.h"
+#import "CustomerTableViewController.h"
 
 @interface MYWealthTableViewController ()
 @property (strong, nonatomic) IBOutlet UIImageView *icon;
@@ -176,11 +179,30 @@
         UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
         UserInfoTableViewController *user = [story instantiateViewControllerWithIdentifier:@"UserInfoTableViewController"];
         [self.navigationController pushViewController:user animated:YES];
+    }else if(indexPath.section == 1 && indexPath.row == 4){
+        
+        InfomationViewController * vc = [[InfomationViewController alloc] init];
+        vc.isLiuyan = 2;
+        vc.navigationItem.title = @"我的留言";
+        [self.navigationController pushViewController:vc animated:YES];
+        
+        
+        
+    }else if(indexPath.section == 1 && indexPath.row == 5){
+        NewInfomationViewController * newe = [[NewInfomationViewController alloc] init];
+        [self.navigationController pushViewController:newe animated:YES];
+    }else if(indexPath.section == 1 && indexPath.row == 6){
+        
+       
+        CustomerTableViewController * vc =  [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"CustomerTableViewController"];
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 
 - (void)signIn{
     NSMutableDictionary * parame = [NSMutableDictionary dictionary];
+    NSString * city =  [[NSUserDefaults standardUserDefaults] objectForKey:@"currentCity"];
+    parame[@"addr"] = city.length?@"city":@"";
     [HTMyContainAFN AFN:@"user/signin" with:parame Success:^(NSDictionary *responseObject) {
         LWLog(@"%@", responseObject);
         if ([responseObject[@"status"] integerValue] == 200) {

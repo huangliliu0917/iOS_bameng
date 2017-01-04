@@ -13,6 +13,8 @@
 #import "CustomInfoController.h"
 #import "MengYouListViewController.h"
 #import "SubmitUserInfoTableViewController.h"
+#import "MyActionView.h"
+#import "AddUserInfoPhotoViewController.h"
 
 #define pageSize 10
 
@@ -20,7 +22,7 @@
 #define COLOR_BACK_SELECTED [UIColor colorWithRed:235/255.0f green:235/255.0f blue:235/255.0f alpha:1]
 
 
-@interface CustomSlideViewController ()<UIScrollViewDelegate>
+@interface CustomSlideViewController ()<UIScrollViewDelegate,MyActionViewDelegate>
 
 
 @property(nonatomic,strong) UIScrollView * scrollView;
@@ -49,19 +51,40 @@
 }
 
 
+- (void)MyActionViewDelegate:(int)item{
+  
+    
+        //1 客户 2 照片
+        LWLog(@"xxxxxxx%d",item);
+        
+        if (item == 1) {
+            UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
+            SubmitUserInfoTableViewController *submit = [story instantiateViewControllerWithIdentifier:@"SubmitUserInfoTableViewController"];
+            [self.navigationController pushViewController:submit animated:YES];
+        }else if(item == 2){
+            
+            AddUserInfoPhotoViewController * vc =  [[UIStoryboard storyboardWithName:@"MengYou" bundle:nil] instantiateViewControllerWithIdentifier:@"AddUserInfoPhotoViewController"];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+    
+}
+
 
 - (void)setUpInit{
     
-    __weak typeof(self) wself = self;
+//    __weak typeof(self) wself = self;
     // 1 客户信息  2 兑换审核  3 我的联盟
     if (self.selectPage == 1) {
         self.navigationItem.title = @"客户信息";
         
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage imageNamed:@"tj"] style:UIBarButtonItemStylePlain handler:^(id sender) {
-                        UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
-                        SubmitUserInfoTableViewController *submit = [story instantiateViewControllerWithIdentifier:@"SubmitUserInfoTableViewController"];
-                        [wself.navigationController pushViewController:submit animated:YES];
-                    }];
+            
+                //添加客户信息选择
+                MyActionView * ac = [[MyActionView alloc] init];
+                ac.delegate = self;
+                [ac showInView:nil];
+            
+            }];
         
             
     }else if(self.selectPage == 2){

@@ -22,7 +22,6 @@
      [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
     
-    
     NSString * token = [[NSUserDefaults standardUserDefaults] objectForKey:AppToken];
     
     LWLog(@"%@",token);

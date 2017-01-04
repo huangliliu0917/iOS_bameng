@@ -14,6 +14,10 @@
 #import "UserInfoTableViewController.h"
 #import "MyWalletTableViewController.h"
 #import "PushWebViewController.h"
+#import "NewInfomationViewController.h"
+#import "InfomationViewController.h"
+#import "WorkUpdateTableViewController.h"
+
 
 @interface MyAccountTableViewController ()
 
@@ -170,7 +174,24 @@
             PushWebViewController *push = [[PushWebViewController alloc] init];
             push.openUrl = user.myqrcodeUrl;
             [self.navigationController pushViewController:push animated:YES];
+        }else if(indexPath.row == 3){
+           
+            InfomationViewController * vc = [[InfomationViewController alloc] init];
+            vc.isLiuyan = 2;
+            vc.navigationItem.title = @"我的留言";
+            [self.navigationController pushViewController:vc animated:YES];
+            
+            
+            
+        }else if(indexPath.row == 4){
+            NewInfomationViewController * newe = [[NewInfomationViewController alloc] init];
+            [self.navigationController pushViewController:newe animated:YES];
+        }else if(indexPath.row == 5){
+            WorkUpdateTableViewController * worl = [[WorkUpdateTableViewController alloc] init];
+            [self.navigationController pushViewController:worl animated:YES];
         }
+        
+       
         
     }
     
@@ -180,6 +201,9 @@
 
 - (void)signIn{
     NSMutableDictionary * parame = [NSMutableDictionary dictionary];
+    
+    NSString * city =  [[NSUserDefaults standardUserDefaults] objectForKey:@"currentCity"];
+    parame[@"addr"] = city.length?@"city":@"";
     [HTMyContainAFN AFN:@"user/signin" with:parame Success:^(NSDictionary *responseObject) {
         LWLog(@"%@", responseObject);
         if ([responseObject[@"status"] integerValue] == 200) {

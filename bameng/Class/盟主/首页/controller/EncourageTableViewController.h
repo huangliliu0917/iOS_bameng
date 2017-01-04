@@ -14,4 +14,6 @@
 @property (strong, nonatomic) IBOutlet UITextField *successMengDou;
 @property (strong, nonatomic) IBOutlet UITextField *inShopMengDou;
 
+@property (weak, nonatomic) IBOutlet UITextField *extraReward;
+
 @end

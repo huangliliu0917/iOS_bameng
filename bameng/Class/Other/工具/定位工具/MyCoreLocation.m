@@ -79,6 +79,11 @@
     [self.geoC reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
         if (error == nil) {
             CLPlacemark *pl = [placemarks firstObject];
+        
+            
+            NSDictionary * da =  pl.addressDictionary;
+            LWLog(@"%@--%@",pl,[da[@"FormattedAddressLines"] lastObject]);
+            [[NSUserDefaults standardUserDefaults] setObject:[da[@"FormattedAddressLines"] lastObject] forKey:@"detailaddress"];
             if ([wself.delegate respondsToSelector:@selector(MyCoreLocationTakeBackCity: andLatLong: andFullInfo:)]) {
                 [wself.delegate MyCoreLocationTakeBackCity:pl.locality andLatLong:lw andFullInfo:location];
             }

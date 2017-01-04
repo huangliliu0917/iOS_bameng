@@ -17,6 +17,13 @@
 @property (weak, nonatomic) IBOutlet UILabel *beizhu;
 @property (weak, nonatomic) IBOutlet UILabel *custominfo;
 
+@property (weak, nonatomic) IBOutlet UITableViewCell *firstCell;
+
+
+@property (weak, nonatomic) IBOutlet UIImageView *customImage;
+
+
+
 @end
 
 @implementation MYCustomDetailTableViewController
@@ -29,10 +36,19 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
+    self.customImage.contentMode = UIViewContentModeScaleAspectFill;
+    self.customImage.clipsToBounds = YES;
     [self.tableView removeSpaces];
     
     LWLog(@"%@",[self.model mj_keyValues]);
+    
+    if (self.model.isSave==0) {
+        self.firstCell.hidden = YES;
+        
+    }else{
+        [self.customImage sd_setImageWithURL:[NSURL URLWithString:self.model.DataImg] placeholderImage:nil];
+    }
+    
     self.name.text = self.model.Name;
     self.phone.text = self.model.Mobile;
     self.addre.text = self.model.Addr;
@@ -80,13 +96,21 @@
 }
 */
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // 变高行数
+    if (indexPath.row == 0) {
+        if (self.model.isSave == 0) {
+            // 假设改行原来高度为200
+            return 0;
+        } else {
+            return 160;
+        }
+    } else {
+        /** 返回静态单元格故事板中的高度 */
+        return [super tableView:tableView heightForRowAtIndexPath:indexPath];
+    }
 }
-*/
 
 /*
 // Override to support editing the table view.
