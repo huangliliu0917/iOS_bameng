@@ -19,6 +19,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *secondLable;
 @property (weak, nonatomic) IBOutlet UILabel *thredLable;
 
+
+@property (weak, nonatomic) IBOutlet UILabel *forthLable;
+
+
+
 @end
 
 @implementation MYSubmitInfoTableViewController
@@ -44,6 +49,14 @@
             self.firstLable.text = [NSString stringWithFormat:@"1.每条成交的订单可获得%@盟豆奖励",responseObject[@"data"][@"OrderReward"]];
             self.secondLable.text = [NSString stringWithFormat:@"2.每条成功提交的信息可获得%@盟豆奖励",responseObject[@"data"][@"CustomerReward"]];
             self.thredLable.text = [NSString stringWithFormat:@"3.客户上门%@盟豆奖励",responseObject[@"data"][@"ShopReward"]];
+            
+            NSString * fortha =  [NSString stringWithFormat:@"%@",responseObject[@"data"][@"ExtraReward"]];
+            if (fortha.length) {
+                self.forthLable.text = [NSString stringWithFormat:@"4.额外奖励设置:%@",fortha];
+            }else{
+                self.forthLable.hidden = YES;
+            }
+            
             
         }
     } failure:^(NSError *error) {

@@ -189,7 +189,28 @@
     [super viewWillDisappear:animated];
     if([self.delegate respondsToSelector:@selector(ZhiXunRefresh)]){
         [self.delegate ZhiXunRefresh];
+        [self checkUnreadCount];
     }
+}
+
+- (void)checkUnreadCount{
+    
+    NSMutableDictionary *parme = [NSMutableDictionary dictionary];
+    [HTMyContainAFN AFN:@"user/remind" with:parme Success:^(NSDictionary *responseObject) {
+        LWLog(@"%@", responseObject);
+        if ([responseObject[@"status"] integerValue] == 200) {
+            
+            
+            AppDelegate * app =  (AppDelegate * )[UIApplication sharedApplication].delegate;
+            LWLog(@"%@",[app.messageRed mj_keyValues]);
+            [app.messageRed MessageRedWithDict:responseObject[@"data"]];
+                    }
+        
+    } failure:^(NSError *error) {
+        LWLog(@"%@",error);
+        
+    }];
+    
 }
 
 

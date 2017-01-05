@@ -95,7 +95,9 @@
     dic[@"creward"] = self.customLabel.text;
     dic[@"orderreward"] = self.successMengDou.text;
     dic[@"shopreward"] = self.inShopMengDou.text;
-    dic[@"extrareward"] = self.inShopMengDou.text;
+    dic[@"extrareward"] = self.extraReward.text;
+    
+    LWLog(@"%@",dic);
     [HTMyContainAFN AFN:@"user/setallyRaward" with:dic Success:^(NSDictionary *responseObject) {
         LWLog(@"user/setallyRaward：%@",responseObject);
         if ([responseObject[@"status"] intValue] == 200) {
@@ -112,5 +114,14 @@
     }];
 }
 
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (indexPath.row == 4) {
+        return 0;
+    }else{
+         return [super tableView:tableView heightForRowAtIndexPath:indexPath];
+    }
+}
 
 @end

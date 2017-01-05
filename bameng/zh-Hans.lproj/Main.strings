@@ -75,7 +75,7 @@
 "oeG-IY-Vtu.text" = "获取验证码";
 
 /* Class = "UITextField"; placeholder = "用户账号"; ObjectID = "uQ0-nZ-Jrd"; */
-"uQ0-nZ-Jrd.placeholder" = "用户账号";
+"uQ0-nZ-Jrd.placeholder" = "手机号";
 
 /* Class = "UITextField"; text = "18888888888"; ObjectID = "uQ0-nZ-Jrd"; */
 "uQ0-nZ-Jrd.text" = "18888888888";

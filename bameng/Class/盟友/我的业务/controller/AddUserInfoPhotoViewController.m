@@ -33,6 +33,11 @@
 @property(nonatomic,strong) UIImage * hasepickImage;
 @property(nonatomic,copy) NSString * hasmengYouId;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *forthheight;
+@property (weak, nonatomic) IBOutlet UILabel *firthlable;
+@property (weak, nonatomic) IBOutlet UILabel *secondLable;
+@property (weak, nonatomic) IBOutlet UILabel *thirdlable;
+@property (weak, nonatomic) IBOutlet UILabel *forthlable;
 
 @end
 
@@ -71,6 +76,41 @@
     if (model.UserIdentity == 0) {
         self.menyouOrMengzhu.hidden = YES;
         self.menyouOrMengzhuheight.constant = 0;
+        
+        
+        NSMutableDictionary *parme = [NSMutableDictionary dictionary];
+        [HTMyContainAFN AFN:@"user/GetAllyReward" with:parme Success:^(NSDictionary *responseObject) {
+            LWLog(@"%@", responseObject);
+            [MBProgressHUD hideHUD];
+            if ([responseObject[@"status"] intValue] == 200) {
+                self.firthlable.text = [NSString stringWithFormat:@"1.每条成交的订单可获得%@盟豆奖励",responseObject[@"data"][@"OrderReward"]];
+                self.secondLable.text = [NSString stringWithFormat:@"2.每条成功提交的信息可获得%@盟豆奖励",responseObject[@"data"][@"CustomerReward"]];
+                self.thirdlable.text = [NSString stringWithFormat:@"3.客户上门%@盟豆奖励",responseObject[@"data"][@"ShopReward"]];
+                
+                NSString * fortha =  [NSString stringWithFormat:@"%@",responseObject[@"data"][@"ExtraReward"]];
+                if (fortha.length) {
+                    self.forthlable.text = [NSString stringWithFormat:@"4.额外奖励设置:%@",fortha];
+                }else{
+                    self.forthlable.hidden = YES;
+                }
+                
+                
+            }
+        } failure:^(NSError *error) {
+            LWLog(@"%@",error);
+            [MBProgressHUD hideHUD];
+        }];
+
+        
+        
+    }else{
+        self.forthheight.constant = 0;
+        
+        self.firthlable.hidden = YES;
+        self.secondLable.hidden = YES;
+        self.thirdlable.hidden = YES;
+        self.forthlable.hidden = YES;
+        
     }
 }
 

@@ -45,7 +45,6 @@
     
     if (manager.networkReachabilityStatus > 0) {
        [self getAppConfig];
-        [self checkUnreadCount];
         
     }
     
@@ -53,7 +52,7 @@
         
         if (!(status == 0) || (status == -1)) {
             [self getAppConfig];
-            [self checkUnreadCount];
+            
             
         }else{
 //            UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:@"网络异常" message:@"网络异常请检查网络" preferredStyle:UIAlertControllerStyleAlert];
@@ -143,12 +142,14 @@
                 [[NSUserDefaults standardUserDefaults] setObject:user.token forKey:UserInfomation];
                 //帐号类型判断来进行身份选择
                 if (user.UserIdentity == 1) {//盟主
+                    [self checkUnreadCount];
                     [[NSUserDefaults standardUserDefaults] setObject:isMengZhu forKey:mengyouIdentify];
                     UIStoryboard *story = [UIStoryboard storyboardWithName:@"MengZhu" bundle:nil];
                     MengzhuTabbarController *tabbar = [story instantiateViewControllerWithIdentifier:@"MengzhuTabbarController"];
                     [UIApplication sharedApplication].keyWindow.rootViewController = tabbar;
                     
                 }else if (user.UserIdentity == 0) {//盟友
+                    [self checkUnreadCount];
                     [[NSUserDefaults standardUserDefaults] setObject:isMengYou forKey:mengyouIdentify];
                     UIStoryboard *mengyou = [UIStoryboard storyboardWithName:@"MengYou" bundle:nil];
                     MengYouTabbarViewController *you = [mengyou instantiateViewControllerWithIdentifier:@"MengYouTabbarViewController"];
