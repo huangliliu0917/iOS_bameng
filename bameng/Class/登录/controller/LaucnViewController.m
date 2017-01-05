@@ -12,6 +12,8 @@
 #import "MengYouTabbarViewController.h"
 #import "MainNavViewController.h"
 #import <BaiduMapAPI_Map/BMKMapComponent.h>
+#import "AppDelegate.h"
+
 @interface LaucnViewController ()
 
 @property(nonatomic,strong) BMKMapManager * manager;
@@ -43,8 +45,7 @@
     
     if (manager.networkReachabilityStatus > 0) {
        [self getAppConfig];
-        
-        
+        [self checkUnreadCount];
         
     }
     
@@ -52,6 +53,7 @@
         
         if (!(status == 0) || (status == -1)) {
             [self getAppConfig];
+            [self checkUnreadCount];
             
         }else{
 //            UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:@"网络异常" message:@"网络异常请检查网络" preferredStyle:UIAlertControllerStyleAlert];
@@ -65,6 +67,27 @@
     
     
 }
+
+- (void)checkUnreadCount{
+    
+    NSMutableDictionary *parme = [NSMutableDictionary dictionary];
+    [HTMyContainAFN AFN:@"user/remind" with:parme Success:^(NSDictionary *responseObject) {
+        LWLog(@"%@", responseObject);
+        if ([responseObject[@"status"] integerValue] == 200) {
+            AppDelegate * app =  (AppDelegate * )[UIApplication sharedApplication].delegate;
+            LWLog(@"%@",[app.messageRed mj_keyValues]);
+            [app.messageRed MessageRedWithDict:responseObject[@"data"]];
+        }
+        
+    } failure:^(NSError *error) {
+        LWLog(@"%@",error);
+        
+    }];
+    
+}
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

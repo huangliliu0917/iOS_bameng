@@ -7,6 +7,8 @@
 //
 
 #import "MengYouTabbarViewController.h"
+#import "AppDelegate.h"
+
 
 @interface MengYouTabbarViewController ()
 
@@ -53,7 +55,8 @@
     [HTMyContainAFN AFN:@"user/remind" with:parme Success:^(NSDictionary *responseObject) {
         LWLog(@"%@", responseObject);
         if ([responseObject[@"status"] integerValue] == 200) {
-            
+            AppDelegate * app =  (AppDelegate * )[UIApplication sharedApplication].delegate;
+            [app.messageRed MessageRedWithDict:responseObject[@"data"]];
             if ([responseObject[@"data"][@"messageCount"] integerValue]) {
                 [self.tabBar showBadgeOnItemIndex:1];
             }else{

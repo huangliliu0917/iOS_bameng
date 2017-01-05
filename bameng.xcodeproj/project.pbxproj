@@ -29,6 +29,9 @@
 		12CA4AF81E162BFB00D6870C /* CustomResourceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CA4AF71E162BFB00D6870C /* CustomResourceModel.m */; };
 		12CA4AFB1E163FAF00D6870C /* customInfoDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CA4AFA1E163FAF00D6870C /* customInfoDetailController.m */; };
 		12CA4AFE1E16451800D6870C /* PhoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CA4AFD1E16451800D6870C /* PhoteViewController.m */; };
+		12DF06321E1DEA0800C2D7F1 /* MessageRedPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DF06311E1DEA0800C2D7F1 /* MessageRedPoint.m */; };
+		12DF06351E1DFC1100C2D7F1 /* HeadTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DF06341E1DFC1100C2D7F1 /* HeadTitle.m */; };
+		12DF06371E1DFC2600C2D7F1 /* HeadTitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12DF06361E1DFC2600C2D7F1 /* HeadTitle.xib */; };
 		12E932F61E023E54009AEFBF /* BaiDuMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12E932F51E023E54009AEFBF /* BaiDuMapViewController.m */; };
 		12E932F91E028AA3009AEFBF /* UITabBar+XSDExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 12E932F81E028AA3009AEFBF /* UITabBar+XSDExt.m */; };
 		12F79C441E1B3A07008E331B /* WorkUpdateTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F79C431E1B3A07008E331B /* WorkUpdateTableViewController.m */; };
@@ -271,6 +274,11 @@
 		12CA4AFA1E163FAF00D6870C /* customInfoDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = customInfoDetailController.m; sourceTree = "<group>"; };
 		12CA4AFC1E16451800D6870C /* PhoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoteViewController.h; sourceTree = "<group>"; };
 		12CA4AFD1E16451800D6870C /* PhoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoteViewController.m; sourceTree = "<group>"; };
+		12DF06301E1DEA0800C2D7F1 /* MessageRedPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageRedPoint.h; sourceTree = "<group>"; };
+		12DF06311E1DEA0800C2D7F1 /* MessageRedPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageRedPoint.m; sourceTree = "<group>"; };
+		12DF06331E1DFC1100C2D7F1 /* HeadTitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeadTitle.h; sourceTree = "<group>"; };
+		12DF06341E1DFC1100C2D7F1 /* HeadTitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeadTitle.m; sourceTree = "<group>"; };
+		12DF06361E1DFC2600C2D7F1 /* HeadTitle.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeadTitle.xib; sourceTree = "<group>"; };
 		12E932F41E023E54009AEFBF /* BaiDuMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiDuMapViewController.h; sourceTree = "<group>"; };
 		12E932F51E023E54009AEFBF /* BaiDuMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaiDuMapViewController.m; sourceTree = "<group>"; };
 		12E932F71E028AA3009AEFBF /* UITabBar+XSDExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+XSDExt.h"; sourceTree = "<group>"; };
@@ -702,6 +710,8 @@
 				12CA4AF71E162BFB00D6870C /* CustomResourceModel.m */,
 				12F79C491E1B3E1D008E331B /* WorkModel.h */,
 				12F79C4A1E1B3E1D008E331B /* WorkModel.m */,
+				12DF06301E1DEA0800C2D7F1 /* MessageRedPoint.h */,
+				12DF06311E1DEA0800C2D7F1 /* MessageRedPoint.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -728,6 +738,9 @@
 			children = (
 				12F79C461E1B3B81008E331B /* WoekTableViewCell.h */,
 				12F79C471E1B3B81008E331B /* WoekTableViewCell.m */,
+				12DF06331E1DFC1100C2D7F1 /* HeadTitle.h */,
+				12DF06341E1DFC1100C2D7F1 /* HeadTitle.m */,
+				12DF06361E1DFC2600C2D7F1 /* HeadTitle.xib */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -1859,6 +1872,7 @@
 				EF30AC2E1DE81806006EA853 /* ShareSDK.bundle in Resources */,
 				EF3A2F6F1DDC85C10080F9A6 /* SexPick.xib in Resources */,
 				60EF5F9A1DC7173000ADBEA7 /* SelectObjectTableViewCell.xib in Resources */,
+				12DF06371E1DFC2600C2D7F1 /* HeadTitle.xib in Resources */,
 				6033D7AB1DBB47B000B9B4DA /* HomeMengzhuTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2039,7 +2053,9 @@
 				6015F2DA1DCAE6EA00E5E5A4 /* ForgotController.m in Sources */,
 				EFDD906D1DD9915800764E7A /* MyViewController.m in Sources */,
 				121038E81E14B63800301414 /* NewInfomationViewController.m in Sources */,
+				12DF06351E1DFC1100C2D7F1 /* HeadTitle.m in Sources */,
 				60FF240C1DBF0A4300E70A09 /* MyAccountTableViewController.m in Sources */,
+				12DF06321E1DEA0800C2D7F1 /* MessageRedPoint.m in Sources */,
 				60764AF41DB8937A0061CC6C /* ViewController.m in Sources */,
 				60E809E91DC9B63A00094CB8 /* MYCustomDetailTableViewController.m in Sources */,
 				12F79C481E1B3B81008E331B /* WoekTableViewCell.m in Sources */,

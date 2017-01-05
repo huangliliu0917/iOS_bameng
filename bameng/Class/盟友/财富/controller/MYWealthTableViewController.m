@@ -19,6 +19,7 @@
 #import "InfomationViewController.h"
 #import "NewInfomationViewController.h"
 #import "CustomerTableViewController.h"
+#import "AppDelegate.h"
 
 @interface MYWealthTableViewController ()
 @property (strong, nonatomic) IBOutlet UIImageView *icon;
@@ -34,6 +35,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *leveLable;
 
 @property (weak, nonatomic) IBOutlet UILabel *mengzhuLable;
+
+@property (weak, nonatomic) IBOutlet UIView *myliuyanLable;
+@property (weak, nonatomic) IBOutlet UIView *mengdouLable;
+
 
 @end
 
@@ -80,6 +85,8 @@
     
     [self setTabalViewRefresh];
     
+     self.mengdouLable.hidden = YES;
+     self.mengdouLable.hidden = YES;
     
     self.icon.layer.cornerRadius = self.icon.frame.size.height * 0.5;
     self.icon.layer.masksToBounds =  YES;
@@ -87,7 +94,67 @@
     self.icon.layer.borderColor = [UIColor whiteColor].CGColor;
     [self setDate:[UserModel GetUserModel]];
     
+    AppDelegate * app =  (AppDelegate * )[UIApplication sharedApplication].delegate;
+    
+    if (app.messageRed.messagePushCount + app.messageRed.messagePullCount > 0) {
+        self.mengdouLable.hidden = NO;
+    }else{
+        self.mengdouLable.hidden = YES;
+    }
+    
+    if (app.messageRed.messageCount > 0) {
+        self.myliuyanLable.hidden = NO;
+    }else{
+        self.myliuyanLable.hidden = YES;
+    }
+    
+    
+    
+    [app.messageRed addObserver:self forKeyPath:@"messagePullCount" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
+    [app.messageRed addObserver:self forKeyPath:@"messagePushCount" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
+    [app.messageRed addObserver:self forKeyPath:@"messageCount" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
+    
+    //    [self.tableView.mj_footer beginRefreshing];
 }
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+    
+    AppDelegate * app =  (AppDelegate * )[UIApplication sharedApplication].delegate;
+    
+    
+    if([keyPath isEqualToString:@"messagePullCount"] || [keyPath isEqualToString:@"messagePushCount"])
+    {
+        if(app.messageRed.messagePullCount + app.messageRed.messagePushCount > 0){
+            self.mengdouLable.hidden = NO;
+            
+        }else{
+            self.mengdouLable.hidden = YES;
+        }
+        
+        
+    }else if([keyPath isEqualToString:@"messageCount"])
+    {
+        
+        NSLog(@"赋值后--%d",app.messageRed.messageCount);
+        
+        if (app.messageRed.messageCount > 0) {
+            self.myliuyanLable.hidden = NO;
+        }else{
+            self.myliuyanLable.hidden = YES;
+            
+        }
+        
+    }
+}
+
+- (void)dealloc{
+    
+    AppDelegate * app =  (AppDelegate * )[UIApplication sharedApplication].delegate;
+    [app.messageRed removeObserver:self forKeyPath:@"messagePullCount"];
+    [app.messageRed removeObserver:self forKeyPath:@"messagePushCount"];
+    [app.messageRed removeObserver:self forKeyPath:@"messageCount"];
+}
+
 
 - (void)setTabalViewRefresh {
     __weak typeof(self) wself = self;

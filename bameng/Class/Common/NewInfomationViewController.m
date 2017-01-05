@@ -12,15 +12,18 @@
 #import "InfomationViewController.h"
 #import "AddNewInfomationTableViewController.h"
 #import "MYAddNewMessageTableViewController.h"
+#import "HeadTitle.h"
+#import "AppDelegate.h"
 
-@interface NewInfomationViewController ()<UIScrollViewDelegate>
+
+@interface NewInfomationViewController ()<UIScrollViewDelegate,HeadTitleDelegate>
 @property(nonatomic,strong) UIScrollView * scrollView;
 
 
 @property(nonatomic,strong) NSMutableArray * titleArray;
 
 
-@property(nonatomic,strong)  LiuXSegmentView * liuXSegmentView;
+@property(nonatomic,strong)  HeadTitle * head;
 
 
 @end
@@ -37,9 +40,9 @@
         _titleArray = [[NSMutableArray alloc] init];
         [_titleArray addObject:@"发送消息"];
         if (user.UserIdentity == 1) {
-            [_titleArray addObject:@"盟友消息"];
+            [_titleArray addObject:@"接收消息"];
         }else{
-            [_titleArray addObject:@"盟主消息"];
+            [_titleArray addObject:@"接收消息"];
         }
     }
     return _titleArray;
@@ -109,7 +112,64 @@
     
     
     
+    
+    AppDelegate * app =  (AppDelegate * )[UIApplication sharedApplication].delegate;
+    
+    LWLog(@"%d",app.messageRed.messagePullCount);
+     LWLog(@"%d",app.messageRed.messagePushCount);
+    if (app.messageRed.messagePullCount) {
+        self.head.secondredView.hidden = NO;
+    }
+    if (app.messageRed.messagePushCount) {
+        self.head.secondredView.hidden = NO;
+    }
+    
+    
+    [app.messageRed addObserver:self forKeyPath:@"messagePullCount" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
+    [app.messageRed addObserver:self forKeyPath:@"messagePushCount" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
+    [app.messageRed addObserver:self forKeyPath:@"messageCount" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
+    
+    //    [self.tableView.mj_footer beginRefreshing];
 }
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+    
+    AppDelegate * app =  (AppDelegate * )[UIApplication sharedApplication].delegate;
+    
+    
+    if([keyPath isEqualToString:@"messagePullCount"] )
+    {
+        if(app.messageRed.messagePullCount > 0){
+            self.head.secondredView.hidden = NO;
+            
+        }else{
+            self.head.secondredView.hidden = YES;
+        }
+        
+        
+    }else if([keyPath isEqualToString:@"messagePushCount"]){
+        
+        if(app.messageRed.messagePushCount > 0){
+            self.head.firstRedView.hidden = NO;
+            
+        }else{
+            self.head.firstRedView.hidden = YES;
+        }
+        
+    }
+    
+    
+}
+
+- (void)dealloc{
+    
+    AppDelegate * app =  (AppDelegate * )[UIApplication sharedApplication].delegate;
+    [app.messageRed removeObserver:self forKeyPath:@"messagePullCount"];
+    [app.messageRed removeObserver:self forKeyPath:@"messagePushCount"];
+    [app.messageRed removeObserver:self forKeyPath:@"messageCount"];
+}
+
+
 
 
 #pragma mark - 添加子控制器的view
@@ -131,19 +191,38 @@
 - (void)setupTitlesView
 {
     
+    HeadTitle * head = [HeadTitle HeadTitleCreate];
+    self.head= head;
+    self.head.secondredView.hidden = YES;
+    self.head.firstRedView.hidden = YES;
+    head.delegate = self;
+    head.frame = CGRectMake(0, 64, KScreenWidth, 44);
+    [self.view addSubview:head];
     
-    __weak typeof(self) wself = self;
-    self.liuXSegmentView = [[LiuXSegmentView alloc] initWithFrame:CGRectMake(0, 64, KScreenWidth, 44) titles:[self titleArray] clickBlick:^(NSInteger index) {
-        [wself selectCurrentOption:index-1];
-    }];
-    _liuXSegmentView.titleNomalColor = [UIColor blackColor];
-    _liuXSegmentView.titleSelectColor = LWColor(204,158,95);
-    [self.view addSubview:_liuXSegmentView];
     
-    
+//    __weak typeof(self) wself = self;
+//    self.liuXSegmentView = [[LiuXSegmentView alloc] initWithFrame:CGRectMake(0, 64, KScreenWidth, 44) titles:[self titleArray] clickBlick:^(NSInteger index) {
+//        [wself selectCurrentOption:index-1];
+//    }];
+//    _liuXSegmentView.titleNomalColor = [UIColor blackColor];
+//    _liuXSegmentView.titleSelectColor = LWColor(204,158,95);
+//    [self.view addSubview:_liuXSegmentView];
+//    
+//    
+//    UIView * red = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
+//    red.backgroundColor= [UIColor redColor];
+//    [self.view addSubview:red];
+//    
 }
 
-
+- (void) HeadTitleDelegateWith:(int)item{
+    
+    // 让UIScrollView滚动到对应位置
+    CGPoint offset = self.scrollView.contentOffset;
+    offset.x = (item - 1) * self.scrollView.frame.size.width;
+    [self.scrollView setContentOffset:offset animated:YES];
+    
+}
 
 - (void)setupScrollView
 {
@@ -226,7 +305,7 @@
     //    HomeTitleButton *titleButton = self.titleView.subviews[index];
     //    [self.titleView titleClick:titleButton];
     
-    [self.liuXSegmentView btnSlideToCurrentPageWithIndex:index];
+    [self.head slideviewToWithItem:index + 1];
     // 添加子控制器的view
     [self addChildVcView];
     

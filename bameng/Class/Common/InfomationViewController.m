@@ -64,7 +64,7 @@
     dict[@"pageIndex"] = @(1);
     dict[@"pageSize"] = @(20);
     dict[@"type"] = @(self.isLiuyan);
-    dict[@"isSend"] = (self.isLiuyan ? @(1): @(self.type));
+    dict[@"isSend"] = (self.isLiuyan != 1 ? @(1): @(self.type));
     
     LWLog(@"%@",[dict mj_keyValues]);
     [HTMyContainAFN AFN:@"article/maillist" with:dict Success:^(NSDictionary *responseObject) {

@@ -17,6 +17,8 @@
 #import "NewInfomationViewController.h"
 #import "InfomationViewController.h"
 #import "WorkUpdateTableViewController.h"
+#import "AppDelegate.h"
+#import "MessageRedPoint.h"
 
 
 @interface MyAccountTableViewController ()
@@ -82,14 +84,73 @@
     self.headImage.clipsToBounds = YES;
     
     
+    self.mymessageLable.hidden = YES;
+    self.myliuyanLable.hidden = YES;
+    
+    
+    
     [self setTabalViewRefresh];
     
     
+    AppDelegate * app =  (AppDelegate * )[UIApplication sharedApplication].delegate;
     
+    
+    if (app.messageRed.messagePushCount + app.messageRed.messagePullCount > 0) {
+        self.mymessageLable.hidden = NO;
+    }else{
+       self.mymessageLable.hidden = YES;
+    }
+    
+    if (app.messageRed.messageCount > 0) {
+        self.myliuyanLable.hidden = NO;
+    }else{
+        self.myliuyanLable.hidden = YES;
+    }
+    
+    [app.messageRed addObserver:self forKeyPath:@"messagePullCount" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
+    [app.messageRed addObserver:self forKeyPath:@"messagePushCount" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
+    [app.messageRed addObserver:self forKeyPath:@"messageCount" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
+
 //    [self.tableView.mj_footer beginRefreshing];
 }
 
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+    
+    AppDelegate * app =  (AppDelegate * )[UIApplication sharedApplication].delegate;
+    
+    
+    if([keyPath isEqualToString:@"messagePullCount"] || [keyPath isEqualToString:@"messagePushCount"])
+    {
+        if(app.messageRed.messagePullCount + app.messageRed.messagePushCount > 0){
+            self.mymessageLable.hidden = NO;
+            
+        }else{
+             self.mymessageLable.hidden = YES;
+        }
+        
+        
+    }else if([keyPath isEqualToString:@"messageCount"])
+    {
+        
+        NSLog(@"赋值后--%d",app.messageRed.messageCount);
+        
+        if (app.messageRed.messageCount > 0) {
+            self.myliuyanLable.hidden = NO;
+        }else{
+            self.myliuyanLable.hidden = YES;
+            
+        }
+        
+    }
+}
 
+- (void)dealloc{
+    
+    AppDelegate * app =  (AppDelegate * )[UIApplication sharedApplication].delegate;
+    [app.messageRed removeObserver:self forKeyPath:@"messagePullCount"];
+    [app.messageRed removeObserver:self forKeyPath:@"messagePushCount"];
+    [app.messageRed removeObserver:self forKeyPath:@"messageCount"];
+}
 
 - (void)setDate:( UserModel *)user{
     

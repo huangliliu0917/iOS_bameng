@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "Reachability.h"
 #import "MyViewController.h"
+#import "MessageRedPoint.h"
+
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -28,6 +30,8 @@
 
 /**当前展示的控制器*/
 @property (nonatomic,strong) UIViewController * currentVc;
+
+@property (nonatomic,strong) MessageRedPoint * messageRed;
 
 
 @end

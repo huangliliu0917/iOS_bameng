@@ -7,6 +7,11 @@
 //
 
 #import "MengzhuTabbarController.h"
+#import "MessageRedPoint.h"
+#import "AppDelegate.h"
+#import "MessageRedPoint.h"
+
+
 
 @interface MengzhuTabbarController ()
 
@@ -48,6 +53,10 @@
         LWLog(@"%@", responseObject);
         if ([responseObject[@"status"] integerValue] == 200) {
             
+            
+           AppDelegate * app =  (AppDelegate * )[UIApplication sharedApplication].delegate;
+            LWLog(@"%@",[app.messageRed mj_keyValues]);
+           [app.messageRed MessageRedWithDict:responseObject[@"data"]];
             if ([responseObject[@"data"][@"messageCount"] integerValue] || [responseObject[@"data"][@"messagePullCount"] integerValue] || [responseObject[@"data"][@"messagePushCount"] integerValue]) {
                 [self.tabBar showBadgeOnItemIndex:3];
             }else{

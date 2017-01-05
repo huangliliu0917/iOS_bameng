@@ -122,16 +122,17 @@
     
     
     NSString * token = [[NSUserDefaults standardUserDefaults] objectForKey:AppToken];
-    self.webView = [[WKWebView alloc] init];
+    self.webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight)];
 //    self.webView.scrollView.backgroundColor = [UIColor redColor];
     self.webView.customUserAgent = [NSString stringWithFormat:@"%@(Authorization);%@",token, app.Agent];
-    self.view = self.webView;
+    [self.view addSubview:self.webView];;
 //    [self.view addSubview:self.webView];
     self.webView.UIDelegate = self;
     self.webView.navigationDelegate = self;
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.openUrl]]];
 //    self.automaticallyAdjustsScrollViewInsets = NO;
     
+    self.webView.scrollView.bounces = NO;
     self.navigationItem.rightBarButtonItems = @[[[UIBarButtonItem alloc] initWithCustomView:self.shareBtn]];
     
     
@@ -178,7 +179,9 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.tabBarController.tabBar.hidden = YES;
+//    self.tabBarController.tabBar.hidden = YES;
+    
+//    self.webView.frame = self.view.frame;
 }
 
 

@@ -39,7 +39,12 @@
         NSMutableDictionary *dic = [NSMutableDictionary dictionary];
         dic[@"title"] = self.titleLabel.text;
         dic[@"content"] = self.content.text;
-        dic[@"ids"] = @"";
+        
+        if (self.type == 1) {
+            dic[@"ids"] = @"-1";
+        }else{
+            dic[@"ids"] = @" ";
+        }
         [HTMyContainAFN AFN:@"article/create" with:dic Success:^(NSDictionary *responseObject) {
             LWLog(@"user/allylist：%@",responseObject);
             if ([responseObject[@"status"] intValue] == 200) {
