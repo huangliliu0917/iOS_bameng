@@ -48,8 +48,8 @@
     [super viewDidLoad];
     
     
-    self.leveLable.layer.cornerRadius = 5;
-    self.leveLable.layer.masksToBounds = YES;
+    self.mengdouLable.layer.cornerRadius = 5;
+    self.mengdouLable.layer.masksToBounds = YES;
     
     self.mengzhuLable.layer.cornerRadius = 5;
     self.mengzhuLable.layer.masksToBounds = YES;
