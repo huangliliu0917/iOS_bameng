@@ -44,7 +44,8 @@
 
 /*** 接口地址以及签名参数 ***/
 #ifdef DEBUG
-#define MainUrl @"http://bmapi.51flashmall.com/"
+#define MainUrl @"http://bmapi.mellkit.com/"
+//http://bmapi.51flashmall.com/
 #define MainUrlScreate @"BAMEENG20161021"
 #else
 #define MainUrl @"http://bmapi.mellkit.com/"
